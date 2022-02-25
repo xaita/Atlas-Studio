@@ -1,6 +1,5 @@
 
- # Windjammers
- 
+# Windjammers
  https://xaita.github.io/Atlas-Studio/
 TODO: El GOTY del 2022
 ## Installation
