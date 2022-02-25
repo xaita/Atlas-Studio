@@ -1,5 +1,5 @@
 
-# ${1:Windjammers}
+Windjammers
 TODO: El GOTY del 2022
 ## Installation
 TODO: Describe the installation process
