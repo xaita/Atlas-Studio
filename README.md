@@ -1,9 +1,9 @@
 
 # Windjammers
  https://xaita.github.io/Atlas-Studio/
-TODO: El GOTY del 2022
+TODO: El GOTY del 2022 📽️
 ## Installation
-TODO: Describe the installation process
+TODO: Describe the installation process 😂
 ## Usage
 TODO: Write usage instructions
 ## Contributing
