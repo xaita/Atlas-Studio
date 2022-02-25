@@ -1,5 +1,4 @@
-<snippet>
-  <content><![CDATA[
+
 # ${1:Windjammers}
 TODO: El GOTY del 2022
 ## Installation
@@ -18,6 +17,5 @@ TODO: Write history
 TODO: Write credits
 ## License
 TODO: Write license
-]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
+
+
