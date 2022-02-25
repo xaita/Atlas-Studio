@@ -1,5 +1,6 @@
 
 # Windjammers
+![chupa mi muñaño](https://assets.nintendo.com/image/upload/c_pad,f_auto,h_613,q_auto,w_1089/ncom/es_MX/games/switch/w/windjammers-switch/hero?v=2022021822)
  
 El GOTY del 2022 📽️
 ## Installation
