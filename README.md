@@ -4,7 +4,7 @@
 
 El GOTY del 2022 📽️
 ## Installation
-TODO: Describe the installation process 😂
+TODO: Describe the installation process: Install it 😂
 ## Usage
 TODO: Write usage instructions
 ## Contributing
