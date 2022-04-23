@@ -1,0 +1,24 @@
+﻿  Application.cpp
+  Collider.cpp
+  Globals.cpp
+  ModuleAudio.cpp
+  ModuleCollisions.cpp
+  ModuleParticles.cpp
+  ModuleScene.cpp
+  ModuleInput.cpp
+  ModulePlayer.cpp
+C:\Users\Lluc Estruch\OneDrive\Escritorio\Project_6_Solution\Project_6_Solution\Windjammers\Source\ModulePlayer.cpp(25,20): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Lluc Estruch\OneDrive\Escritorio\Project_6_Solution\Project_6_Solution\Windjammers\Source\ModulePlayer.cpp(31,22): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Lluc Estruch\OneDrive\Escritorio\Project_6_Solution\Project_6_Solution\Windjammers\Source\ModulePlayer.cpp(38,23): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Lluc Estruch\OneDrive\Escritorio\Project_6_Solution\Project_6_Solution\Windjammers\Source\ModulePlayer.cpp(44,22): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Lluc Estruch\OneDrive\Escritorio\Project_6_Solution\Project_6_Solution\Windjammers\Source\ModulePlayer.cpp(54,20): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Lluc Estruch\OneDrive\Escritorio\Project_6_Solution\Project_6_Solution\Windjammers\Source\ModulePlayer.cpp(62,20): warning C4305: '=': truncation from 'double' to 'float'
+  ModuleRender.cpp
+  ModuleTextures.cpp
+  ModuleWindow.cpp
+  Main.cpp
+  Module.cpp
+  Particle.cpp
+C:\Users\Lluc Estruch\OneDrive\Escritorio\Project_6_Solution\Project_6_Solution\Windjammers\Source\Particle.cpp(39,19): warning C4018: '>=': signed/unsigned mismatch
+  Generating Code...
+  Windjammers.vcxproj -> C:\Users\Lluc Estruch\OneDrive\Escritorio\Project_6_Solution\Project_6_Solution\Debug\Project_6_Solution.exe

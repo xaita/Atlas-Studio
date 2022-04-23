@@ -1,0 +1,8 @@
+﻿  ModulePlayer.cpp
+E:\Projecte I\Project_6_Solution\Project_6_Solution\Project_6_Solution\Source\ModulePlayer.cpp(25,20): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projecte I\Project_6_Solution\Project_6_Solution\Project_6_Solution\Source\ModulePlayer.cpp(31,22): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projecte I\Project_6_Solution\Project_6_Solution\Project_6_Solution\Source\ModulePlayer.cpp(38,23): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projecte I\Project_6_Solution\Project_6_Solution\Project_6_Solution\Source\ModulePlayer.cpp(44,22): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projecte I\Project_6_Solution\Project_6_Solution\Project_6_Solution\Source\ModulePlayer.cpp(54,20): warning C4305: '=': truncation from 'double' to 'float'
+E:\Projecte I\Project_6_Solution\Project_6_Solution\Project_6_Solution\Source\ModulePlayer.cpp(62,20): warning C4305: '=': truncation from 'double' to 'float'
+  Project_6_Solution.vcxproj -> E:\Projecte I\Project_6_Solution\Project_6_Solution\Debug\Project_6_Solution.exe
