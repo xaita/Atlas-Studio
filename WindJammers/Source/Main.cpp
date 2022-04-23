@@ -7,6 +7,7 @@
 #pragma comment( lib, "SDL/libx86/SDL2main.lib")
 
 //hola
+//Xiao caga
 
 enum class main_states
 {
