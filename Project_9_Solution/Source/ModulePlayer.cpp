@@ -84,7 +84,7 @@ bool ModulePlayer::Start()
 	explosionFx = App->audio->LoadFx("Assets/Nau/Fx/explosion.wav");
 
 	position.x = 150;
-	position.y = 120;
+	position.y = 306;
 
 	destroyed = false;
 
