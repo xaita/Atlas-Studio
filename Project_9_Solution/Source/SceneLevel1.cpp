@@ -25,7 +25,7 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/Sprites/Stages/.png"); //POSAR PLATJA
+	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete1.bmp"); //POSAR PLATJA
 	App->audio->PlayMusic("Assets/Audios/Music/08_Flying Power Disc (Beach Court).ogg", 1.0f);
 
 	//Bottomside collider
@@ -36,7 +36,7 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 1375, 145, 111, 96 }, Collider::Type::WALL);
 
 	// Enemies ---
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 600, 80);
+	/*App->enemies->AddEnemy(Enemy_Type::REDBIRD, 600, 80);
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 625, 80);
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 640, 80);
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 665, 80);
@@ -51,7 +51,7 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 870, 100);
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 890, 100);
 
-	App->enemies->AddEnemy(Enemy_Type::MECH, 900, 195);
+	App->enemies->AddEnemy(Enemy_Type::MECH, 900, 195);*/
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -64,7 +64,6 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
-	App->render->camera.x += 3;
 
 	return Update_Status::UPDATE_CONTINUE;
 }
