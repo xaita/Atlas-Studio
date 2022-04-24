@@ -24,7 +24,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	idleAnim.PushBack({ 251, 103 , 24, 39 });// frame 7
 	idleAnim.PushBack({ 227, 103 , 24, 37 });// frame 8
 	idleAnim.loop = true;
-	idleAnim.speed = 0.1f;
+	idleAnim.speed = 0.07f;
 
 	// move upwards
 	upAnim.PushBack({ 150, 191, 30, 40 });// frame 1
