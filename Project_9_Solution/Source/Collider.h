@@ -17,6 +17,8 @@ struct Collider
 		ENEMY,
 		PLAYER_SHOT,
 		ENEMY_SHOT,
+		SCOREZONE_2,
+		SCOREZONE_1,
 
 		MAX
 	};

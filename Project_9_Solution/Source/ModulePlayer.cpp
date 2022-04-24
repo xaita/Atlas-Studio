@@ -153,6 +153,13 @@ Update_Status ModulePlayer::Update()
 		App->audio->PlayFx(laserFx);
 	}
 
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)			//disparar disc
+	{
+		Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+		newParticle->collider->AddListener(this);
+		App->audio->PlayFx(laserFx);
+	}
+
 	// If no up/down movement detected, set the current animation back to idle
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
