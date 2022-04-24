@@ -27,8 +27,8 @@ ModuleEnemies::~ModuleEnemies()
 
 bool ModuleEnemies::Start()
 {
-	texture = App->textures->Load("Assets/Sprites/enemies.png");
-	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
+	texture = App->textures->Load("Assets/Nau/enemies.png");
+	enemyDestroyedFx = App->audio->LoadFx("Assets/Nau/Fx/explosion.wav");
 
 	return true;
 }

@@ -25,7 +25,7 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/Sprites/background.png");
+	bgTexture = App->textures->Load("Assets/Nau/background.png");
 	App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);
 
 	//Bottomside collider

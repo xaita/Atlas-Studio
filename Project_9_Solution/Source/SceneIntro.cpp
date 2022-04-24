@@ -24,8 +24,8 @@ bool SceneIntro::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/Sprites/startScreen.png");
-	App->audio->PlayMusic("Assets/Music/introTitle.ogg", 1.0f);
+	bgTexture = App->textures->Load("Assets/Nau/startScreen.png");
+	App->audio->PlayMusic("Assets/Nau/Music/introTitle.ogg", 1.0f);
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
