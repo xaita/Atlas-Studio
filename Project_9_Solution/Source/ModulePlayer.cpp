@@ -54,7 +54,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	rightAnim.PushBack({ 310, 148, 29, 36 }); // frame 5
 	rightAnim.PushBack({ 269, 148, 41, 35 }); // frame 6
 	rightAnim.loop = true;
-	rightAnim.speed = 0.02f;
+	rightAnim.speed = 0.07f;
 
 	// move left
 	leftAnim.PushBack({ 707, 182, 163, 97 });
