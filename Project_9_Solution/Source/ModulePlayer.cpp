@@ -46,7 +46,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downAnim.loop = true;
 	downAnim.speed = 0.1f;
 
-	// move right
+	// move right xiao chao
 	rightAnim.PushBack({ 454, 148, 45, 32 }); // frame 1
 	rightAnim.PushBack({ 426, 148, 28, 33 }); // frame 2
 	rightAnim.PushBack({ 385, 148, 41, 36 }); // frame 3
