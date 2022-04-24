@@ -15,7 +15,16 @@
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	// idle animation - just one sprite
-	idleAnim.PushBack({ 900, 183 , 117, 102 });
+	idleAnim.PushBack({ 393, 103 , 23, 36 });// frame 1
+	idleAnim.PushBack({ 370, 103 , 23, 35 });// frame 2
+	idleAnim.PushBack({ 347, 103 , 23, 36 });// frame 3
+	idleAnim.PushBack({ 323, 103 , 24, 36 });// frame 4
+	idleAnim.PushBack({ 299, 103 , 24, 35 });// frame 5
+	idleAnim.PushBack({ 275, 103 , 24, 36 });// frame 6
+	idleAnim.PushBack({ 251, 103 , 24, 39 });// frame 7
+	idleAnim.PushBack({ 227, 103 , 24, 37 });// frame 8
+	idleAnim.loop = true;
+	idleAnim.speed = 0.1f;
 
 	// move upwards
 	upAnim.PushBack({ 150, 191, 30, 40 });// frame 1
@@ -45,7 +54,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	rightAnim.PushBack({ 310, 148, 29, 36 }); // frame 5
 	rightAnim.PushBack({ 269, 148, 41, 35 }); // frame 6
 	rightAnim.loop = true;
-	rightAnim.speed = 0.1f;
+	rightAnim.speed = 0.02f;
 
 	// move left
 	leftAnim.PushBack({ 707, 182, 163, 97 });
