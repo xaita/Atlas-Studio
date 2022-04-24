@@ -35,6 +35,10 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 1375, 0, 111, 96 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 1375, 145, 111, 96 }, Collider::Type::WALL);
 
+	//Top Wall
+	App->collisions->AddCollider({ 1375, 0, 111, 96 }, Collider::Type::SCOREZONE_1);
+	App->collisions->AddCollider({ 1375, 0, 111, 96 }, Collider::Type::SCOREZONE_2);
+
 	// Enemies ---
 	/*App->enemies->AddEnemy(Enemy_Type::REDBIRD, 600, 80);
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 625, 80);
@@ -49,12 +53,16 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 830, 100);
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 850, 100);
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 870, 100);
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 890, 100);
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 890, 100);*/
 
+<<<<<<< Updated upstream
 	App->enemies->AddEnemy(Enemy_Type::MECH, 900, 195);*/
+=======
+	/*App->enemies->AddEnemy(Enemy_Type::MECH, 900, 195);*/
+>>>>>>> Stashed changes
 
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
+	/*App->render->camera.x = 0;
+	App->render->camera.y = 0;*/
 
 	App->player->Enable();
 	App->enemies->Enable();

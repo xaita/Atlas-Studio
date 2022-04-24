@@ -19,6 +19,7 @@ struct Collider
 		ENEMY_SHOT,
 		SCOREZONE_2,
 		SCOREZONE_1,
+		NET,
 
 		MAX
 	};

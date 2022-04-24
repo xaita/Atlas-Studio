@@ -144,6 +144,9 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::SCOREZONE_1: // blue
 			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
 			break;
+			case Collider::Type::NET: // blue
+				App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
+				break;
 		}
 	}
 }
