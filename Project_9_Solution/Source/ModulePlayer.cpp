@@ -15,19 +15,55 @@
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	// idle animation - just one sprite
-	idleAnim.PushBack({ 66, 1, 32, 14 });
+	idleAnim.PushBack({ 900, 183 , 117, 102 });
 
 	// move upwards
-	upAnim.PushBack({ 100, 1, 32, 14 });
-	upAnim.PushBack({ 132, 0, 32, 14 });
-	upAnim.loop = false;
+	upAnim.PushBack({ 0, 837, 72, 117 });
+	upAnim.PushBack({ 912, 720, 78, 117 });
+	upAnim.PushBack({ 831, 720, 81, 117 });
+	upAnim.PushBack({ 756, 720, 75, 117 });
+	upAnim.loop = true;
 	upAnim.speed = 0.1f;
 
 	// Move down
-	downAnim.PushBack({ 33, 1, 32, 14 });
+	downAnim.PushBack({ 869, 87, 81, 96 });
 	downAnim.PushBack({ 0, 1, 32, 14 });
-	downAnim.loop = false;
+	downAnim.loop = true;
 	downAnim.speed = 0.1f;
+
+	// move right
+	rightAnim.PushBack({ 432, 607, 75, 108 });
+	//rightAnim.PushBack({ 789, 176, 111, 102 });
+	rightAnim.PushBack({ 393, 1125, 79, 89 });
+	rightAnim.loop = true;
+	rightAnim.speed = 0.1f;
+
+	// move left
+	leftAnim.PushBack({ 707, 182, 163, 97 });
+	leftAnim.PushBack({ 132, 0, 32, 14 });
+	leftAnim.loop = true;
+	leftAnim.speed = 0.1f;
+
+
+
+	// move diagonal dalt-esquerra
+	upAnim.PushBack({ 0, 837, 72, 117 });
+	upAnim.PushBack({ 912, 720, 78, 117 });
+	upAnim.PushBack({ 831, 720, 81, 117 });
+	upAnim.PushBack({ 756, 720, 75, 117 });
+	upAnim.loop = true;
+	upAnim.speed = 0.1f;
+
+	// move diagonal abaix-esquerra
+	upAnim.PushBack({ 0, 837, 72, 117 });
+	upAnim.PushBack({ 912, 720, 78, 117 });
+	upAnim.PushBack({ 831, 720, 81, 117 });
+	upAnim.PushBack({ 756, 720, 75, 117 });
+	upAnim.loop = true;
+	upAnim.speed = 0.1f;
+
+	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -41,7 +77,7 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Nau/ship.png");
+	texture = App->textures->Load("Assets/Sprites/Characters/Beeho Yoo/beehoYooSpriteSheet1.png");
 	currentAnimation = &idleAnim;
 
 	laserFx = App->audio->LoadFx("Assets/Nau/Fx/laser.wav");
@@ -52,7 +88,7 @@ bool ModulePlayer::Start()
 
 	destroyed = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 117, 102 }, Collider::Type::PLAYER, this);
 
 	// TODO 0: Notice how a font is loaded and the meaning of all its arguments 
 	//char lookupTable[] = { "!  ,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz" };
@@ -68,16 +104,26 @@ bool ModulePlayer::Start()
 Update_Status ModulePlayer::Update()
 {
 	// Moving the player with the camera scroll
-	App->player->position.x += 1;
+	App->player->position.x += 0;
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		position.x -= speed;
+		if (currentAnimation != &leftAnim)
+		{
+			leftAnim.Reset();
+			currentAnimation = &leftAnim;
+		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
 		position.x += speed;
+		if (currentAnimation != &rightAnim)
+		{
+			rightAnim.Reset();
+			currentAnimation = &rightAnim;
+		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
@@ -100,7 +146,7 @@ Update_Status ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)			//disparar laser
 	{
 		Particle* newParticle = App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 		newParticle->collider->AddListener(this);
@@ -109,12 +155,21 @@ Update_Status ModulePlayer::Update()
 
 	// If no up/down movement detected, set the current animation back to idle
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE)
+		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 		currentAnimation = &idleAnim;
 
 	collider->SetPos(position.x, position.y);
 
 	currentAnimation->Update();
+
+	/*if (destroyed)		//Estaba a la solucio de la practica 6 nse si farà falta
+	{
+		destroyedCountdown--;
+		if (destroyedCountdown <= 0)
+			return update_status::UPDATE_STOP;
+	}*/
 
 	return Update_Status::UPDATE_CONTINUE;
 }
