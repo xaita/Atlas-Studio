@@ -26,6 +26,12 @@ bool SceneLevel1::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete1.bmp"); //POSAR MAPA CONCRETE
+	bgBotwall = App->textures->Load("Assets/Sprites/Stages/Concrete/bot_wall.png");
+	bgTopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/top_wall.png");
+	bgExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall.png");
+	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");
+	bgGoal = App->textures->Load("Assets/Sprites/Stages/Concrete/goal.png");
+
 	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);
 
 	//Bottomside collider
@@ -81,6 +87,12 @@ Update_Status SceneLevel1::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
+	App->render->Blit(bgGoal, 0, 22, NULL);
+	App->render->Blit(bgNet, 142, 31, NULL);
+	App->render->Blit(bgBotwall, 31, 202, NULL);
+	App->render->Blit(bgExtremetopwall, 0, 16, NULL);
+	App->render->Blit(bgTopwall, 30, 20, NULL);
+	
 
 	return Update_Status::UPDATE_CONTINUE;
 }

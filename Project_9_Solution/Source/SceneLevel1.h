@@ -34,6 +34,14 @@ public:
 	
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
+	SDL_Texture* bgBotwall = nullptr;
+	SDL_Texture* bgTopwall = nullptr;
+	SDL_Texture* bgExtremetopwall = nullptr;
+	SDL_Texture* bgNet = nullptr;
+	SDL_Texture* bgGoal = nullptr;
+	SDL_Texture* bgGoalgoal = nullptr;
+	SDL_Texture* bgGoalsupergoal = nullptr;
+
 };
 
 #endif
