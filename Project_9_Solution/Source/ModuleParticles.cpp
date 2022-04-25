@@ -34,13 +34,13 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 
-	laser.anim.PushBack({ 117, 48, 16, 16 });
-	laser.anim.PushBack({ 149, 48, 16, 16 });
-	laser.anim.PushBack({ 181, 48, 16, 16 });
-	laser.anim.PushBack({ 213, 48, 16, 16 });
-	laser.speed.x = 3;
-	laser.lifetime = 180;
-	laser.anim.speed = 0.2f;
+	disk.anim.PushBack({ 117, 48, 16, 16 });
+	disk.anim.PushBack({ 149, 48, 16, 16 });
+	disk.anim.PushBack({ 181, 48, 16, 16 });
+	disk.anim.PushBack({ 213, 48, 16, 16 });
+	disk.speed.x = 3;
+	disk.lifetime = 180;
+	disk.anim.speed = 0.2f;
 
 	return true;
 }

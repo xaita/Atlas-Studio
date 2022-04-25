@@ -120,6 +120,7 @@ bool ModulePlayer::Start()
 
 	laserFx = App->audio->LoadFx("Assets/Nau/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Nau/Fx/explosion.wav");
+	discFx = App->audio->LoadFx("Assets\Audios\SFX and Voice lines\Frisbee/Toss.wav");
 
 	position.x = 38;
 	position.y = 112;
@@ -230,18 +231,18 @@ Update_Status ModulePlayer::Update()
 
 
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)			//disparar laser
-	{
-		Particle* newParticle = App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		newParticle->collider->AddListener(this);
-		App->audio->PlayFx(laserFx);
-	}
+	//if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)			//disparar laser
+	//{
+	//	Particle* newParticle = App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+	//	newParticle->collider->AddListener(this);
+	//	App->audio->PlayFx(discFx);
+	//}
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)			//disparar disc
 	{
 		Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 		newParticle->collider->AddListener(this);
-		App->audio->PlayFx(laserFx);
+		App->audio->PlayFx(discFx);
 	}
 
 	// If no up/down movement detected, set the current animation back to idle
