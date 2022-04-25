@@ -247,12 +247,31 @@ Update_Status ModulePlayer::Update()
 	//	App->audio->PlayFx(discFx);
 	//}
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)			//disparar disc
-	{
-		Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		newParticle->collider->AddListener(this);
-		App->audio->PlayFx(discFx);
-	}
+				//disparar disc
+	
+		
+
+		if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D] && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+		{
+			Particle* newParticle = App->particles->AddParticle(App->particles->disk_Up, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			newParticle->collider->AddListener(this);
+			App->audio->PlayFx(discFx);
+		}
+
+		if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D] && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+		{
+			Particle* newParticle = App->particles->AddParticle(App->particles->disk_Down, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			newParticle->collider->AddListener(this);
+			App->audio->PlayFx(discFx);
+		}
+
+		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN )
+		{
+			Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			newParticle->collider->AddListener(this);
+			App->audio->PlayFx(discFx);
+		}
+	
 
 	// If no up/down movement detected, set the current animation back to idle
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE

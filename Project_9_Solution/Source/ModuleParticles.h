@@ -60,7 +60,7 @@ public:
 	Particle laser;
 
 	//Template particle for the disk
-	Particle disk_front;
+	Particle disk;
 
 	Particle disk_Up;
 
