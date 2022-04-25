@@ -64,7 +64,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	leftAnim.PushBack({ 311, 404, 28, 36 });
 	leftAnim.PushBack({ 270, 404, 40, 35 });
 	leftAnim.loop = true;
-	leftAnim.speed = 0.15f;
+	leftAnim.speed = 0.17f;
 
 
 
@@ -128,7 +128,7 @@ Update_Status ModulePlayer::Update()
 {
 	// Moving the player with the camera scroll
 	App->player->position.x += 0;
-
+	
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		position.x -= speed;
@@ -142,13 +142,22 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
 		position.x += speed;
-		if (currentAnimation != &rightAnim)
+
+		if (currentAnimation != &rightAnim && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
 		{
 			rightAnim.Reset();
 			currentAnimation = &rightAnim;
 		}
 	}
-
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
+	{
+		position.y += speed;
+		if (currentAnimation != &downAnim)
+		{
+			downAnim.Reset();
+			currentAnimation = &downAnim;
+		}
+	}
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
 	{
 		position.y += speed;
@@ -156,6 +165,15 @@ Update_Status ModulePlayer::Update()
 		{
 			downAnim.Reset();
 			currentAnimation = &downAnim;
+		}
+	}
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
+	{
+		position.y -= speed;
+		if (currentAnimation != &upAnim)
+		{
+			upAnim.Reset();
+			currentAnimation = &upAnim;
 		}
 	}
 
@@ -168,6 +186,9 @@ Update_Status ModulePlayer::Update()
 			currentAnimation = &upAnim;
 		}
 	}
+	
+
+
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)			//disparar laser
 	{
