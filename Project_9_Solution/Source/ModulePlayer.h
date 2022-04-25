@@ -55,7 +55,9 @@ public:
 	Animation idleLeftAnim;
 >>>>>>> Stashed changes
 	Animation upAnim;
+	Animation upleftAnim;
 	Animation downAnim;
+	Animation downleftAnim;
 	Animation leftAnim;
 	Animation rightAnim;
 

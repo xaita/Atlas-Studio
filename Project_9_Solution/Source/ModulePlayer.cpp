@@ -52,6 +52,17 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	idleLeftAnim.loop = true;
 	idleLeftAnim.speed = 0.12f;
 
+	leftidleAnim.PushBack({ 393, 359 , 23, 36 });// frame 1
+	leftidleAnim.PushBack({ 370, 359 , 23, 35 });// frame 2
+	leftidleAnim.PushBack({ 347, 359 , 23, 36 });// frame 3
+	leftidleAnim.PushBack({ 323, 359 , 24, 36 });// frame 4
+	leftidleAnim.PushBack({ 299, 359 , 24, 35 });// frame 5
+	leftidleAnim.PushBack({ 275, 359 , 24, 36 });// frame 6
+	leftidleAnim.PushBack({ 251, 359 , 24, 39 });// frame 7
+	leftidleAnim.PushBack({ 227, 359 , 24, 37 });// frame 8
+	leftidleAnim.loop = true;
+	leftidleAnim.speed = 0.12f;
+
 	// move upwards
 	upAnim.PushBack({ 150, 191, 30, 40 });// frame 1
 	upAnim.PushBack({ 120, 191, 30, 51 });// frame 2
@@ -96,20 +107,22 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 
 	// move diagonal dalt-esquerra
-	upAnim.PushBack({ 0, 837, 72, 117 });
-	upAnim.PushBack({ 912, 720, 78, 117 });
-	upAnim.PushBack({ 831, 720, 81, 117 });
-	upAnim.PushBack({ 756, 720, 75, 117 });
-	upAnim.loop = true;
-	upAnim.speed = 0.1f;
+	upleftAnim.PushBack({ 0, 837, 72, 117 });
+	upleftAnim.PushBack({ 912, 720, 78, 117 });
+	upleftAnim.PushBack({ 831, 720, 81, 117 });
+	upleftAnim.PushBack({ 756, 720, 75, 117 });
+	upleftAnim.loop = true;
+	upleftAnim.speed = 0.1f;
 
 	// move diagonal abaix-esquerra
-	upAnim.PushBack({ 0, 837, 72, 117 });
-	upAnim.PushBack({ 912, 720, 78, 117 });
-	upAnim.PushBack({ 831, 720, 81, 117 });
-	upAnim.PushBack({ 756, 720, 75, 117 });
-	upAnim.loop = true;
-	upAnim.speed = 0.1f;
+	downleftAnim.PushBack({ 240, 404, 29, 43 });// frame 1
+	downleftAnim.PushBack({ 208, 404, 32, 38 });// frame 2
+	downleftAnim.PushBack({ 179, 404, 29, 35 });// frame 3
+	downleftAnim.PushBack({ 155, 404, 24, 41 });// frame 4
+	downleftAnim.PushBack({ 125, 404, 30, 38 });// frame 5
+	downleftAnim.PushBack({ 94, 404, 31, 34 });// frame 6
+	downleftAnim.loop = true;
+	downleftAnim.speed = 0.1f;
 
 	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
 
@@ -149,9 +162,10 @@ bool ModulePlayer::Start()
 
 	return ret;
 }
-
+int a=0;
 Update_Status ModulePlayer::Update()
 {
+	
 	// Moving the player with the camera scroll
 	App->player->position.x += 0;
 	
@@ -162,6 +176,7 @@ Update_Status ModulePlayer::Update()
 		{
 			leftAnim.Reset();
 			currentAnimation = &leftAnim;
+			a = 1;
 		}
 	}
 
@@ -173,24 +188,27 @@ Update_Status ModulePlayer::Update()
 		{
 			rightAnim.Reset();
 			currentAnimation = &rightAnim;
+			a = 2;
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
-		
+	
 		if (currentAnimation != &downAnim)
 		{
 			downAnim.Reset();
 			currentAnimation = &downAnim;
+			a = 2;
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		
-		if (currentAnimation != &downAnim)
+		if (currentAnimation != &downleftAnim)
 		{
-			downAnim.Reset();
-			currentAnimation = &downAnim;
+			downleftAnim.Reset();
+			currentAnimation = &downleftAnim;
+			a = 1;
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
@@ -209,15 +227,17 @@ Update_Status ModulePlayer::Update()
 		{
 			upAnim.Reset();
 			currentAnimation = &upAnim;
+			a = 2;
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		
-		if (currentAnimation != &upAnim)
+		if (currentAnimation != &upleftAnim)
 		{
 			upAnim.Reset();
-			currentAnimation = &upAnim;
+			currentAnimation = &upleftAnim;
+			a = 1;
 		}
 	}
 
@@ -253,6 +273,7 @@ Update_Status ModulePlayer::Update()
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 		currentAnimation = &rightidleAnim;
 =======
@@ -265,6 +286,15 @@ Update_Status ModulePlayer::Update()
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_UP
 		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 		currentAnimation = &idleLeftAnim;
+=======
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE && a == 2)
+		currentAnimation = &rightidleAnim;
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE && a == 1)
+		currentAnimation = &leftidleAnim;
+>>>>>>> Stashed changes
 
 	collider->SetPos(position.x, position.y);
 
