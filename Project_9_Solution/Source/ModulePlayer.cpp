@@ -14,6 +14,7 @@
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
+<<<<<<< Updated upstream
 	// idle animation - just one sprite
 	rightidleAnim.PushBack({ 393, 103 , 23, 36 });// frame 1
 	rightidleAnim.PushBack({ 370, 103 , 23, 35 });// frame 2
@@ -25,6 +26,31 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	rightidleAnim.PushBack({ 227, 103 , 24, 37 });// frame 8
 	rightidleAnim.loop = true;
 	rightidleAnim.speed = 0.12f;
+=======
+	// idle animation
+	idleAnim.PushBack({ 393, 103 , 23, 36 });// frame 1
+	idleAnim.PushBack({ 370, 103 , 23, 35 });// frame 2
+	idleAnim.PushBack({ 347, 103 , 23, 36 });// frame 3
+	idleAnim.PushBack({ 323, 103 , 24, 36 });// frame 4
+	idleAnim.PushBack({ 299, 103 , 24, 35 });// frame 5
+	idleAnim.PushBack({ 275, 103 , 24, 36 });// frame 6
+	idleAnim.PushBack({ 251, 103 , 24, 39 });// frame 7
+	idleAnim.PushBack({ 227, 103 , 24, 37 });// frame 8
+	idleAnim.loop = true;
+	idleAnim.speed = 0.12f;
+>>>>>>> Stashed changes
+
+	// idle left animation
+	idleLeftAnim.PushBack({ 393, 359 , 23, 36 });// frame 1
+	idleLeftAnim.PushBack({ 370, 359 , 23, 35 });// frame 2
+	idleLeftAnim.PushBack({ 347, 359 , 23, 36 });// frame 3
+	idleLeftAnim.PushBack({ 323, 359 , 24, 36 });// frame 4
+	idleLeftAnim.PushBack({ 299, 359 , 24, 35 });// frame 5
+	idleLeftAnim.PushBack({ 275, 359 , 24, 36 });// frame 6
+	idleLeftAnim.PushBack({ 251, 359 , 24, 39 });// frame 7
+	idleLeftAnim.PushBack({ 227, 359 , 24, 37 });// frame 8
+	idleLeftAnim.loop = true;
+	idleLeftAnim.speed = 0.12f;
 
 	// move upwards
 	upAnim.PushBack({ 150, 191, 30, 40 });// frame 1
@@ -223,11 +249,22 @@ Update_Status ModulePlayer::Update()
 	}
 
 	// If no up/down movement detected, set the current animation back to idle
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE					//idle dreta
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
+<<<<<<< Updated upstream
 		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 		currentAnimation = &rightidleAnim;
+=======
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_UP)
+		currentAnimation = &idleAnim;
+>>>>>>> Stashed changes
+
+	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE					//idle esquerra
+		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_UP
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
+		currentAnimation = &idleLeftAnim;
 
 	collider->SetPos(position.x, position.y);
 
