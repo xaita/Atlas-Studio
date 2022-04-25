@@ -346,12 +346,13 @@ if(personatgedisc == -1)
 				&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 			{
-				if (currentAnimation == &rightidleAnim) 
-				{
-					shooting.Reset();
-					currentAnimation = &shooting;
-					
-				}
+				 
+				
+			shooting.Reset();
+				currentAnimation = &shooting;
+
+
+				
 				
 
 				Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
