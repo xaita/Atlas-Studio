@@ -117,8 +117,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	shooting.loop = false;
 	
 	//Animation idle before shooting
-	rightidleFrisbee.PushBack({ 325, 0, 42, 37 });// frame 1
-	shooting.loop = true;
+	rightidleFrisbee.PushBack({ 325, 0, 42, 37 });
 	uprightidleFrisbee.PushBack({ 367, 0, 42, 37, });
 	shooting.loop = true;
 	downrightidleFrisbee.PushBack({ 283, 0, 42,	39 });
@@ -359,16 +358,14 @@ if(personatgedisc == -1)
 				&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 			{
-<<<<<<< Updated upstream
+
 				 
 				
 			shooting.Reset();
 				currentAnimation = &shooting;
 
 
-				
-=======
->>>>>>> Stashed changes
+		
 				
 				
 				shooting.Reset();
