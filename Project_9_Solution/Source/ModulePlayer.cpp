@@ -118,7 +118,7 @@ bool ModulePlayer::Start()
 	texture = App->textures->Load("Assets/Sprites/Characters/Hiromi Mita/JapaneseSpriteSheedCanviL2.png");
 	currentAnimation = &rightidleAnim;
 
-	laserFx = App->audio->LoadFx("Assets/Nau/Fx/laser.wav");
+	/*laserFx = App->audio->LoadFx("Assets/Nau/Fx/laser.wav");*/
 	explosionFx = App->audio->LoadFx("Assets/Nau/Fx/explosion.wav");
 	discFx = App->audio->LoadFx("Assets\Audios\SFX and Voice lines\Frisbee/Toss.wav");
 
