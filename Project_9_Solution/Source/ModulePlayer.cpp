@@ -15,16 +15,16 @@
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	// idle animation - just one sprite
-	idleAnim.PushBack({ 393, 103 , 23, 36 });// frame 1
-	idleAnim.PushBack({ 370, 103 , 23, 35 });// frame 2
-	idleAnim.PushBack({ 347, 103 , 23, 36 });// frame 3
-	idleAnim.PushBack({ 323, 103 , 24, 36 });// frame 4
-	idleAnim.PushBack({ 299, 103 , 24, 35 });// frame 5
-	idleAnim.PushBack({ 275, 103 , 24, 36 });// frame 6
-	idleAnim.PushBack({ 251, 103 , 24, 39 });// frame 7
-	idleAnim.PushBack({ 227, 103 , 24, 37 });// frame 8
-	idleAnim.loop = true;
-	idleAnim.speed = 0.12f;
+	rightidleAnim.PushBack({ 393, 103 , 23, 36 });// frame 1
+	rightidleAnim.PushBack({ 370, 103 , 23, 35 });// frame 2
+	rightidleAnim.PushBack({ 347, 103 , 23, 36 });// frame 3
+	rightidleAnim.PushBack({ 323, 103 , 24, 36 });// frame 4
+	rightidleAnim.PushBack({ 299, 103 , 24, 35 });// frame 5
+	rightidleAnim.PushBack({ 275, 103 , 24, 36 });// frame 6
+	rightidleAnim.PushBack({ 251, 103 , 24, 39 });// frame 7
+	rightidleAnim.PushBack({ 227, 103 , 24, 37 });// frame 8
+	rightidleAnim.loop = true;
+	rightidleAnim.speed = 0.12f;
 
 	// move upwards
 	upAnim.PushBack({ 150, 191, 30, 40 });// frame 1
@@ -101,7 +101,7 @@ bool ModulePlayer::Start()
 	bool ret = true;
 
 	texture = App->textures->Load("Assets/Sprites/Characters/Hiromi Mita/JapaneseSpriteSheedCanviL2.png");
-	currentAnimation = &idleAnim;
+	currentAnimation = &rightidleAnim;
 
 	laserFx = App->audio->LoadFx("Assets/Nau/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Nau/Fx/explosion.wav");
@@ -227,7 +227,7 @@ Update_Status ModulePlayer::Update()
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
-		currentAnimation = &idleAnim;
+		currentAnimation = &rightidleAnim;
 
 	collider->SetPos(position.x, position.y);
 
