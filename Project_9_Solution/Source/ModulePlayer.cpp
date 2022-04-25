@@ -24,7 +24,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	rightidleAnim.PushBack({ 251, 103 , 24, 39 });// frame 7
 	rightidleAnim.PushBack({ 227, 103 , 24, 37 });// frame 8
 	rightidleAnim.loop = true;
-	rightidleAnim.speed = 0.12f;
+	rightidleAnim.speed = 0.08f;
 
 	leftidleAnim.PushBack({ 393, 359 , 23, 36 });// frame 1
 	leftidleAnim.PushBack({ 370, 359 , 23, 35 });// frame 2
@@ -35,7 +35,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	leftidleAnim.PushBack({ 251, 359 , 24, 39 });// frame 7
 	leftidleAnim.PushBack({ 227, 359 , 24, 37 });// frame 8
 	leftidleAnim.loop = true;
-	leftidleAnim.speed = 0.12f;
+	leftidleAnim.speed = 0.08f;
 
 	// move upwards
 	upAnim.PushBack({ 150, 191, 30, 40 });// frame 1
@@ -45,7 +45,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upAnim.PushBack({ 30, 191, 30, 53 });// frame 5
 	upAnim.PushBack({ 0, 191, 30, 50 });// frame 6
 	upAnim.loop = true;
-	upAnim.speed = 0.15f;
+	upAnim.speed = 0.08f;
 
 	// Move down
 	downAnim.PushBack({ 240, 148, 29, 43 });// frame 1
@@ -55,7 +55,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downAnim.PushBack({ 125, 148, 30, 38 });// frame 5
 	downAnim.PushBack({ 94, 148, 31, 34 });// frame 6
 	downAnim.loop = true;
-	downAnim.speed = 0.15f;
+	downAnim.speed = 0.08f;
 
 	// move right 
 	rightAnim.PushBack({ 454, 148, 45, 32 }); // frame 1
@@ -65,7 +65,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	rightAnim.PushBack({ 310, 148, 29, 36 }); // frame 5
 	rightAnim.PushBack({ 269, 148, 41, 35 }); // frame 6
 	rightAnim.loop = true;
-	rightAnim.speed = 0.17f;
+	rightAnim.speed = 0.08f;
 
 	// move left
 	leftAnim.PushBack({ 455, 404, 45, 32 });
@@ -75,7 +75,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	leftAnim.PushBack({ 311, 404, 28, 36 });
 	leftAnim.PushBack({ 270, 404, 40, 35 });
 	leftAnim.loop = true;
-	leftAnim.speed = 0.17f;
+	leftAnim.speed = 0.08f;
 
 
 
@@ -88,7 +88,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upleftAnim.PushBack({ 30, 447, 30, 53 });// frame 5
 	upleftAnim.PushBack({ 0, 447, 30, 50 });// frame 6
 	upleftAnim.loop = true;
-	upleftAnim.speed = 0.15f;
+	upleftAnim.speed = 0.08f;
 
 	// move diagonal abaix-esquerra
 	downleftAnim.PushBack({ 240, 404, 29, 43 });// frame 1
@@ -98,7 +98,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downleftAnim.PushBack({ 125, 404, 30, 38 });// frame 5
 	downleftAnim.PushBack({ 94, 148, 31, 34 });// frame 6
 	downleftAnim.loop = true;
-	downleftAnim.speed = 0.15f;
+	downleftAnim.speed = 0.08f;
 
 	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
 
