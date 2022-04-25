@@ -34,13 +34,30 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 
-	disk.anim.PushBack({ 117, 48, 16, 16 });
-	disk.anim.PushBack({ 149, 48, 16, 16 });
-	disk.anim.PushBack({ 181, 48, 16, 16 });
-	disk.anim.PushBack({ 213, 48, 16, 16 });
-	disk.speed.x = 3;
-	disk.lifetime = 180;
-	disk.anim.speed = 0.2f;
+	disk_front.anim.PushBack({ 117, 48, 16, 16 });
+	disk_front.anim.PushBack({ 149, 48, 16, 16 });
+	disk_front.anim.PushBack({ 181, 48, 16, 16 });
+	disk_front.anim.PushBack({ 213, 48, 16, 16 });
+	disk_front.speed.x = 3;
+	disk_front.lifetime = 180;
+	disk_front.anim.speed = 0.2f;
+
+
+	disk_Up.anim.PushBack({ 117, 48, 16, 16 });
+	disk_Up.anim.PushBack({ 149, 48, 16, 16 });
+	disk_Up.anim.PushBack({ 181, 48, 16, 16 });
+	disk_Up.anim.PushBack({ 213, 48, 16, 16 });
+	disk_Up.speed.x = 3;
+	disk_Up.lifetime = 180;
+	disk_Up.anim.speed = 0.2f;
+
+	disk_Down.anim.PushBack({ 117, 48, 16, 16 });
+	disk_Down.anim.PushBack({ 149, 48, 16, 16 });
+	disk_Down.anim.PushBack({ 181, 48, 16, 16 });
+	disk_Down.anim.PushBack({ 213, 48, 16, 16 });
+	disk_Down.speed.x = 3;
+	disk_Down.lifetime = 180;
+	disk_Down.anim.speed = 0.2f;
 
 	return true;
 }

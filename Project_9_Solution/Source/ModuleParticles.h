@@ -60,7 +60,11 @@ public:
 	Particle laser;
 
 	//Template particle for the disk
-	Particle disk;
+	Particle disk_front;
+
+	Particle disk_Up;
+
+	Particle disk_Down;
 
 private:
 	// Particles spritesheet loaded into an SDL Texture
