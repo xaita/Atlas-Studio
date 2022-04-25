@@ -24,7 +24,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	idleAnim.PushBack({ 251, 103 , 24, 39 });// frame 7
 	idleAnim.PushBack({ 227, 103 , 24, 37 });// frame 8
 	idleAnim.loop = true;
-	idleAnim.speed = 0.07f;
+	idleAnim.speed = 0.12f;
 
 	// move upwards
 	upAnim.PushBack({ 150, 191, 30, 40 });// frame 1
@@ -34,7 +34,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upAnim.PushBack({ 30, 191, 30, 53 });// frame 5
 	upAnim.PushBack({ 0, 191, 30, 50 });// frame 6
 	upAnim.loop = true;
-	upAnim.speed = 0.1f;
+	upAnim.speed = 0.15f;
 
 	// Move down
 	downAnim.PushBack({ 240, 148, 29, 43 });// frame 1
@@ -44,9 +44,9 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downAnim.PushBack({ 125, 148, 30, 38 });// frame 5
 	downAnim.PushBack({ 94, 148, 31, 34 });// frame 6
 	downAnim.loop = true;
-	downAnim.speed = 0.1f;
+	downAnim.speed = 0.15f;
 
-	// move right xiao chao
+	// move right 
 	rightAnim.PushBack({ 454, 148, 45, 32 }); // frame 1
 	rightAnim.PushBack({ 426, 148, 28, 33 }); // frame 2
 	rightAnim.PushBack({ 385, 148, 41, 36 }); // frame 3
@@ -54,7 +54,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	rightAnim.PushBack({ 310, 148, 29, 36 }); // frame 5
 	rightAnim.PushBack({ 269, 148, 41, 35 }); // frame 6
 	rightAnim.loop = true;
-	rightAnim.speed = 0.13f;
+	rightAnim.speed = 0.17f;
 
 	// move left
 	leftAnim.PushBack({ 455, 404, 45, 32 });
