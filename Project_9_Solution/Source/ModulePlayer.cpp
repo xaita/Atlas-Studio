@@ -220,7 +220,7 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
 	{
 		position.y -= speed;
-		if (currentAnimation != &upAnim)
+		if (currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT)
 		{
 			upAnim.Reset();
 			currentAnimation = &upAnim;
