@@ -29,8 +29,10 @@ bool SceneLevel1::Start()
 	bgBotwall = App->textures->Load("Assets/Sprites/Stages/Concrete/bot_wall.png");
 	bgTopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/top_wall.png");
 	bgExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall.png");
+	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");
 	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");
 	bgGoal = App->textures->Load("Assets/Sprites/Stages/Concrete/goal.png");
+	bgGoalright = App->textures->Load("Assets/Sprites/Stages/Concrete/goalRight.png");
 
 	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);
 
@@ -87,10 +89,12 @@ Update_Status SceneLevel1::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
-	App->render->Blit(bgGoal, 0, 22, NULL);
-	App->render->Blit(bgNet, 142, 31, NULL);
-	App->render->Blit(bgBotwall, 31, 202, NULL);
 	App->render->Blit(bgExtremetopwall, 0, 16, NULL);
+	App->render->Blit(bgExtremetopwallright, 267, 16, NULL);
+	App->render->Blit(bgGoal, 0, 22, NULL);
+	App->render->Blit(bgGoalright, 266, 22, NULL);
+	App->render->Blit(bgBotwall, 31, 202, NULL);
+	App->render->Blit(bgNet, 142, 31, NULL);
 	App->render->Blit(bgTopwall, 30, 20, NULL);
 	
 

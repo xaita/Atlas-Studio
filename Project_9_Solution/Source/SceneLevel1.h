@@ -37,8 +37,10 @@ public:
 	SDL_Texture* bgBotwall = nullptr;
 	SDL_Texture* bgTopwall = nullptr;
 	SDL_Texture* bgExtremetopwall = nullptr;
+	SDL_Texture* bgExtremetopwallright = nullptr;
 	SDL_Texture* bgNet = nullptr;
 	SDL_Texture* bgGoal = nullptr;
+	SDL_Texture* bgGoalright = nullptr;
 	SDL_Texture* bgGoalgoal = nullptr;
 	SDL_Texture* bgGoalsupergoal = nullptr;
 
