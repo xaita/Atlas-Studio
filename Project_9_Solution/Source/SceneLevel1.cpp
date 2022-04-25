@@ -10,7 +10,11 @@
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
 {
-	//spectators.PushBack()
+	spectators.PushBack({ 0,0,304,224 });
+	spectators.PushBack({ 308,0,304,224 });
+	spectators.PushBack({ 612,0,304,224 });
+	spectators.loop = true;
+	spectators.speed = 0.1f;
 }
 
 SceneLevel1::~SceneLevel1()
@@ -80,6 +84,7 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
+	spectators.Reset();
 
 	return Update_Status::UPDATE_CONTINUE;
 }
