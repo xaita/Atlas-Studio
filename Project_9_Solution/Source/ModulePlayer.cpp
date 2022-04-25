@@ -141,7 +141,7 @@ bool ModulePlayer::Start()
 }
 int ultimadireccio=0; //1=dreta 2=esquerra
 int podermoverse = 0;
-int personatgedisc = 0;
+int personatgedisc = -1;
 Update_Status ModulePlayer::Update()
 {
 	
@@ -250,15 +250,22 @@ Update_Status ModulePlayer::Update()
 	//}
 
 				//disparar disc
-	
+	if (App->input->keys[SDL_SCANCODE_X] == Key_State::KEY_UP)
+	{
+		personatgedisc = personatgedisc * -1 ;
+	}
 		
+
+
+	if (personatgedisc == 1) {
 
 		if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D] && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 		{
 			Particle* newParticle = App->particles->AddParticle(App->particles->disk_Up, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 			newParticle->collider->AddListener(this);
 			App->audio->PlayFx(discFx);
-			
+
+			personatgedisc = personatgedisc * -1;
 		}
 
 		if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D] && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
@@ -266,6 +273,8 @@ Update_Status ModulePlayer::Update()
 			Particle* newParticle = App->particles->AddParticle(App->particles->disk_Down, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 			newParticle->collider->AddListener(this);
 			App->audio->PlayFx(discFx);
+
+			personatgedisc = personatgedisc * -1;
 		}
 
 		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
@@ -273,6 +282,8 @@ Update_Status ModulePlayer::Update()
 			Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 			newParticle->collider->AddListener(this);
 			App->audio->PlayFx(discFx);
+
+			personatgedisc = personatgedisc * -1;
 		}
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
@@ -285,9 +296,12 @@ Update_Status ModulePlayer::Update()
 				Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				newParticle->collider->AddListener(this);
 				App->audio->PlayFx(discFx);
+
+				personatgedisc = personatgedisc * -1;
 			}
-			
+
 		}
+	}
 
 		
 	
