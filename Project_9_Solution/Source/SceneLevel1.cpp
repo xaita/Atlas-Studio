@@ -10,7 +10,7 @@
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
 {
-
+	//spectators.PushBack()
 }
 
 SceneLevel1::~SceneLevel1()
@@ -93,8 +93,8 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(bgExtremetopwallright, 267, 16, NULL);
 	App->render->Blit(bgGoal, 0, 22, NULL);
 	App->render->Blit(bgGoalright, 266, 22, NULL);
-	App->render->Blit(bgBotwall, 31, 202, NULL);
 	App->render->Blit(bgNet, 142, 31, NULL);
+	App->render->Blit(bgBotwall, 31, 202, NULL);
 	App->render->Blit(bgTopwall, 30, 20, NULL);
 	
 
