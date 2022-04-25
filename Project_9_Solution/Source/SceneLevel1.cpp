@@ -25,8 +25,8 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete1.bmp"); //POSAR PLATJA
-	App->audio->PlayMusic("Assets/Audios/Music/08_Flying Power Disc (Beach Court).ogg", 1.0f);
+	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete1.bmp"); //POSAR MAPA CONCRETE
+	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);
 
 	//Bottomside collider
 	/*App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);*/
