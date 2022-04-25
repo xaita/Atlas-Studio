@@ -31,9 +31,9 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	leftidleAnim.PushBack({ 347, 359 , 23, 36 });// frame 3
 	leftidleAnim.PushBack({ 323, 359 , 24, 36 });// frame 4
 	leftidleAnim.PushBack({ 299, 359 , 24, 35 });// frame 5
-	leftidleAnim.PushBack({ 275, 359 , 24, 36 });// frame 6
-	leftidleAnim.PushBack({ 251, 359 , 24, 39 });// frame 7
-	leftidleAnim.PushBack({ 227, 359 , 24, 37 });// frame 8
+	leftidleAnim.PushBack({ 274, 359 , 25, 36 });// frame 6
+	leftidleAnim.PushBack({ 250, 359 , 24, 39 });// frame 7
+	leftidleAnim.PushBack({ 227, 359 , 23, 37 });// frame 8
 	leftidleAnim.loop = true;
 	leftidleAnim.speed = 0.08f;
 
