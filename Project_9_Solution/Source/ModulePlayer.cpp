@@ -168,6 +168,15 @@ Update_Status ModulePlayer::Update()
 			ultimadireccio = 2;
 		}
 	}
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
+	{
+		position.y += speed;
+		if (currentAnimation != &downAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT)
+		{
+			downAnim.Reset();
+			currentAnimation = &downAnim;
+		}
+	}
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
 	
@@ -188,13 +197,13 @@ Update_Status ModulePlayer::Update()
 			ultimadireccio = 1;
 		}
 	}
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
 	{
-		position.y += speed;
-		if (currentAnimation != &downAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT)
+		position.y -= speed;
+		if (currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT)
 		{
-			downAnim.Reset();
-			currentAnimation = &downAnim;
+			upAnim.Reset();
+			currentAnimation = &upAnim;
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
@@ -210,23 +219,18 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		
-		if (currentAnimation != &upleftAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT)
+		if (currentAnimation != &upleftAnim)
 		{
 			upleftAnim.Reset();
 			currentAnimation = &upleftAnim;
 			ultimadireccio = 1;
 		}
 	}
+	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT) {
 
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
-	{
-		position.y -= speed;
-		if (currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT)
-		{
-			upAnim.Reset();
-			currentAnimation = &upAnim;
-		}
+		currentAnimation = &rightidleAnim;
 	}
+	
 	
 
 
