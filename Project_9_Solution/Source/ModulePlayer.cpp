@@ -54,13 +54,18 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	rightAnim.PushBack({ 310, 148, 29, 36 }); // frame 5
 	rightAnim.PushBack({ 269, 148, 41, 35 }); // frame 6
 	rightAnim.loop = true;
-	rightAnim.speed = 0.07f;
+	rightAnim.speed = 0.13f;
 
 	// move left
-	leftAnim.PushBack({ 707, 182, 163, 97 });
-	leftAnim.PushBack({ 132, 0, 32, 14 });
+	leftAnim.PushBack({ 455, 404, 45, 32 });
+	leftAnim.PushBack({ 427, 404, 28, 33 });
+	leftAnim.PushBack({ 386, 404, 40, 36 });
+	leftAnim.PushBack({ 340, 404, 45, 29 });
+	leftAnim.PushBack({ 311, 404, 28, 36 });
+	leftAnim.PushBack({ 270, 404, 40, 35 });
 	leftAnim.loop = true;
-	leftAnim.speed = 0.1f;
+	leftAnim.speed = 0.15f;
+
 
 
 
