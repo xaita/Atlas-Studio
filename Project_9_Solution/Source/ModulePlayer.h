@@ -47,13 +47,8 @@ public:
 	Animation* currentAnimation = nullptr;
 
 	// A set of animations
-<<<<<<< Updated upstream
 	Animation rightidleAnim;
 	Animation leftidleAnim;
-=======
-	Animation idleAnim;
-	Animation idleLeftAnim;
->>>>>>> Stashed changes
 	Animation upAnim;
 	Animation upleftAnim;
 	Animation downAnim;

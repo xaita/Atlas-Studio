@@ -14,7 +14,6 @@
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
-<<<<<<< Updated upstream
 	// idle animation - just one sprite
 	rightidleAnim.PushBack({ 393, 103 , 23, 36 });// frame 1
 	rightidleAnim.PushBack({ 370, 103 , 23, 35 });// frame 2
@@ -26,31 +25,6 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	rightidleAnim.PushBack({ 227, 103 , 24, 37 });// frame 8
 	rightidleAnim.loop = true;
 	rightidleAnim.speed = 0.12f;
-=======
-	// idle animation
-	idleAnim.PushBack({ 393, 103 , 23, 36 });// frame 1
-	idleAnim.PushBack({ 370, 103 , 23, 35 });// frame 2
-	idleAnim.PushBack({ 347, 103 , 23, 36 });// frame 3
-	idleAnim.PushBack({ 323, 103 , 24, 36 });// frame 4
-	idleAnim.PushBack({ 299, 103 , 24, 35 });// frame 5
-	idleAnim.PushBack({ 275, 103 , 24, 36 });// frame 6
-	idleAnim.PushBack({ 251, 103 , 24, 39 });// frame 7
-	idleAnim.PushBack({ 227, 103 , 24, 37 });// frame 8
-	idleAnim.loop = true;
-	idleAnim.speed = 0.12f;
->>>>>>> Stashed changes
-
-	// idle left animation
-	idleLeftAnim.PushBack({ 393, 359 , 23, 36 });// frame 1
-	idleLeftAnim.PushBack({ 370, 359 , 23, 35 });// frame 2
-	idleLeftAnim.PushBack({ 347, 359 , 23, 36 });// frame 3
-	idleLeftAnim.PushBack({ 323, 359 , 24, 36 });// frame 4
-	idleLeftAnim.PushBack({ 299, 359 , 24, 35 });// frame 5
-	idleLeftAnim.PushBack({ 275, 359 , 24, 36 });// frame 6
-	idleLeftAnim.PushBack({ 251, 359 , 24, 39 });// frame 7
-	idleLeftAnim.PushBack({ 227, 359 , 24, 37 });// frame 8
-	idleLeftAnim.loop = true;
-	idleLeftAnim.speed = 0.12f;
 
 	leftidleAnim.PushBack({ 393, 359 , 23, 36 });// frame 1
 	leftidleAnim.PushBack({ 370, 359 , 23, 35 });// frame 2
@@ -120,7 +94,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downleftAnim.PushBack({ 179, 404, 29, 35 });// frame 3
 	downleftAnim.PushBack({ 155, 404, 24, 41 });// frame 4
 	downleftAnim.PushBack({ 125, 404, 30, 38 });// frame 5
-	downleftAnim.PushBack({ 94, 404, 31, 34 });// frame 6
+	downleftAnim.PushBack({ 94, 148, 31, 34 });// frame 6
 	downleftAnim.loop = true;
 	downleftAnim.speed = 0.1f;
 
@@ -206,7 +180,7 @@ Update_Status ModulePlayer::Update()
 		
 		if (currentAnimation != &downleftAnim)
 		{
-			downleftAnim.Reset();
+			downAnim.Reset();
 			currentAnimation = &downleftAnim;
 			a = 1;
 		}
@@ -269,24 +243,9 @@ Update_Status ModulePlayer::Update()
 	}
 
 	// If no up/down movement detected, set the current animation back to idle
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE					//idle dreta
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
-		currentAnimation = &rightidleAnim;
-=======
-		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_UP)
-		currentAnimation = &idleAnim;
->>>>>>> Stashed changes
-
-	else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE					//idle esquerra
-		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_UP
-		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
-		currentAnimation = &idleLeftAnim;
-=======
 		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE && a == 2)
 		currentAnimation = &rightidleAnim;
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
@@ -294,7 +253,6 @@ Update_Status ModulePlayer::Update()
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE && a == 1)
 		currentAnimation = &leftidleAnim;
->>>>>>> Stashed changes
 
 	collider->SetPos(position.x, position.y);
 
