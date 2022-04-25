@@ -104,7 +104,12 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	shooting.PushBack({ 73, 46, 34, 40 });// frame 1
 	shooting.PushBack({ 37, 46, 36, 38 });// frame 2
 	shooting.PushBack({ 0, 46, 37, 40 });// frame 3
-	shooting.speed = 0.08f;
+	shooting.PushBack({ 459, 0,	33,	41 });// frame 4
+	shooting.PushBack({ 432, 0,	27,	46 });// frame 5
+	shooting.PushBack({ 409, 0,	23,	43 });// frame 6
+
+	shooting.speed = 0.06f;
+	shooting.loop = false;
 
 	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
 
@@ -234,12 +239,12 @@ Update_Status ModulePlayer::Update()
 			ultimadireccio = 1;
 		}
 	}
-	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT) {
+	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && currentAnimation != &shooting) {
 
 		currentAnimation = &rightidleAnim;
 
 	}
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT) {
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && currentAnimation != &shooting) {
 
 		currentAnimation = &rightidleAnim;
 	}
@@ -300,6 +305,8 @@ Update_Status ModulePlayer::Update()
 			App->audio->PlayFx(discFx);
 
 			personatgedisc = personatgedisc * -1;
+
+
 		}
 
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
@@ -317,6 +324,9 @@ Update_Status ModulePlayer::Update()
 				App->audio->PlayFx(discFx);
 
 				personatgedisc = personatgedisc * -1;
+
+				
+				
 			}
 
 		}
@@ -329,12 +339,12 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE && ultimadireccio == 2)
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE && ultimadireccio == 2 && currentAnimation != &shooting)
 		currentAnimation = &rightidleAnim;
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE && ultimadireccio == 1)
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE && ultimadireccio == 1 && currentAnimation != &shooting)
 		currentAnimation = &leftidleAnim;
 
 	collider->SetPos(position.x, position.y);
