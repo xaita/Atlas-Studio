@@ -49,6 +49,9 @@ public:
 	// A set of animations
 	Animation rightidleAnim;
 	Animation leftidleAnim;
+	Animation rightidleFrisbee;
+	Animation uprightidleFrisbee;
+	Animation downrightidleFrisbee;
 	Animation upAnim;
 	Animation upleftAnim;
 	Animation downAnim;

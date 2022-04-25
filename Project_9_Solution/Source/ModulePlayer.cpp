@@ -112,10 +112,16 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	shooting.PushBack({ 459, 0,	33,	41 });// frame 4
 	shooting.PushBack({ 432, 0,	27,	46 });// frame 5
 	shooting.PushBack({ 409, 0,	23,	43 });// frame 6
-
+	
 	shooting.speed = 0.06f;
 	shooting.loop = false;
 	
+	//Animation idle before shooting
+	rightidleFrisbee.PushBack({ 325, 0, 42, 37 });// frame 1
+	shooting.loop = true;
+	uprightidleFrisbee.PushBack({ 367, 0, 42, 37, });
+	shooting.loop = true;
+	downrightidleFrisbee.PushBack({ 283, 0, 42,	39 });
 
 	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
 
@@ -267,14 +273,14 @@ if(personatgedisc == -1)
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE
-		&& ultimadireccio == 2 && currentAnimation != &shooting)
+		&& ultimadireccio == 2)
 		currentAnimation = &rightidleAnim;
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE
-		&& ultimadireccio == 1 && currentAnimation != &shooting)
+		&& ultimadireccio == 1)
 		currentAnimation = &leftidleAnim;
 }	
 	
@@ -295,17 +301,24 @@ if(personatgedisc == -1)
 
 	if (personatgedisc == 1) {
 
-		if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D] && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+		
+		currentAnimation = &rightidleFrisbee;
+	
+		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 		{
+			uprightidleFrisbee.Reset();
+			currentAnimation == &uprightidleFrisbee;
+
 			
-			currentAnimation = &shooting;
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+				currentAnimation = &shooting;
 
-			Particle* newParticle = App->particles->AddParticle(App->particles->disk_Up, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-			newParticle->collider->AddListener(this);
-			App->audio->PlayFx(discFx);
+				Particle* newParticle = App->particles->AddParticle(App->particles->disk_Up, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+				newParticle->collider->AddListener(this);
+				App->audio->PlayFx(discFx);
 
-			personatgedisc = personatgedisc * -1;
-
+				personatgedisc = -1;
+			}
 
 			
 
@@ -320,7 +333,7 @@ if(personatgedisc == -1)
 			newParticle->collider->AddListener(this);
 			App->audio->PlayFx(discFx);
 
-			personatgedisc = personatgedisc * -1;
+			personatgedisc = -1;
 			
 		}
 
@@ -333,12 +346,12 @@ if(personatgedisc == -1)
 			newParticle->collider->AddListener(this);
 			App->audio->PlayFx(discFx);
 
-			personatgedisc = personatgedisc * -1;
+			personatgedisc = -1;
 			
 
 
 		}
-
+		
 		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 		{
 			if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
@@ -346,6 +359,7 @@ if(personatgedisc == -1)
 				&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 			{
+<<<<<<< Updated upstream
 				 
 				
 			shooting.Reset();
@@ -353,13 +367,18 @@ if(personatgedisc == -1)
 
 
 				
+=======
+>>>>>>> Stashed changes
 				
-
+				
+				shooting.Reset();
+				currentAnimation = &shooting;
+				
 				Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				newParticle->collider->AddListener(this);
 				App->audio->PlayFx(discFx);
 
-				personatgedisc = personatgedisc * -1;				
+				personatgedisc = -1;
 				
 			}
 
@@ -367,10 +386,6 @@ if(personatgedisc == -1)
 	}
 
 		
-	
-
-	// If no up/down movement detected, set the current animation back to idle
-	
 
 	collider->SetPos(position.x, position.y);
 
