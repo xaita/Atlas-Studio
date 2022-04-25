@@ -100,6 +100,12 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downleftAnim.loop = true;
 	downleftAnim.speed = 0.08f;
 
+	// animation shooting
+	shooting.PushBack({ 73, 46, 34, 40 });// frame 1
+	shooting.PushBack({ 37, 46, 36, 38 });// frame 2
+	shooting.PushBack({ 0, 46, 37, 40 });// frame 3
+	shooting.speed = 0.08f;
+
 	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
 
 }
@@ -261,15 +267,22 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D] && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 		{
+			
+			currentAnimation = &shooting;
+
 			Particle* newParticle = App->particles->AddParticle(App->particles->disk_Up, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 			newParticle->collider->AddListener(this);
 			App->audio->PlayFx(discFx);
 
 			personatgedisc = personatgedisc * -1;
+
 		}
 
 		if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D] && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 		{
+			
+			currentAnimation = &shooting;
+
 			Particle* newParticle = App->particles->AddParticle(App->particles->disk_Down, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 			newParticle->collider->AddListener(this);
 			App->audio->PlayFx(discFx);
@@ -279,6 +292,9 @@ Update_Status ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
 		{
+			
+			currentAnimation = &shooting;
+
 			Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 			newParticle->collider->AddListener(this);
 			App->audio->PlayFx(discFx);
@@ -293,6 +309,9 @@ Update_Status ModulePlayer::Update()
 				&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
 			{
+				
+				currentAnimation = &shooting;
+
 				Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				newParticle->collider->AddListener(this);
 				App->audio->PlayFx(discFx);
