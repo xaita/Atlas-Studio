@@ -132,7 +132,7 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		position.x -= speed;
-		if (currentAnimation != &leftAnim)
+		if (currentAnimation != &leftAnim && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
 		{
 			leftAnim.Reset();
 			currentAnimation = &leftAnim;
@@ -151,7 +151,16 @@ Update_Status ModulePlayer::Update()
 	}
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
-		position.y += speed;
+		
+		if (currentAnimation != &downAnim)
+		{
+			downAnim.Reset();
+			currentAnimation = &downAnim;
+		}
+	}
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
+	{
+		
 		if (currentAnimation != &downAnim)
 		{
 			downAnim.Reset();
@@ -169,7 +178,16 @@ Update_Status ModulePlayer::Update()
 	}
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
-		position.y -= speed;
+		
+		if (currentAnimation != &upAnim)
+		{
+			upAnim.Reset();
+			currentAnimation = &upAnim;
+		}
+	}
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
+	{
+		
 		if (currentAnimation != &upAnim)
 		{
 			upAnim.Reset();
