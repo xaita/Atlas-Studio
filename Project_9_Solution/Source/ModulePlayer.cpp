@@ -265,12 +265,28 @@ Update_Status ModulePlayer::Update()
 			App->audio->PlayFx(discFx);
 		}
 
-		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN )
+		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
 		{
 			Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 			newParticle->collider->AddListener(this);
 			App->audio->PlayFx(discFx);
 		}
+
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+		{
+			if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
+			{
+				Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+				newParticle->collider->AddListener(this);
+				App->audio->PlayFx(discFx);
+			}
+			
+		}
+
+		
 	
 
 	// If no up/down movement detected, set the current animation back to idle
