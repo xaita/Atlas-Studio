@@ -81,12 +81,14 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 
 	// move diagonal dalt-esquerra
-	upleftAnim.PushBack({ 0, 837, 72, 117 });
-	upleftAnim.PushBack({ 912, 720, 78, 117 });
-	upleftAnim.PushBack({ 831, 720, 81, 117 });
-	upleftAnim.PushBack({ 756, 720, 75, 117 });
+	upleftAnim.PushBack({ 150, 447, 30, 40 });// frame 1
+	upleftAnim.PushBack({ 120, 447, 30, 51 });// frame 2
+	upleftAnim.PushBack({ 90, 447, 30, 50 });// frame 3
+	upleftAnim.PushBack({ 60, 447, 30, 40 });// frame 4
+	upleftAnim.PushBack({ 30, 447, 30, 53 });// frame 5
+	upleftAnim.PushBack({ 0, 447, 30, 50 });// frame 6
 	upleftAnim.loop = true;
-	upleftAnim.speed = 0.1f;
+	upleftAnim.speed = 0.15f;
 
 	// move diagonal abaix-esquerra
 	downleftAnim.PushBack({ 240, 404, 29, 43 });// frame 1
@@ -96,7 +98,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	downleftAnim.PushBack({ 125, 404, 30, 38 });// frame 5
 	downleftAnim.PushBack({ 94, 148, 31, 34 });// frame 6
 	downleftAnim.loop = true;
-	downleftAnim.speed = 0.1f;
+	downleftAnim.speed = 0.15f;
 
 	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
 
@@ -136,7 +138,7 @@ bool ModulePlayer::Start()
 
 	return ret;
 }
-int a=0;
+int ultimadireccio=0; //1=dreta 2=esquerra
 Update_Status ModulePlayer::Update()
 {
 	
@@ -150,7 +152,7 @@ Update_Status ModulePlayer::Update()
 		{
 			leftAnim.Reset();
 			currentAnimation = &leftAnim;
-			a = 1;
+			ultimadireccio = 1;
 		}
 	}
 
@@ -162,7 +164,7 @@ Update_Status ModulePlayer::Update()
 		{
 			rightAnim.Reset();
 			currentAnimation = &rightAnim;
-			a = 2;
+			ultimadireccio = 2;
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
@@ -172,7 +174,7 @@ Update_Status ModulePlayer::Update()
 		{
 			downAnim.Reset();
 			currentAnimation = &downAnim;
-			a = 2;
+			ultimadireccio = 2;
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
@@ -182,7 +184,7 @@ Update_Status ModulePlayer::Update()
 		{
 			downleftAnim.Reset();
 			currentAnimation = &downleftAnim;
-			a = 1;
+			ultimadireccio = 1;
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
@@ -201,7 +203,7 @@ Update_Status ModulePlayer::Update()
 		{
 			upAnim.Reset();
 			currentAnimation = &upAnim;
-			a = 2;
+			ultimadireccio = 2;
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
@@ -211,7 +213,7 @@ Update_Status ModulePlayer::Update()
 		{
 			upleftAnim.Reset();
 			currentAnimation = &upleftAnim;
-			a = 1;
+			ultimadireccio = 1;
 		}
 	}
 
@@ -246,12 +248,12 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE && a == 2)
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE && ultimadireccio == 2)
 		currentAnimation = &rightidleAnim;
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE && a == 1)
+		&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE && ultimadireccio == 1)
 		currentAnimation = &leftidleAnim;
 
 	collider->SetPos(position.x, position.y);
