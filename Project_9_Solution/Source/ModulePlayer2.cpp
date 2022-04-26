@@ -122,7 +122,7 @@ bool ModulePlayer2::Start()
 	bool ret = true;
 
 	texture = App->textures->Load("Assets/Sprites/Characters/Hiromi Mita/JapaneseSpriteSheedCanviL2.png");
-	currentAnimation = &rightidleAnim;
+	currentAnimation = &leftidleAnim;
 
 	/*laserFx = App->audio->LoadFx("Assets/Nau/Fx/laser.wav");*/
 	explosionFx = App->audio->LoadFx("Assets/Nau/Fx/explosion.wav");
@@ -210,7 +210,7 @@ Update_Status ModulePlayer2::Update()
 			{
 				leftAnim.Reset();
 				currentAnimation = &leftAnim;
-				ultimadireccio2 = 1;
+				ultimadireccio2 = 2;
 			}
 		}
 		if (App->input->keys[SDL_SCANCODE_I] == Key_State::KEY_REPEAT && position.y > 29)
@@ -229,7 +229,7 @@ Update_Status ModulePlayer2::Update()
 			{
 				rightAnim.Reset();
 				currentAnimation = &rightAnim;
-				ultimadireccio2 = 2;
+				ultimadireccio2 = 1;
 			}
 		}
 		if (App->input->keys[SDL_SCANCODE_I] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_J] == Key_State::KEY_REPEAT)
@@ -239,7 +239,7 @@ Update_Status ModulePlayer2::Update()
 			{
 				leftAnim.Reset();
 				currentAnimation = &leftAnim;
-				ultimadireccio2 = 1;
+				ultimadireccio2 = 2;
 			}
 		}
 		if (App->input->keys[SDL_SCANCODE_J] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_REPEAT && currentAnimation != &shooting) {
