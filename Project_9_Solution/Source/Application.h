@@ -11,7 +11,11 @@ class ModuleInput;
 class ModuleTextures;
 class ModuleAudio;
 class ModulePlayer;
+
 class SceneIntroSNK;
+
+class ModulePlayer2;
+
 class SceneIntro;
 class SceneIntroMapes;
 class SceneLevel1;
@@ -53,6 +57,7 @@ public:
 	ModuleAudio* audio = nullptr;
 
 	ModulePlayer* player = nullptr;
+	ModulePlayer2* player2 = nullptr;
 
 	SceneIntroSNK* sceneIntroSNK = nullptr;
 	SceneIntro* sceneIntro = nullptr;

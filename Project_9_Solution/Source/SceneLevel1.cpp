@@ -7,6 +7,10 @@
 #include "ModuleCollisions.h"
 #include "ModuleEnemies.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
+
+
+
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
 {
@@ -85,7 +89,7 @@ bool SceneLevel1::Start()
 
 	App->player->Enable();
 	App->enemies->Enable();
-
+	App->player2->Enable();i
 	return ret;
 }
 
@@ -119,6 +123,7 @@ Update_Status SceneLevel1::PostUpdate()
 bool SceneLevel1::CleanUp()
 {
 	App->player->Disable();
+	App->player2->Disable();
 	App->enemies->Disable();
 
 	// TODO 5 (old): Remove All Memory Leaks - no solution here guys ;)

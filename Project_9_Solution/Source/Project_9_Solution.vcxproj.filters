@@ -110,6 +110,10 @@
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClInclude>
     <ClInclude Include="SceneIntroSNK.h">
+    <ClInclude Include="ModuleDisk.h">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="ModulePlayer2.h">
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClInclude>
   </ItemGroup>
@@ -190,6 +194,10 @@
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClCompile>
     <ClCompile Include="SceneIntroSNK.cpp">
+    <ClCompile Include="ModuleDisk.cpp">
+      <Filter>Source Files\Modules\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulePlayer2.cpp">
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClCompile>
   </ItemGroup>
