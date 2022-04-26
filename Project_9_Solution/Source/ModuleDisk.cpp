@@ -57,7 +57,7 @@ bool ModuleDisk::Start()
 
 	destroyed = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 16, 16 }, Collider::Type::DISK, this);
+	diskcollider = App->collisions->AddCollider({ position.x, position.y, 16, 16 }, Collider::Type::DISK, this);
 
 	return ret;
 }
@@ -66,7 +66,7 @@ Update_Status ModuleDisk::Update()
 {
 	
 
-	collider->SetPos(position.x, position.y);
+	diskcollider->SetPos(position.x, position.y);
 
 
 
@@ -82,7 +82,7 @@ Update_Status ModuleDisk::PostUpdate()
 
 void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == collider && destroyed == false)
+	if (c1 == diskcollider && destroyed == false)
 	{
 		arbitro = 0;
 

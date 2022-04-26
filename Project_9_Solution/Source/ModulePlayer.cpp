@@ -151,10 +151,10 @@ int podermoverse = 0;
 int personatgedisc = -1;
 Update_Status ModulePlayer::Update()
 {
-	if ()
+	if (App->input->keys[SDL_SCANCODE_X] == Key_State::KEY_UP) 
 	{
 		personatgedisc = personatgedisc * -1 ;
-	}
+	};
 	// Moving the player with the camera scroll
 	App->player->position.x += 0;
 
