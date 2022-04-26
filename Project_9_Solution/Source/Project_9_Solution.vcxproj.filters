@@ -30,6 +30,8 @@
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="SceneWindjammers.cpp" />
+    <ClCompile Include="PropsBackground.cpp" />
+    <ClCompile Include="SceneLogo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -63,5 +65,7 @@
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="SceneWindjammers.h" />
+    <ClInclude Include="PropsBackground.h" />
+    <ClInclude Include="SceneLogo.h" />
   </ItemGroup>
 </Project>
