@@ -25,22 +25,26 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete-sprite-sheet.png"); //POSAR MAPA CONCRETE
-	bgBotwall = App->textures->Load("Assets/Sprites/Stages/Concrete/bot_wall.png");
-	bgTopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/top_wall.png");
-	bgExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall.png");
-	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");
-	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");
-	bgGoal = App->textures->Load("Assets/Sprites/Stages/Concrete/goal.png");
-	bgGoalright = App->textures->Load("Assets/Sprites/Stages/Concrete/goalRight.png");
+	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete-sprite-sheet.png");				//BG CONCRETE + PROPS
+	bgBotwall = App->textures->Load("Assets/Sprites/Stages/Concrete/bot_wall.png");								//
+	bgTopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/top_wall.png");								//
+	bgExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall.png");				//
+	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");	//
+	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");										//
+	bgGoal = App->textures->Load("Assets/Sprites/Stages/Concrete/goal.png");									//
+	bgGoalright = App->textures->Load("Assets/Sprites/Stages/Concrete/goalRight.png");							//
 
-	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);
+	referee = App->textures->Load("Assets/Sprites/Referee/SpriteSheet_Arbi_Beach_Definitiu.png");				//ARBITRE
 
-	spectators.PushBack({ 0,0,304,224 });
+	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);					//MUSICA
+
+	spectators.PushBack({ 0,0,304,224 });																		//ANIMACIO ESPECTADORS
 	spectators.PushBack({ 308,0,304,224 });
 	spectators.PushBack({ 616,0,304,224 });
 	spectators.loop = true;
 	spectators.speed = 0.15f;
+
+	refereeAnim.PushBack({ 0,0,45,35 });																		//ANIMACIO ARBITRE
 	
 	//Bottomside collider
 	/*App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);*/
@@ -105,6 +109,7 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(bgBotwall, 31, 202, NULL);
 	App->render->Blit(bgTopwall, 30, 20, NULL);
 	
+	App->render->Blit(referee, 138, 189, &(refereeAnim.GetCurrentFrame()));
 
 	return Update_Status::UPDATE_CONTINUE;
 }

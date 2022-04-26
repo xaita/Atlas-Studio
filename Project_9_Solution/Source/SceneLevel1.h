@@ -32,7 +32,7 @@ public:
 
 public:
 	
-	// The scene sprite sheet loaded into an SDL_Texture
+	// Textures del bg
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* bgBotwall = nullptr;
 	SDL_Texture* bgTopwall = nullptr;
@@ -44,10 +44,14 @@ public:
 	SDL_Texture* bgGoalgoal = nullptr;
 	SDL_Texture* bgGoalsupergoal = nullptr;
 
+	//arbitre
+	SDL_Texture* referee = nullptr;
+
 
 	Animation* currentAnimation = nullptr;
 
 	Animation spectators;
+	Animation refereeAnim;
 
 
 };
