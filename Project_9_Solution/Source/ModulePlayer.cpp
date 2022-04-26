@@ -66,11 +66,13 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	// move right 
 	rightAnim.PushBack({ 454, 148, 45, 32 }); // frame 1
+	position.x -= 5;
 	rightAnim.PushBack({ 426, 148, 28, 33 }); // frame 2
 	rightAnim.PushBack({ 385, 148, 41, 36 }); // frame 3
 	rightAnim.PushBack({ 339, 148, 46, 29 }); // frame 4
 	rightAnim.PushBack({ 310, 148, 29, 36 }); // frame 5
 	rightAnim.PushBack({ 269, 148, 41, 35 }); // frame 6
+	position.x += 5;
 	rightAnim.loop = true;
 	rightAnim.speed = 0.08f;
 
@@ -162,7 +164,7 @@ Update_Status ModulePlayer::Update()
 if(personatgedisc == -1)
 {
 
-	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && position.x > 5)
 	{
 		position.x -= speed;
 		if (currentAnimation != &leftAnim && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
@@ -173,7 +175,7 @@ if(personatgedisc == -1)
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && position.x < 100)
 	{
 		position.x += speed;
 
@@ -184,7 +186,7 @@ if(personatgedisc == -1)
 			ultimadireccio = 2;
 		}
 	}
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && position.y < 200)
 	{
 		position.y += speed;
 		if (currentAnimation != &downAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT)
@@ -213,7 +215,7 @@ if(personatgedisc == -1)
 			ultimadireccio = 1;
 		}
 	}
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && position.y > 0)
 	{
 		position.y -= speed;
 		if (currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT)
