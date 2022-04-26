@@ -20,6 +20,7 @@ struct Collider
 		SCOREZONE_2,
 		SCOREZONE_1,
 		NET,
+		DISK,
 
 		MAX
 	};

@@ -9,6 +9,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
+#include"ModuleDisk.h"
 #include "SDL/include/SDL.h"
 
 #include <chrono>
@@ -150,7 +151,7 @@ int podermoverse = 0;
 int personatgedisc = -1;
 Update_Status ModulePlayer::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_X] == Key_State::KEY_UP)
+	if ()
 	{
 		personatgedisc = personatgedisc * -1 ;
 	}
