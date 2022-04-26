@@ -11,11 +11,8 @@ class ModuleInput;
 class ModuleTextures;
 class ModuleAudio;
 class ModulePlayer;
-
-class SceneIntroSNK;
-
 class ModulePlayer2;
-
+class SceneIntroSNK;
 class SceneIntro;
 class SceneIntroMapes;
 class SceneLevel1;

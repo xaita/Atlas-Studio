@@ -89,7 +89,7 @@ bool SceneLevel1::Start()
 
 	App->player->Enable();
 	App->enemies->Enable();
-	App->player2->Enable();i
+	App->player2->Enable();
 	return ret;
 }
 
