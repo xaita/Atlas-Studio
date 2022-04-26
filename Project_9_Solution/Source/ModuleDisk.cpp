@@ -28,6 +28,7 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	flying.PushBack({ 149, 48, 16, 16 });
 	flying.PushBack({ 181, 48, 16, 16 });
 	flying.PushBack({ 213, 48, 16, 16 });
+	flying.loop = true;
 	flying.speed = 0.2f;
 	//shooting.loop = false;
 	//shooting.pingpong = false;
@@ -59,18 +60,13 @@ bool ModuleDisk::Start()
 
 	destroyed = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 16, 16 }, Collider::Type::PLAYER_SHOT, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 16, 16 }, Collider::Type::PLAYER, this);
 
 	return ret;
 }
 
 Update_Status ModuleDisk::Update()
 {
-	
-
-
-
-
 	
 	collider->SetPos(position.x, position.y);
 
