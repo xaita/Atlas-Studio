@@ -24,6 +24,7 @@ class ModuleEnemies;
 class ModuleFadeToBlack;
 class ModuleFonts;
 class ModuleRender;
+class PropsBackground;
 
 class Application
 {
@@ -64,6 +65,7 @@ public:
 	SceneIntro* sceneIntro = nullptr;
 	SceneIntroMapes* sceneIntroMapes = nullptr;
 	SceneLevel1* sceneLevel_1 = nullptr;
+	PropsBackground* propsBackground = nullptr;
 
 	ModuleEnemies* enemies = nullptr;
 	ModuleParticles* particles = nullptr;

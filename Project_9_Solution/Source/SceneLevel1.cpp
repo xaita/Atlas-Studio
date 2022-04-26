@@ -30,13 +30,10 @@ bool SceneLevel1::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete-sprite-sheet.png");				//BG CONCRETE + PROPS
-	bgBotwall = App->textures->Load("Assets/Sprites/Stages/Concrete/bot_wall.png");								//
 	bgTopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/top_wall.png");								//
 	bgExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall.png");				//
 	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");	//
 	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");										//
-	bgGoal = App->textures->Load("Assets/Sprites/Stages/Concrete/goal.png");									//
-	bgGoalright = App->textures->Load("Assets/Sprites/Stages/Concrete/goalRight.png");							//
 
 	referee = App->textures->Load("Assets/Sprites/Referee/SpriteSheet_Arbi_Beach_Definitiu.png");				//ARBITRE
 	//bgFrisbees = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");//discos del terra
@@ -108,10 +105,7 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(bgTexture, 0, 0, &(spectators.GetCurrentFrame()));
 	App->render->Blit(bgExtremetopwall, 0, 16, NULL);
 	App->render->Blit(bgExtremetopwallright, 267, 16, NULL);
-	App->render->Blit(bgGoal, 0, 22, NULL);
-	App->render->Blit(bgGoalright, 266, 22, NULL);
 	App->render->Blit(bgNet, 142, 31, NULL);
-	App->render->Blit(bgBotwall, 31, 202, NULL);
 	App->render->Blit(bgTopwall, 30, 20, NULL);
 	
 	App->render->Blit(referee, 138, 189, &(refereeAnim.GetCurrentFrame()));

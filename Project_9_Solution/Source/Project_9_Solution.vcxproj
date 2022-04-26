@@ -89,6 +89,7 @@
     <ClInclude Include="ModuleFonts.h" />
     <ClInclude Include="ModuleParticles.h" />
     <ClInclude Include="ModulePlayer2.h" />
+    <ClInclude Include="PropsBackground.h" />
     <ClInclude Include="SceneIntro.h" />
     <ClInclude Include="SceneIntroMapes.h" />
     <ClInclude Include="SceneIntroSNK.h" />
@@ -122,6 +123,7 @@
     <ClCompile Include="ModuleFonts.cpp" />
     <ClCompile Include="ModuleParticles.cpp" />
     <ClCompile Include="ModulePlayer2.cpp" />
+    <ClCompile Include="PropsBackground.cpp" />
     <ClCompile Include="SceneIntro.cpp" />
     <ClCompile Include="SceneIntroMapes.cpp" />
     <ClCompile Include="SceneIntroSNK.cpp" />
