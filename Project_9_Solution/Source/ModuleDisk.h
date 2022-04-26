@@ -1,5 +1,5 @@
-#ifndef __MODULE_FRISBEE_H__
-#define __MODULE_FRISBEE_H__ 
+#ifndef __MODULE_Disk_H__
+#define __MODULE_Disk_H__ 
 
 #include "Module.h"
 #include "Animation.h"
@@ -8,14 +8,14 @@
 struct SDL_Texture;
 struct Collider;
 
-class ModuleFrisbee : public Module
+class ModuleDisk : public Module
 {
 public:
 	// Constructor
-	ModuleFrisbee(bool startEnabled);
+	ModuleDisk(bool startEnabled);
 
 	// Destructor
-	~ModuleFrisbee();
+	~ModuleDisk();
 
 	// Called when the module is activated
 	// Loads the necessary textures for the player
@@ -69,4 +69,4 @@ public:
 
 };
 
-#endif //!__MODULE_FRISBEE_H__ 
+#endif //!__MODULE_Disk_H__ 

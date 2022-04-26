@@ -1,4 +1,4 @@
-#include "ModuleFrisbee.h"
+#include "ModuleDisk.h"
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -11,7 +11,7 @@
 #include "ModulePlayer2.h"
 #include "SDL/include/SDL.h"
 
-ModuleFrisbee::ModuleFrisbee(bool startEnabled) : Module(startEnabled)
+ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 {
 	// moving animation
 	moving.PushBack({ 117, 48, 16, 16 });
