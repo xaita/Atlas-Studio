@@ -10,11 +10,7 @@
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
 {
-	spectators.PushBack({ 0,0,304,224 });
-	spectators.PushBack({ 308,0,304,224 });
-	spectators.PushBack({ 612,0,304,224 });
-	spectators.loop = true;
-	spectators.speed = 0.1f;
+
 }
 
 SceneLevel1::~SceneLevel1()
@@ -29,7 +25,7 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete1.bmp"); //POSAR MAPA CONCRETE
+	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete-sprite-sheet.png"); //POSAR MAPA CONCRETE
 	bgBotwall = App->textures->Load("Assets/Sprites/Stages/Concrete/bot_wall.png");
 	bgTopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/top_wall.png");
 	bgExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall.png");
@@ -40,6 +36,12 @@ bool SceneLevel1::Start()
 
 	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);
 
+	spectators.PushBack({ 0,0,304,224 });
+	spectators.PushBack({ 308,0,304,224 });
+	spectators.PushBack({ 616,0,304,224 });
+	spectators.loop = true;
+	spectators.speed = 0.15f;
+	
 	//Bottomside collider
 	/*App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);*/
 
@@ -84,7 +86,8 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
-	spectators.Reset();
+	spectators.Update();
+	currentAnimation = &spectators;
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -93,7 +96,7 @@ Update_Status SceneLevel1::Update()
 Update_Status SceneLevel1::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	App->render->Blit(bgTexture, 0, 0, NULL);
+	App->render->Blit(bgTexture, 0, 0, &(spectators.GetCurrentFrame()));
 	App->render->Blit(bgExtremetopwall, 0, 16, NULL);
 	App->render->Blit(bgExtremetopwallright, 267, 16, NULL);
 	App->render->Blit(bgGoal, 0, 22, NULL);

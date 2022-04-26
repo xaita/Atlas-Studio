@@ -45,6 +45,7 @@ public:
 	SDL_Texture* bgGoalsupergoal = nullptr;
 
 
+	Animation* currentAnimation = nullptr;
 
 	Animation spectators;
 
