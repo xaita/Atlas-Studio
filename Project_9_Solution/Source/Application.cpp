@@ -41,11 +41,12 @@ Application::Application()
 	modules[11] =   disk =              new ModuleDisk(false);
 	modules[12] =	particles =			new ModuleParticles(true);
 	modules[13] =	enemies =			new ModuleEnemies(false);	//Enemies start disabled
+	modules[14] =	propsBackground		new PropsBackground(true);
 
-	modules[14] =	collisions =		new ModuleCollisions(true);
-	modules[15] =	fade =				new ModuleFadeToBlack(true);
-	modules[16] =	fonts =				new ModuleFonts(true);
-	modules[17] =	render =			new ModuleRender(true);
+	modules[15] =	collisions =		new ModuleCollisions(true);
+	modules[16] =	fade =				new ModuleFadeToBlack(true);
+	modules[17] =	fonts =				new ModuleFonts(true);
+	modules[18] =	render =			new ModuleRender(true);
 
 
 
