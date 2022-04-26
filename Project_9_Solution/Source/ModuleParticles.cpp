@@ -43,23 +43,23 @@ bool ModuleParticles::Start()
 	disk.anim.speed = 0.2f;
 
 
-	disk_Up.anim.PushBack({ 117, 48, 16, 16 });
-	disk_Up.anim.PushBack({ 149, 48, 16, 16 });
-	disk_Up.anim.PushBack({ 181, 48, 16, 16 });
-	disk_Up.anim.PushBack({ 213, 48, 16, 16 });
-	disk_Up.speed.x = 3;
-	disk_Up.speed.y = -3;
-	disk_Up.lifetime = 180;
-	disk_Up.anim.speed = 0.2f;
+	//disk_Up.anim.PushBack({ 117, 48, 16, 16 });
+	//disk_Up.anim.PushBack({ 149, 48, 16, 16 });
+	//disk_Up.anim.PushBack({ 181, 48, 16, 16 });
+	//disk_Up.anim.PushBack({ 213, 48, 16, 16 });
+	//disk_Up.speed.x = 3;
+	//disk_Up.speed.y = -3;
+	//disk_Up.lifetime = 180;
+	//disk_Up.anim.speed = 0.2f;
 
-	disk_Down.anim.PushBack({ 117, 48, 16, 16 });
-	disk_Down.anim.PushBack({ 149, 48, 16, 16 });
-	disk_Down.anim.PushBack({ 181, 48, 16, 16 });
-	disk_Down.anim.PushBack({ 213, 48, 16, 16 });
-	disk_Down.speed.x = 3;
-	disk_Down.speed.y = +3;
-	disk_Down.lifetime = 180;
-	disk_Down.anim.speed = 0.2f;
+	//disk_Down.anim.PushBack({ 117, 48, 16, 16 });
+	//disk_Down.anim.PushBack({ 149, 48, 16, 16 });
+	//disk_Down.anim.PushBack({ 181, 48, 16, 16 });
+	//disk_Down.anim.PushBack({ 213, 48, 16, 16 });
+	//disk_Down.speed.x = 3;
+	//disk_Down.speed.y = +3;
+	//disk_Down.lifetime = 180;
+	//disk_Down.anim.speed = 0.2f;
 
 	return true;
 }
@@ -144,7 +144,7 @@ Update_Status ModuleParticles::PostUpdate()
 	return Update_Status::UPDATE_CONTINUE;
 }
 
-Particle* ModuleParticles::AddParticle(const Particle& particle, int x, int y, Collider::Type colliderType, uint delay)
+Particle* ModuleParticles::AddParticle(int speedx, int speedy, const Particle& particle, int x, int y, Collider::Type colliderType, uint delay)
 {
 	Particle* newParticle = nullptr;
 
@@ -157,6 +157,8 @@ Particle* ModuleParticles::AddParticle(const Particle& particle, int x, int y, C
 			newParticle->frameCount = -(int)delay;			// We start the frameCount as the negative delay
 			newParticle->position.x = x;						// so when frameCount reaches 0 the particle will be activated
 			newParticle->position.y = y;
+			newParticle->speed.x = speedx;
+			newParticle->speed.y = speedy;
 
 			//Adding the particle's collider
 			if (colliderType != Collider::Type::NONE)

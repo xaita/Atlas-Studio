@@ -178,6 +178,7 @@ Update_Status ModulePlayer::Update()
 
 if(personatgedisc == -1)
 {
+
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		position.x -= speed;
@@ -313,7 +314,7 @@ if(personatgedisc == -1)
 
 				currentAnimation = &shooting;
 			
-				Particle* newParticle = App->particles->AddParticle(App->particles->disk_Up, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+				Particle* newParticle = App->particles->AddParticle(15, -15, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				newParticle->collider->AddListener(this);
 				App->audio->PlayFx(discFx);
 				SDL_Delay(1000);
@@ -335,7 +336,7 @@ if(personatgedisc == -1)
 			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
 				currentAnimation = &shooting;
 
-				Particle* newParticle = App->particles->AddParticle(App->particles->disk_Down, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+				Particle* newParticle = App->particles->AddParticle(15, 15, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				newParticle->collider->AddListener(this);
 				App->audio->PlayFx(discFx);
 				SDL_Delay(1000);
@@ -350,7 +351,7 @@ if(personatgedisc == -1)
 			shooting.Reset();
 			currentAnimation = &shooting;
 
-			Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			Particle* newParticle = App->particles->AddParticle(15, 0, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 			newParticle->collider->AddListener(this);
 			App->audio->PlayFx(discFx);
 			SDL_Delay(1000);
@@ -371,7 +372,7 @@ if(personatgedisc == -1)
 				shooting.Reset();
 				currentAnimation = &shooting;
 				
-				Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+				Particle* newParticle = App->particles->AddParticle(15, 0, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				newParticle->collider->AddListener(this);
 				App->audio->PlayFx(discFx);
 				SDL_Delay(1000);
@@ -423,11 +424,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == collider && destroyed == false)
 	{
-		App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
-		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
-		App->particles->AddParticle(App->particles->explosion, position.x - 7, position.y + 12, Collider::Type::NONE, 40);
-		App->particles->AddParticle(App->particles->explosion, position.x + 5, position.y - 5, Collider::Type::NONE, 28);
-		App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, Collider::Type::NONE, 21);
+		App->particles->AddParticle(0, 0, App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
+		App->particles->AddParticle(0, 0, App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
+		App->particles->AddParticle(0, 0, App->particles->explosion, position.x - 7, position.y + 12, Collider::Type::NONE, 40);
+		App->particles->AddParticle(0, 0, App->particles->explosion, position.x + 5, position.y - 5, Collider::Type::NONE, 28);
+		App->particles->AddParticle(0, 0, App->particles->explosion, position.x - 4, position.y - 4, Collider::Type::NONE, 21);
 
 		App->audio->PlayFx(explosionFx);
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
