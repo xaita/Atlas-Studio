@@ -220,7 +220,7 @@ Update_Status ModulePlayer2::Update()
 				currentAnimation = &upAnim;
 			}
 		}
-		if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_REPEAT)
 		{
 
 			if (currentAnimation != &rightAnim)
