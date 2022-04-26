@@ -122,7 +122,7 @@ bool ModulePlayer2::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Sprites/Characters/Hiromi Mita/JapaneseSpriteSheedCanviL2.png");
+	texture = App->textures->Load("Assets/Sprites/Characters/Hiromi Mita/JapaneseSpriteSheedCanviL2P2.png");
 	currentAnimation = &leftidleAnim;
 
 	/*laserFx = App->audio->LoadFx("Assets/Nau/Fx/laser.wav");*/
