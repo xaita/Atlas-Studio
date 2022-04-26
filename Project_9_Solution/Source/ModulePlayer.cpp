@@ -115,7 +115,8 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	shooting.PushBack({ 432, 0,	27,	46 });// frame 5
 	shooting.PushBack({ 409, 0,	23,	43 });// frame 6
 	shooting.loop = false;
-	shooting.speed = 0.13f;
+	shooting.pingpong = false;
+	shooting.speed = 0.2f;
 	
 	
 	//Animation idle before shooting
@@ -297,86 +298,89 @@ if(personatgedisc == -1)
 
 				//disparar disc
   
-int estatdisc=1; //1 si es té el disc, 0 si el llençes
+
 
 
 	if (personatgedisc == 1) {
 
-		if (estatdisc == 1) {
-			currentAnimation = &rightidleFrisbee;
+		
+		currentAnimation = &rightidleFrisbee;
+	
+		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
+		{
+		
+			currentAnimation = &uprightidleFrisbee;
 
-			if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
-			{
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
 
-				currentAnimation = &uprightidleFrisbee;
-
-				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
-
-
-					Particle* newParticle = App->particles->AddParticle(15, -15, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-					newParticle->collider->AddListener(this);
-					App->audio->PlayFx(discFx);
-
-
-
-				}
-
-
-
-
-			}
-
-			if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
-			{
-				currentAnimation = &downrightidleFrisbee;
-
-				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
-
-					Particle* newParticle = App->particles->AddParticle(15, 15, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-					newParticle->collider->AddListener(this);
-					App->audio->PlayFx(discFx);
-
-				}
-
-			}
-
-			if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
-			{
-
-				Particle* newParticle = App->particles->AddParticle(15, 0, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+				currentAnimation = &shooting;
+			
+				Particle* newParticle = App->particles->AddParticle(15, -15, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				newParticle->collider->AddListener(this);
 				App->audio->PlayFx(discFx);
 
+				personatgedisc = -1;
+				
 
 			}
+		
 
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
-			{
-				if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
-					&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
-					&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
-					&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
-				{
+			
 
-					Particle* newParticle = App->particles->AddParticle(15, 0, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-					newParticle->collider->AddListener(this);
-					App->audio->PlayFx(discFx);
-
-
-
-
-				}
-
-			}
 		}
-		if (estatdisc == 0) {
 
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
+		{
+			currentAnimation = &downrightidleFrisbee;
+
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+				currentAnimation = &shooting;
+
+				Particle* newParticle = App->particles->AddParticle(15, 15, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+				newParticle->collider->AddListener(this);
+				App->audio->PlayFx(discFx);
+
+				personatgedisc = -1;
+			}
+			
+		}
+
+		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
+		{
 			shooting.Reset();
 			currentAnimation = &shooting;
 
-		}
-		personatgedisc = -1;
+			Particle* newParticle = App->particles->AddParticle(15, 0, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			newParticle->collider->AddListener(this);
+			App->audio->PlayFx(discFx);
 
+			personatgedisc = -1;
+
+
+
+		}
+		
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+		{
+			if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
+			{
+				shooting.Reset();
+				currentAnimation = &shooting;
+				
+				Particle* newParticle = App->particles->AddParticle(15, 0, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+				newParticle->collider->AddListener(this);
+				App->audio->PlayFx(discFx);
+				
+
+				personatgedisc = -1; 
+
+				
+			}
+
+		}
 	}
 
 		
