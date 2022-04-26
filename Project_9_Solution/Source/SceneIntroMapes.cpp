@@ -1,4 +1,4 @@
-#include "SceneIntro.h"
+#include "SceneIntroMapes.h"
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -7,24 +7,24 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 
-SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
+SceneIntroMapes::SceneIntroMapes(bool startEnabled) : Module(startEnabled)
 {
 
 }
 
-SceneIntro::~SceneIntro()
+SceneIntroMapes::~SceneIntroMapes()
 {
 
 }
 
 // Load assets
-bool SceneIntro::Start()
+bool SceneIntroMapes::Start()
 {
 	LOG("Loading background assets");
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/UI/Select Screens/SelectPlayer.png");
+	bgTexture = App->textures->Load("Assets/UI/Select Screens/SelectMapStructure.png");
 	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
 
 	App->render->camera.x = 0;
@@ -33,18 +33,18 @@ bool SceneIntro::Start()
 	return ret;
 }
 
-Update_Status SceneIntro::Update()
+Update_Status SceneIntroMapes::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneIntroMapes, 90);
+		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
 
 // Update: draw background
-Update_Status SceneIntro::PostUpdate()
+Update_Status SceneIntroMapes::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
