@@ -36,15 +36,15 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 
 }
 
-ModuleFrisbee::~ModuleFrisbee()
+ModuleDisk::~ModuleDisk()
 {
 
 }
 
-bool ModuleFrisbee::Start()
+bool ModuleDisk::Start()
 {
 	currentAnimation2 = &moving;
-	LOG("Loading frisbee textures");
+	LOG("Loading Disk textures");
 
 	bool ret = true;
 
@@ -57,12 +57,12 @@ bool ModuleFrisbee::Start()
 
 	destroyed = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 16, 16 }, Collider::Type::FRISBEE, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 16, 16 }, Collider::Type::PLAYER, this);
 
 	return ret;
 }
 
-Update_Status ModuleFrisbee::Update()
+Update_Status ModuleDisk::Update()
 {
 	//while (position.x != App->player->position.x && position.y != App->player->position.y) {
 		/*uint delay = 1500;
@@ -92,7 +92,7 @@ Update_Status ModuleFrisbee::Update()
 
 
 
-	//MOV FRISBEE HACIA ARRIBA
+	//MOV Disk HACIA ARRIBA
 	if (mov == 1 && position.x >= 19 && position.x <= 276) {
 
 		if (pared == false && position.y >= 50) {
@@ -115,12 +115,12 @@ Update_Status ModuleFrisbee::Update()
 
 	}
 
-	//MOV FRISBEE HORIZONTAL - PARA PLAYER2 *-1
+	//MOV Disk HORIZONTAL - PARA PLAYER2 *-1
 	if (mov == 2 && position.x >= 19 && position.x <= 276) {
 		position.x += xspeed;
 	}
 
-	//MOV FRISBEE HACIA ABAJO
+	//MOV Disk HACIA ABAJO
 	if (mov == 3 && position.x >= 19 && position.x <= 276) {
 
 		if (pared == false && position.y < 170) {
@@ -185,14 +185,14 @@ Update_Status ModuleFrisbee::Update()
 	return Update_Status::UPDATE_CONTINUE;
 }
 
-Update_Status ModuleFrisbee::PostUpdate()
+Update_Status ModuleDisk::PostUpdate()
 {
 	SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
 	App->render->Blit(texture, position.x, position.y, &rect2);
 	return Update_Status::UPDATE_CONTINUE;
 }
 
-void ModuleFrisbee::OnCollision(Collider* c1, Collider* c2)
+void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == collider && destroyed == false)
 	{
