@@ -45,6 +45,9 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 
 	matrix[Collider::Type::PLAYER2][Collider::Type::PLAYER2] = false;
 
+	matrix[Collider::Type::DISK][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::DISK][Collider::Type::PLAYER2] = true;
+
 }
 
 // Destructor

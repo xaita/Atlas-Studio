@@ -394,7 +394,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	
 
-	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::DISK)
+	/*if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::DISK)
 	{
 		personatgedisc=1;
 
@@ -403,5 +403,5 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		App->disk->position.y = position.y + 10;
 
-	}
+	}*/
 }
