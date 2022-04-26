@@ -9,6 +9,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
+#include "SDL/include/SDL.h"
 
 #include <chrono>
 #include <thread>
@@ -294,7 +295,7 @@ if(personatgedisc == -1)
 	//}
 
 				//disparar disc
-	
+  
 
 
 
@@ -315,8 +316,11 @@ if(personatgedisc == -1)
 				Particle* newParticle = App->particles->AddParticle(App->particles->disk_Up, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				newParticle->collider->AddListener(this);
 				App->audio->PlayFx(discFx);
+				SDL_Delay(1000);
 
 				personatgedisc = -1;
+				
+
 			}
 		
 
@@ -334,6 +338,7 @@ if(personatgedisc == -1)
 				Particle* newParticle = App->particles->AddParticle(App->particles->disk_Down, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				newParticle->collider->AddListener(this);
 				App->audio->PlayFx(discFx);
+				SDL_Delay(1000);
 
 				personatgedisc = -1;
 			}
@@ -348,9 +353,10 @@ if(personatgedisc == -1)
 			Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 			newParticle->collider->AddListener(this);
 			App->audio->PlayFx(discFx);
+			SDL_Delay(1000);
 
 			personatgedisc = -1;
-			
+
 
 
 		}
@@ -368,9 +374,10 @@ if(personatgedisc == -1)
 				Particle* newParticle = App->particles->AddParticle(App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				newParticle->collider->AddListener(this);
 				App->audio->PlayFx(discFx);
-							
-				personatgedisc = -1;
-			
+				SDL_Delay(1000);
+
+				personatgedisc = -1; 
+
 				
 			}
 
@@ -389,7 +396,7 @@ if(personatgedisc == -1)
 		if (destroyedCountdown <= 0)
 			return update_status::UPDATE_STOP;
 	}*/
-
+	
 	return Update_Status::UPDATE_CONTINUE;
 }
 
