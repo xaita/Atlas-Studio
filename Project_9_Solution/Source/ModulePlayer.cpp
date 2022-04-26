@@ -297,9 +297,6 @@ if(personatgedisc == -1)
 
 				currentAnimation = &shooting;
 			
-				Particle* newParticle = App->particles->AddParticle(15, -15, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-				newParticle->collider->AddListener(this);
-				App->audio->PlayFx(discFx);
 
 				personatgedisc = -1;
 				
@@ -318,9 +315,7 @@ if(personatgedisc == -1)
 			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
 				currentAnimation = &shooting;
 
-				Particle* newParticle = App->particles->AddParticle(15, 15, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-				newParticle->collider->AddListener(this);
-				App->audio->PlayFx(discFx);
+				
 
 				personatgedisc = -1;
 			}
@@ -332,9 +327,7 @@ if(personatgedisc == -1)
 			shooting.Reset();
 			currentAnimation = &shooting;
 
-			Particle* newParticle = App->particles->AddParticle(15, 0, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-			newParticle->collider->AddListener(this);
-			App->audio->PlayFx(discFx);
+			
 
 			personatgedisc = -1;
 
@@ -352,9 +345,7 @@ if(personatgedisc == -1)
 				shooting.Reset();
 				currentAnimation = &shooting;
 				
-				Particle* newParticle = App->particles->AddParticle(15, 0, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-				newParticle->collider->AddListener(this);
-				App->audio->PlayFx(discFx);
+				
 				
 
 				personatgedisc = -1; 
