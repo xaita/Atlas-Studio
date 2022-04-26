@@ -82,9 +82,14 @@ Update_Status ModuleDisk::PostUpdate()
 
 void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == diskcollider && destroyed == false)
+	/*if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::DISK)
 	{
-		saque = 0;
+		personatgedisc = 1;
 
-	}
+
+		App->disk->position.x = position.x + 40;
+
+		App->disk->position.y = position.y + 10;
+
+	}*/
 }
