@@ -87,7 +87,11 @@
     <ClInclude Include="ModuleFadeToBlack.h" />
     <ClInclude Include="ModuleFonts.h" />
     <ClInclude Include="ModuleParticles.h" />
+<<<<<<< Updated upstream
     <ClInclude Include="ModulePlayer2.h" />
+=======
+    <ClInclude Include="NeoGeoIntro.h" />
+>>>>>>> Stashed changes
     <ClInclude Include="SceneIntro.h" />
     <ClInclude Include="SceneIntroMapes.h" />
     <ClInclude Include="SceneLevel1.h" />
@@ -117,7 +121,11 @@
     <ClCompile Include="ModuleFadeToBlack.cpp" />
     <ClCompile Include="ModuleFonts.cpp" />
     <ClCompile Include="ModuleParticles.cpp" />
+<<<<<<< Updated upstream
     <ClCompile Include="ModulePlayer2.cpp" />
+=======
+    <ClCompile Include="NeoGeoIntro.cpp" />
+>>>>>>> Stashed changes
     <ClCompile Include="SceneIntro.cpp" />
     <ClCompile Include="SceneIntroMapes.cpp" />
     <ClCompile Include="SceneLevel1.cpp" />

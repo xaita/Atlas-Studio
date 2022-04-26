@@ -109,7 +109,11 @@
     <ClInclude Include="SceneIntroMapes.h">
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
     <ClInclude Include="ModulePlayer2.h">
+=======
+    <ClInclude Include="NeoGeoIntro.h">
+>>>>>>> Stashed changes
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClInclude>
   </ItemGroup>
@@ -189,7 +193,11 @@
     <ClCompile Include="SceneIntroMapes.cpp">
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
     <ClCompile Include="ModulePlayer2.cpp">
+=======
+    <ClCompile Include="NeoGeoIntro.cpp">
+>>>>>>> Stashed changes
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClCompile>
   </ItemGroup>
