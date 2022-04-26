@@ -96,6 +96,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		xspeed = 0;
 		yspeed = 0;
 
+
 	}
 
 
@@ -112,4 +113,6 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		yspeed = 0;
 
 	}
+
+
 }
