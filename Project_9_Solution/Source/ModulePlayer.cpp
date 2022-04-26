@@ -317,7 +317,6 @@ if(personatgedisc == -1)
 				Particle* newParticle = App->particles->AddParticle(15, -15, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				newParticle->collider->AddListener(this);
 				App->audio->PlayFx(discFx);
-				SDL_Delay(1000);
 
 				personatgedisc = -1;
 				
@@ -339,7 +338,6 @@ if(personatgedisc == -1)
 				Particle* newParticle = App->particles->AddParticle(15, 15, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				newParticle->collider->AddListener(this);
 				App->audio->PlayFx(discFx);
-				SDL_Delay(1000);
 
 				personatgedisc = -1;
 			}
@@ -354,7 +352,6 @@ if(personatgedisc == -1)
 			Particle* newParticle = App->particles->AddParticle(15, 0, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 			newParticle->collider->AddListener(this);
 			App->audio->PlayFx(discFx);
-			SDL_Delay(1000);
 
 			personatgedisc = -1;
 
@@ -375,7 +372,7 @@ if(personatgedisc == -1)
 				Particle* newParticle = App->particles->AddParticle(15, 0, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 				newParticle->collider->AddListener(this);
 				App->audio->PlayFx(discFx);
-				SDL_Delay(1000);
+				
 
 				personatgedisc = -1; 
 
