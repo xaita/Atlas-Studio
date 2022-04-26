@@ -1,4 +1,4 @@
-#include "SceneIntroSNK.h"
+#include "SceneWindjammers.h"
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -7,25 +7,25 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 
-SceneIntroSNK::SceneIntroSNK(bool startEnabled) : Module(startEnabled)
+SceneWindjammers::SceneWindjammers(bool startEnabled) : Module(startEnabled)
 {
 
 }
 
-SceneIntroSNK::~SceneIntroSNK()
+SceneWindjammers::~SceneWindjammers()
 {
 
 }
 
 // Load assets
-bool SceneIntroSNK::Start()
+bool SceneWindjammers::Start()
 {
 	LOG("Loading background assets");
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/UI/Screens/Neo Geo Intro.png");
-	App->audio->PlayMusic("Assets/Audios/Music/SNK Intro.ogg", 1.0f);
+	bgTexture = App->textures->Load("Assets/UI/Screens/Windjammers.png");
+	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -33,18 +33,18 @@ bool SceneIntroSNK::Start()
 	return ret;
 }
 
-Update_Status SceneIntroSNK::Update()
+Update_Status SceneWindjammers::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneWindjammers, 90);
+		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
 
 // Update: draw background
-Update_Status SceneIntroSNK::PostUpdate()
+Update_Status SceneWindjammers::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
