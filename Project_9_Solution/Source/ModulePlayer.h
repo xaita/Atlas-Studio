@@ -1,5 +1,5 @@
-#ifndef __MODULE_PLAYER2_H__
-#define __MODULE_PLAYER2_H__
+#ifndef __MODULE_PLAYER_H__
+#define __MODULE_PLAYER_H__
 
 #include "Module.h"
 #include "Animation.h"
@@ -8,14 +8,14 @@
 struct SDL_Texture;
 struct Collider;
 
-class ModulePlayer2 : public Module
+class ModulePlayer : public Module
 {
 public:
 	// Constructor
-	ModulePlayer2(bool startEnabled);
+	ModulePlayer(bool startEnabled);
 
 	// Destructor
-	~ModulePlayer2();
+	~ModulePlayer();
 
 	// Called when the module is activated
 	// Loads the necessary textures for the player

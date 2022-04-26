@@ -109,9 +109,6 @@
     <ClInclude Include="SceneIntroMapes.h">
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClInclude>
-    <ClInclude Include="ModulePlayer2.h">
-      <Filter>Source Files\Modules\Gameplay</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -187,9 +184,6 @@
       <Filter>Source Files\Modules\Core</Filter>
     </ClCompile>
     <ClCompile Include="SceneIntroMapes.cpp">
-      <Filter>Source Files\Modules\Gameplay</Filter>
-    </ClCompile>
-    <ClCompile Include="ModulePlayer2.cpp">
       <Filter>Source Files\Modules\Gameplay</Filter>
     </ClCompile>
   </ItemGroup>
