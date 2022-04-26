@@ -31,11 +31,11 @@ Application::Application()
 	modules[2] =	textures =			new ModuleTextures(true);
 	modules[3] =	audio =				new ModuleAudio(true);
 
-	modules[4] =    sceneIntroSNK =     new SceneIntroSNK(true);	//////////////////posar en true/////////////
+	modules[4] =    sceneIntroSNK =     new SceneIntroSNK(false);	//////////////////posar en true/////////////
 	modules[5] =	sceneWindjammers =	new SceneWindjammers(false);
 	modules[6] =	sceneIntro =    	new SceneIntro(false);
 	modules[7] =	sceneIntroMapes =	new SceneIntroMapes(false);
-	modules[8] =	sceneLevel_1 =		new SceneLevel1(false);		   ////////////posar en false///////////         //Gameplay scene starts disabled
+	modules[8] =	sceneLevel_1 =		new SceneLevel1(true);		   ////////////posar en false///////////         //Gameplay scene starts disabled
 	modules[9] =	player =			new ModulePlayer(false);	//Player starts disabled
 	modules[10] =    player2 =			new ModulePlayer2(false);	//Player starts disabled
 	modules[11] =   disk =              new ModuleDisk(false);

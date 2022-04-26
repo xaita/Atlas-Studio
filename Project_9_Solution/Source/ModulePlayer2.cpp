@@ -258,14 +258,14 @@ Update_Status ModulePlayer2::Update()
 			&& App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_IDLE
 			&& ultimadireccio2 == 2)
-			currentAnimation = &rightidleAnim;
+			currentAnimation = &leftidleAnim;
 		if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_I] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_J] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_IDLE
 			&& ultimadireccio2 == 1)
-			currentAnimation = &leftidleAnim;
+			currentAnimation = &rightidleAnim;
 	}
 
 
