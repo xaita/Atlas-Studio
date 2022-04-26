@@ -48,7 +48,7 @@ bool ModuleDisk::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Sprites/Levels/Beach.png");
+	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
 
 
 	position.x = 20;
@@ -57,7 +57,7 @@ bool ModuleDisk::Start()
 
 	destroyed = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 16, 16 }, Collider::Type::PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 16, 16 }, Collider::Type::DISK, this);
 
 	return ret;
 }
