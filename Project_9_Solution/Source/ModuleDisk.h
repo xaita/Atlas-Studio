@@ -38,8 +38,8 @@ public:
 
 	// The speed in which we move the player (pixels per frame)
 	int speed = 1;
-	int xspeed=0;
-	int yspeed=0;
+	int disc_speed_X=0;
+	int disc_speed_Y=0;
 	int mov;
 	int saque = 1;
 	

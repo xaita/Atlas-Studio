@@ -347,7 +347,7 @@ Update_Status ModulePlayer2::Update()
 				currentAnimation = &shooting;
 
 
-				App->disk->xspeed = -10;
+				App->disk->disc_speed_X = -10;
 
 				personatgedisc2 = -1;
 

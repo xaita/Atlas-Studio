@@ -343,7 +343,7 @@ if(personatgedisc == -1)
 				shooting.Reset();
 				currentAnimation = &shooting;
 				
-				 App->disk->xspeed=10;
+				 App->disk->disc_speed_X=10;
 				 personatgedisc = -1;
 				
 
