@@ -9,6 +9,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
+#include"ModuleDisk.h"
 #include "SDL/include/SDL.h"
 
 #include <chrono>
@@ -147,7 +148,7 @@ bool ModulePlayer2::Start()
 }
 int ultimadireccio2 = 2; //1=dreta 2=esquerra
 int podermoverse2 = 0;
-int personatgedisc2 = -1;
+
 Update_Status ModulePlayer2::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_X] == Key_State::KEY_UP)
@@ -346,7 +347,7 @@ Update_Status ModulePlayer2::Update()
 				currentAnimation = &shooting;
 
 
-
+				App->disk->xspeed = -10;
 
 				personatgedisc2 = -1;
 

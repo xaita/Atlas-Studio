@@ -342,15 +342,16 @@ if(personatgedisc == -1)
 			{
 				shooting.Reset();
 				currentAnimation = &shooting;
-				personatgedisc = -1;
 				
-				App->disk->position.x+= App->disk->xspeed;
+				 App->disk->xspeed=10;
+				 personatgedisc = -1;
 				
 
 				
 
 				
 			}
+
 
 		}
 	}
@@ -398,10 +399,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		personatgedisc=1;
 
-		
-		App->disk->position.x = position.x + 40;
-
-		App->disk->position.y = position.y + 10;
+	
 
 	}*/
 }

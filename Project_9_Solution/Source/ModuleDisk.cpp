@@ -65,6 +65,8 @@ bool ModuleDisk::Start()
 Update_Status ModuleDisk::Update()
 {
 	
+	position.x += xspeed;
+	position.y += yspeed;
 
 	diskcollider->SetPos(position.x, position.y);
 
@@ -90,6 +92,24 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		position.x = App->player->position.x + 40;
 
 		position.y = App->player->position.y + 10;
+
+		xspeed = 0;
+		yspeed = 0;
+
+	}
+
+
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER2)
+	{
+		App->player2->personatgedisc2 = 1;
+
+
+		position.x = App->player2->position.x -20;
+
+		position.y = App->player2->position.y + 10;
+
+		xspeed = 0;
+		yspeed = 0;
 
 	}
 }
