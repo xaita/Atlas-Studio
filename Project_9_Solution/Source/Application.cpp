@@ -33,14 +33,14 @@ Application::Application()
 	modules[6] =	sceneIntroMapes =	new SceneIntroMapes(false);
 	modules[7] =	sceneLevel_1 =		new SceneLevel1(false);		//Gameplay scene starts disabled
 	modules[8] =	player =			new ModulePlayer(false);	//Player starts disabled
-	modules[8] =    player2 =			new ModulePlayer2(false);	//Player starts disabled
-	modules[9] =	particles =			new ModuleParticles(true);
-	modules[10] =	enemies =			new ModuleEnemies(false);	//Enemies start disabled
+	modules[9] =    player2 =			new ModulePlayer2(false);	//Player starts disabled
+	modules[10] =	particles =			new ModuleParticles(true);
+	modules[11] =	enemies =			new ModuleEnemies(false);	//Enemies start disabled
 
-	modules[11] =	collisions =		new ModuleCollisions(true);
-	modules[12] =	fade =				new ModuleFadeToBlack(true);
-	modules[13] =	fonts =				new ModuleFonts(true);
-	modules[14] =	render =			new ModuleRender(true);
+	modules[12] =	collisions =		new ModuleCollisions(true);
+	modules[13] =	fade =				new ModuleFadeToBlack(true);
+	modules[14] =	fonts =				new ModuleFonts(true);
+	modules[15] =	render =			new ModuleRender(true);
 
 
 

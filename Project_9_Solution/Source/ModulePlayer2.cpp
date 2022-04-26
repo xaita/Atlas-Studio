@@ -84,7 +84,7 @@ ModulePlayer2::ModulePlayer2(bool startEnabled) : Module(startEnabled)
 	leftAnim.loop = true;
 	leftAnim.speed = 0.08f;
 
-	
+
 
 
 
@@ -145,7 +145,7 @@ bool ModulePlayer2::Start()
 
 	return ret;
 }
-int ultimadireccio2= 2; //1=dreta 2=esquerra
+int ultimadireccio2 = 2; //1=dreta 2=esquerra
 int podermoverse2 = 0;
 int personatgedisc2 = -1;
 Update_Status ModulePlayer2::Update()
@@ -162,7 +162,7 @@ Update_Status ModulePlayer2::Update()
 	if (personatgedisc2 == -1)
 	{
 
-		if (App->input->keys[SDL_SCANCODE_U] == Key_State::KEY_REPEAT && position.x > 6)
+		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && position.x > 6)
 		{
 			position.x -= speed;
 			if (currentAnimation != &leftAnim && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
@@ -297,9 +297,6 @@ Update_Status ModulePlayer2::Update()
 
 				currentAnimation = &shooting;
 
-				Particle* newParticle = App->particles->AddParticle(15, -15, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-				newParticle->collider->AddListener(this);
-				App->audio->PlayFx(discFx);
 
 				personatgedisc2 = -1;
 
@@ -318,9 +315,7 @@ Update_Status ModulePlayer2::Update()
 			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
 				currentAnimation = &shooting;
 
-				Particle* newParticle = App->particles->AddParticle(15, 15, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-				newParticle->collider->AddListener(this);
-				App->audio->PlayFx(discFx);
+
 
 				personatgedisc2 = -1;
 			}
@@ -332,9 +327,7 @@ Update_Status ModulePlayer2::Update()
 			shooting.Reset();
 			currentAnimation = &shooting;
 
-			Particle* newParticle = App->particles->AddParticle(15, 0, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-			newParticle->collider->AddListener(this);
-			App->audio->PlayFx(discFx);
+
 
 			personatgedisc2 = -1;
 
@@ -352,9 +345,7 @@ Update_Status ModulePlayer2::Update()
 				shooting.Reset();
 				currentAnimation = &shooting;
 
-				Particle* newParticle = App->particles->AddParticle(15, 0, App->particles->disk, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-				newParticle->collider->AddListener(this);
-				App->audio->PlayFx(discFx);
+
 
 
 				personatgedisc2 = -1;
