@@ -34,6 +34,11 @@ public:
 	SDL_Texture* bgGoalright = nullptr;
 	SDL_Texture* bgGoalgoal = nullptr;
 	SDL_Texture* bgGoalsupergoal = nullptr;
+	SDL_Texture* referee = nullptr;
+	SDL_Texture* bgFrisbees = nullptr; 
+
+	Animation refereeAnim;
+	Animation frisbees;			//frisbees de l'arbitre, a terra
 };
 
 #endif

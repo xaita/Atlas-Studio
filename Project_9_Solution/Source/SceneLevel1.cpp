@@ -36,7 +36,7 @@ bool SceneLevel1::Start()
 	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");	//
 	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");										//
 
-	referee = App->textures->Load("Assets/Sprites/Referee/SpriteSheet_Arbi_Beach_Definitiu.png");				//ARBITRE
+	//referee = App->textures->Load("Assets/Sprites/Referee/SpriteSheet_Arbi_Beach_Definitiu.png");				//ARBITRE
 	//bgFrisbees = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");//discos del terra
 
 	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);					//MUSICA
@@ -47,7 +47,7 @@ bool SceneLevel1::Start()
 	spectators.loop = true;
 	spectators.speed = 0.15f;
 
-	refereeAnim.PushBack({ 0,0,45,35 });																		//ANIMACIO ARBITRE
+	//refereeAnim.PushBack({ 0,0,45,35 });																		//ANIMACIO ARBITRE
 	
 	//Bottomside collider
 	/*App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);*/
@@ -110,7 +110,7 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(bgNet, 142, 31, NULL);
 	App->render->Blit(bgTopwall, 30, 20, NULL);
 	
-	App->render->Blit(referee, 138, 189, &(refereeAnim.GetCurrentFrame()));
+	//App->render->Blit(referee, 138, 189, &(refereeAnim.GetCurrentFrame()));
 	//App->render->Blit(bgFrisbees, 166, 209, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
