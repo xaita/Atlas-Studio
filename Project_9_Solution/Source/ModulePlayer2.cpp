@@ -222,7 +222,7 @@ Update_Status ModulePlayer2::Update()
 				currentAnimation = &upAnim;
 			}
 		}
-		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_I] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_REPEAT)
 		{
 
 			if (currentAnimation != &rightAnim)
@@ -232,7 +232,7 @@ Update_Status ModulePlayer2::Update()
 				ultimadireccio2 = 2;
 			}
 		}
-		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_I] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_J] == Key_State::KEY_REPEAT)
 		{
 
 			if (currentAnimation != &leftAnim)
@@ -242,28 +242,28 @@ Update_Status ModulePlayer2::Update()
 				ultimadireccio2 = 1;
 			}
 		}
-		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && currentAnimation != &shooting) {
+		if (App->input->keys[SDL_SCANCODE_J] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_REPEAT && currentAnimation != &shooting) {
 
 			currentAnimation = &rightidleAnim;
 
 		}
-		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && currentAnimation != &shooting) {
+		if (App->input->keys[SDL_SCANCODE_I] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_REPEAT && currentAnimation != &shooting) {
 
 			currentAnimation = &rightidleAnim;
 		}
 
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE
+		if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_IDLE
+			&& App->input->keys[SDL_SCANCODE_I] == Key_State::KEY_IDLE
+			&& App->input->keys[SDL_SCANCODE_J] == Key_State::KEY_IDLE
+			&& App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_IDLE
+			&& App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_IDLE
 			&& ultimadireccio2 == 2)
 			currentAnimation = &rightidleAnim;
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE
+		if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_IDLE
+			&& App->input->keys[SDL_SCANCODE_I] == Key_State::KEY_IDLE
+			&& App->input->keys[SDL_SCANCODE_J] == Key_State::KEY_IDLE
+			&& App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_IDLE
+			&& App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_IDLE
 			&& ultimadireccio2 == 1)
 			currentAnimation = &leftidleAnim;
 	}
@@ -288,12 +288,12 @@ Update_Status ModulePlayer2::Update()
 
 		currentAnimation = &rightidleFrisbee;
 
-		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_I] == Key_State::KEY_REPEAT)
 		{
 
 			currentAnimation = &uprightidleFrisbee;
 
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+			if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN) {
 
 				currentAnimation = &shooting;
 
@@ -308,11 +308,11 @@ Update_Status ModulePlayer2::Update()
 
 		}
 
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_REPEAT)
 		{
 			currentAnimation = &downrightidleFrisbee;
 
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+			if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN) {
 				currentAnimation = &shooting;
 
 
@@ -322,7 +322,7 @@ Update_Status ModulePlayer2::Update()
 
 		}
 
-		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_I] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_K] != Key_State::KEY_REPEAT)
 		{
 			shooting.Reset();
 			currentAnimation = &shooting;
@@ -335,12 +335,12 @@ Update_Status ModulePlayer2::Update()
 
 		}
 
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_M] == Key_State::KEY_DOWN)
 		{
-			if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
-				&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
-				&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
-				&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
+			if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_I] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_J] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_IDLE)
 			{
 				shooting.Reset();
 				currentAnimation = &shooting;
