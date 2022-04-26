@@ -87,7 +87,25 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 
 
-	
+	// move diagonal dalt-esquerra
+	upleftAnim.PushBack({ 150, 447, 30, 40 });// frame 1
+	upleftAnim.PushBack({ 120, 447, 30, 51 });// frame 2
+	upleftAnim.PushBack({ 90, 447, 30, 50 });// frame 3
+	upleftAnim.PushBack({ 60, 447, 30, 40 });// frame 4
+	upleftAnim.PushBack({ 30, 447, 30, 53 });// frame 5
+	upleftAnim.PushBack({ 0, 447, 30, 50 });// frame 6
+	upleftAnim.loop = true;
+	upleftAnim.speed = 0.08f;
+
+	// move diagonal abaix-esquerra
+	downleftAnim.PushBack({ 240, 404, 29, 43 });// frame 1
+	downleftAnim.PushBack({ 208, 404, 32, 38 });// frame 2
+	downleftAnim.PushBack({ 179, 404, 29, 35 });// frame 3
+	downleftAnim.PushBack({ 155, 404, 24, 41 });// frame 4
+	downleftAnim.PushBack({ 125, 404, 30, 38 });// frame 5
+	downleftAnim.PushBack({ 94, 148, 31, 34 });// frame 6
+	downleftAnim.loop = true;
+	downleftAnim.speed = 0.08f;
 
 	// animation shooting
 	shooting.PushBack({ 73, 46, 34, 40 });// frame 1
@@ -162,7 +180,6 @@ Update_Status ModulePlayer::Update()
 if(personatgedisc == -1)
 {
 
-	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && position.x > 6)
 	{
 		position.x -= speed;
 		if (currentAnimation != &leftAnim && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
@@ -173,7 +190,7 @@ if(personatgedisc == -1)
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && position.x < 114)
+	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
 		position.x += speed;
 
@@ -184,10 +201,10 @@ if(personatgedisc == -1)
 			ultimadireccio = 2;
 		}
 	}
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && position.y < 174)
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
 	{
 		position.y += speed;
-		if (currentAnimation != &downAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT)
+		if (currentAnimation != &downAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT)
 		{
 			downAnim.Reset();
 			currentAnimation = &downAnim;
@@ -196,27 +213,27 @@ if(personatgedisc == -1)
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
 	
-		if (currentAnimation != &rightAnim)
+		if (currentAnimation != &downAnim)
 		{
-			rightAnim.Reset();
-			currentAnimation = &rightAnim;
+			downAnim.Reset();
+			currentAnimation = &downAnim;
 			ultimadireccio = 2;
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		
-		if (currentAnimation != &leftAnim)
+		if (currentAnimation != &downleftAnim)
 		{
-			leftAnim.Reset();
-			currentAnimation = &leftAnim;
+			downleftAnim.Reset();
+			currentAnimation = &downleftAnim;
 			ultimadireccio = 1;
 		}
 	}
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && position.y > 29)
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
 	{
 		position.y -= speed;
-		if (currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT)
+		if (currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT)
 		{
 			upAnim.Reset();
 			currentAnimation = &upAnim;
@@ -225,20 +242,20 @@ if(personatgedisc == -1)
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 	{
 		
-		if (currentAnimation != &rightAnim)
+		if (currentAnimation != &upAnim)
 		{
-			rightAnim.Reset();
-			currentAnimation = &rightAnim;
+			upAnim.Reset();
+			currentAnimation = &upAnim;
 			ultimadireccio = 2;
 		}
 	}
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
 		
-		if (currentAnimation != &leftAnim)
+		if (currentAnimation != &upleftAnim)
 		{
-			leftAnim.Reset();
-			currentAnimation = &leftAnim;
+			upleftAnim.Reset();
+			currentAnimation = &upleftAnim;
 			ultimadireccio = 1;
 		}
 	}
