@@ -84,7 +84,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1 == diskcollider && destroyed == false)
 	{
-		arbitro = 0;
+		saque = 0;
 
 	}
 }

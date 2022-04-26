@@ -41,7 +41,8 @@ public:
 	int xspeed;
 	int yspeed;
 	int mov;
-	int arbitro = 1;
+	int saque = 1;
+	
 
 	bool pared = false;
 	bool inicio = false;
