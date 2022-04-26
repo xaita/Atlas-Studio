@@ -7,18 +7,18 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 
-Mapes::Mapes(bool startEnabled) : Module(startEnabled)
+SceneIntroMapes::SceneIntroMapes(bool startEnabled) : Module(startEnabled)
 {
 
 }
 
-Mapes::~Mapes()
+SceneIntroMapes::~SceneIntroMapes()
 {
 
 }
 
 // Load assets
-bool Mapes::Start()
+bool SceneIntroMapes::Start()
 {
 	LOG("Loading background assets");
 
@@ -33,7 +33,7 @@ bool Mapes::Start()
 	return ret;
 }
 
-Update_Status Mapes::Update()
+Update_Status SceneIntroMapes::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
@@ -44,7 +44,7 @@ Update_Status Mapes::Update()
 }
 
 // Update: draw background
-Update_Status Mapes::PostUpdate()
+Update_Status SceneIntroMapes::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);

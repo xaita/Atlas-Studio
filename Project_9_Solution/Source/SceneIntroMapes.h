@@ -1,19 +1,19 @@
-#ifndef __SCENE_INTRO_H__
-#define __SCENE_INTRO_H__
+#ifndef __SCENE_INTRO_MAPES_H__
+#define __SCENE_INTRO_MAPES_H__
 
 #include "Module.h"
 #include "Animation.h"
 
 struct SDL_Texture;
 
-class Mapes : public Module
+class SceneIntroMapes : public Module
 {
 public:
 	//Constructor
-	Mapes(bool startEnabled);
+	SceneIntroMapes(bool startEnabled);
 
 	//Destructor
-	~Mapes();
+	~SceneIntroMapes();
 
 	// Called when the module is activated
 	// Loads the necessary textures for the map background
@@ -31,4 +31,9 @@ public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
 };
+<<<<<<< HEAD
 #endif
+=======
+
+#endif
+>>>>>>> main

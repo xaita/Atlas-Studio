@@ -46,6 +46,7 @@ public:
 
 	//arbitre
 	SDL_Texture* referee = nullptr;
+	//SDL_Texture* bgFrisbees = nullptr;
 
 
 	Animation* currentAnimation = nullptr;

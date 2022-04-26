@@ -35,6 +35,7 @@ bool SceneLevel1::Start()
 	bgGoalright = App->textures->Load("Assets/Sprites/Stages/Concrete/goalRight.png");							//
 
 	referee = App->textures->Load("Assets/Sprites/Referee/SpriteSheet_Arbi_Beach_Definitiu.png");				//ARBITRE
+	//bgFrisbees = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");//discos del terra
 
 	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);					//MUSICA
 
@@ -110,6 +111,7 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(bgTopwall, 30, 20, NULL);
 	
 	App->render->Blit(referee, 138, 189, &(refereeAnim.GetCurrentFrame()));
+	//App->render->Blit(bgFrisbees, 166, 209, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
