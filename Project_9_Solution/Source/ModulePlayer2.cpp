@@ -162,10 +162,10 @@ Update_Status ModulePlayer2::Update()
 	if (personatgedisc2 == -1)
 	{
 
-		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && position.x > 6)
+		if (App->input->keys[SDL_SCANCODE_J] == Key_State::KEY_REPEAT && position.x > 6)
 		{
 			position.x -= speed;
-			if (currentAnimation != &leftAnim && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
+			if (currentAnimation != &leftAnim && App->input->keys[SDL_SCANCODE_I] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_K] != Key_State::KEY_REPEAT)
 			{
 
 				currentAnimation = &leftAnim;
@@ -173,27 +173,27 @@ Update_Status ModulePlayer2::Update()
 			}
 		}
 
-		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && position.x < 114)
+		if (App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_REPEAT && position.x < 114)
 		{
 			position.x += speed;
 
-			if (currentAnimation != &rightAnim && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
+			if (currentAnimation != &rightAnim && App->input->keys[SDL_SCANCODE_I] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_K] != Key_State::KEY_REPEAT)
 			{
 				rightAnim.Reset();
 				currentAnimation = &rightAnim;
 				ultimadireccio2 = 2;
 			}
 		}
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && position.y < 174)
+		if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_REPEAT && position.y < 174)
 		{
 			position.y += speed;
-			if (currentAnimation != &downAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT)
+			if (currentAnimation != &downAnim && App->input->keys[SDL_SCANCODE_J] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_L] != Key_State::KEY_REPEAT)
 			{
 				downAnim.Reset();
 				currentAnimation = &downAnim;
 			}
 		}
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_J] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_L] == Key_State::KEY_REPEAT)
 		{
 
 			if (currentAnimation != &rightAnim)
@@ -203,7 +203,7 @@ Update_Status ModulePlayer2::Update()
 				ultimadireccio2 = 2;
 			}
 		}
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_K] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_J] == Key_State::KEY_REPEAT)
 		{
 
 			if (currentAnimation != &leftAnim)
@@ -213,10 +213,10 @@ Update_Status ModulePlayer2::Update()
 				ultimadireccio2 = 1;
 			}
 		}
-		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && position.y > 29)
+		if (App->input->keys[SDL_SCANCODE_I] == Key_State::KEY_REPEAT && position.y > 29)
 		{
 			position.y -= speed;
-			if (currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT)
+			if (currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_K] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_L] != Key_State::KEY_REPEAT)
 			{
 				upAnim.Reset();
 				currentAnimation = &upAnim;
