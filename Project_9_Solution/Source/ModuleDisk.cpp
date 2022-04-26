@@ -23,7 +23,7 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 {
 	
 
-	//// animation shooting
+	//// animation shoting
 	flying.PushBack({ 117, 48, 16, 16 });
 	flying.PushBack({ 149, 48, 16, 16 });
 	flying.PushBack({ 181, 48, 16, 16 });
