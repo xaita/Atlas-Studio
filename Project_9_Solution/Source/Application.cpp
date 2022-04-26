@@ -14,7 +14,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
 #include "ModuleRender.h"
-
+#include "SceneIntroMapes.h"
 Application::Application()
 {
 	// The order in which the modules are added is very important.
@@ -36,6 +36,8 @@ Application::Application()
 	modules[10] =	fade =			new ModuleFadeToBlack(true);
 	modules[11] =	fonts =			new ModuleFonts(true);
 	modules[12] =	render =		new ModuleRender(true);
+	modules[13] =   sceneIntroMapes = new Mapes(false);		
+
 }
 
 Application::~Application()
