@@ -30,10 +30,10 @@ Application::Application()
 	modules[2] =	textures =			new ModuleTextures(true);
 	modules[3] =	audio =				new ModuleAudio(true);
 
-	modules[4] =    sceneIntroSNK =     new SceneIntroSNK(true);
+	modules[4] =    sceneIntroSNK =     new SceneIntroSNK(false);  //////////////////posar en true/////////////
 	modules[5] =	sceneIntro =    	new SceneIntro(false);
 	modules[6] =	sceneIntroMapes =	new SceneIntroMapes(false);
-	modules[7] =	sceneLevel_1 =		new SceneLevel1(false);		//Gameplay scene starts disabled
+	modules[7] =	sceneLevel_1 =		new SceneLevel1(true);		   ////////////posar en false///////////         //Gameplay scene starts disabled
 	modules[8] =	player =			new ModulePlayer(false);	//Player starts disabled
 	modules[9] =    player2 =			new ModulePlayer2(false);	//Player starts disabled
 	modules[10] =   disk =              new ModuleDisk(false);
