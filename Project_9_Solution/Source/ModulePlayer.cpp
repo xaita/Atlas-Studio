@@ -267,16 +267,6 @@ if(personatgedisc == -1)
 }	
 	
 
-
-
-	//if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)			//disparar laser
-	//{
-	//	Particle* newParticle = App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-	//	newParticle->collider->AddListener(this);
-	//	App->audio->PlayFx(discFx);
-	//}
-
-				//disparar disc
   
 
 
