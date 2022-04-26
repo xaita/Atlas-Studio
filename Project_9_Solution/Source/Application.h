@@ -20,7 +20,7 @@ class ModuleEnemies;
 class ModuleFadeToBlack;
 class ModuleFonts;
 class ModuleRender;
-
+class ModuleDisk;
 class Application
 {
 
@@ -65,6 +65,8 @@ public:
 	ModuleFonts* fonts = nullptr;
 
 	ModuleRender* render = nullptr;
+
+	ModuleDisk* disk = nullptr;
 };
 
 // Global var made extern for Application ---
