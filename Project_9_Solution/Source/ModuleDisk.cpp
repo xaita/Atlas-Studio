@@ -51,8 +51,8 @@ bool ModuleDisk::Start()
 	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
 
 
-	position.x = 20;
-	position.y = 100;
+	position.x = 30;
+	position.y = 200;
 
 
 	destroyed = false;
