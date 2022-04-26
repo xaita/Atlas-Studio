@@ -17,6 +17,8 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
 #include "ModuleRender.h"
+#include "ModuleDisk.h"
+
 Application::Application()
 {
 	// The order in which the modules are added is very important.
@@ -34,13 +36,14 @@ Application::Application()
 	modules[7] =	sceneLevel_1 =		new SceneLevel1(false);		//Gameplay scene starts disabled
 	modules[8] =	player =			new ModulePlayer(false);	//Player starts disabled
 	modules[9] =    player2 =			new ModulePlayer2(false);	//Player starts disabled
-	modules[10] =	particles =			new ModuleParticles(true);
-	modules[11] =	enemies =			new ModuleEnemies(false);	//Enemies start disabled
+	modules[10] =   disk =              new ModuleDisk(false);
+	modules[11] =	particles =			new ModuleParticles(true);
+	modules[12] =	enemies =			new ModuleEnemies(false);	//Enemies start disabled
 
-	modules[12] =	collisions =		new ModuleCollisions(true);
-	modules[13] =	fade =				new ModuleFadeToBlack(true);
-	modules[14] =	fonts =				new ModuleFonts(true);
-	modules[15] =	render =			new ModuleRender(true);
+	modules[13] =	collisions =		new ModuleCollisions(true);
+	modules[14] =	fade =				new ModuleFadeToBlack(true);
+	modules[15] =	fonts =				new ModuleFonts(true);
+	modules[16] =	render =			new ModuleRender(true);
 
 
 
