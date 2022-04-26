@@ -66,13 +66,11 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	// move right 
 	rightAnim.PushBack({ 454, 148, 45, 32 }); // frame 1
-	position.x -= 5;
 	rightAnim.PushBack({ 426, 148, 28, 33 }); // frame 2
 	rightAnim.PushBack({ 385, 148, 41, 36 }); // frame 3
 	rightAnim.PushBack({ 339, 148, 46, 29 }); // frame 4
 	rightAnim.PushBack({ 310, 148, 29, 36 }); // frame 5
 	rightAnim.PushBack({ 269, 148, 41, 35 }); // frame 6
-	position.x += 5;
 	rightAnim.loop = true;
 	rightAnim.speed = 0.08f;
 
