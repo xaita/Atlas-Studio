@@ -35,6 +35,7 @@ bool SceneLevel1::Start()
 	bgExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall.png");				//
 	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");	//
 	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");										//
+	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 
 	//referee = App->textures->Load("Assets/Sprites/Referee/SpriteSheet_Arbi_Beach_Definitiu.png");				//ARBITRE
 	//bgFrisbees = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");//discos del terra
@@ -49,7 +50,7 @@ bool SceneLevel1::Start()
 
 	//refereeAnim.PushBack({ 0,0,45,35 });																		//ANIMACIO ARBITRE
 	
-
+	
 
 	//porteria esquerra
 	App->collisions->AddCollider({ 7, 24, 4, 27 }, Collider::Type::SCOREZONE_1);
@@ -87,6 +88,16 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(bgExtremetopwallright, 267, 16, NULL);
 	App->render->Blit(bgNet, 142, 31, NULL);
 	App->render->Blit(bgTopwall, 30, 20, NULL);
+
+	switch (App->disk->score_player_1) {
+
+	case 0:
+		App->render->Blit(bgNet, 142, 31, NULL);
+
+
+
+	}
+	
 	
 	//App->render->Blit(referee, 138, 189, &(refereeAnim.GetCurrentFrame()));
 	//App->render->Blit(bgFrisbees, 166, 209, NULL);

@@ -38,6 +38,7 @@ public:
 	SDL_Texture* bgExtremetopwall = nullptr;
 	SDL_Texture* bgExtremetopwallright = nullptr;
 	SDL_Texture* bgNet = nullptr;
+	SDL_Texture* UI = nullptr;
 	
 
 	//arbitre
@@ -49,6 +50,7 @@ public:
 
 	Animation spectators;
 	Animation refereeAnim;
+	Animation score;
 
 
 };
