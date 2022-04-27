@@ -33,7 +33,7 @@ bool SceneJapan::Start()
 	background.PushBack({ 0,0,304,224 });
 	background.PushBack({ 305,0,304,224 });
 	background.loop = true;
-	background.speed = 0.01f;
+	background.speed = 0.4f;
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
