@@ -32,8 +32,6 @@ bool SceneJapan::Start()
 
 	background.PushBack({ 0,0,304,224 });
 	background.PushBack({ 305,0,304,224 });
-	background.PushBack({ 610,0,304,224 });
-	background.PushBack({ 915,0,304,224 });
 	background.loop = true;
 	background.speed = 0.01f;
 
