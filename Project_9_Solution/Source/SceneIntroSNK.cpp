@@ -6,6 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include"SceneLevel1.h"
 
 SceneIntroSNK::SceneIntroSNK(bool startEnabled) : Module(startEnabled)
 {
@@ -38,6 +39,12 @@ Update_Status SceneIntroSNK::Update()
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneLogo, 90);
+	}
+
+	if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)
+	{
+		App->sceneLevel_1->Enable();
+		Disable();
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
