@@ -49,42 +49,14 @@ bool SceneLevel1::Start()
 
 	//refereeAnim.PushBack({ 0,0,45,35 });																		//ANIMACIO ARBITRE
 	
-	//Bottomside collider
-	/*App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);*/
 
-	//First two columns colliders
-	/*App->collisions->AddCollider({ 1375, 0, 111, 96 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 1375, 145, 111, 96 }, Collider::Type::WALL);*/
 
 	//Top Wall
 	App->collisions->AddCollider({ 7, 24, 4, 27 }, Collider::Type::SCOREZONE_1);
 	App->collisions->AddCollider({ 7, 166, 4, 27 }, Collider::Type::SCOREZONE_1);
 	App->collisions->AddCollider({ 7, 51, 4, 115 }, Collider::Type::SCOREZONE_2);
 
-	// Enemies ---
-	/*App->enemies->AddEnemy(Enemy_Type::REDBIRD, 600, 80);
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 625, 80);
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 640, 80);
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 665, 80);
-
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 735, 120);
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 750, 120);
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 775, 120);
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 790, 120);
-
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 830, 100);
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 850, 100);
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 870, 100);
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 890, 100);*/
-
-//<<<<<<< Updated upstream
-//	App->enemies->AddEnemy(Enemy_Type::MECH, 900, 195);*/
-//=======
-//	/*App->enemies->AddEnemy(Enemy_Type::MECH, 900, 195);*/
-//>>>>>>> Stashed changes
-
-	/*App->render->camera.x = 0;
-	App->render->camera.y = 0;*/
+	
 
 	App->player->Enable();
 	App->enemies->Enable();
@@ -124,7 +96,6 @@ bool SceneLevel1::CleanUp()
 	App->enemies->Disable();
 	App->disk->Disable();
 
-	// TODO 5 (old): Remove All Memory Leaks - no solution here guys ;)
-
+	
 	return true;
 }
