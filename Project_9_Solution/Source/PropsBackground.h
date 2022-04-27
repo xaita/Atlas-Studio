@@ -28,6 +28,7 @@ public:
 	Update_Status PostUpdate() override;
 
 public:
+
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgBotwall = nullptr;
 	SDL_Texture* bgGoal = nullptr;

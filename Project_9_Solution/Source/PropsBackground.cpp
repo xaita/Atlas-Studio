@@ -32,10 +32,10 @@ bool PropsBackground::Start()
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
-	
+
 	refereeIdle.PushBack({ 0,0,45,35 });																		//ANIMACIO ARBITRE
-	refereeLookLeft.PushBack({ 0,100/*102*/,44,33});
-	refereeLookRight.PushBack({ 176,67/*69*/,44,33 });
+	refereeLookLeft.PushBack({ 0,102,44,34});
+	refereeLookRight.PushBack({ 176,69,44,34 });
 
 	frisbees.PushBack({ 245,51,16,12 });
 
@@ -44,13 +44,21 @@ bool PropsBackground::Start()
 
 Update_Status PropsBackground::Update()
 {
-	if (App->disk->position.x < 110)
+	if (App->disk->position.x < 110) {
+		//position.x += 2;
 		currentAnimation = &refereeLookLeft;
+	}
 
-	else if (App->disk->position.x > 194)
+	else if (App->disk->position.x > 194) {
 		currentAnimation = &refereeLookRight;
-	else
+		//position.x += 2;
+	}
+
+	else {
 		currentAnimation = &refereeIdle;
+		//position.x -= 2;
+	}
+
 
 	return Update_Status::UPDATE_CONTINUE;
 }
