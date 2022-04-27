@@ -1,4 +1,4 @@
-#include "SceneIntroMapes.h"
+#include "SceneJapan.h"
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -7,18 +7,18 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 
-SceneIntroMapes::SceneIntroMapes(bool startEnabled) : Module(startEnabled)
+SceneJapan::SceneJapan(bool startEnabled) : Module(startEnabled)
 {
 
 }
 
-SceneIntroMapes::~SceneIntroMapes()
+SceneJapan::~SceneJapan()
 {
 
 }
 
 // Load assets
-bool SceneIntroMapes::Start()
+bool SceneJapan::Start()
 {
 	LOG("Loading background assets");
 
@@ -35,11 +35,11 @@ bool SceneIntroMapes::Start()
 	return ret;
 }
 
-Update_Status SceneIntroMapes::Update()
+Update_Status SceneJapan::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneJapan, 90);
+		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
 	}
 
 
@@ -47,7 +47,7 @@ Update_Status SceneIntroMapes::Update()
 }
 
 // Update: draw background
-Update_Status SceneIntroMapes::PostUpdate()
+Update_Status SceneJapan::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
