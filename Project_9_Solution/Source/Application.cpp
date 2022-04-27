@@ -12,6 +12,7 @@
 #include "SceneLogo.h"
 #include "SceneIntro.h"
 #include "SceneIntroMapes.h"
+#include "SceneJapan.h"
 #include "SceneLevel1.h"
 #include "ModuleParticles.h"
 #include "ModuleEnemies.h"
@@ -46,11 +47,12 @@ Application::Application()
 	modules[13] =	sceneLogo =			new SceneLogo(false);
 	modules[14] =	sceneIntro =		new SceneIntro(false);
 	modules[15] =	sceneIntroMapes =	new SceneIntroMapes(false);
+	modules[16] =	sceneJapan =		new SceneJapan(false);
 
-	modules[16] =	collisions =		new ModuleCollisions(true);
-	modules[17] =	fade =				new ModuleFadeToBlack(true);
-	modules[18] =	fonts =				new ModuleFonts(true);
-	modules[19] =	render =			new ModuleRender(true);
+	modules[17] =	collisions =		new ModuleCollisions(true);
+	modules[18] =	fade =				new ModuleFadeToBlack(true);
+	modules[19] =	fonts =				new ModuleFonts(true);
+	modules[20] =	render =			new ModuleRender(true);
 
 
 
