@@ -43,7 +43,8 @@ public:
 	Animation refereeIdle;
 	Animation refereeLookLeft;
 	Animation refereeLookRight;
-	//Animation refereePointRight;
+	Animation refereePointLeft;
+	Animation refereePointRight;
 
 	Animation frisbees;			//frisbees de l'arbitre, a terra
 };

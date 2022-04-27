@@ -37,6 +37,21 @@ bool PropsBackground::Start()
 	refereeLookLeft.PushBack({ 0,102,44,34});
 	refereeLookRight.PushBack({ 176,69,44,34 });
 
+	refereePointLeft.PushBack({ 53, 35, 59, 31 });
+	refereePointLeft.PushBack({ 112, 35, 48, 32 });
+	refereePointLeft.PushBack({ 160, 35, 44, 28 });
+	refereePointLeft.PushBack({ 204, 35, 45, 28 });
+	refereePointLeft.loop = true;
+	refereePointLeft.speed = 0.1f;
+
+	refereePointRight.PushBack({ 0, 69, 44, 27 });
+	refereePointRight.PushBack({ 44, 69, 44, 28 });
+	refereePointRight.PushBack({ 88, 69, 44, 32 });
+	refereePointRight.PushBack({ 132, 69, 44, 31 });
+	refereePointLeft.loop = true;
+	refereePointRight.speed = 0.1f;
+
+
 	frisbees.PushBack({ 245,51,16,12 });
 
 	return ret;
@@ -44,7 +59,15 @@ bool PropsBackground::Start()
 
 Update_Status PropsBackground::Update()
 {
-	if (App->disk->position.x < 110) {
+	if (App->disk->saque == 1) {
+		currentAnimation = &refereePointLeft;
+	}
+
+	else if (App->disk->saque == 2) {
+		currentAnimation = &refereePointRight;
+	}
+
+	else if (App->disk->position.x < 110) {
 		//position.x += 2;
 		currentAnimation = &refereeLookLeft;
 	}
