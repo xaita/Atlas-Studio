@@ -87,11 +87,16 @@ Update_Status ModuleDisk::Update()
 
 	}
 
-	if (saque == 0  && position.x) {
+	if (saque == 0 && position.y >= 180) {
 
+		disc_speed_Y = -disc_speed_Y;
+		
 
+	}
 
+	if (saque == 0 && position.y <=20) {
 
+		disc_speed_Y = -disc_speed_Y;
 
 	}
 
