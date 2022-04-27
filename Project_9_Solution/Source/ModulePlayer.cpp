@@ -373,7 +373,7 @@ Update_Status ModulePlayer::PostUpdate()
 	// Draw UI (score) --------------------------------------
 	
 
-	// TODO 3: Blit the text of the score in at the bottom of the screen
+	// TODO 3: Blit the text of the score in at the bottom of the screen    aixo es del joc de la nau encara xdd
 	App->fonts->BlitText(58, 248, scoreFont, scoreText);
 
 	App->fonts->BlitText(150, 248, scoreFont, "this is just a font test");
