@@ -99,7 +99,7 @@ ModulePlayer2::ModulePlayer2(bool startEnabled) : Module(startEnabled)
 	shooting.PushBack({ 409, 256,	23,	43 });// frame 6
 	shooting.loop = false;
 	shooting.pingpong = false;
-	shooting.speed = 0.2f;
+	shooting.speed = 0.15f;
 
 
 	//Animation idle before shooting
