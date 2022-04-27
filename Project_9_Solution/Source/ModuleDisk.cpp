@@ -65,7 +65,26 @@ bool ModuleDisk::Start()
 
 Update_Status ModuleDisk::Update()
 {
-	if (saque == 1) {
+	
+	if (score_player_1 >= 13) {
+
+		sets_player1 += 1;
+
+		score_player_1 = 0;
+
+		saque = 2;
+	}
+
+	if (score_player_2 >= 13) {
+
+		sets_player2 += 1;
+
+		score_player_2 = 0;
+
+		saque = 1;
+	}
+
+	if (saque == 1 || saque ==2) {
 		timer -= 1;
 		App->player->position.x = 38;
 		App->player->position.y = 112;
@@ -79,6 +98,17 @@ Update_Status ModuleDisk::Update()
 		
 
 		disc_speed_X = -3;
+		disc_speed_Y = -2;
+
+
+
+	}
+
+	if (saque == 2 && timer == 0) {
+
+
+
+		disc_speed_X = 3;
 		disc_speed_Y = -2;
 
 
@@ -162,11 +192,19 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 		timer = 120;
 
-		saque = 1;
+		
 		
 		if (ultimplayer == 1) {
 
-			
+			score_player_1 += 5 ;
+
+			saque = 1;
+		}
+
+		if (ultimplayer == 2) {
+
+			score_player_2 += 5;
+			saque = 2;
 		}
 
 
@@ -181,8 +219,20 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 		timer = 120;
 
-		saque = 1;
-		
+	
+
+		if (ultimplayer == 1) {
+
+			score_player_1 += 3;
+			saque = 1;
+		}
+
+		if (ultimplayer == 2) {
+
+			score_player_2 += 3;
+
+			saque = 2;
+		}
 
 	}
 	
