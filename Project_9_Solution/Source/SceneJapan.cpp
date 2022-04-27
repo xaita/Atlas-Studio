@@ -24,8 +24,9 @@ bool SceneJapan::Start()
 
 	bool ret = true;
 
+	bgBlueTexture = App->textures->Load("Assets/UI/Screens/Blue texture.png");
 	bgTexture = App->textures->Load("Assets/UI/Screens/Japan vs Japan.png");
-	/*select = App->textures->Load("Assets/UI/Select Screens/Purple rectangle.png");*/
+	
 
 	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
 
@@ -37,6 +38,10 @@ bool SceneJapan::Start()
 
 Update_Status SceneJapan::Update()
 {
+
+	background.Update();
+	currentAnimation = &background;
+
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
@@ -50,8 +55,9 @@ Update_Status SceneJapan::Update()
 Update_Status SceneJapan::PostUpdate()
 {
 	// Draw everything --------------------------------------
+	App->render->Blit(bgBlueTexture, 0, 0, NULL);
 	App->render->Blit(bgTexture, 0, 0, NULL);
-	App->render->Blit(select, 164, 56, NULL); //rectangle de seleccionar stage
+	
 
 	return Update_Status::UPDATE_CONTINUE;
 }
