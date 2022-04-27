@@ -9,6 +9,9 @@
 #include "ModuleCollisions.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
+#include"SceneLevel1.h"
+#include"SceneIntroSNK.h"
+#include "Animation.h"
 #include "SDL/include/SDL.h"
 
 ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
@@ -65,7 +68,20 @@ bool ModuleDisk::Start()
 
 Update_Status ModuleDisk::Update()
 {
-	
+	/*if (score_player_1>=2) {
+
+		score_player_1 = 0;
+		score_player_2 = 0;
+
+		sets_player1 = 0;
+		sets_player2 = 0;
+
+		App->sceneLevel_1->Disable();
+		
+		App->sceneIntroSNK->Enable();
+		
+
+	}*/
 	if (score_player_1 >= 13) {
 
 		sets_player1 += 1;
@@ -190,7 +206,12 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
 
+
+		
+
 		timer = 120;
+
+		
 
 		
 		
@@ -198,13 +219,13 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 			score_player_1 += 5 ;
 
-			saque = 1;
+			saque = 2;
 		}
 
 		if (ultimplayer == 2) {
 
 			score_player_2 += 5;
-			saque = 2;
+			saque = 1;
 		}
 
 
@@ -217,6 +238,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
 
+
+
+
 		timer = 120;
 
 	
@@ -224,14 +248,14 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		if (ultimplayer == 1) {
 
 			score_player_1 += 3;
-			saque = 1;
+			saque = 2;
 		}
 
 		if (ultimplayer == 2) {
 
 			score_player_2 += 3;
 
-			saque = 2;
+			saque = 1;
 		}
 
 	}
