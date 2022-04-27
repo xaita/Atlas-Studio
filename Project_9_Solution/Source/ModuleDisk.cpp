@@ -65,22 +65,23 @@ bool ModuleDisk::Start()
 
 Update_Status ModuleDisk::Update()
 {
-	timer -= 1 ;
-	if (saque == 1 || timer ==0) {
-
+	if (saque == 1) {
+		timer -= 1;
 		App->player->position.x = 38;
 		App->player->position.y = 112;
-		 
+
 		App->player2->position.x = 240;
 		App->player2->position.y = 112;
+    }
+	
+	if (saque == 1  && timer ==0) {
+
+		
 
 		disc_speed_X = -3;
 		disc_speed_Y = -2;
 
 		if (position.x == App->player->position.x || position.y == App->player->position.y) {
-
-			disc_speed_X = 0;
-			disc_speed_Y = 0;
 
 			saque = 0;
 
@@ -161,9 +162,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
 
-		timer = 60;
+		timer = 240;
 
-	
+		saque = 1;
 		
 
 
@@ -176,7 +177,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
 
-		timer = 60;
+		timer = 240;
+
+		saque = 1;
 		
 
 	}

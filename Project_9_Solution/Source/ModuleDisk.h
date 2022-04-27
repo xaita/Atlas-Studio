@@ -44,7 +44,7 @@ public:
 	int saque = 1;
 	int timer;
 
-	
+	bool arbitre = false;
 
 	bool pared = false;
 	bool inicio = false;
