@@ -155,11 +155,11 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::ENEMY_SHOT: // magenta
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 			break;
-			case Collider::Type::SCOREZONE_2: // yellow
-			App->render->DrawQuad(colliders[i]->rect, 255, 255, 0, alpha);
+			case Collider::Type::SCOREZONE_2: // blue
+			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
 			break;
-			case Collider::Type::SCOREZONE_1: // red
-			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
+			case Collider::Type::SCOREZONE_1: // blue pero menos
+			App->render->DrawQuad(colliders[i]->rect, 0, 0, 125, alpha);
 			break;
 			case Collider::Type::NET: // blue
 				App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
