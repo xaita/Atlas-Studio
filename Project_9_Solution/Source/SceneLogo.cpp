@@ -25,6 +25,7 @@ bool SceneLogo::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/UI/Screens/Logo Atlas.png");
+	App->audio->PlayMusic("Assets/Audios/Music/Silence.ogg", 1.0f);
 	
 
 	App->render->camera.x = 0;

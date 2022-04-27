@@ -27,7 +27,7 @@ bool SceneIntroMapes::Start()
 	bgTexture = App->textures->Load("Assets/UI/Select Screens/Map Screen.png");
 	/*select = App->textures->Load("Assets/UI/Select Screens/Purple rectangle.png");*/
 
-	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
+	
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;

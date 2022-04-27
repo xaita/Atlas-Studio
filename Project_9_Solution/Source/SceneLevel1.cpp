@@ -48,7 +48,6 @@ bool SceneLevel1::Start()
 	spectators.loop = true;
 	spectators.speed = 0.15f;
 
-	//refereeAnim.PushBack({ 0,0,45,35 });																		//ANIMACIO ARBITRE
 	
 	
 
@@ -99,8 +98,6 @@ Update_Status SceneLevel1::PostUpdate()
 	}
 	
 	
-	//App->render->Blit(referee, 138, 189, &(refereeAnim.GetCurrentFrame()));
-	//App->render->Blit(bgFrisbees, 166, 209, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
 }

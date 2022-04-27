@@ -4,6 +4,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "Animation.h"
+#include "ModuleDisk.h"
 
 PropsBackground::PropsBackground(bool startEnabled) : Module(startEnabled)
 {
@@ -31,7 +32,11 @@ bool PropsBackground::Start()
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
-	refereeAnim.PushBack({ 0,0,45,35 });																		//ANIMACIO ARBITRE
+
+	refereeIdle.PushBack({ 0,0,45,35 });																		//ANIMACIO ARBITRE
+	refereeLookLeft.PushBack({ 0,102,44,34});
+	refereeLookRight.PushBack({ 176,69,44,34 });
+
 	frisbees.PushBack({ 245,51,16,12 });
 
 	return ret;
@@ -39,6 +44,22 @@ bool PropsBackground::Start()
 
 Update_Status PropsBackground::Update()
 {
+	if (App->disk->position.x < 110) {
+		//position.x += 2;
+		currentAnimation = &refereeLookLeft;
+	}
+
+	else if (App->disk->position.x > 194) {
+		currentAnimation = &refereeLookRight;
+		//position.x += 2;
+	}
+
+	else {
+		currentAnimation = &refereeIdle;
+		//position.x -= 2;
+	}
+
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -50,7 +71,9 @@ Update_Status PropsBackground::PostUpdate()
 	App->render->Blit(bgGoalright, 266, 22, NULL);
 	App->render->Blit(bgBotwall, 31, 202, NULL);
 	App->render->Blit(bgFrisbees, 166, 209, &(frisbees.GetCurrentFrame()));
-	App->render->Blit(referee, 138, 189, &(refereeAnim.GetCurrentFrame()));
+	
+	SDL_Rect rect = currentAnimation->GetCurrentFrame();
+	App->render->Blit(referee, 138, 189, &rect);
 
 	return Update_Status::UPDATE_CONTINUE;
 }

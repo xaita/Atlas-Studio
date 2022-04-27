@@ -28,6 +28,7 @@ public:
 	Update_Status PostUpdate() override;
 
 public:
+
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgBotwall = nullptr;
 	SDL_Texture* bgGoal = nullptr;
@@ -37,7 +38,13 @@ public:
 	SDL_Texture* referee = nullptr;
 	SDL_Texture* bgFrisbees = nullptr; 
 
-	Animation refereeAnim;
+	Animation* currentAnimation;
+
+	Animation refereeIdle;
+	Animation refereeLookLeft;
+	Animation refereeLookRight;
+	//Animation refereePointRight;
+
 	Animation frisbees;			//frisbees de l'arbitre, a terra
 };
 
