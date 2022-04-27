@@ -41,14 +41,12 @@ bool PropsBackground::Start()
 	refereePointLeft.PushBack({ 112, 35, 48, 32 });
 	refereePointLeft.PushBack({ 160, 35, 44, 28 });
 	refereePointLeft.PushBack({ 204, 35, 45, 28 });
-	refereePointLeft.loop = true;
 	refereePointLeft.speed = 0.1f;
 
 	refereePointRight.PushBack({ 0, 69, 44, 27 });
 	refereePointRight.PushBack({ 44, 69, 44, 28 });
 	refereePointRight.PushBack({ 88, 69, 44, 32 });
 	refereePointRight.PushBack({ 132, 69, 44, 31 });
-	refereePointLeft.loop = true;
 	refereePointRight.speed = 0.1f;
 
 
