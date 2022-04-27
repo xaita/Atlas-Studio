@@ -113,6 +113,26 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		disc_speed_Y = 0;
 
 	}
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
+	{
+		
+		position.x = 143;
+		position.y = 191;
+		disc_speed_X = 0;
+		disc_speed_Y = 0;
+		
+
+	}
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_2)
+	{
+		
+		position.x = 143;
+		position.y = 191;
+		disc_speed_X = 0;
+		disc_speed_Y = 0;
+
+	}
+	
 
 
 }

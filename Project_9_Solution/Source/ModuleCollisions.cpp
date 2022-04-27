@@ -48,6 +48,8 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 
 	matrix[Collider::Type::DISK][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::DISK][Collider::Type::PLAYER2] = true;
+	matrix[Collider::Type::DISK][Collider::Type::SCOREZONE_1] = true;
+	matrix[Collider::Type::DISK][Collider::Type::SCOREZONE_2] = true;
 
 }
 
