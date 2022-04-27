@@ -39,7 +39,7 @@ public:
 	// The speed in which we move the player (pixels per frame)
 	int speed = 1;
 
-	int personatgedisc=-1;
+	int personatgedisc=-1; //detecta si el personatge té disc o no
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
