@@ -42,8 +42,9 @@ public:
 	int disc_speed_Y=0;
 
 	int saque = 1;
-	int timer=0;
+	int timer =0;
 	int timer_set = 0;
+	int timer_Win =300;
 	int ultimplayer=0;
 	int score_player_1 = 0;
 	int score_player_2 = 0;
