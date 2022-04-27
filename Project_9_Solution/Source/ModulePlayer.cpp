@@ -125,8 +125,7 @@ bool ModulePlayer::Start()
 	texture = App->textures->Load("Assets/Sprites/Characters/Hiromi Mita/JapaneseSpriteSheedCanviL2.png");
 	currentAnimation = &rightidleAnim;
 
-	/*laserFx = App->audio->LoadFx("Assets/Nau/Fx/laser.wav");*/
-	explosionFx = App->audio->LoadFx("Assets/Nau/Fx/explosion.wav");
+
 	discFx = App->audio->LoadFx("Assets\Audios\SFX and Voice lines\Frisbee/Toss.wav");
 
 	position.x = 38;
@@ -136,13 +135,6 @@ bool ModulePlayer::Start()
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 25, 40 }, Collider::Type::PLAYER, this);
 
-	// TODO 0: Notice how a font is loaded and the meaning of all its arguments 
-	//char lookupTable[] = { "!  ,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz" };
-	//scoreFont = App->fonts->Load("Assets/Fonts/rtype_font.png", "! @,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz", 1);
-
-	// TODO 4: Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
-	char lookupTable[] = { "! @,_./0123456789$;< ?abcdefghijklmnopqrstuvwxyz" };
-	scoreFont = App->fonts->Load("Assets/Nau/Fonts/rtype_font3.png", lookupTable, 2);
 
 	return ret;
 }
@@ -268,7 +260,7 @@ if(personatgedisc == -1)
 			&& ultimadireccio == 1)
 			currentAnimation = &leftidleAnim;
 	}
-	if (App->disk->saque == 1 && App->disk->saque == 2) {
+	if (App->disk->saque == 1) {
 		currentAnimation = &rightidleAnim;
 	}
 
