@@ -46,22 +46,22 @@ ModulePlayer2::ModulePlayer2(bool startEnabled) : Module(startEnabled)
 	leftidleAnim.speed = 0.08f;
 
 	// move upwards
-	upAnim.PushBack({ 150, 191, 30, 40 });// frame 1
-	upAnim.PushBack({ 120, 191, 30, 51 });// frame 2
-	upAnim.PushBack({ 90, 191, 30, 50 });// frame 3
-	upAnim.PushBack({ 60, 191, 30, 40 });// frame 4
-	upAnim.PushBack({ 30, 191, 30, 53 });// frame 5
-	upAnim.PushBack({ 0, 191, 30, 50 });// frame 6
+	upAnim.PushBack({ 150, 447, 30, 40 });// frame 1
+	upAnim.PushBack({ 120, 447, 30, 51 });// frame 2
+	upAnim.PushBack({ 90, 447, 30, 50 });// frame 3
+	upAnim.PushBack({ 60, 447, 30, 40 });// frame 4
+	upAnim.PushBack({ 30, 447, 30, 53 });// frame 5
+	upAnim.PushBack({ 0, 447, 30, 50 });// frame 6
 	upAnim.loop = true;
 	upAnim.speed = 0.08f;
 
 	// Move down
-	downAnim.PushBack({ 240, 148, 29, 43 });// frame 1
-	downAnim.PushBack({ 208, 148, 32, 38 });// frame 2
-	downAnim.PushBack({ 179, 148, 29, 35 });// frame 3
-	downAnim.PushBack({ 155, 148, 24, 41 });// frame 4
-	downAnim.PushBack({ 125, 148, 30, 38 });// frame 5
-	downAnim.PushBack({ 94, 148, 31, 34 });// frame 6
+	downAnim.PushBack({ 240, 404, 29, 43 });// frame 1
+	downAnim.PushBack({ 208, 404, 32, 38 });// frame 2
+	downAnim.PushBack({ 179, 404, 29, 35 });// frame 3
+	downAnim.PushBack({ 155, 404, 24, 41 });// frame 4
+	downAnim.PushBack({ 125, 404, 30, 38 });// frame 5
+	downAnim.PushBack({ 94, 404, 31, 34 });// frame 6
 	downAnim.loop = true;
 	downAnim.speed = 0.08f;
 
