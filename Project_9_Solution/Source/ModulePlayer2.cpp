@@ -91,21 +91,21 @@ ModulePlayer2::ModulePlayer2(bool startEnabled) : Module(startEnabled)
 
 
 	// animation shooting
-	shooting.PushBack({ 73, 46, 34, 40 });// frame 1
-	shooting.PushBack({ 37, 46, 36, 38 });// frame 2
-	shooting.PushBack({ 0, 46, 37, 40 });// frame 3
-	shooting.PushBack({ 459, 0,	33,	41 });// frame 4
-	shooting.PushBack({ 432, 0,	27,	46 });// frame 5
-	shooting.PushBack({ 409, 0,	23,	43 });// frame 6
+	shooting.PushBack({ 73, 302, 34, 40 });// frame 1
+	shooting.PushBack({ 37, 302, 36, 38 });// frame 2
+	shooting.PushBack({ 0, 302, 37, 40 });// frame 3
+	shooting.PushBack({ 459, 256,	33,	41 });// frame 4
+	shooting.PushBack({ 432, 256,	27,	46 });// frame 5
+	shooting.PushBack({ 409, 256,	23,	43 });// frame 6
 	shooting.loop = false;
 	shooting.pingpong = false;
 	shooting.speed = 0.2f;
 
 
 	//Animation idle before shooting
-	rightidleFrisbee.PushBack({ 325, 0, 42, 37 });
-	uprightidleFrisbee.PushBack({ 367, 0, 42, 37, });
-	downrightidleFrisbee.PushBack({ 283, 0, 42,	39 });
+	rightidleFrisbee.PushBack({ 325, 256, 42, 37 });
+	uprightidleFrisbee.PushBack({ 367, 256, 42, 37, });
+	downrightidleFrisbee.PushBack({ 283, 256, 42,	39 });
 
 	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
 
