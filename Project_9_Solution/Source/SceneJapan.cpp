@@ -30,6 +30,11 @@ bool SceneJapan::Start()
 
 	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
 
+	background.PushBack({ 0,0,0,0 });
+	background.PushBack({ 0,0,0,0 });
+	background.loop = true;
+	background.speed = 0.15f;
+
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
