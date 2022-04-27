@@ -57,8 +57,9 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 1375, 145, 111, 96 }, Collider::Type::WALL);*/
 
 	//Top Wall
-	App->collisions->AddCollider({ 1375, 0, 111, 96 }, Collider::Type::SCOREZONE_1);
-	App->collisions->AddCollider({ 1375, 0, 111, 96 }, Collider::Type::SCOREZONE_2);
+	App->collisions->AddCollider({ 7, 24, 4, 27 }, Collider::Type::SCOREZONE_1);
+	App->collisions->AddCollider({ 7, 166, 4, 27 }, Collider::Type::SCOREZONE_1);
+	App->collisions->AddCollider({ 7, 51, 4, 115 }, Collider::Type::SCOREZONE_2);
 
 	// Enemies ---
 	/*App->enemies->AddEnemy(Enemy_Type::REDBIRD, 600, 80);
