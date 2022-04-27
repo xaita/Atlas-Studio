@@ -24,16 +24,18 @@ bool SceneJapan::Start()
 
 	bool ret = true;
 
-	bgBlueTexture = App->textures->Load("Assets/UI/Screens/Blue texture.png");
+	bgBlueTexture = App->textures->Load("Assets/UI/Screens/Scene Epi.png");
 	bgTexture = App->textures->Load("Assets/UI/Screens/Japan vs Japan.png");
 	
 
 	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
 
-	background.PushBack({ 0,0,0,0 });
-	background.PushBack({ 0,0,0,0 });
+	background.PushBack({ 0,0,304,224 });
+	background.PushBack({ 305,0,304,224 });
+	background.PushBack({ 610,0,304,224 });
+	background.PushBack({ 915,0,304,224 });
 	background.loop = true;
-	background.speed = 0.15f;
+	background.speed = 0.01f;
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -60,7 +62,7 @@ Update_Status SceneJapan::Update()
 Update_Status SceneJapan::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	App->render->Blit(bgBlueTexture, 0, 0, NULL);
+	App->render->Blit(bgBlueTexture, 0, 0, &(background.GetCurrentFrame()));
 	App->render->Blit(bgTexture, 0, 0, NULL);
 	
 
