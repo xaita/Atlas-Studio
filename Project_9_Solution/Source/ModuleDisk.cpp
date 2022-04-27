@@ -81,11 +81,11 @@ Update_Status ModuleDisk::Update()
 		disc_speed_X = -3;
 		disc_speed_Y = -2;
 
-		if (position.x == App->player->position.x || position.y == App->player->position.y) {
+		/*if (position.x == App->player->position.x || position.y == App->player->position.y) {
 
 			saque = 0;
 
-		}
+		}*/
 
 
 	}
@@ -97,7 +97,7 @@ Update_Status ModuleDisk::Update()
 
 	}
 
-	if (saque == 0 && position.y <=20) {
+	if (saque == 0 && position.y <=30) {
 
 		disc_speed_Y = -disc_speed_Y;
 
@@ -137,6 +137,8 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
 
+		saque = 0;
+
 
 	}
 
@@ -152,6 +154,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
+		saque = 0;
 
 	}
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
