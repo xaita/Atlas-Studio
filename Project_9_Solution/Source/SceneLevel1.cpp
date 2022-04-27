@@ -88,6 +88,20 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(bgNet, 142, 31, NULL);
 	App->render->Blit(bgTopwall, 30, 20, NULL);
 
+	//Comptador P1 dreta
+	App->render->Blit(UI, 130, 17, &score0);
+	App->render->Blit(UI, 130, 17, &score2);
+	App->render->Blit(UI, 130, 17, &score3);
+	App->render->Blit(UI, 130, 17, &score4);
+	App->render->Blit(UI, 130, 17, &score5);
+	App->render->Blit(UI, 130, 17, &score6);
+	App->render->Blit(UI, 130, 17, &score7);
+	App->render->Blit(UI, 130, 17, &score8);
+
+
+
+
+
 	switch (App->disk->score_player_1) {
 
 	case 0:

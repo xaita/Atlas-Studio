@@ -45,6 +45,22 @@ public:
 	SDL_Texture* referee = nullptr;
 	//SDL_Texture* bgFrisbees = nullptr;
 
+	SDL_Rect score0 = { 16, 11, 13, 11};
+	SDL_Rect score1 = { 28, 11, 3, 11 };
+	SDL_Rect score2 = { 31, 11, 13, 11 };
+	SDL_Rect score3 = { 44, 11, 12, 11 };
+	SDL_Rect score4 = { 56, 11, 13, 11 };
+	SDL_Rect score5 = { 69, 11, 13, 11 };
+	SDL_Rect score6 = { 82, 11, 13, 11 };
+	SDL_Rect score7 = { 95, 11, 12, 11 };
+	SDL_Rect score8 = { 107, 11, 13, 11 };
+	SDL_Rect score9 = { 120, 11, 13, 11 };
+	SDL_Rect scoreG = { 133, 11, 13, 11 };
+	SDL_Rect scoreO = { 16, 11, 13, 11 };
+
+
+
+	
 
 	Animation* currentAnimation = nullptr;
 
