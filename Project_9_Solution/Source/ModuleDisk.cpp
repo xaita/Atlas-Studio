@@ -47,7 +47,7 @@ bool ModuleDisk::Start()
 	LOG("Loading Disk textures");
 
 	bool ret = true;
-	timer = 240;
+	timer = 120;
 
 	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
 
@@ -160,7 +160,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
 
-		timer = 240;
+		timer = 120;
 
 		saque = 1;
 		
@@ -175,7 +175,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
 
-		timer = 240;
+		timer = 120;
 
 		saque = 1;
 		
