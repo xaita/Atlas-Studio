@@ -387,11 +387,19 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	
 
-	/*if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::DISK)
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
 	{
-		personatgedisc=1;
+		scoreplayer1 += 5;
 
+		position.x = 38;
+		position.y = 112;
+	}
 	
+	else if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
+	{
+		scoreplayer1 += 3;
 
-	}*/
+		position.x = 38;
+		position.y = 112;
+	}
 }
