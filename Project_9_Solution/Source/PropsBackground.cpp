@@ -60,11 +60,11 @@ bool PropsBackground::Start()
 Update_Status PropsBackground::Update()
 {
 	if (App->disk->saque == 1) {
-		currentAnimation = &refereePointLeft;
+		currentAnimation = &refereePointRight;
 	}
 
 	else if (App->disk->saque == 2) {
-		currentAnimation = &refereePointRight;
+		currentAnimation = &refereePointLeft;
 	}
 
 	else if (App->disk->position.x < 110) {
@@ -96,6 +96,12 @@ Update_Status PropsBackground::PostUpdate()
 	App->render->Blit(bgFrisbees, 166, 209, &(frisbees.GetCurrentFrame()));
 	
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
+
+	if (currentAnimation == &refereePointLeft) {
+		App->render->Blit(referee, 123, 189, &rect);
+	}
+
+	else
 	App->render->Blit(referee, 138, 189, &rect);
 
 	return Update_Status::UPDATE_CONTINUE;
