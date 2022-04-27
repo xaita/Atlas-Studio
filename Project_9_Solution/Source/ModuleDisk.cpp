@@ -81,11 +81,6 @@ Update_Status ModuleDisk::Update()
 		disc_speed_X = -3;
 		disc_speed_Y = -2;
 
-		/*if (position.x == App->player->position.x || position.y == App->player->position.y) {
-
-			saque = 0;
-
-		}*/
 
 
 	}
