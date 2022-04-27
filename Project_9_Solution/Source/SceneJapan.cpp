@@ -28,7 +28,7 @@ bool SceneJapan::Start()
 	bgTexture = App->textures->Load("Assets/UI/Screens/Japan vs Japan.png");
 	
 
-	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
+	App->audio->PlayMusic("Assets/Audios/Music/02_Go for Broke! (Round Start).ogg", 1.0f);
 
 	background.PushBack({ 0,0,304,224 });
 	background.PushBack({ 305,0,304,224 });
