@@ -51,8 +51,8 @@ bool ModuleDisk::Start()
 	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
 
 
-	position.x = 100;// 145 Posicio arbitre
-	position.y = 191;// 191 posicio arbitre
+	position.x = 145; //Posicio arbitre
+	position.y = 191; //posicio arbitre
 
 
 	destroyed = false;
@@ -64,6 +64,37 @@ bool ModuleDisk::Start()
 
 Update_Status ModuleDisk::Update()
 {
+	if (saque == 1) {
+
+		App->player->position.x = 38;
+		App->player->position.y = 112;
+		 
+		App->player2->position.x = 240;
+		App->player2->position.y = 112;
+
+		disc_speed_X = -3;
+		disc_speed_Y = -2;
+
+		if (position.x == App->player->position.x || position.y == App->player->position.y) {
+
+			disc_speed_X = 0;
+			disc_speed_Y = 0;
+
+			saque = 0;
+
+		}
+
+
+	}
+
+	if (saque == 0  && position.x) {
+
+
+
+
+
+	}
+
 	
 	position.x += disc_speed_X;
 	position.y += disc_speed_Y;

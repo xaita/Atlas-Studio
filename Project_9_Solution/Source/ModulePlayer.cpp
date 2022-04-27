@@ -285,7 +285,8 @@ if(personatgedisc == -1)
 
 				currentAnimation = &shooting;
 			
-
+				App->disk->disc_speed_X = 10;
+				App->disk->disc_speed_Y = -10;
 				personatgedisc = -1;
 				
 
@@ -303,7 +304,8 @@ if(personatgedisc == -1)
 			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
 				currentAnimation = &shooting;
 
-				
+				App->disk->disc_speed_X = 10;
+				App->disk->disc_speed_Y = 10;
 
 				personatgedisc = -1;
 			}
@@ -315,7 +317,7 @@ if(personatgedisc == -1)
 			shooting.Reset();
 			currentAnimation = &shooting;
 
-			
+			 App->disk->disc_speed_X=10;
 
 			personatgedisc = -1;
 
