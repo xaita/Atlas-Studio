@@ -68,23 +68,25 @@ bool ModuleDisk::Start()
 
 Update_Status ModuleDisk::Update()
 {
-
+	
 
 
 	if (sets_player1== 2 || sets_player2==2) {
-
-
-
-		sets_player1 = 0;
-		sets_player2 = 0;
-
-		App->sceneLevel_1->Disable();
 		
-		App->sceneIntroSNK->Enable();
-		
+		timer_Win -= 1;
+	
+		if (timer_Win <= 0) {
 
+			sets_player1 = 0;
+			sets_player2 = 0;
+
+			App->sceneLevel_1->Disable();
+
+			App->sceneIntroSNK->Enable();
+
+		}
 	}
-
+	
 
 
 	if (score_player_1 >= 13) {
@@ -261,7 +263,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 		if (ultimplayer == 1) {
 
-			score_player_1 += 3;
+			score_player_1 += 13;
 			saque = 2;
 		}
 
