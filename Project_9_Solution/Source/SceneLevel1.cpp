@@ -88,29 +88,162 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(bgNet, 142, 31, NULL);
 	App->render->Blit(bgTopwall, 30, 20, NULL);
 
-	//Comptador P1 dreta
-	App->render->Blit(UI, 130, 17, &score0);
-	App->render->Blit(UI, 130, 17, &score2);
-	App->render->Blit(UI, 130, 17, &score3);
-	App->render->Blit(UI, 130, 17, &score4);
-	App->render->Blit(UI, 130, 17, &score5);
-	App->render->Blit(UI, 130, 17, &score6);
-	App->render->Blit(UI, 130, 17, &score7);
-	App->render->Blit(UI, 130, 17, &score8);
+
+	if (App->disk->score_player_1 <= 13) {
+		switch (App->disk->score_player_1) {
+
+		case 0:
+			App->render->Blit(UI, 114, 17, &score0);
+			App->render->Blit(UI, 130, 17, &score0);
+			break;
+		case 2: 
+			App->render->Blit(UI, 114, 17, &score0);
+			App->render->Blit(UI, 130, 17, &score2);
+			break;
+
+		case 3:
+			App->render->Blit(UI, 114, 17, &score0);
+			App->render->Blit(UI, 131, 17, &score3);
+			break;
+
+		case 4: 
+			App->render->Blit(UI, 114, 17, &score0);
+			App->render->Blit(UI, 130, 17, &score4);
+			break;
+
+		case 5:
+			App->render->Blit(UI, 114, 17, &score0);
+			App->render->Blit(UI, 130, 17, &score5);
+			break;
+
+		case 6:
+			App->render->Blit(UI, 114, 17, &score0);
+			App->render->Blit(UI, 130, 17, &score6);
+			break;
+
+		case 7:
+			App->render->Blit(UI, 114, 17, &score0);
+			App->render->Blit(UI, 131, 17, &score7);
+			break;
+
+		case 8:
+			App->render->Blit(UI, 114, 17, &score0);
+			App->render->Blit(UI, 130, 17, &score8);
+			break;
+
+		case 9:
+			App->render->Blit(UI, 114, 17, &score0);
+			App->render->Blit(UI, 130, 17, &score9);
+			break;
+
+		case 10:
+			App->render->Blit(UI, 124, 17, &score1);
+			App->render->Blit(UI, 130, 17, &score0);
+			break;
+
+		case 11:
+			App->render->Blit(UI, 124, 17, &score1);
+			App->render->Blit(UI, 140, 17, &score1);
+			break;
+
+		case 12:
+			App->render->Blit(UI, 124, 17, &score1);
+			App->render->Blit(UI, 130, 17, &score2);
+			break;
+
+		case 13:
+			App->render->Blit(UI, 124, 17, &score1);
+			App->render->Blit(UI, 131, 17, &score3);
+			break;
 
 
+		}
+	}
 
+	if(App->disk->score_player_1 > 13) {
 
-
-	switch (App->disk->score_player_1) {
-
-	case 0:
-		App->render->Blit(bgNet, 142, 31, NULL);
-
-
+		App->render->Blit(UI, 124, 17, &score1);
+		App->render->Blit(UI, 131, 17, &score3);
 
 	}
-	
+	if (App->disk->score_player_2 <= 13) {
+		switch (App->disk->score_player_2) {
+
+		case 0:
+			App->render->Blit(UI, 162, 17, &score0);
+			App->render->Blit(UI, 178, 17, &score0);
+			break;
+		case 2:
+			App->render->Blit(UI, 162, 17, &score0);
+			App->render->Blit(UI, 178, 17, &score2);
+			break;
+
+		case 3:
+			App->render->Blit(UI, 162, 17, &score0);
+			App->render->Blit(UI, 179, 17, &score3);
+			break;
+
+		case 4:
+			App->render->Blit(UI, 162, 17, &score0);
+			App->render->Blit(UI, 178, 17, &score4);
+			break;
+
+		case 5:
+			App->render->Blit(UI, 162, 17, &score0);
+			App->render->Blit(UI, 178, 17, &score5);
+			break;
+
+		case 6:
+			App->render->Blit(UI, 162, 17, &score0);
+			App->render->Blit(UI, 178, 17, &score6);
+			break;
+
+		case 7:
+			App->render->Blit(UI, 162, 17, &score0);
+			App->render->Blit(UI, 179, 17, &score7);
+			break;
+
+		case 8:
+			App->render->Blit(UI, 162, 17, &score0);
+			App->render->Blit(UI, 178, 17, &score8);
+			break;
+
+		case 9:
+			App->render->Blit(UI, 162, 17, &score0);
+			App->render->Blit(UI, 178, 17, &score9);
+			break;
+
+		case 10:
+			App->render->Blit(UI, 172, 17, &score1);
+			App->render->Blit(UI, 178, 17, &score0);
+			break;
+
+		case 11:
+			App->render->Blit(UI, 172, 17, &score1);
+			App->render->Blit(UI, 188, 17, &score1);
+			break;
+
+		case 12:
+			App->render->Blit(UI, 172, 17, &score1);
+			App->render->Blit(UI, 178, 17, &score2);
+			break;
+
+		case 13:
+			App->render->Blit(UI, 172, 17, &score1);
+			App->render->Blit(UI, 179, 17, &score3);
+			break;
+
+
+		}
+	}
+	if (App->disk->score_player_2 > 13) {
+
+		App->render->Blit(UI, 172, 17, &score1);
+		App->render->Blit(UI, 179, 17, &score3);
+
+	}
+
+
 	
 
 	return Update_Status::UPDATE_CONTINUE;
