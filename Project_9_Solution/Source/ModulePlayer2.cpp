@@ -266,7 +266,7 @@ Update_Status ModulePlayer2::Update()
 				currentAnimation = &leftidleAnim;
 		}
 
-		if (App->disk->saque == 2) {
+		if (App->disk->saque == 2 || App->disk->saque == 1) {
 
 			currentAnimation = &leftidleAnim;
 

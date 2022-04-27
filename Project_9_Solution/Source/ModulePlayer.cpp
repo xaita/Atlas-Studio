@@ -260,7 +260,7 @@ if(personatgedisc == -1)
 			&& ultimadireccio == 1)
 			currentAnimation = &leftidleAnim;
 	}
-	if (App->disk->saque == 1) {
+	if (App->disk->saque == 1 || App->disk->saque == 2) {
 		currentAnimation = &rightidleAnim;
 	}
 
