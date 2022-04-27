@@ -68,11 +68,11 @@ bool ModuleDisk::Start()
 
 Update_Status ModuleDisk::Update()
 {
-<<<<<<< Updated upstream
-	if (sets_player1 == 2 ||sets_player2 == 2) {
-=======
+
+
+
 	if (sets_player1== 2 || sets_player2==2) {
->>>>>>> Stashed changes
+
 
 
 		sets_player1 = 0;
@@ -84,30 +84,38 @@ Update_Status ModuleDisk::Update()
 		
 
 	}
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
+
+
 	if (score_player_1 >= 13) {
 
 		sets_player1 += 1;
 
 		score_player_1 = 0;
+		score_player_2 = 0;
 
 		saque = 2;
+		 
+		timer_set = 300;
 	}
 
 	if (score_player_2 >= 13) {
 
 		sets_player2 += 1;
 
+		score_player_1 = 0;
 		score_player_2 = 0;
 
 		saque = 1;
+
+		timer_set = 300;
 	}
 
 	if (saque == 1 || saque ==2) {
-		timer -= 1;
+		if (timer > 0) {
+			timer -= 1;
+		}
+		timer_set -= 1;
 		App->player->position.x = 38;
 		App->player->position.y = 112;
 
@@ -115,7 +123,7 @@ Update_Status ModuleDisk::Update()
 		App->player2->position.y = 112;
     }
 	
-	if (saque == 1  && timer ==0) {
+	if (saque == 1  && timer ==0 && timer_set <= 0 ) {
 
 		
 
@@ -126,7 +134,7 @@ Update_Status ModuleDisk::Update()
 
 	}
 
-	if (saque == 2 && timer == 0) {
+	if (saque == 2 && timer == 0 && timer_set <= 0) {
 
 
 
