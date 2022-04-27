@@ -24,7 +24,7 @@ bool SceneJapan::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/UI/Select Screens/Map Screen.png");
+	bgTexture = App->textures->Load("Assets/UI/Screens/Japan vs Japan.png");
 	/*select = App->textures->Load("Assets/UI/Select Screens/Purple rectangle.png");*/
 
 	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
