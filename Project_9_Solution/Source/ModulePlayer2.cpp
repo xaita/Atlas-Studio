@@ -293,8 +293,8 @@ Update_Status ModulePlayer2::Update()
 
 				currentAnimation = &shooting;
 
-				App->disk->disc_speed_X = -10;
-				App->disk->disc_speed_Y = -10;
+				App->disk->disc_speed_X=-3;
+				App->disk->disc_speed_Y = -5;
 
 				personatgedisc2 = -1;
 
@@ -313,8 +313,8 @@ Update_Status ModulePlayer2::Update()
 			if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
 				currentAnimation = &shooting;
 
-				App->disk->disc_speed_X = -10;
-				App->disk->disc_speed_Y = 10;
+				App->disk->disc_speed_X=-3;
+				App->disk->disc_speed_Y = 5;
 				 
 				personatgedisc2 = -1;
 				App->disk->ultimplayer = 2;
@@ -327,7 +327,7 @@ Update_Status ModulePlayer2::Update()
 			shooting.Reset();
 			currentAnimation = &shooting;
 
-			App->disk->disc_speed_X = -10;
+			App->disk->disc_speed_X=-6;
 
 			personatgedisc2 = -1;
 			App->disk->ultimplayer = 2;
@@ -345,7 +345,7 @@ Update_Status ModulePlayer2::Update()
 				shooting.Reset();
 				currentAnimation = &shooting;
 
-				App->disk->disc_speed_X = -10;
+				App->disk->disc_speed_X=-6;
 				personatgedisc2 = -1;
 
 				App->disk->ultimplayer = 2;

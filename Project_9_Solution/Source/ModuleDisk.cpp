@@ -68,10 +68,12 @@ bool ModuleDisk::Start()
 
 Update_Status ModuleDisk::Update()
 {
+<<<<<<< Updated upstream
 	if (sets_player1 == 2 ||sets_player2 == 2) {
+=======
+	if (sets_player1== 2 || sets_player2==2) {
+>>>>>>> Stashed changes
 
-		score_player_1 = 0;
-		score_player_2 = 0;
 
 		sets_player1 = 0;
 		sets_player2 = 0;
@@ -82,6 +84,10 @@ Update_Status ModuleDisk::Update()
 		
 
 	}
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 	if (score_player_1 >= 13) {
 
 		sets_player1 += 1;
