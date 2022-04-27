@@ -286,6 +286,8 @@ Update_Status ModulePlayer2::Update()
 				currentAnimation = &shooting;
 
 
+
+
 				personatgedisc2 = -1;
 
 
@@ -303,8 +305,9 @@ Update_Status ModulePlayer2::Update()
 			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
 				currentAnimation = &shooting;
 
-
-
+				App->disk->disc_speed_X = -10;
+				App->disk->disc_speed_Y = 10;
+				 
 				personatgedisc2 = -1;
 			}
 
@@ -315,7 +318,7 @@ Update_Status ModulePlayer2::Update()
 			shooting.Reset();
 			currentAnimation = &shooting;
 
-
+			App->disk->disc_speed_X = -10;
 
 			personatgedisc2 = -1;
 

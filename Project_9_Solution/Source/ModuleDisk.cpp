@@ -101,6 +101,8 @@ Update_Status ModuleDisk::Update()
 	}
 
 	
+
+	
 	position.x += disc_speed_X;
 	position.y += disc_speed_Y;
 
