@@ -149,6 +149,7 @@ bool ModulePlayer::Start()
 int ultimadireccio=2; //1=dreta 2=esquerra
 int podermoverse = 0;
 int personatgedisc = -1;
+
 Update_Status ModulePlayer::Update()
 {
 	
@@ -295,7 +296,7 @@ if(personatgedisc == -1)
 				App->disk->disc_speed_X = 10;
 				App->disk->disc_speed_Y = -10;
 				personatgedisc = -1;
-				
+				App->disk->ultimplayer= 1;
 
 			}
 		
@@ -315,6 +316,7 @@ if(personatgedisc == -1)
 				App->disk->disc_speed_Y = 10;
 
 				personatgedisc = -1;
+				App->disk->ultimplayer = 1;
 			}
 			
 		}
@@ -327,7 +329,7 @@ if(personatgedisc == -1)
 			 App->disk->disc_speed_X=10;
 
 			personatgedisc = -1;
-
+			App->disk->ultimplayer = 1;
 
 
 		}
@@ -345,7 +347,7 @@ if(personatgedisc == -1)
 				 App->disk->disc_speed_X=10;
 				 personatgedisc = -1;
 				
-
+				 App->disk->ultimplayer = 1;
 				
 
 				

@@ -298,7 +298,7 @@ Update_Status ModulePlayer2::Update()
 
 				personatgedisc2 = -1;
 
-
+				App->disk->ultimplayer = 2;
 			}
 
 
@@ -317,6 +317,7 @@ Update_Status ModulePlayer2::Update()
 				App->disk->disc_speed_Y = 10;
 				 
 				personatgedisc2 = -1;
+				App->disk->ultimplayer = 2;
 			}
 
 		}
@@ -329,7 +330,7 @@ Update_Status ModulePlayer2::Update()
 			App->disk->disc_speed_X = -10;
 
 			personatgedisc2 = -1;
-
+			App->disk->ultimplayer = 2;
 
 
 		}
@@ -347,7 +348,7 @@ Update_Status ModulePlayer2::Update()
 				App->disk->disc_speed_X = -10;
 				personatgedisc2 = -1;
 
-
+				App->disk->ultimplayer = 2;
 
 
 

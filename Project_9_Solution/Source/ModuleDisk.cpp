@@ -164,6 +164,10 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 		saque = 1;
 		
+		if (ultimplayer == 1) {
+
+			
+		}
 
 
 	}

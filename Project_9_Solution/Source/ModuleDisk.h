@@ -43,12 +43,13 @@ public:
 
 	int saque = 1;
 	int timer;
+	int ultimplayer;
 
 	bool arbitre = false;
 
 	bool pared = false;
 	bool inicio = false;
-	bool posesion = false; //FALSE: PLAYER 1, TRUE: PLAYER 2
+
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
