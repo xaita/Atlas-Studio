@@ -40,8 +40,10 @@ public:
 	int speed = 1;
 	int disc_speed_X=0;
 	int disc_speed_Y=0;
-	int mov;
+
 	int saque = 1;
+	int timer;
+
 	
 
 	bool pared = false;
