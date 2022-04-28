@@ -143,7 +143,7 @@ Update_Status SceneLevel1::PostUpdate()
 	if (App->disk->saque == 0) {
 
 	
-		App->render->Blit(UI_Timer, 144, 13, &(timer.GetCurrentFrame()));
+		
 
 
 	}
