@@ -39,6 +39,8 @@ public:
 	SDL_Texture* bgExtremetopwallright = nullptr;
 	SDL_Texture* bgNet = nullptr;
 	SDL_Texture* UI = nullptr;
+	SDL_Texture* P1Win = nullptr;
+	SDL_Texture* P2Win = nullptr;
 	
 
 	//arbitre
@@ -62,7 +64,7 @@ public:
 	SDL_Rect Set_2 = { 320, 300, 160, 56 };
 	SDL_Rect Set_Final = { 0, 300, 160, 56 };
 
-	SDL_Rect P1WIN = {328, 86, 112, 32};
+	SDL_Rect P1WIN = {326, 86, 110, 32};
 	SDL_Rect P2WIN = {224, 86, 100, 32};
 	SDL_Rect P1LOSE = {0, 54, 100, 27};
 	SDL_Rect P2LOSE = {393, 27, 99, 27};

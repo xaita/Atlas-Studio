@@ -36,8 +36,8 @@ bool SceneLevel1::Start()
 	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");	//
 	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");										//
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
-	UI = App->textures->Load("Assets/UI/Others/P1Win.png");
-	UI = App->textures->Load("Assets/UI/Others/P2Win.png");
+	P1Win = App->textures->Load("Assets/UI/Others/P1Win.png");
+	P2Win = App->textures->Load("Assets/UI/Others/P2Win.png");
 
 
 
@@ -269,7 +269,22 @@ Update_Status SceneLevel1::PostUpdate()
 
 	}
 
+	if (App->disk->sets_player2 == 2) {
 
+		App->render->Blit(P2Win, 0, 0, NULL);
+		App->render->Blit(UI, 30, 54, &P1LOSE);
+		App->render->Blit(UI, 176, 48, &P2WIN);
+
+
+
+	}
+	if (App->disk->sets_player1 == 2) {
+
+		App->render->Blit(P1Win, 0, 0, NULL);
+		App->render->Blit(UI, 18, 48, &P1WIN);
+		App->render->Blit(UI, 175, 54, &P2LOSE);
+
+	}
 	
 
 	return Update_Status::UPDATE_CONTINUE;
