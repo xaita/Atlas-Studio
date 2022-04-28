@@ -16,7 +16,6 @@ To install the game, download the .zip from the Releases GitHub section and unzi
 ## Usage
 Intro:
 - Next frame Intro --> SPACE
-- Skip Intro --> P
 
 Player 1 Keys: 
 - Up --> W
