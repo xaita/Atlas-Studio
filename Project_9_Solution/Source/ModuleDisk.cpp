@@ -80,6 +80,9 @@ Update_Status ModuleDisk::Update()
 	}
 
 
+	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_REPEAT) {
+		sets_player1 = 2;
+	}
 
 	if (sets_player1== 2 || sets_player2==2) {
 		
