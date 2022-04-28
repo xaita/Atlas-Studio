@@ -52,11 +52,7 @@ bool SceneLevel1::Start()
 	spectators.loop = true;
 	spectators.speed = 0.15f;
 
-	//int x = 15;
-	//for (int i = 0; i < 32; i++) {
-	//	timer.PushBack({ x,0,15,15 });
-	//		x += 15;
-	//}
+
 
 
 	timer.PushBack({ 15,0,15,15 });
@@ -92,6 +88,7 @@ bool SceneLevel1::Start()
 	timer.PushBack({ 465,0,15,15 });
 	timer.PushBack({ 480,0,15,15 });
 	timer.loop = false;
+	timer.pingpong = false;
 	
 	
 	timer.speed = 0.017f;
@@ -121,11 +118,12 @@ Update_Status SceneLevel1::Update()
 {
 	spectators.Update();
 	currentAnimation = &spectators;
+	
 
-	timer.Update();
-
-	current_Timer_Animation = &timer;
-
+	if (App->disk->saque == 0) {
+		timer.Update();
+		current_Timer_Animation = &timer;
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
