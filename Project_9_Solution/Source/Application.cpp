@@ -16,7 +16,6 @@
 #include "SceneJapan.h"
 #include "SceneLevel1.h"
 #include "ModuleParticles.h"
-#include "ModuleEnemies.h"
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
@@ -41,20 +40,19 @@ Application::Application()
 	modules[6] =    player2 =			new ModulePlayer2(false);	//Player starts disabled
 	modules[7] =   disk =               new ModuleDisk(false);
 	modules[8] =	particles =			new ModuleParticles(true);
-	modules[9] =	enemies =			new ModuleEnemies(false);	//Enemies start disabled
-	modules[10] =	propsBackground =	new PropsBackground(true);
-	modules[11] =	sceneIntroSNK =		new SceneIntroSNK(true);	//////////////////posar en true/////////////
-	modules[12] =	sceneWarning =		new SceneWarning(false);
-	modules[13] =	sceneWindjammers =  new SceneWindjammers(false);
-	modules[14] =	sceneLogo =			new SceneLogo(false);
-	modules[15] =	sceneIntro =		new SceneIntro(false);
-	modules[16] =	sceneIntroMapes =	new SceneIntroMapes(false);
-	modules[17] =	sceneJapan =		new SceneJapan(false);
+	modules[9] =	propsBackground =	new PropsBackground(true);
+	modules[10] =	sceneIntroSNK =		new SceneIntroSNK(true);	//////////////////posar en true/////////////
+	modules[11] =	sceneWarning =		new SceneWarning(false);
+	modules[12] =	sceneWindjammers =  new SceneWindjammers(false);
+	modules[13] =	sceneLogo =			new SceneLogo(false);
+	modules[14] =	sceneIntro =		new SceneIntro(false);
+	modules[15] =	sceneIntroMapes =	new SceneIntroMapes(false);
+	modules[16] =	sceneJapan =		new SceneJapan(false);
 
-	modules[18] =	collisions =		new ModuleCollisions(true);
-	modules[19] =	fade =				new ModuleFadeToBlack(true);
-	modules[20] =	fonts =				new ModuleFonts(true);
-	modules[21] =	render =			new ModuleRender(true);
+	modules[17] =	collisions =		new ModuleCollisions(true);
+	modules[18] =	fade =				new ModuleFadeToBlack(true);
+	modules[19] =	fonts =				new ModuleFonts(true);
+	modules[20] =	render =			new ModuleRender(true);
 
 
 

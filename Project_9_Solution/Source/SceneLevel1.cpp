@@ -5,7 +5,6 @@
 #include "ModuleRender.h"
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
-#include "ModuleEnemies.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "ModuleDisk.h"
@@ -111,7 +110,7 @@ bool SceneLevel1::Start()
 	
 
 	App->player->Enable();
-	App->enemies->Enable();
+
 	App->player2->Enable();
 	App->disk->Enable();
 	return ret;
@@ -380,7 +379,7 @@ bool SceneLevel1::CleanUp()
 {
 	App->player->Disable();
 	App->player2->Disable();
-	App->enemies->Disable();
+	
 	App->disk->Disable();
 
 	

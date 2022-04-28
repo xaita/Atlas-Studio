@@ -37,7 +37,6 @@ public:
 	iPoint position;
 
 	// The speed in which we move the player (pixels per frame)
-	int speed = 1;
 	int disc_speed_X=0;
 	int disc_speed_Y=0;
 
@@ -53,10 +52,7 @@ public:
 	int sets = 0;
 	int godmode = -1;
 	int si = 0;
-	bool arbitre = false;
 
-	bool pared = false;
-	bool inicio = false;
 
 
 	// The player spritesheet loaded into an SDL_Texture
