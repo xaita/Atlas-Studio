@@ -37,6 +37,8 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	projectile.loop = false;
 	projectile.speed = 0.1f;
 
+	invisible.PushBack({ 0,0,0,0 });
+
 }
 
 ModuleDisk::~ModuleDisk()
@@ -72,6 +74,10 @@ bool ModuleDisk::Start()
 Update_Status ModuleDisk::Update()
 {
 	
+	if (App->player->personatgedisc == -1 && App->player2->personatgedisc2 == -1) {
+		currentAnimation2 = &moving;
+	}
+
 
 
 	if (sets_player1== 2 || sets_player2==2) {
@@ -203,7 +209,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 		saque = 0;
 
-
+		currentAnimation2 = &invisible;
 	}
 
 
@@ -219,6 +225,8 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
 		saque = 0;
+
+		currentAnimation2 = &invisible;
 
 	}
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
