@@ -57,6 +57,7 @@ bool PropsBackground::Start()
 
 Update_Status PropsBackground::Update()
 {
+	
 	if (App->disk->saque == 1) {
 		currentAnimation = &refereePointRight;
 	}
