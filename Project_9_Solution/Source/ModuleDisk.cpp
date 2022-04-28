@@ -74,6 +74,7 @@ Update_Status ModuleDisk::Update()
 	if (sets_player1== 2 || sets_player2==2) {
 		
 		timer_Win -= 1;
+		sets = 3;
 	
 		if (timer_Win <= 0) {
 
@@ -92,7 +93,7 @@ Update_Status ModuleDisk::Update()
 	if (score_player_1 >= 13) {
 
 		sets_player1 += 1;
-
+		sets += 1;
 		score_player_1 = 0;
 		score_player_2 = 0;
 
@@ -104,7 +105,7 @@ Update_Status ModuleDisk::Update()
 	if (score_player_2 >= 13) {
 
 		sets_player2 += 1;
-
+		sets += 1;
 		score_player_1 = 0;
 		score_player_2 = 0;
 

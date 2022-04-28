@@ -58,6 +58,11 @@ public:
 	SDL_Rect scoreG = { 133, 11, 13, 11 };
 	SDL_Rect scoreO = { 16, 11, 13, 11 };
 
+	SDL_Rect Set_1 = { 160, 300, 160, 56 };
+	SDL_Rect Set_2 = { 320, 300, 160, 56 };
+	SDL_Rect Set_Final = { 0, 300, 160, 56 };
+
+
 
 
 	
