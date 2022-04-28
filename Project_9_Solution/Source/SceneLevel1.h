@@ -70,7 +70,6 @@ public:
 	Animation* currentAnimation = nullptr;
 
 	Animation spectators;
-	Animation refereeAnim;
 	Animation score;
 
 
