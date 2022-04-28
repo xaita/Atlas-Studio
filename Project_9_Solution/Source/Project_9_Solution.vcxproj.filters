@@ -33,6 +33,7 @@
     <ClCompile Include="PropsBackground.cpp" />
     <ClCompile Include="SceneLogo.cpp" />
     <ClCompile Include="SceneJapan.cpp" />
+    <ClCompile Include="SceneWarning.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -69,5 +70,6 @@
     <ClInclude Include="PropsBackground.h" />
     <ClInclude Include="SceneLogo.h" />
     <ClInclude Include="SceneJapan.h" />
+    <ClInclude Include="SceneWarning.h" />
   </ItemGroup>
 </Project>

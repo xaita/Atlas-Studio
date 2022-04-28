@@ -3,7 +3,7 @@
 
 #include "Globals.h"
 
-#define NUM_MODULES 21
+#define NUM_MODULES 22
 
 class Module;
 class ModuleWindow;
@@ -14,6 +14,7 @@ class ModulePlayer;
 class ModulePlayer2;
 class ModuleDisk;
 class SceneIntroSNK;
+class SceneWarning;
 class SceneWindjammers;
 class SceneLogo;
 class SceneIntro;
@@ -63,6 +64,7 @@ public:
 	ModuleDisk* disk = nullptr;
 
 	SceneIntroSNK* sceneIntroSNK = nullptr;
+	SceneWarning* sceneWarning = nullptr;
 	SceneWindjammers* sceneWindjammers = nullptr;
 	SceneLogo* sceneLogo = nullptr;
 	SceneIntro* sceneIntro = nullptr;
