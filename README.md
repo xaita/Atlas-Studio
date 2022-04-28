@@ -11,7 +11,7 @@ The game consists of an intro, one map and 2 players.
 
 ## Installation
 
-To install the game, download the .zip and unzip the file. Then open the sln file and debug it.
+To install the game, download the .zip from the Releases GitHub section and unzip the file. Then open the sln file and debug it.
 
 ## Usage
 Intro:
