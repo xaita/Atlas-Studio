@@ -94,7 +94,7 @@ bool SceneLevel1::Start()
 	timer.loop = false;
 	
 	
-	timer.speed = 0.01f;
+	timer.speed = 0.017f;
 
 
 
