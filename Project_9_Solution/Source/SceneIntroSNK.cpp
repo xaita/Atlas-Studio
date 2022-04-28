@@ -7,6 +7,7 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include"SceneLevel1.h"
+#include"ModuleDisk.h"
 
 SceneIntroSNK::SceneIntroSNK(bool startEnabled) : Module(startEnabled)
 {
@@ -30,6 +31,7 @@ bool SceneIntroSNK::Start()
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
+
 
 	return ret;
 }

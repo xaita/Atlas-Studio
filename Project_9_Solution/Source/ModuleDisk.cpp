@@ -49,14 +49,14 @@ ModuleDisk::~ModuleDisk()
 
 bool ModuleDisk::Start()
 {
-	
 	App->collisions->Enable();
 	currentAnimation2 = &moving;
 	LOG("Loading Disk textures");
 
+	si = 0;
 	bool ret = true;
 	timer = 120;
-	
+	timer_Win = 300;
 
 	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
 
@@ -91,7 +91,7 @@ Update_Status ModuleDisk::Update()
 		sets_player2 = 2;
 	}
 
-	if (sets_player1== 2 || sets_player2==2) {
+	if ((sets_player1== 2 || sets_player2==2) && si ==1) {
 		
 		timer_Win -= 1;
 		
@@ -108,6 +108,7 @@ Update_Status ModuleDisk::Update()
 			App->sceneIntroSNK->Enable();
 
 			App->collisions->Disable();
+		
 
 		}
 	}

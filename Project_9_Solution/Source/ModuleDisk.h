@@ -52,7 +52,7 @@ public:
 	int sets_player2 = 0;
 	int sets = 0;
 	int godmode = -1;
-
+	int si = 0;
 	bool arbitre = false;
 
 	bool pared = false;

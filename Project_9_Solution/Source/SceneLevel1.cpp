@@ -127,6 +127,7 @@ Update_Status SceneLevel1::Update()
 	current_Timer_Animation = &timer;
 
 
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -335,7 +336,7 @@ Update_Status SceneLevel1::PostUpdate()
 		App->render->Blit(UI, 30, 54, &P1LOSE);
 		App->render->Blit(UI, 176, 48, &P2WIN);
 
-
+		App->disk->si = 1;
 
 	}
 	if (App->disk->sets_player1 == 2) {
@@ -343,7 +344,7 @@ Update_Status SceneLevel1::PostUpdate()
 		App->render->Blit(P1Win, 0, 0, NULL);
 		App->render->Blit(UI, 18, 48, &P1WIN);
 		App->render->Blit(UI, 175, 54, &P2LOSE);
-
+		App->disk->si = 1;
 	}
 
 /*	if (App->disk->timer_set>0 && timersetcount > 190 && (App->disk->sets_player1 != 0 || App->disk->sets_player2 != 0)) {
