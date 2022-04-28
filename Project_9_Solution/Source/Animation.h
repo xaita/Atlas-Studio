@@ -56,6 +56,8 @@ public:
 			actualFrame = totalFrames - currentFrame;
 
 		return frames[actualFrame];
+
+
 	}
 };
 

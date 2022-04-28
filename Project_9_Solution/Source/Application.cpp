@@ -8,6 +8,7 @@
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "SceneIntroSNK.h"
+#include "SceneWarning.h"
 #include "SceneWindjammers.h"
 #include "SceneLogo.h"
 #include "SceneIntro.h"
@@ -43,16 +44,17 @@ Application::Application()
 	modules[9] =	enemies =			new ModuleEnemies(false);	//Enemies start disabled
 	modules[10] =	propsBackground =	new PropsBackground(true);
 	modules[11] =	sceneIntroSNK =		new SceneIntroSNK(true);	//////////////////posar en true/////////////
-	modules[12] =	sceneWindjammers =  new SceneWindjammers(false);
-	modules[13] =	sceneLogo =			new SceneLogo(false);
-	modules[14] =	sceneIntro =		new SceneIntro(false);
-	modules[15] =	sceneIntroMapes =	new SceneIntroMapes(false);
-	modules[16] =	sceneJapan =		new SceneJapan(false);
+	modules[12] =	sceneWarning =		new SceneWarning(false);
+	modules[13] =	sceneWindjammers =  new SceneWindjammers(false);
+	modules[14] =	sceneLogo =			new SceneLogo(false);
+	modules[15] =	sceneIntro =		new SceneIntro(false);
+	modules[16] =	sceneIntroMapes =	new SceneIntroMapes(false);
+	modules[17] =	sceneJapan =		new SceneJapan(false);
 
-	modules[17] =	collisions =		new ModuleCollisions(true);
-	modules[18] =	fade =				new ModuleFadeToBlack(true);
-	modules[19] =	fonts =				new ModuleFonts(true);
-	modules[20] =	render =			new ModuleRender(true);
+	modules[18] =	collisions =		new ModuleCollisions(true);
+	modules[19] =	fade =				new ModuleFadeToBlack(true);
+	modules[20] =	fonts =				new ModuleFonts(true);
+	modules[21] =	render =			new ModuleRender(true);
 
 
 

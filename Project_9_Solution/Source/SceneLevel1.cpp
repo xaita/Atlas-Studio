@@ -40,8 +40,6 @@ bool SceneLevel1::Start()
 	P2Win = App->textures->Load("Assets/UI/Others/P2Win.png");
 
 
-
-
 	UI_Timer = App->textures->Load("Assets/UI/timerSpriteSheet.png");
 
 	
@@ -54,16 +52,50 @@ bool SceneLevel1::Start()
 	spectators.loop = true;
 	spectators.speed = 0.15f;
 
-	int x = 15;
-	for (int i = 0; i < 32; i++) {
-		timer.PushBack({ x,0,15,15 });
-			x += 15;
-	}
+	//int x = 15;
+	//for (int i = 0; i < 32; i++) {
+	//	timer.PushBack({ x,0,15,15 });
+	//		x += 15;
+	//}
+
+
+	timer.PushBack({ 15,0,15,15 });
+	timer.PushBack({ 30,0,15,15 });
+	timer.PushBack({ 45,0,15,15 });
+	timer.PushBack({ 60,0,15,15 });
+	timer.PushBack({ 75,0,15,15 });
+	timer.PushBack({ 90,0,15,15 });
+	timer.PushBack({ 105,0,15,15 });
+	timer.PushBack({ 120,0,15,15 });
+	timer.PushBack({ 135,0,15,15 });
+	timer.PushBack({ 150,0,15,15 });
+	timer.PushBack({ 165,0,15,15 });
+	timer.PushBack({ 180,0,15,15 });
+	timer.PushBack({ 195,0,15,15 });
+	timer.PushBack({ 210,0,15,15 });
+	timer.PushBack({ 225,0,15,15 });
+	timer.PushBack({ 240,0,15,15 });
+	timer.PushBack({ 255,0,15,15 });
+	timer.PushBack({ 270,0,15,15 });
+	timer.PushBack({ 285,0,15,15 });
+	timer.PushBack({ 300,0,15,15 });
+	timer.PushBack({ 315,0,15,15 });
+	timer.PushBack({ 330,0,15,15 });
+	timer.PushBack({ 345,0,15,15 });
+	timer.PushBack({ 360,0,15,15 });
+	timer.PushBack({ 375,0,15,15 });
+	timer.PushBack({ 390,0,15,15 });
+	timer.PushBack({ 405,0,15,15 });
+	timer.PushBack({ 420,0,15,15 });
+	timer.PushBack({ 435,0,15,15 });
+	timer.PushBack({ 450,0,15,15 });
+	timer.PushBack({ 465,0,15,15 });
+	timer.PushBack({ 480,0,15,15 });
 	timer.loop = false;
-	timer.pingpong = false;
-	timer.speed = 0.017f;
 	
-	current_Timer_Animation = &timer;
+	
+	timer.speed = 0.01f;
+
 
 
 	//porteria esquerra
@@ -90,7 +122,9 @@ Update_Status SceneLevel1::Update()
 	spectators.Update();
 	currentAnimation = &spectators;
 
-	
+	timer.Update();
+
+	current_Timer_Animation = &timer;
 
 
 	return Update_Status::UPDATE_CONTINUE;
@@ -106,10 +140,10 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(bgNet, 142, 31, NULL);
 	App->render->Blit(bgTopwall, 30, 20, NULL);
 
-	if (App->disk->arbitre == 0) {
+	if (App->disk->saque == 0) {
 
-		SDL_Rect rectTimer = current_Timer_Animation->GetCurrentFrame();
-		App->render->Blit(UI_Timer, 144, 13, &rectTimer);
+	
+		App->render->Blit(UI_Timer, 144, 13, &(timer.GetCurrentFrame()));
 
 
 	}

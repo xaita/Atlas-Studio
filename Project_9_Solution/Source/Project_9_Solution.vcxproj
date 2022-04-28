@@ -107,6 +107,7 @@
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="SceneLogo.h" />
+    <ClInclude Include="SceneWarning.h" />
     <ClInclude Include="SceneWindjammers.h" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +142,7 @@
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="SceneLogo.cpp" />
+    <ClCompile Include="SceneWarning.cpp" />
     <ClCompile Include="SceneWindjammers.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

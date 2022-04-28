@@ -11,7 +11,7 @@ The game consists of an intro, one map and 2 players.
 
 ## Installation
 
-To install the game, download the .zip and unzip the file. Then open the sln file and debug it.
+To install the game, download the .zip from the Releases GitHub section and unzip the file. Then open the sln file and debug it.
 
 ## Usage
 Intro:
@@ -32,6 +32,11 @@ Player 2 Keys:
 - Left --> Left Arrow
 - Throw Disk --> O
 
+Cheat Keys:
+- Direct Win/Lose --> F3
+- Show Colliders --> F1
+- God Mode: --> F4
+
 How To play: 
 - Move your character to catch the disk.
 - To shoot your disk in diagonal, try using the up and down keys of your character while in throwing state.
@@ -43,13 +48,13 @@ How To play:
 
 ## Contributing
 - Xavi Prats: https://github.com/Xarderos
-- Joan Giol:
+- Joan Giol: https://github.com/GHOSTVCL
 - Xiao Shan Costajussà: https://github.com/xaita
-- Lluc Estruch:
+- Lluc Estruch: https://github.com/LlucAieaie
 - Pau Garriga: https://github.com/DonnoNonno
 
 ## History
-Link to GitHub: https://github.com/xaita/Atlas-Studio.wiki.git
+Link to Atlas Studios' GitHub: https://github.com/xaita/Atlas-Studio
 
 ## License
 MIT License
