@@ -274,7 +274,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 
 		timer = 120;
-
+		
 		App->sceneLevel_1->timersetcount = 350;
 
 	

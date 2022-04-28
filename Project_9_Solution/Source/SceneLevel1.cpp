@@ -346,7 +346,7 @@ Update_Status SceneLevel1::PostUpdate()
 
 	}
 
-	if (timersetcount > 190 && App->disk->sets_player1 != 0 || App->disk->sets_player2 != 0) {
+	if (App->disk->timer_set>0 && timersetcount > 190 && (App->disk->sets_player1 != 0 || App->disk->sets_player2 != 0)) {
 
 		App->render->Blit(UI, 113, 124, &SetCount);
 
