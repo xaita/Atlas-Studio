@@ -36,7 +36,7 @@ Cheat Keys:
 - Show Colliders --> F1
 - Insta Win (P1) --> F2
 - Insta Win (P2) --> F3
-- God Mode: --> F4
+- God Mode(Punctuation no added, unlimited match until key pressed again): --> F4
 
 How To play: 
 - Move your character to catch the disk.
