@@ -52,7 +52,11 @@ bool SceneLevel1::Start()
 	spectators.loop = true;
 	spectators.speed = 0.15f;
 
-
+	//int x = 15;
+	//for (int i = 0; i < 32; i++) {
+	//	timer.PushBack({ x,0,15,15 });
+	//		x += 15;
+	//}
 
 
 	timer.PushBack({ 15,0,15,15 });
@@ -88,7 +92,6 @@ bool SceneLevel1::Start()
 	timer.PushBack({ 465,0,15,15 });
 	timer.PushBack({ 480,0,15,15 });
 	timer.loop = false;
-	timer.pingpong = false;
 	
 	
 	timer.speed = 0.017f;
@@ -118,12 +121,11 @@ Update_Status SceneLevel1::Update()
 {
 	spectators.Update();
 	currentAnimation = &spectators;
-	
 
-	if (App->disk->saque == 0) {
-		timer.Update();
-		current_Timer_Animation = &timer;
-	}
+	timer.Update();
+
+	current_Timer_Animation = &timer;
+
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -148,12 +150,28 @@ Update_Status SceneLevel1::PostUpdate()
 
 	if (timersetcount > 190 && App->disk->sets_player1 != 0|| App->disk->sets_player2 != 0) {
 
-		/*SDL_Rect SetCount = { 315, 27, 78, 26 };
-		SDL_Rect SetScore0 = { 135, 27, 45, 26 };
-		SDL_Rect SetScore1 = { 180, 27, 43, 26 };
-		SDL_Rect SetScore2 = { 222, 27, 47, 26 };
-		SDL_Rect SetScore3 = { 270, 27, 45, 26 };
-		SDL_Rect SetCount = { 315, 27, 78, 26 };*/
+		App->render->Blit(UI, 114, 17, &SetCount);
+
+		if (App->disk->sets_player1 == 0) {
+			App->render->Blit(UI, 114, 17, &SetScore0);
+		}
+		if (App->disk->sets_player1 == 1) {
+			App->render->Blit(UI, 114, 17, &SetScore1);
+		}
+		if (App->disk->sets_player1 == 2) {
+			App->render->Blit(UI, 114, 17, &SetScore2);
+		}
+		if (App->disk->sets_player2 == 0) {
+			App->render->Blit(UI, 114, 17, &SetScore0);
+		}
+		if (App->disk->sets_player2 == 1) {
+			App->render->Blit(UI, 114, 17, &SetScore1);
+		}
+		if (App->disk->sets_player2 == 2) {
+			App->render->Blit(UI, 114, 17, &SetScore2);
+		}
+
+
 	}
 
 
