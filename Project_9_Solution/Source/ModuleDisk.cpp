@@ -281,13 +281,13 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 		if (ultimplayer == 1) {
 
-			score_player_1 += 13;
+			score_player_1 += 3;
 			saque = 2;
 		}
 
 		if (ultimplayer == 2) {
 
-			score_player_2 += 13;
+			score_player_2 += 3;
 
 			saque = 1;
 		}
