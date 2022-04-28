@@ -112,8 +112,9 @@ ModulePlayer2::ModulePlayer2(bool startEnabled) : Module(startEnabled)
 	rightidleFrisbee.PushBack({ 192, 511, 47, 48 });
 	rightidleFrisbee.loop = true;
 	rightidleFrisbee.speed = 0.08f;
-	uprightidleFrisbee.PushBack({ 367, 256, 42, 37, });
-	downrightidleFrisbee.PushBack({ 283, 256, 42,	39 });
+	uprightidleFrisbee.PushBack({ 417, 517, 46, 42 });
+	downrightidleFrisbee.PushBack({ 371, 515, 46, 44, });
+	
 
 	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
 
