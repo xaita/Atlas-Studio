@@ -91,12 +91,20 @@ ModulePlayer2::ModulePlayer2(bool startEnabled) : Module(startEnabled)
 
 
 	// animation shooting
-	shooting.PushBack({ 73, 302, 34, 40 });// frame 1
-	shooting.PushBack({ 37, 302, 36, 38 });// frame 2
-	shooting.PushBack({ 0, 302, 37, 40 });// frame 3
-	shooting.PushBack({ 459, 256,	33,	41 });// frame 4
-	shooting.PushBack({ 432, 256,	27,	46 });// frame 5
-	shooting.PushBack({ 409, 256,	23,	43 });// frame 6
+	//shooting.PushBack({ 73, 302, 34, 40 });// frame 1
+	//shooting.PushBack({ 37, 302, 36, 38 });// frame 2
+	//shooting.PushBack({ 0, 302, 37, 40 });// frame 3
+	//shooting.PushBack({ 459, 256,	33,	41 });// frame 4
+	//shooting.PushBack({ 432, 256,	27,	46 });// frame 5
+	//shooting.PushBack({ 409, 256,	23,	43 });// frame 6
+
+	shooting.PushBack({ 0, 511, 47, 48 });
+	shooting.PushBack({ 48, 511, 47, 45 });
+	shooting.PushBack({ 96, 511, 47, 43 });
+	shooting.PushBack({ 144, 511, 47, 46 });
+	shooting.PushBack({ 192, 511, 47, 48 });
+	shooting.PushBack({ 240, 511, 41, 40 });
+
 	shooting.loop = false;
 	shooting.pingpong = false;
 	shooting.speed = 0.15f;
