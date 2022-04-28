@@ -44,7 +44,7 @@ How To play:
 ## Contributing
 - Xavi Prats:
 - Joan Giol:
-- Xiao Shan Costajussà:
+- Xiao Shan Costajussà: https://github.com/xaita
 - Lluc Estruch:
 - Pau Garriga: https://github.com/DonnoNonno
 
