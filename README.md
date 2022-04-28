@@ -32,6 +32,11 @@ Player 2 Keys:
 - Left --> Left Arrow
 - Throw Disk --> O
 
+Cheat Keys:
+- Direct Win/Lose --> F3
+- Show Colliders --> F1
+- God Mode: --> F4
+
 How To play: 
 - Move your character to catch the disk.
 - To shoot your disk in diagonal, try using the up and down keys of your character while in throwing state.
