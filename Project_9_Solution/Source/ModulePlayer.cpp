@@ -91,19 +91,13 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	
 
 	// animation shooting
-	//shooting.PushBack({ 73, 46, 34, 40 });// frame 1
-	//shooting.PushBack({ 37, 46, 36, 38 });// frame 2
-	//shooting.PushBack({ 0, 46, 37, 40 });// frame 3
-	//shooting.PushBack({ 459, 0,	33,	41 });// frame 4
-	//shooting.PushBack({ 432, 0,	27,	46 });// frame 5
-	//shooting.PushBack({ 409, 0,	23,	43 });// frame 6
+	shooting.PushBack({ 73, 46, 34, 40 });// frame 1
+	shooting.PushBack({ 37, 46, 36, 38 });// frame 2
+	shooting.PushBack({ 0, 46, 37, 40 });// frame 3
+	shooting.PushBack({ 459, 0,	33,	41 });// frame 4
+	shooting.PushBack({ 432, 0,	27,	46 });// frame 5
+	shooting.PushBack({ 409, 0,	23,	43 });// frame 6
 
-	shooting.PushBack({ 0, 514, 47, 48 });
-	shooting.PushBack({ 48, 514, 47, 45 });
-	shooting.PushBack({ 96, 514, 47, 43 });
-	shooting.PushBack({ 144, 514, 47, 46 });
-	shooting.PushBack({ 192, 514, 47, 48 });
-	shooting.PushBack({ 240, 514, 41, 40 });
 
 	shooting.loop = false;
 	shooting.pingpong = false;
@@ -111,7 +105,14 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	
 	
 	//Animation idle before shooting
-	rightidleFrisbee.PushBack({ 325, 0, 42, 37 });
+	rightidleFrisbee.PushBack({ 0, 514, 47, 48 });
+	rightidleFrisbee.PushBack({ 48, 514, 47, 45 });
+	rightidleFrisbee.PushBack({ 96, 514, 47, 46 });
+	rightidleFrisbee.PushBack({ 144, 514, 47, 46 });
+	rightidleFrisbee.PushBack({ 192, 514, 47, 48 });
+	rightidleFrisbee.loop = true;
+	rightidleFrisbee.speed = 0.08f;
+
 	uprightidleFrisbee.PushBack({ 367, 0, 42, 37, });
 	downrightidleFrisbee.PushBack({ 283, 0, 42,	39 });
 
