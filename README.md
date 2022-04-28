@@ -33,8 +33,9 @@ Player 2 Keys:
 - Throw Disk --> O
 
 Cheat Keys:
-- Direct Win/Lose --> F3
 - Show Colliders --> F1
+- Insta Win (P1) --> F2
+- Insta Win (P2) --> F3
 - God Mode: --> F4
 
 How To play: 
