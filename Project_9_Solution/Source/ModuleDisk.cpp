@@ -46,11 +46,14 @@ ModuleDisk::~ModuleDisk()
 
 bool ModuleDisk::Start()
 {
+	
+	App->collisions->Enable();
 	currentAnimation2 = &moving;
 	LOG("Loading Disk textures");
 
 	bool ret = true;
 	timer = 120;
+	
 
 	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
 
@@ -74,16 +77,20 @@ Update_Status ModuleDisk::Update()
 	if (sets_player1== 2 || sets_player2==2) {
 		
 		timer_Win -= 1;
-		sets = 3;
+		
 	
 		if (timer_Win <= 0) {
 
 			sets_player1 = 0;
 			sets_player2 = 0;
 
+			saque = 1;
+
 			App->sceneLevel_1->Disable();
 
 			App->sceneIntroSNK->Enable();
+
+			App->collisions->Disable();
 
 		}
 	}
@@ -94,24 +101,23 @@ Update_Status ModuleDisk::Update()
 
 		sets_player1 += 1;
 		sets += 1;
+		saque = 2;
+		timer_set = 300;
 		score_player_1 = 0;
 		score_player_2 = 0;
-
-		saque = 2;
-		 
-		timer_set = 300;
 	}
 
 	if (score_player_2 >= 13) {
 
 		sets_player2 += 1;
 		sets += 1;
-		score_player_1 = 0;
-		score_player_2 = 0;
+	
 
 		saque = 1;
 
 		timer_set = 300;
+		score_player_1 = 0;
+		score_player_2 = 0;
 	}
 
 	if (saque == 1 || saque ==2) {
@@ -270,7 +276,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 		if (ultimplayer == 2) {
 
-			score_player_2 += 3;
+			score_player_2 += 13;
 
 			saque = 1;
 		}

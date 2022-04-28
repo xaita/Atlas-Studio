@@ -88,24 +88,26 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(bgNet, 142, 31, NULL);
 	App->render->Blit(bgTopwall, 30, 20, NULL);
 
-	if (App->disk->score_player_1 >= 13 || App->disk->score_player_2 >=13) {
+	if ((App->disk->saque == 1 || App->disk->saque == 2) ) {
 
 		switch (App->disk->sets) {
-		case 0:
+		 case 0:
 
 			App->render->Blit(UI, 70, 86, &Set_1);
-			break;
-		case 1:
+			   break;
+			if (App->disk->timer_set > 0) {
+		      case 1:
 
 			App->render->Blit(UI, 70, 86, &Set_2);
-			break;
-		case 3:
+			   break;
+		 case 2:
+			if (App->disk->sets_player1 == 1) {
+				App->render->Blit(UI, 70, 86, &Set_Final);
+			}
+			   break;
 
-			App->render->Blit(UI, 70, 86, &Set_Final);
-			break;
-
+			}
 		}
-		
 
 	}
 	
