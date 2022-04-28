@@ -175,7 +175,7 @@ Update_Status ModuleDisk::Update()
 
 	diskcollider->SetPos(position.x, position.y);
 
-
+	App->sceneLevel_1->timersetcount--;
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -233,7 +233,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		
 
 		timer = 120;
-
+		App->sceneLevel_1->timersetcount = 350;
 		
 
 		
@@ -256,6 +256,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_2)
 	{
 		
+
 		position.x = 143;
 		position.y = 191;
 		disc_speed_X = 0;
@@ -265,6 +266,8 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 
 		timer = 120;
+
+		App->sceneLevel_1->timersetcount = 350;
 
 	
 

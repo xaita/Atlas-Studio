@@ -18,7 +18,7 @@ public:
 	// Called when the module is activated
 	// Loads the necessary textures for the map background
 	bool Start() override;
-
+	
 	// Called at the middle of the application loop
 	// Updates the scene's background animations
 	Update_Status Update() override;
@@ -74,6 +74,8 @@ public:
 	SDL_Rect SetScore3 = {270, 27, 45, 26};
 	SDL_Rect SetCount  = {315, 27, 78, 26};
 
+	int timersetcount=190;
+	int comprovo;
 
 
 
