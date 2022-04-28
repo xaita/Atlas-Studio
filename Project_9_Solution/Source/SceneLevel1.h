@@ -62,6 +62,20 @@ public:
 	SDL_Rect Set_2 = { 320, 300, 160, 56 };
 	SDL_Rect Set_Final = { 0, 300, 160, 56 };
 
+	SDL_Rect P1WIN = {328, 86, 112, 32};
+	SDL_Rect P2WIN = {224, 86, 100, 32};
+	SDL_Rect P1LOSE = {0, 54, 100, 27};
+	SDL_Rect P2LOSE = {393, 27, 99, 27};
+	SDL_Rect SetScore0 = {135, 27, 45, 26 };
+	SDL_Rect SetScore1 = {180, 27, 43, 26 };
+	SDL_Rect SetScore2 = {222, 27, 47, 26 };
+	SDL_Rect SetScore3 = {270, 27, 45, 26};
+	SDL_Rect SetCount  = {315, 27, 78, 26};
+
+
+
+
+
 
 
 

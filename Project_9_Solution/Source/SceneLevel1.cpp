@@ -36,6 +36,10 @@ bool SceneLevel1::Start()
 	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");	//
 	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");										//
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
+	UI = App->textures->Load("Assets/UI/Others/P1Win.png");
+	UI = App->textures->Load("Assets/UI/Others/P2Win.png");
+
+
 
 	//referee = App->textures->Load("Assets/Sprites/Referee/SpriteSheet_Arbi_Beach_Definitiu.png");				//ARBITRE
 	//bgFrisbees = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");//discos del terra

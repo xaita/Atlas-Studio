@@ -6,7 +6,23 @@ El GOTY del 2022 📽️
 ## Installation
 TODO: Describe the installation process: Install it 😂
 ## Usage
-TODO: Write usage instructions
+Intro:
+- Next frame Intro --> SPACE
+- Skip Intro --> P
+
+Player 1 Keys: 
+- Up --> W
+- Down --> S
+- Right --> D
+- Left --> A
+- Throw Disk --> SPACE
+
+Player 2 Keys:
+- Up --> I
+- Down --> K
+- Right --> L
+- Left --> J
+- Throw Disk --> O
 ## Contributing
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
