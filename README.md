@@ -42,7 +42,7 @@ How To play:
 - The first player to win 2 Sets also wins the match.
 
 ## Contributing
-- Xavi Prats:
+- Xavi Prats: https://github.com/Xarderos
 - Joan Giol:
 - Xiao Shan Costajussà: https://github.com/xaita
 - Lluc Estruch:
