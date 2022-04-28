@@ -74,7 +74,7 @@ public:
 	SDL_Rect SetScore3 = {270, 27, 45, 26};
 	SDL_Rect SetCount  = {315, 27, 78, 26};
 
-	int timersetcount=190;
+	int timersetcount=189;
 	int comprovo;
 
 

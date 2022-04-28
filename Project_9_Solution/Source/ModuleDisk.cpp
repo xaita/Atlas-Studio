@@ -206,7 +206,6 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
-
 		saque = 0;
 
 		currentAnimation2 = &invisible;
@@ -221,6 +220,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		position.x = App->player2->position.x -20;
 
 		position.y = App->player2->position.y + 10;
+		
 
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
@@ -261,7 +261,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 
 	}
-	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_2)
+	else if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_2)
 	{
 		
 
@@ -274,7 +274,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 
 		timer = 120;
-
+		
 		App->sceneLevel_1->timersetcount = 350;
 
 	
