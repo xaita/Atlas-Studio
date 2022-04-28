@@ -9,12 +9,14 @@ TODO: Describe the installation process: Install it 😂
 Intro:
 - Next frame Intro --> SPACE
 - Skip Intro --> P
+
 Player 1 Keys: 
 - Up --> W
 - Down --> S
 - Right --> D
 - Left --> A
 - Throw Disk --> SPACE
+
 Player 2 Keys:
 - Up --> I
 - Down --> K
