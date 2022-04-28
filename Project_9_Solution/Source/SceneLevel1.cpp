@@ -143,14 +143,19 @@ Update_Status SceneLevel1::PostUpdate()
 	if (App->disk->saque == 0) {
 
 	
-		
+		App->render->Blit(UI_Timer, 144, 13, &(timer.GetCurrentFrame()));
 
 
 	}
 
 	if (timersetcount > 190 && App->disk->sets_player1 != 0|| App->disk->sets_player2 != 0) {
 
-			App->render->Blit(P2Win, 0, 0, NULL);
+		/*SDL_Rect SetCount = { 315, 27, 78, 26 };
+		SDL_Rect SetScore0 = { 135, 27, 45, 26 };
+		SDL_Rect SetScore1 = { 180, 27, 43, 26 };
+		SDL_Rect SetScore2 = { 222, 27, 47, 26 };
+		SDL_Rect SetScore3 = { 270, 27, 45, 26 };
+		SDL_Rect SetCount = { 315, 27, 78, 26 };*/
 	}
 
 
