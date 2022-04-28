@@ -41,8 +41,10 @@ bool SceneLevel1::Start()
 
 
 
-	//referee = App->textures->Load("Assets/Sprites/Referee/SpriteSheet_Arbi_Beach_Definitiu.png");				//ARBITRE
-	//bgFrisbees = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");//discos del terra
+
+	UI_Timer = App->textures->Load("Assets/UI/timerSpriteSheet.png");
+
+	
 
 	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);					//MUSICA
 
@@ -52,8 +54,17 @@ bool SceneLevel1::Start()
 	spectators.loop = true;
 	spectators.speed = 0.15f;
 
+	int x = 15;
+	for (int i = 0; i < 32; i++) {
+		timer.PushBack({ x,0,15,15 });
+			x += 15;
+	}
+	timer.loop = false;
+	timer.pingpong = false;
+	timer.speed = 0.017f;
 	
-	
+	current_Timer_Animation = &timer;
+
 
 	//porteria esquerra
 	App->collisions->AddCollider({ 7, 26, 4, 25 }, Collider::Type::SCOREZONE_1);
@@ -79,6 +90,8 @@ Update_Status SceneLevel1::Update()
 	spectators.Update();
 	currentAnimation = &spectators;
 
+	
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -91,6 +104,14 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(bgExtremetopwallright, 267, 16, NULL);
 	App->render->Blit(bgNet, 142, 31, NULL);
 	App->render->Blit(bgTopwall, 30, 20, NULL);
+
+	if (App->disk->arbitre == 0) {
+
+		SDL_Rect rectTimer = current_Timer_Animation->GetCurrentFrame();
+		App->render->Blit(UI_Timer, 144, 13, &rectTimer);
+
+
+	}
 
 	if ((App->disk->saque == 1 || App->disk->saque == 2) ) {
 

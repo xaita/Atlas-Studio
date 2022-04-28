@@ -42,7 +42,7 @@ public:
 	SDL_Texture* P1Win = nullptr;
 	SDL_Texture* P2Win = nullptr;
 	
-
+	SDL_Texture* UI_Timer = nullptr;
 	//arbitre
 	SDL_Texture* referee = nullptr;
 	//SDL_Texture* bgFrisbees = nullptr;
@@ -84,6 +84,9 @@ public:
 	
 
 	Animation* currentAnimation = nullptr;
+
+	Animation* current_Timer_Animation = nullptr;
+	Animation timer;
 
 	Animation spectators;
 	Animation score;
