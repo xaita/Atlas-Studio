@@ -92,6 +92,7 @@ Update_Status SceneLevel1::Update()
 
 	
 
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -113,7 +114,14 @@ Update_Status SceneLevel1::PostUpdate()
 
 	}
 
-	if ((App->disk->saque == 1 || App->disk->saque == 2) ) {
+	if (timersetcount > 190 && App->disk->sets_player1 != 0|| App->disk->sets_player2 != 0) {
+
+			App->render->Blit(P2Win, 0, 0, NULL);
+	}
+
+
+
+	if ((timersetcount < 190 && (App->disk->saque == 1 || App->disk->saque == 2)) ) {
 
 		switch (App->disk->sets) {
 		 case 0:
