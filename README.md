@@ -40,21 +40,21 @@ How To play:
 - There are 3 score Zones: Red zones value 5 points and yellow zones value 3 points
 - The first player to score 13 points or more wins a set. 
 - The first player to win 2 Sets also wins the match.
+
 ## Contributing
 - Xavi Prats:
 - Joan Giol:
 - Xiao Shan Costajussà:
 - Lluc Estruch:
 - Pau Garriga: https://github.com/DonnoNonno
+
 ## History
 Link to GitHub: https://github.com/xaita/Atlas-Studio.wiki.git
 
-## Credits
-TODO: Write credits
 ## License
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) [2022] [Atlas Studio]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -73,7 +73,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-## Audios 
+ 
 
 
 
