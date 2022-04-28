@@ -103,7 +103,7 @@ Update_Status ModuleDisk::Update()
 	
 
 
-	if (score_player_1 >= 13) {
+	if (score_player_1 >= 12) {
 
 		sets_player1 += 1;
 		sets += 1;
@@ -113,7 +113,7 @@ Update_Status ModuleDisk::Update()
 		score_player_2 = 0;
 	}
 
-	if (score_player_2 >= 13) {
+	if (score_player_2 >= 12) {
 
 		sets_player2 += 1;
 		sets += 1;
