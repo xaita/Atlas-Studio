@@ -51,6 +51,7 @@ public:
 	int sets_player1 = 0;
 	int sets_player2 = 0;
 	int sets = 0;
+	int godmode = -1;
 
 	bool arbitre = false;
 

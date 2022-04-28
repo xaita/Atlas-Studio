@@ -79,11 +79,15 @@ Update_Status ModuleDisk::Update()
 		currentAnimation2 = &moving;
 	}
 
+	if (App->input->keys[SDL_SCANCODE_F4] == Key_State::KEY_DOWN) {
+		godmode *= -1;
+	}
 
-	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_REPEAT) {
+
+	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN) {
 		sets_player1 = 2;
 	}
-	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_REPEAT) {
+	if (App->input->keys[SDL_SCANCODE_F3] == Key_State::KEY_DOWN) {
 		sets_player2 = 2;
 	}
 
@@ -255,14 +259,19 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		
 		if (ultimplayer == 1) {
 
-			score_player_1 += 5 ;
+			if (godmode != 1) {
+				score_player_1 += 5 ;
+			}
+			
 
 			saque = 2;
 		}
 
 		if (ultimplayer == 2) {
-
-			score_player_2 += 5;
+			if (godmode != 1) {
+				score_player_2 += 5;
+			}
+			
 			saque = 1;
 		}
 
@@ -287,15 +296,17 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	
 
 		if (ultimplayer == 1) {
-
-			score_player_1 += 3;
+			if (godmode != 1) {
+				score_player_1 += 3;
+			}
+			
 			saque = 2;
 		}
 
 		if (ultimplayer == 2) {
-
-			score_player_2 += 3;
-
+			if (godmode != 1) {
+				score_player_2 += 3;
+			}
 			saque = 1;
 		}
 
