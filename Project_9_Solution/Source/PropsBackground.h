@@ -37,6 +37,18 @@ public:
 	SDL_Texture* bgGoalsupergoal = nullptr;
 	SDL_Texture* referee = nullptr;
 	SDL_Texture* bgFrisbees = nullptr; 
+	SDL_Texture* UI = nullptr;
+
+
+	SDL_Rect P1WIN = { 326, 86, 110, 32 };
+	SDL_Rect P2WIN = { 224, 86, 100, 32 };
+	SDL_Rect P1LOSE = { 0, 54, 100, 27 };
+	SDL_Rect P2LOSE = { 393, 27, 99, 27 };
+	SDL_Rect SetScore0 = { 135, 27, 45, 26 };
+	SDL_Rect SetScore1 = { 180, 27, 43, 26 };
+	SDL_Rect SetScore2 = { 222, 27, 47, 26 };
+	SDL_Rect SetScore3 = { 270, 27, 45, 26 };
+	SDL_Rect SetCount = { 315, 27, 78, 26 };
 
 	Animation* currentAnimation;
 
@@ -46,7 +58,9 @@ public:
 	Animation refereePointLeft;
 	Animation refereePointRight;
 
-	Animation frisbees;			//frisbees de l'arbitre, a terra
+	Animation frisbees;
+	int timersetcount = 189;
+	//frisbees de l'arbitre, a terra
 };
 
 #endif

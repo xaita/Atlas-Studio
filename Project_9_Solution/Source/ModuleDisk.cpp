@@ -13,6 +13,7 @@
 #include"SceneIntroSNK.h"
 #include "Animation.h"
 #include "SDL/include/SDL.h"
+#include "PropsBackground.h"
 
 ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 {
@@ -181,7 +182,7 @@ Update_Status ModuleDisk::Update()
 
 	diskcollider->SetPos(position.x, position.y);
 
-	App->sceneLevel_1->timersetcount--;
+	App->propsBackground->timersetcount--;
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -241,7 +242,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		
 
 		timer = 120;
-		App->sceneLevel_1->timersetcount = 350;
+		App->propsBackground->timersetcount = 350;
 		
 
 		
@@ -275,7 +276,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 		timer = 120;
 		
-		App->sceneLevel_1->timersetcount = 350;
+		App->propsBackground->timersetcount = 350;
 
 	
 

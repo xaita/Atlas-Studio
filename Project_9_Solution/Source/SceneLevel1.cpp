@@ -9,7 +9,7 @@
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "ModuleDisk.h"
-
+#include "PropsBackground.h"
 
 
 
@@ -152,7 +152,7 @@ Update_Status SceneLevel1::PostUpdate()
 
 
 
-	if ((timersetcount < 190 && (App->disk->saque == 1 || App->disk->saque == 2)) ) {
+	if ((App->propsBackground->timersetcount < 190 && (App->disk->saque == 1 || App->disk->saque == 2)) ) {
 
 		switch (App->disk->sets) {
 		 case 0:
@@ -346,7 +346,7 @@ Update_Status SceneLevel1::PostUpdate()
 
 	}
 
-	if (App->disk->timer_set>0 && timersetcount > 190 && (App->disk->sets_player1 != 0 || App->disk->sets_player2 != 0)) {
+/*	if (App->disk->timer_set>0 && timersetcount > 190 && (App->disk->sets_player1 != 0 || App->disk->sets_player2 != 0)) {
 
 		App->render->Blit(UI, 113, 124, &SetCount);
 
@@ -370,7 +370,7 @@ Update_Status SceneLevel1::PostUpdate()
 		}
 
 
-	}
+	}*/
 
 	return Update_Status::UPDATE_CONTINUE;
 }

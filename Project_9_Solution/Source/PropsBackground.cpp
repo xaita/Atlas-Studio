@@ -28,6 +28,7 @@ bool PropsBackground::Start()
 	bgGoalright = App->textures->Load("Assets/Sprites/Stages/Concrete/goalRight.png");
 	referee = App->textures->Load("Assets/Sprites/Referee/SpriteSheet_Arbi_Beach_Definitiu.png");				//ARBITRE
 	bgFrisbees = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");//discos del terra
+	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -102,6 +103,32 @@ Update_Status PropsBackground::PostUpdate()
 
 	else
 	App->render->Blit(referee, 138, 189, &rect);
+
+	if (App->disk->timer_set > 0 && timersetcount > 190 && (App->disk->sets_player1 != 0 || App->disk->sets_player2 != 0)) {
+
+		App->render->Blit(UI, 113, 124, &SetCount);
+
+		if (App->disk->sets_player1 == 0) {
+			App->render->Blit(UI, 50, 124, &SetScore0);
+		}
+		if (App->disk->sets_player1 == 1) {
+			App->render->Blit(UI, 50, 124, &SetScore1);
+		}
+		if (App->disk->sets_player1 == 2) {
+			App->render->Blit(UI, 50, 124, &SetScore2);
+		}
+		if (App->disk->sets_player2 == 0) {
+			App->render->Blit(UI, 210, 124, &SetScore0);
+		}
+		if (App->disk->sets_player2 == 1) {
+			App->render->Blit(UI, 210, 124, &SetScore1);
+		}
+		if (App->disk->sets_player2 == 2) {
+			App->render->Blit(UI, 210, 124, &SetScore2);
+		}
+
+
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
