@@ -206,7 +206,6 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
-
 		saque = 0;
 
 		currentAnimation2 = &invisible;
@@ -221,6 +220,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		position.x = App->player2->position.x -20;
 
 		position.y = App->player2->position.y + 10;
+		
 
 		disc_speed_X = 0;
 		disc_speed_Y = 0;

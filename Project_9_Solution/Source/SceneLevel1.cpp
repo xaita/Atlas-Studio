@@ -148,31 +148,7 @@ Update_Status SceneLevel1::PostUpdate()
 
 	}
 
-	if (timersetcount > 190 && App->disk->sets_player1 != 0|| App->disk->sets_player2 != 0) {
-
-		App->render->Blit(UI, 114, 17, &SetCount);
-
-		if (App->disk->sets_player1 == 0) {
-			App->render->Blit(UI, 114, 17, &SetScore0);
-		}
-		if (App->disk->sets_player1 == 1) {
-			App->render->Blit(UI, 114, 17, &SetScore1);
-		}
-		if (App->disk->sets_player1 == 2) {
-			App->render->Blit(UI, 114, 17, &SetScore2);
-		}
-		if (App->disk->sets_player2 == 0) {
-			App->render->Blit(UI, 114, 17, &SetScore0);
-		}
-		if (App->disk->sets_player2 == 1) {
-			App->render->Blit(UI, 114, 17, &SetScore1);
-		}
-		if (App->disk->sets_player2 == 2) {
-			App->render->Blit(UI, 114, 17, &SetScore2);
-		}
-
-
-	}
+	
 
 
 
@@ -369,7 +345,32 @@ Update_Status SceneLevel1::PostUpdate()
 		App->render->Blit(UI, 175, 54, &P2LOSE);
 
 	}
-	
+
+	if (timersetcount > 190 && App->disk->sets_player1 != 0 || App->disk->sets_player2 != 0) {
+
+		App->render->Blit(UI, 113, 124, &SetCount);
+
+		if (App->disk->sets_player1 == 0) {
+			App->render->Blit(UI, 50, 124, &SetScore0);
+		}
+		if (App->disk->sets_player1 == 1) {
+			App->render->Blit(UI, 50, 124, &SetScore1);
+		}
+		if (App->disk->sets_player1 == 2) {
+			App->render->Blit(UI, 50, 124, &SetScore2);
+		}
+		if (App->disk->sets_player2 == 0) {
+			App->render->Blit(UI, 210, 124, &SetScore0);
+		}
+		if (App->disk->sets_player2 == 1) {
+			App->render->Blit(UI, 210, 124, &SetScore1);
+		}
+		if (App->disk->sets_player2 == 2) {
+			App->render->Blit(UI, 210, 124, &SetScore2);
+		}
+
+
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
