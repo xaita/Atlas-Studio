@@ -43,9 +43,9 @@ How To play:
 
 ## Contributing
 - Xavi Prats: https://github.com/Xarderos
-- Joan Giol:
+- Joan Giol: https://github.com/GHOSTVCL
 - Xiao Shan Costajussà: https://github.com/xaita
-- Lluc Estruch:
+- Lluc Estruch: https://github.com/LlucAieaie
 - Pau Garriga: https://github.com/DonnoNonno
 
 ## History
