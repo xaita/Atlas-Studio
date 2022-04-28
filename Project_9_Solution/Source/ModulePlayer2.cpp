@@ -107,8 +107,8 @@ ModulePlayer2::ModulePlayer2(bool startEnabled) : Module(startEnabled)
 	//Animation idle before shooting
 	rightidleFrisbee.PushBack({ 0, 511, 47, 48 });
 	rightidleFrisbee.PushBack({ 48, 511, 47, 45 });
-	rightidleFrisbee.PushBack({ 96, 511, 47, 46 });
-	rightidleFrisbee.PushBack({ 144, 511, 47, 46 });
+	rightidleFrisbee.PushBack({ 96, 511, 47, 48 });
+	rightidleFrisbee.PushBack({ 144, 511, 47, 48 });
 	rightidleFrisbee.PushBack({ 192, 511, 47, 48 });
 	rightidleFrisbee.loop = true;
 	rightidleFrisbee.speed = 0.08f;

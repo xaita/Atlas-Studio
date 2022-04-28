@@ -68,6 +68,7 @@ public:
 	// A set of animations
 	Animation moving;
 	Animation projectile;
+	Animation invisible;
 
 
 	// The player's collider
