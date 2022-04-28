@@ -49,7 +49,7 @@ How To play:
 - Pau Garriga: https://github.com/DonnoNonno
 
 ## History
-Link to Atlas Studios' GitHub: https://github.com/xaita/Atlas-Studio.wiki.git
+Link to Atlas Studios' GitHub: https://github.com/xaita/Atlas-Studio
 
 ## License
 MIT License
