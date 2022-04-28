@@ -261,7 +261,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 
 	}
-	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_2)
+	else if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_2)
 	{
 		
 
