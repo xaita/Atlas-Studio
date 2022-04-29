@@ -194,9 +194,29 @@ if(personatgedisc == -1)
 				downAnim.Reset();
 				currentAnimation = &downAnim;
 			}
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+			{
+				dashcd = 30;
+				position.y += 3 * speed;
+				
+
+
+				currentAnimation = &leftAnim;
+				
+			}
 		}
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 		{
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+			{
+				dashcd = 30;
+				position.y += 3 * speed;
+				position.x += 3 * speed;
+
+
+				currentAnimation = &leftAnim;
+				ultimadireccio = 2;
+			}
 
 			if (currentAnimation != &rightAnim)
 			{
@@ -207,7 +227,16 @@ if(personatgedisc == -1)
 		}
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 		{
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+			{
+				dashcd = 30;
+				position.y += 3 * speed;
+				position.x -= 3 * speed;
 
+
+				currentAnimation = &leftAnim;
+				ultimadireccio = 1;
+			}
 			if (currentAnimation != &leftAnim)
 			{
 				leftAnim.Reset();
@@ -225,18 +254,18 @@ if(personatgedisc == -1)
 				position.y -= 3*speed;
 
 				currentAnimation = &leftAnim;
-				ultimadireccio = 1;
 			}
 
 			if(currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT)
 			{
-
+				
 				upAnim.Reset();
 				currentAnimation = &upAnim;
 			}
 		}
 		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 		{
+
 
 			if (currentAnimation != &rightAnim)
 			{
