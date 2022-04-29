@@ -218,8 +218,19 @@ if(personatgedisc == -1)
 		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && position.y > 29)
 		{
 			position.y -= speed;
-			if (currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT)
+
+			if(App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup==true)
 			{
+				dashcd = 30;
+				position.y -= 3*speed;
+
+				currentAnimation = &leftAnim;
+				ultimadireccio = 1;
+			}
+
+			if(currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT)
+			{
+
 				upAnim.Reset();
 				currentAnimation = &upAnim;
 			}
