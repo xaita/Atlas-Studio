@@ -293,7 +293,25 @@ Update_Status ModulePlayer2::Update()
 
 		currentAnimation = &rightidleFrisbee;
 
-		if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT)
+		{
+
+			currentAnimation = &uprightidleFrisbee;
+
+			if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
+
+
+				currentAnimation = &shooting;
+
+				App->disk->disc_speed_X = -5;
+				App->disk->disc_speed_Y = -2;
+				personatgedisc2 = -1;
+				App->disk->ultimplayer = 1;
+
+			}
+		}
+
+		else if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_REPEAT)
 		{
 
 			currentAnimation = &uprightidleFrisbee;
@@ -303,19 +321,33 @@ Update_Status ModulePlayer2::Update()
 				currentAnimation = &shooting;
 
 				App->disk->disc_speed_X=-3;
-				App->disk->disc_speed_Y = -5;
+				App->disk->disc_speed_Y = -6;
 
 				personatgedisc2 = -1;
 
-				App->disk->ultimplayer = 2;
+				App->disk->ultimplayer = 1;/////
 			}
-
-
-
-
 		}
 
-		if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT)
+		{
+
+			currentAnimation = &downrightidleFrisbee;
+
+			if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
+
+
+				currentAnimation = &shooting;
+
+				App->disk->disc_speed_X = -5;
+				App->disk->disc_speed_Y = 2;
+				personatgedisc2 = -1;
+				App->disk->ultimplayer = 1;
+
+			}
+		}
+
+		else if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT)
 		{
 			currentAnimation = &downrightidleFrisbee;
 
@@ -323,10 +355,10 @@ Update_Status ModulePlayer2::Update()
 				currentAnimation = &shooting;
 
 				App->disk->disc_speed_X=-3;
-				App->disk->disc_speed_Y = 5;
+				App->disk->disc_speed_Y = 6;
 				 
 				personatgedisc2 = -1;
-				App->disk->ultimplayer = 2;
+				App->disk->ultimplayer = 1;/////
 			}
 
 		}
@@ -339,7 +371,7 @@ Update_Status ModulePlayer2::Update()
 			App->disk->disc_speed_X=-6;
 
 			personatgedisc2 = -1;
-			App->disk->ultimplayer = 2;
+			App->disk->ultimplayer = 1;/////
 
 
 		}
