@@ -316,37 +316,64 @@ if(personatgedisc == -1)
 }	
 	
 
-  
-
-
-
 	if (personatgedisc == 1) {
 
 		
 		currentAnimation = &rightidleFrisbee;
 	
-		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
+
+		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D])
 		{
-		
+
 			currentAnimation = &uprightidleFrisbee;
 
 			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
 
+
 				currentAnimation = &shooting;
-			
-				App->disk->disc_speed_X = 3;
-				App->disk->disc_speed_Y = -5;
+
+				App->disk->disc_speed_X = 5;/////////////////////////////////////////
+				App->disk->disc_speed_Y = -2;
 				personatgedisc = -1;
-				App->disk->ultimplayer= 1;
+				App->disk->ultimplayer = 1;
 
 			}
-		
+		}
 
-			
+		else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
+		{
+			currentAnimation = &uprightidleFrisbee;
+
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+
+
+				currentAnimation = &shooting;
+
+				App->disk->disc_speed_X = 3;
+				App->disk->disc_speed_Y = -6;
+				personatgedisc = -1;
+				App->disk->ultimplayer = 1;
+
+			}
+		}
+
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D])
+		{
+			currentAnimation = &downrightidleFrisbee;
+
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+				currentAnimation = &shooting;
+
+				App->disk->disc_speed_X = 5;
+				App->disk->disc_speed_Y = 2;
+
+				personatgedisc = -1;
+				App->disk->ultimplayer = 1;
+			}
 
 		}
 
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
+		else if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)
 		{
 			currentAnimation = &downrightidleFrisbee;
 
@@ -354,12 +381,11 @@ if(personatgedisc == -1)
 				currentAnimation = &shooting;
 
 				App->disk->disc_speed_X = 3;
-				App->disk->disc_speed_Y = 5;
+				App->disk->disc_speed_Y = 6;
 
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
 			}
-			
 		}
 
 		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
