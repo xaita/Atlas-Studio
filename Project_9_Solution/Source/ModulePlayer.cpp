@@ -166,12 +166,20 @@ if(personatgedisc == -1)
 
 		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && position.x > 6)
 		{
-			position.x -= speed;
-			if (currentAnimation != &leftAnim && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
+			
+			if (currentAnimation != &leftAnim && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			{
 
 				currentAnimation = &leftAnim;
 				ultimadireccio = 1;
+				position.x -= speed;
+
+			}
+			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && dashup==true) {
+
+				ultimadireccio = 1;
+
+
 			}
 		}
 
