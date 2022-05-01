@@ -177,7 +177,9 @@ if(personatgedisc == -1)
 			}
 			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && dashup==true) {
 
+				dashcd = 30;
 				ultimadireccio = 1;
+				position.x -= 2*speed;
 
 
 			}
@@ -187,88 +189,89 @@ if(personatgedisc == -1)
 		{
 			position.x += speed;
 
-			if (currentAnimation != &rightAnim && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
+			if (currentAnimation != &rightAnim && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			{
+				position.x += speed;
 				rightAnim.Reset();
 				currentAnimation = &rightAnim;
 				ultimadireccio = 2;
 			}
+			if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && dashup == true) {
+
+				dashcd = 30;
+				ultimadireccio = 2;
+				position.x += 2 * speed;
+
+
+			}
 		}
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && position.y < 174)
 		{
-			position.y += speed;
-			if (currentAnimation != &downAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT)
+			if (currentAnimation != &downAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			{
 				downAnim.Reset();
+				position.y += speed;
 				currentAnimation = &downAnim;
 			}
 			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
 			{
 				dashcd = 30;
-				position.y += 3 * speed;
+				position.y += 2 * speed;
 				
-
-
-				currentAnimation = &leftAnim;
 				
 			}
 		}
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 		{
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
-			{
-				dashcd = 30;
-				position.y += 3 * speed;
-				position.x += 3 * speed;
-
-
-				currentAnimation = &leftAnim;
-				ultimadireccio = 2;
-			}
-
-			if (currentAnimation != &rightAnim)
+			
+			if (currentAnimation != &rightAnim && App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			{
 				rightAnim.Reset();
 				currentAnimation = &rightAnim;
 				ultimadireccio = 2;
 			}
-		}
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
-		{
 			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
 			{
 				dashcd = 30;
-				position.y += 3 * speed;
-				position.x -= 3 * speed;
+				position.y += 2 * speed;
+				position.x += 2 * speed;
 
 
 				currentAnimation = &leftAnim;
-				ultimadireccio = 1;
+				ultimadireccio = 2;
 			}
-			if (currentAnimation != &leftAnim)
+		}
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
+		{
+			
+			if (currentAnimation != &leftAnim && App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT)
 			{
 				leftAnim.Reset();
 				currentAnimation = &leftAnim;
 				ultimadireccio = 1;
 			}
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+			{
+				dashcd = 30;
+				position.y += 2 * speed;
+				position.x -= 2 * speed;
+				ultimadireccio = 1;
+			}
 		}
 		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && position.y > 29)
 		{
-			position.y -= speed;
-
-			if(App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup==true)
-			{
-				dashcd = 30;
-				position.y -= 3*speed;
-
-				currentAnimation = &leftAnim;
-			}
 
 			if(currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT)
 			{
-				
+				position.y -= speed;
 				upAnim.Reset();
 				currentAnimation = &upAnim;
+			}
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+			{
+				dashcd = 30;
+				position.y -= 2 * speed;
+
 			}
 		}
 		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
