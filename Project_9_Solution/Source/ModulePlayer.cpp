@@ -166,25 +166,25 @@ if(personatgedisc == -1)
 
 		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && position.x > 6)
 		{
-			position.x -= speed;
-			if (currentAnimation != &leftAnim && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
-			{
+				position.x -= speed;
 
-				currentAnimation = &leftAnim;
+				if (currentAnimation != &leftAnim) {
+					leftAnim.Reset();
+					currentAnimation = &leftAnim;
+				}
 				ultimadireccio = 1;
-			}
+
 		}
 
 		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && position.x < 114)
 		{
-			position.x += speed;
+				position.x += speed;
 
-			if (currentAnimation != &rightAnim && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
-			{
-				rightAnim.Reset();
-				currentAnimation = &rightAnim;
+				if (currentAnimation != &rightAnim) {
+					rightAnim.Reset();
+					currentAnimation = &rightAnim;
+				}
 				ultimadireccio = 2;
-			}
 		}
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && position.y < 174)
 		{
