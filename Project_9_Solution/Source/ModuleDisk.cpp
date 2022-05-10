@@ -54,13 +54,15 @@ bool ModuleDisk::Start()
 	LOG("Loading Disk textures");
 
 	si = 0;
+	inicial_timer = SDL_GetTicks();
+	
 	bool ret = true;
-	timer = 120;
+
 	timer_Win = 300;
 
 	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
 
-
+	
 	position.x = 145; //Posicio arbitre
 	position.y = 191; //posicio arbitre
 
@@ -75,6 +77,10 @@ bool ModuleDisk::Start()
 Update_Status ModuleDisk::Update()
 {
 	
+	unsigned int actual_timer = SDL_GetTicks();
+
+	timer = actual_timer - inicial_timer;
+
 	if (App->player->personatgedisc == -1 && App->player2->personatgedisc2 == -1) {
 		currentAnimation2 = &moving;
 	}
@@ -150,7 +156,7 @@ Update_Status ModuleDisk::Update()
 		App->player2->position.y = 112;
     }
 	
-	if (saque == 1  && timer ==0 && timer_set <= 0 ) {
+	if (saque == 1  && timer >= 2000 && timer_set <= 0 ) {
 
 		
 
@@ -248,15 +254,8 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		position.y = 191;
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
-
-
-		
-
-		timer = 120;
+		inicial_timer = SDL_GetTicks();
 		App->propsBackground->timersetcount = 350;
-		
-
-		
 		
 		if (ultimplayer == 1) {
 
@@ -290,7 +289,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 
 
-		timer = 120;
+		inicial_timer = SDL_GetTicks();
 		
 		App->propsBackground->timersetcount = 350;
 

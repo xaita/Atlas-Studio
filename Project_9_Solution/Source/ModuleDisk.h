@@ -41,7 +41,7 @@ public:
 	int disc_speed_Y=0;
 
 	int saque = 1;
-	int timer =0;
+	unsigned int timer;
 	int timer_set = 0;
 	int timer_Win =300;
 	int ultimplayer=0;
@@ -52,8 +52,8 @@ public:
 	int sets = 0;
 	int godmode = -1;
 	int si = 0;
-
-
+	unsigned int actual_timer;
+	unsigned int inicial_timer;
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
