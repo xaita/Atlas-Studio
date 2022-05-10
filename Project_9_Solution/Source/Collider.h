@@ -19,6 +19,7 @@ struct Collider
 		SCOREZONE_1,
 		SCOREZONE_2,
 		DISK,
+		WALL,
 
 		MAX
 	};

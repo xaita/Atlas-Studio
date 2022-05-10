@@ -436,7 +436,10 @@ Update_Status ModulePlayer2::PostUpdate()
 
 void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 {
-
+	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL) //collider paret wall
+	{
+		position.y += 0;
+	}
 
 	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::DISK)
 	{

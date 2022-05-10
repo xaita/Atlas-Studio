@@ -159,7 +159,7 @@ Update_Status ModulePlayer::Update()
 
 	
 
-if(personatgedisc == -1)
+if(personatgedisc == -1)	//MOVIMENT PLAYER
 {
 	if (App->disk->saque == 0) {
 
@@ -462,9 +462,12 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	
+	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL)				//collider paret wall
+	{
+		position.y += 0;
+	}
 
-	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)		//collider goal
 	{
 		scoreplayer1 += 5;
 

@@ -34,6 +34,9 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::DISK][Collider::Type::SCOREZONE_1] = true;
 	matrix[Collider::Type::DISK][Collider::Type::SCOREZONE_2] = true;
 
+	matrix[Collider::Type::PLAYER][Collider::Type::WALL] = true;
+	matrix[Collider::Type::PLAYER2][Collider::Type::WALL] = true;
+
 }
 
 // Destructor
@@ -129,10 +132,12 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::SCOREZONE_2: // blue
 			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
 			break;
-			case Collider::Type::SCOREZONE_1: // blue pero menos
-			App->render->DrawQuad(colliders[i]->rect, 0, 0, 125, alpha);
+			case Collider::Type::SCOREZONE_1: // nega
+			App->render->DrawQuad(colliders[i]->rect, 0, 0, 0, alpha);
 			break;
-		
+			case Collider::Type::WALL:		//yellow
+			App->render->DrawQuad(colliders[i]->rect, 100, 0, 0, alpha);
+			break;		
 		}
 	}
 }
