@@ -30,6 +30,13 @@ public:
 public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
+
+	int x1;
+	int y1;
+	int x2;
+	int y2;
+	bool Readyp1;
+	bool Readyp2;
 };
 
 #endif

@@ -36,8 +36,8 @@ public:
 	int Y1;
 	int X2;
 	int Y2;
-	bool Ready1;
-	bool Ready2;
+	bool Readym1;
+	bool Readym2;
 };
 
 #endif

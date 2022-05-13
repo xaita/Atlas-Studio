@@ -33,8 +33,8 @@ bool SceneIntroMapes::Start()
 	X2 = 164;
 	Y1 = 56;
 	Y2 = 56;
-	Ready1 = false;
-	Ready2 = false;
+	Readym1 = false;
+	Readym2 = false;
 
 
 	App->render->camera.x = 0;
@@ -46,10 +46,10 @@ bool SceneIntroMapes::Start()
 Update_Status SceneIntroMapes::Update()
 {
 	//player 1
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN && Y1 != 56 + 46 && Ready1 == false) {
+	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN && Y1 != 56 + 46 && Readym1 == false) {
 		Y1 += 23;
 	}
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN && Y1 != 56 && Ready1 == false) {
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN && Y1 != 56 && Readym1 == false) {
 		Y1 -= 23;
 	}
 	
@@ -63,7 +63,7 @@ Update_Status SceneIntroMapes::Update()
 	}*/
 	
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
-		Ready1 = true;
+		Readym1 = true;
 	}
 	/*if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
 		Ready2 = true;
@@ -71,7 +71,7 @@ Update_Status SceneIntroMapes::Update()
 	
 	
 	
-	if (Ready1 == true /*&& Ready2 == true*/)
+	if (Readym1 == true /*&& Ready2 == true*/)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneJapan, 90);
 	}
