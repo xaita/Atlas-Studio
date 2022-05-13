@@ -77,7 +77,7 @@ bool ModuleDisk::Start()
 Update_Status ModuleDisk::Update()
 {
 	
-	unsigned int actual_timer = SDL_GetTicks();
+	 actual_timer = SDL_GetTicks();
 
 	timer = actual_timer - inicial_timer;
 
@@ -167,7 +167,7 @@ Update_Status ModuleDisk::Update()
 
 	}
 
-	if (saque == 2 && timer == 0 && timer_set <= 0) {
+	if (saque == 2 && timer >= 2000 && timer_set <= 0) {
 
 
 

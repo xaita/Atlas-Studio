@@ -157,7 +157,16 @@ Update_Status ModulePlayer::Update()
 	// Moving the player with the camera scroll
 	App->player->position.x += 0;
 
+	if (dashcd == 0) {
+		dashup = true;
+	}
+
 	
+	if (dashup == false) {
+		
+		dashcd-=1;
+
+	}
 
 if(personatgedisc == -1)
 {
@@ -194,7 +203,7 @@ if(personatgedisc == -1)
 				downAnim.Reset();
 				currentAnimation = &downAnim;
 			}
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && dashup == true)
 			{
 				dashcd = 30;
 				position.y += 3 * speed;
@@ -207,7 +216,7 @@ if(personatgedisc == -1)
 		}
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 		{
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true )
 			{
 				dashcd = 30;
 				position.y += 3 * speed;
@@ -251,7 +260,8 @@ if(personatgedisc == -1)
 			if(App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup==true)
 			{
 				dashcd = 30;
-				position.y -= 3*speed;
+				position.y -= 50;
+				dashup = false;
 
 				currentAnimation = &leftAnim;
 			}
