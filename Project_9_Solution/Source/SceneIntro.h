@@ -29,7 +29,11 @@ public:
 
 public:
 	// The scene sprite sheet loaded into an SDL_Texture
+
 	SDL_Texture* bgTexture = nullptr;
+	SDL_Texture* UI = nullptr;
+
+	SDL_Rect P1 = { 359, 11, 20, 16 };
 
 	int x1;
 	int y1;

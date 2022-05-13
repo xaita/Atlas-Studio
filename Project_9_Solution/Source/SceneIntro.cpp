@@ -26,6 +26,7 @@ bool SceneIntro::Start()
 
 	bgTexture = App->textures->Load("Assets/UI/Select Screens/SelectPlayer.png");
 	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
+	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -43,16 +44,16 @@ Update_Status SceneIntro::Update()
 {
 	//player 1
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN && y1 != 50 + 100 && Readyp1 == false) {
-		y1 += 23;
+		y1 += 50;
 	}
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN && y1 != 50 && Readyp1 == false) {
-		y1 -= 23;
+		y1 -= 50;
+	}
+	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_DOWN && x1 != 50 + 50 && Readyp1 == false) {
+		x1 += 50;
 	}
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_DOWN && x1 != 50 && Readyp1 == false) {
-		y1 -= 23;
-	}
-	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_DOWN && y1 != 50 + 50 && Readyp1 == false) {
-		y1 -= 23;
+		x1 -= 50;
 	}
 
 
@@ -84,6 +85,7 @@ Update_Status SceneIntro::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
+	App->render->Blit(UI, x1, y1, &P1);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
