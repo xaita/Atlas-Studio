@@ -41,7 +41,7 @@ public:
 
 	int personatgedisc=-1; //detecta si el personatge té disc o no
 
-	int dashcd=30;
+	int dashtimer;
 	bool dashup = true;
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
