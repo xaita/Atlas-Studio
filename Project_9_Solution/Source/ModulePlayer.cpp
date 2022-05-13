@@ -153,21 +153,25 @@ int personatgedisc = -1;
 
 Update_Status ModulePlayer::Update()
 {
-	
+
 	// Moving the player with the camera scroll
 	App->player->position.x += 0;
-
-	if (dashcd == 0) {
+	if (dashtimer > 0) {
+		dashtimer--;
+	}
+	if (dashtimer == 0) {
+		dashup = false;
+	}
+	
+	if (dashcd > 0) {
+		dashcd--;
+	}
+	if (dashcd != 0) {
+		dashup = false;
+	}
+	if (dashcd == 0 && dashtimer !=0) {
 		dashup = true;
 	}
-
-	
-	if (dashup == false) {
-		
-		dashcd-=1;
-
-	}
-
 if(personatgedisc == -1)
 {
 	if (App->disk->saque == 0) {
@@ -205,10 +209,10 @@ if(personatgedisc == -1)
 			}
 			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && dashup == true)
 			{
-				dashcd = 30;
-				position.y += 3 * speed;
+				dashtimer = 30;
+				position.y += 50;
 				
-
+				dashup = false;
 
 				currentAnimation = &leftAnim;
 				
@@ -218,10 +222,10 @@ if(personatgedisc == -1)
 		{
 			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true )
 			{
-				dashcd = 30;
-				position.y += 3 * speed;
-				position.x += 3 * speed;
-
+				dashtimer = 30;
+				position.y += 25;
+				position.x += 25;
+				dashup = false;
 
 				currentAnimation = &leftAnim;
 				ultimadireccio = 2;
@@ -238,10 +242,10 @@ if(personatgedisc == -1)
 		{
 			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
 			{
-				dashcd = 30;
-				position.y += 3 * speed;
-				position.x -= 3 * speed;
-
+				dashtimer = 30;
+				position.y += 25;
+				position.x -= 25;
+				dashup = false;
 
 				currentAnimation = &leftAnim;
 				ultimadireccio = 1;
@@ -256,16 +260,22 @@ if(personatgedisc == -1)
 		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && position.y > 29)
 		{
 			position.y -= speed;
-
-			if(App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup==true)
-			{
-				dashcd = 30;
-				position.y -= 50;
-				dashup = false;
-
-				currentAnimation = &leftAnim;
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && dashup == true) {
+				dashtimer = 20;
+				dashcd = 50;
 			}
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+		{
 
+			position.y -= 3 * speed;
+			currentAnimation = &leftAnim;
+		}
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_UP && dashup == true) {
+
+			dashcd = 50;
+			dashtimer = 20;
+
+		}
 			if(currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT)
 			{
 				
