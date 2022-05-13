@@ -107,8 +107,10 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 293, 168, 4, 25 }, Collider::Type::SCOREZONE_1);
 	App->collisions->AddCollider({ 293, 64, 4, 89 }, Collider::Type::SCOREZONE_2);
 
-	App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::WALL);
+	//App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::BOT_WALL);
+	App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
+	App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
+	//App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::TOP_WALL);
 
 	App->player->Enable();
 

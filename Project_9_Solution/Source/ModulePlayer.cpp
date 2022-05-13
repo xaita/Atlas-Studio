@@ -186,7 +186,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				}
 				ultimadireccio = 2;
 		}
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && position.y < 174)
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT /*&& position.y < 174*/)		//moviment cap a baix
 		{
 			position.y += speed;
 			if (currentAnimation != &downAnim && App->input->keys[SDL_SCANCODE_A] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] != Key_State::KEY_REPEAT)
@@ -244,7 +244,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				ultimadireccio = 1;
 			}
 		}
-		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && position.y > 29)
+		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT /*&& position.y > 29*/)		//moviment cap amunt
 		{
 			position.y -= speed;
 
@@ -462,9 +462,14 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WALL)				//collider paret wall
+	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::BOT_WALL)				//collider paret inferior
 	{
-		position.y += 0;
+		App->player->position.y = 174;
+	}
+
+	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::TOP_WALL)				//collider paret superior
+	{
+		App->player->position.y = 29;
 	}
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)		//collider goal

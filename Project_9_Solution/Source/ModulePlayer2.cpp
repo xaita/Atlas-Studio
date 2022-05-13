@@ -436,9 +436,16 @@ Update_Status ModulePlayer2::PostUpdate()
 
 void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::WALL) //collider paret wall
+	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::BOT_WALL) //collider paret inferior
 	{
 		position.y += 0;
+		App->player2->position.y += 0;
+	}
+	
+	else if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::TOP_WALL) //collider paret superior
+	{
+		position.y += 0;
+		App->player2->position.y += 0;
 	}
 
 	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::DISK)
