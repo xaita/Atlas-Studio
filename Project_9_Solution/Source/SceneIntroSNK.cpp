@@ -40,7 +40,7 @@ Update_Status SceneIntroSNK::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneWarning, 90);
+		App->fade->FadeToBlack(this, (Module*)App->sceneWindjammers, 90);
 	}
 
 	if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)

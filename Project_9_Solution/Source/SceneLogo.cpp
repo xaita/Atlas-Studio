@@ -38,7 +38,7 @@ Update_Status SceneLogo::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneWindjammers, 90);
+		App->fade->FadeToBlack(this, (Module*)App->sceneWarning, 90);
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
