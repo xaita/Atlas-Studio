@@ -203,7 +203,7 @@ if(personatgedisc == -1)
 				dashtimer = 15;
 				
 			  }
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && dashup == true)
+			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
 			{
 				position.y += 3 * speed;
 			
