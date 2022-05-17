@@ -48,7 +48,7 @@ bool SceneIntroSNK::Start()
 
 Update_Status SceneIntroSNK::Update()
 {
-	if (timer == 2) {
+	if (timer == 3) {
 		frame++;
 		timer = 0;
 	}
