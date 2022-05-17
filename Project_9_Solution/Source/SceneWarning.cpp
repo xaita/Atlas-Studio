@@ -6,7 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
-#include"SceneLevel1.h"
+#include "SceneLevel1.h"
 
 SceneWarning::SceneWarning(bool startEnabled) : Module(startEnabled)
 {
@@ -36,6 +36,9 @@ bool SceneWarning::Start()
 
 Update_Status SceneWarning::Update()
 {
+	if (frame == 1) {
+		App->fade->FadeToBlack(this, (Module*)App->sceneWindjammers, 90);
+	}
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntroSNK, 90);

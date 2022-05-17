@@ -41,13 +41,14 @@ Application::Application()
 	modules[7] =   disk =               new ModuleDisk(false);
 	modules[8] =	particles =			new ModuleParticles(true);
 	modules[9] =	propsBackground =	new PropsBackground(true);
-	modules[10] =	sceneIntroSNK =		new SceneIntroSNK(false);	//////////////////posar en true/////////////
-	modules[11] =	sceneWarning =		new SceneWarning(false);
-	modules[12] =	sceneWindjammers =  new SceneWindjammers(false);
-	modules[13] =	sceneLogo =			new SceneLogo(true);
-	modules[14] =	sceneIntro =		new SceneIntro(false);
-	modules[15] =	sceneIntroMapes =	new SceneIntroMapes(false);
-	modules[16] =	sceneJapan =		new SceneJapan(false);
+
+	modules[10] =	sceneJapan =		new SceneJapan(false);
+	modules[11] =	sceneIntroMapes =	new SceneIntroMapes(false);
+	modules[12] =	sceneIntro =		new SceneIntro(false);
+    modules[13] =	sceneWindjammers =  new SceneWindjammers(false);
+	modules[14] =	sceneIntroSNK =		new SceneIntroSNK(false);
+	modules[15] =	sceneWarning =		new SceneWarning(false);
+	modules[16] =	sceneLogo =			new SceneLogo(true);
 
 	modules[17] =	collisions =		new ModuleCollisions(true);
 	modules[18] =	fade =				new ModuleFadeToBlack(true);
