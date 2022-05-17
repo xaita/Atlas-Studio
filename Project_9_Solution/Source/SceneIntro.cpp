@@ -24,7 +24,7 @@ bool SceneIntro::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/UI/Select Screens/SelectPlayer.png");
+	bgTexture = App->textures->Load("Assets/UI/Select Screens/SelectPlayerScene.png");
 	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 
