@@ -31,6 +31,9 @@ public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* select = nullptr;
+	SDL_Texture* beach = nullptr;
+	SDL_Texture* concrete = nullptr;
+	SDL_Texture* lawn = nullptr;
 
 	int X1;
 	int Y1;
