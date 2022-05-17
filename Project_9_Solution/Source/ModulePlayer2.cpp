@@ -164,7 +164,14 @@ Update_Status ModulePlayer2::Update()
 	// Moving the player with the camera scroll
 	App->player2->position.x += 0;
 
+	if (dashtimer2 == 0) {
 
+		dashup2 = false;
+	}
+
+	if (dashtimer2 > 0) {
+		dashtimer2--;
+	}
 
 	if (personatgedisc2 == -1)
 	{
@@ -178,11 +185,33 @@ Update_Status ModulePlayer2::Update()
 					currentAnimation = &leftAnim;
 					ultimadireccio2 = 1;
 				}
+
+				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && dashup2 == true) {
+					dashtimer2 = 15;
+
+				}
+				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup2 == true)
+				{
+					position.x -= 3 * speed;
+
+					currentAnimation = &leftAnim;
+				}
 			}
 
 			if (App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_REPEAT && position.x < 274)
 			{
 				position.x += speed;
+
+				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && dashup2 == true) {
+					dashtimer2 = 15;
+
+				}
+				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup2 == true)
+				{
+					position.x += 3 * speed;
+
+					currentAnimation = &rightAnim;
+				}
 
 				if (currentAnimation != &rightAnim && App->input->keys[SDL_SCANCODE_UP] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_DOWN] != Key_State::KEY_REPEAT)
 				{
@@ -306,7 +335,7 @@ Update_Status ModulePlayer2::Update()
 				App->disk->disc_speed_X = -5;
 				App->disk->disc_speed_Y = -2;
 				personatgedisc2 = -1;
-				App->disk->ultimplayer = 1;
+				App->disk->ultimplayer = 2;
 
 			}
 		}
@@ -325,7 +354,7 @@ Update_Status ModulePlayer2::Update()
 
 				personatgedisc2 = -1;
 
-				App->disk->ultimplayer = 1;/////
+				App->disk->ultimplayer = 2;/////
 			}
 		}
 
@@ -342,7 +371,7 @@ Update_Status ModulePlayer2::Update()
 				App->disk->disc_speed_X = -5;
 				App->disk->disc_speed_Y = 2;
 				personatgedisc2 = -1;
-				App->disk->ultimplayer = 1;
+				App->disk->ultimplayer = 2;
 
 			}
 		}
@@ -358,7 +387,7 @@ Update_Status ModulePlayer2::Update()
 				App->disk->disc_speed_Y = 6;
 				 
 				personatgedisc2 = -1;
-				App->disk->ultimplayer = 1;/////
+				App->disk->ultimplayer = 2;/////
 			}
 
 		}
@@ -371,7 +400,7 @@ Update_Status ModulePlayer2::Update()
 			App->disk->disc_speed_X=-6;
 
 			personatgedisc2 = -1;
-			App->disk->ultimplayer = 1;/////
+			App->disk->ultimplayer = 2;/////
 
 
 		}

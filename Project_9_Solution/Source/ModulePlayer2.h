@@ -40,6 +40,9 @@ public:
 	int speed = 1.5;
 	int personatgedisc2= -1;
 
+	int dashtimer2;
+	bool dashup2 = true;
+
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
 
