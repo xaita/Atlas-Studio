@@ -53,7 +53,8 @@ Update_Status SceneIntroSNK::Update()
 		timer = 0;
 	}
 	timer++;
-	if (frame == 78) {
+
+	if (frame == 76) {
 		App->fade->FadeToBlack(this, (Module*)App->sceneWindjammers, 90);
 	}
 	
