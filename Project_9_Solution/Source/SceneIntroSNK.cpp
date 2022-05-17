@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "SceneIntroSNK.h"
 
 #include "Application.h"
@@ -25,91 +27,17 @@ bool SceneIntroSNK::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
+	char s[128];
 
-	bgTexture = App->textures->Load("Assets/UI/Screens/SNKIntro.png");
+	for (int i = 1; i < 80; ++i)
+	{
+		sprintf_s(s, "Assets/UI/Screens/Neo Geo Intro/wjammers%d.png", i);
+		bgTexture[i] = App->textures->Load(s);
+	}
+	frame = 0;
 	App->audio->PlayMusic("Assets/Audios/Music/SNK Intro.ogg", 1.0f);
 
-	SNK.PushBack({ 0,0,304,224 });
-	SNK.PushBack({ 0,305,304,224 });
-	SNK.PushBack({ 0,609,304,224 });
-	SNK.PushBack({ 0,913,304,224 });
-	SNK.PushBack({ 225,0,304,224 });
-	SNK.PushBack({ 225,305,304,224 });
-	SNK.PushBack({ 225,609,304,224 });
-	SNK.PushBack({ 225,913,304,224 });
-	SNK.PushBack({ 449,0,304,224 });
-	SNK.PushBack({ 449,305,304,224 });
-	SNK.PushBack({ 449,609,304,224 });
-	SNK.PushBack({ 449,913,304,224 });
-	SNK.PushBack({ 673,0,304,224 });
-	SNK.PushBack({ 673,305,304,224 });
-	SNK.PushBack({ 673,609,304,224 });
-	SNK.PushBack({ 673,913,304,224 });
-	SNK.PushBack({ 897,0,304,224 });
-	SNK.PushBack({ 897,305,304,224 });
-	SNK.PushBack({ 897,609,304,224 });
-	SNK.PushBack({ 897,913,304,224 });
-	SNK.PushBack({ 1121,0,304,224 });
-	SNK.PushBack({ 1121,305,304,224 });
-	SNK.PushBack({ 1121,609,304,224 });
-	SNK.PushBack({ 1121,913,304,224 });
-	SNK.PushBack({ 1345,0,304,224 });
-	SNK.PushBack({ 1345,305,304,224 });
-	SNK.PushBack({ 1345,609,304,224 });
-	SNK.PushBack({ 1345,913,304,224 });
-	SNK.PushBack({ 1569,0,304,224 });
-	SNK.PushBack({ 1569,305,304,224 });
-	SNK.PushBack({ 1569,609,304,224 });
-	SNK.PushBack({ 1569,913,304,224 });
-	SNK.PushBack({ 1793,0,304,224 });
-	SNK.PushBack({ 1793,305,304,224 });
-	SNK.PushBack({ 1793,609,304,224 });
-	SNK.PushBack({ 1793,913,304,224 });
-	SNK.PushBack({ 2017,0,304,224 });
-	SNK.PushBack({ 2017,305,304,224 });
-	SNK.PushBack({ 2017,609,304,224 });
-	SNK.PushBack({ 2017,913,304,224 });
-	SNK.PushBack({ 2241,0,304,224 });
-	SNK.PushBack({ 2241,305,304,224 });
-	SNK.PushBack({ 2241,609,304,224 });
-	SNK.PushBack({ 2241,913,304,224 });
-	SNK.PushBack({ 2465,0,304,224 });
-	SNK.PushBack({ 2465,305,304,224 });
-	SNK.PushBack({ 2465,609,304,224 });
-	SNK.PushBack({ 2465,0,304,224 });
-	SNK.PushBack({ 2689,0,304,224 });
-	SNK.PushBack({ 2689,305,304,224 });
-	SNK.PushBack({ 2689,609,304,224 });
-	SNK.PushBack({ 2689,913,304,224 });
-	SNK.PushBack({ 2913,0,304,224 });
-	SNK.PushBack({ 2913,305,304,224 });
-	SNK.PushBack({ 2913,609,304,224 });
-	SNK.PushBack({ 2913,913,304,224 });
-	SNK.PushBack({ 3137,0,304,224 });
-	SNK.PushBack({ 3137,305,304,224 });
-	SNK.PushBack({ 3137,609,304,224 });
-	SNK.PushBack({ 3137,913,304,224 });
-	SNK.PushBack({ 3361,0,304,224 });
-	SNK.PushBack({ 3361,305,304,224 });
-	SNK.PushBack({ 3361,609,304,224 });
-	SNK.PushBack({ 3361,913,304,224 });
-	SNK.PushBack({ 3585,0,304,224 });
-	SNK.PushBack({ 3585,305,304,224 });
-	SNK.PushBack({ 3585,609,304,224 });
-	SNK.PushBack({ 3585,913,304,224 });
-	SNK.PushBack({ 3809,0,304,224 });
-	SNK.PushBack({ 3809,305,304,224 });
-	SNK.PushBack({ 3809,609,304,224 });
-	SNK.PushBack({ 3809,913,304,224 });
-	SNK.PushBack({ 4033,0,304,224 });
-	SNK.PushBack({ 4033,305,304,224 });
-	SNK.PushBack({ 4033,609,304,224 });
-	SNK.PushBack({ 4033,913,304,224 });
-	SNK.PushBack({ 4257,0,304,224 });
-	SNK.PushBack({ 4257,305,304,224 });
-	SNK.PushBack({ 4257,609,304,224 });
-	SNK.loop = true;
-	SNK.speed = 0.4f;
+	
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -120,11 +48,14 @@ bool SceneIntroSNK::Start()
 
 Update_Status SceneIntroSNK::Update()
 {
-
-	SNK.Update();
-	currentAnimation = &SNK;
-	
-
+	if (timer == 2) {
+		frame++;
+		timer = 0;
+	}
+	timer++;
+	if (frame == 80) {
+		App->fade->FadeToBlack(this, (Module*)App->sceneWindjammers, 90);
+	}
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneWindjammers, 90);
@@ -137,8 +68,7 @@ Update_Status SceneIntroSNK::Update()
 Update_Status SceneIntroSNK::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	App->render->Blit(bgSNK, 0, 0, &(SNK.GetCurrentFrame()));
-	App->render->Blit(bgTexture, 0, 0, NULL);
+	App->render->Blit(bgTexture[frame], 0, 0, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
