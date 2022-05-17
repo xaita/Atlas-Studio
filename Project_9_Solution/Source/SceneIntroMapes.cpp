@@ -29,7 +29,7 @@ bool SceneIntroMapes::Start()
 	select = App->textures->Load("Assets/UI/Select Screens/Purple rectangle.png");
 
 	beach = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Beach(name).png");
-	concrete = App->textures->Load("Assets/UI\Maps_screenshots_and_titles/Concrete(name).png");
+	concrete = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Concrete(name).png");
 	lawn = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Lawn(name).png");
 
 	
@@ -52,9 +52,12 @@ Update_Status SceneIntroMapes::Update()
 	//player 1
 	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN && Y1 != 56 + 46 && Readym1 == false) {
 		Y1 += 23;
+		App->audio->PlayMusic("Assets/Audios/SFX and Voice lines/Others/Select", 1.0f);////////////////////////////////////////nose si va perque no hi ha altaveus xddddd
 	}
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN && Y1 != 56 && Readym1 == false) {
 		Y1 -= 23;
+		App->audio->PlayMusic("Assets/Audios/SFX and Voice lines/Others/Select", 1.0f);////////////////////////////////////////
+
 	}
 	
 
@@ -91,7 +94,7 @@ Update_Status SceneIntroMapes::PostUpdate()
 	App->render->Blit(bgTexture, 0, 0, NULL);
 	App->render->Blit(select, X1, Y1, NULL); //rectangle de seleccionar stage
 	App->render->Blit(beach, 200, 65, NULL);
-	App->render->Blit(concrete, 192, 88, NULL);
-	App->render->Blit(lawn, 201, 136, NULL);
+	App->render->Blit(concrete, 192, 89, NULL);
+	App->render->Blit(lawn, 208, 137, NULL);
 	return Update_Status::UPDATE_CONTINUE;
 }

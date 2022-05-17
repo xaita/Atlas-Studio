@@ -25,16 +25,19 @@ bool SceneIntro::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/UI/Select Screens/SelectPlayerScene.png");
-	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
+	
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
-	x1 = 50;
-	y1 = 50;
-	x2 = 50;
-	y2 = 50;
+	selectPlayer1 = '1';
+	x1 = 8;
+	y1 = 72;
+
+	selectPlayer2 = '1';
+	x2 = 24;
+	y2 = 72;
 	Readyp1 = false;
 	Readyp2 = false;
 	return ret;
@@ -42,30 +45,88 @@ bool SceneIntro::Start()
 
 Update_Status SceneIntro::Update()
 {
-	//player 1
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN && y1 != 50 + 100 && Readyp1 == false) {
-		y1 += 50;
+	//seleccion player 1
+	switch (selectPlayer1) {
+	case '1':
+		x1 = 8;
+		y1 = 72;
+		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_DOWN) 
+			selectPlayer1 = '2';
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN)
+			selectPlayer1 = '3';
+
+		break;
+
+	   case '2':
+		x1 = 158;
+		y1 = 72;
+		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_DOWN) 
+			selectPlayer1 = '1';
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN) 
+			selectPlayer1 = '3';
+		
+		break;
+
+	case '3':
+		x1 = 158;
+		y1 = 184;
+		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_DOWN) 
+			selectPlayer1 = '1';
+		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN) 
+			selectPlayer1 = '2';
+
+			break;
 	}
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN && y1 != 50 && Readyp1 == false) {
-		y1 -= 50;
-	}
-	if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_DOWN && x1 != 50 + 50 && Readyp1 == false) {
-		x1 += 50;
-	}
-	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_DOWN && x1 != 50 && Readyp1 == false) {
-		x1 -= 50;
-	}
+
+
+	//if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN && y1 != 50 + 100 && Readyp1 == false) {
+	//	y1 += 56;
+	//}
+	//if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN && y1 != 50 && Readyp1 == false) {
+	//	y1 -= 56;
+	//}
+	//if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_DOWN && x1 != 150 + 150 && Readyp1 == false) {
+	//	x1 += 150;
+	//}
+	//if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_DOWN && x1 != 150 && Readyp1 == false) {
+	//	x1 -= 150;
+	//}
 
 
 	//Player 2
-	if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_DOWN && y2 != 150 && Readyp2 == false) {
-		y2 += 50;
-	}
-	if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_DOWN && y2 != 50 && Readyp2 == false) {
-		y2 -= 50;
+	switch (selectPlayer2) {
+	case '1':
+		x2 = 24;
+		y2 = 72;
+		if (App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_DOWN)
+			selectPlayer2 = '2';
+		if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_DOWN)
+			selectPlayer2 = '3';
+
+		break;
+
+	case '2':
+		x2 = 172;
+		y2 = 72;
+		if (App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_DOWN)
+			selectPlayer2 = '1';
+		if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_DOWN)
+			selectPlayer2 = '3';
+
+		break;
+
+	case '3':
+		x2 = 172;
+		y2 = 184;
+		if (App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_DOWN)
+			selectPlayer2 = '1';
+		if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_DOWN)
+			selectPlayer2 = '2';
+
+		break;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 		Readyp1 = true;
 	}
 	if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
@@ -86,6 +147,7 @@ Update_Status SceneIntro::PostUpdate()
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
 	App->render->Blit(UI, x1, y1, &P1);
+	App->render->Blit(UI, x2, y2, &P2);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
