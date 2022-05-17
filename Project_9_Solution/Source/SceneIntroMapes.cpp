@@ -28,9 +28,9 @@ bool SceneIntroMapes::Start()
 	
 	select = App->textures->Load("Assets/UI/Select Screens/Purple rectangle.png");
 
-	beach = App->textures->Load("Assets\UI\Maps_screenshots_and_titles/Beach(name).png");
-	concrete = App->textures->Load("Assets\UI\Maps_screenshots_and_titles/Concrete(name).png");
-	lawn = App->textures->Load("Assets\UI\Maps_screenshots_and_titles/Lawn(name).png");
+	beach = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Beach(name).png");
+	concrete = App->textures->Load("Assets/UI\Maps_screenshots_and_titles/Concrete(name).png");
+	lawn = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Lawn(name).png");
 
 	
 	X1 = 164;
@@ -90,8 +90,8 @@ Update_Status SceneIntroMapes::PostUpdate()
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
 	App->render->Blit(select, X1, Y1, NULL); //rectangle de seleccionar stage
-	App->render->Blit(beach, 200, 64, NULL);
+	App->render->Blit(beach, 200, 65, NULL);
 	App->render->Blit(concrete, 192, 88, NULL);
-	App->render->Blit(lawn, 200, 112, NULL);
+	App->render->Blit(lawn, 201, 136, NULL);
 	return Update_Status::UPDATE_CONTINUE;
 }
