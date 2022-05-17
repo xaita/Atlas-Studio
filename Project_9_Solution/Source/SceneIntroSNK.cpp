@@ -53,14 +53,10 @@ Update_Status SceneIntroSNK::Update()
 		timer = 0;
 	}
 	timer++;
-	if (frame == 80) {
+	if (frame == 78) {
 		App->fade->FadeToBlack(this, (Module*)App->sceneWindjammers, 90);
 	}
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
-	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneWindjammers, 90);
-	}
-
+	
 	return Update_Status::UPDATE_CONTINUE;
 }
 
