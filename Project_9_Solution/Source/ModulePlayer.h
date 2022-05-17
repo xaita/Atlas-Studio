@@ -64,6 +64,7 @@ public:
 	Animation rightAnim;
 	Animation shooting;
 	Animation ulti;
+	Animation rightdash;
 
 	// The player's collider
 	Collider* collider = nullptr;

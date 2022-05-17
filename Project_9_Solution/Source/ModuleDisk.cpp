@@ -23,7 +23,7 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	moving.PushBack({ 181, 48, 16, 16 });
 	moving.PushBack({ 213, 48, 16, 16 });
 	moving.loop = true;
-	moving.speed = 0.1f;
+	moving.speed = 0.2f;
 
 	// Projectile motion animation
 	projectile.PushBack({ 35, 8, 32, 14 });
@@ -192,6 +192,7 @@ Update_Status ModuleDisk::Update()
 	position.y += disc_speed_Y;
 
 	diskcollider->SetPos(position.x, position.y);
+	currentAnimation2->Update();
 
 	App->propsBackground->timersetcount--;
 
@@ -199,9 +200,13 @@ Update_Status ModuleDisk::Update()
 }
 
 Update_Status ModuleDisk::PostUpdate()
+
 {
-	SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
-	App->render->Blit(texture, position.x, position.y, &rect2);
+	if (!destroyed)
+	{
+		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
+		App->render->Blit(texture, position.x, position.y, &rect2);
+	}
 	return Update_Status::UPDATE_CONTINUE;
 }
 

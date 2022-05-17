@@ -9,7 +9,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
-#include"ModuleDisk.h"
+#include "ModuleDisk.h"
 #include "SDL/include/SDL.h"
 
 #include <chrono>
@@ -85,11 +85,12 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	leftAnim.loop = true;
 	leftAnim.speed = 0.08f;
 
-
-
-
-	
-
+	// rightdash
+	rightdash.PushBack({ 43,148,51,24 });
+	rightdash.PushBack({ 0,148,43,31 });
+	rightdash.PushBack({ 474,103,30,33 });
+	rightdash.loop = false;
+	rightdash.speed = 0.1f;
 	// animation shooting
 	shooting.PushBack({ 73, 46, 34, 40 });// frame 1
 	shooting.PushBack({ 37, 46, 36, 38 });// frame 2
@@ -168,7 +169,7 @@ Update_Status ModulePlayer::Update()
 
 if(personatgedisc == -1)	//MOVIMENT PLAYER
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] != Key_State::KEY_REPEAT && dashup == false) {
+	if (App->input->keys[SDL_SCANCODE_C] != Key_State::KEY_REPEAT && dashup == false) {
 		dashup = true;
 
 	}
@@ -178,11 +179,11 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && position.x > 6)
 		{
 				position.x -= speed;
-				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && dashup == true) {
+				if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && dashup == true) {
 					dashtimer = 15;
 
 				}
-				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+				if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && dashup == true)
 				{
 					position.x -= 3 * speed;
 
@@ -201,31 +202,36 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		{
 				position.x += speed;
 
-				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && dashup == true) {
+				if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && dashup == true) {
 					dashtimer = 15;
 
 				}
-				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+				if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && dashup == true)
 				{
 					position.x += 3 * speed;
 
-					currentAnimation = &rightAnim;
+					currentAnimation = &rightdash;
 				}
-
-				if (currentAnimation != &rightAnim) {
+				
+				 else if (currentAnimation != &rightAnim) {
 					rightAnim.Reset();
 					currentAnimation = &rightAnim;
-				}
+				   }
+
+				 if (currentAnimation != &rightdash ) {
+					 rightdash.Reset();
+					
+				 }
 				ultimadireccio = 2;
 		}
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT /*&& position.y < 174*/)		//moviment cap a baix
 		{
 			position.y += speed;
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && dashup == true) {
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && dashup == true) {
 				dashtimer = 15;
 
 			}
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && dashup == true)
 			{
 				position.y += 3 * speed;
 
@@ -240,7 +246,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		}
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 		{
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && dashup == true)
 			{
 				
 				position.y += 3 * speed;
@@ -260,7 +266,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		}
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 		{
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && dashup == true)
 			{
 				
 				position.y += 3 * speed;
@@ -281,11 +287,11 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		{
 			position.y -= speed;
 
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && dashup == true) {
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && dashup == true) {
 				dashtimer = 15;
 
 			}
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup == true)
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && dashup == true)
 			{
 				position.y -= 3 * speed;
 
@@ -334,14 +340,14 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE
+			&& App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE
 			&& ultimadireccio == 2)
 			currentAnimation = &rightidleAnim;
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_IDLE
+			&& App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE
 			&& ultimadireccio == 1)
 			currentAnimation = &leftidleAnim;
 	}
@@ -363,7 +369,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 			currentAnimation = &uprightidleFrisbee;
 
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 
 
 				currentAnimation = &shooting;
@@ -374,13 +380,23 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				App->disk->ultimplayer = 1;
 
 			}
+			if (App->input->keys[SDL_SCANCODE_V] == Key_State::KEY_DOWN) {
+
+
+				currentAnimation = &shooting;
+				App->disk->position.x;
+				App->disk->position.y;
+				personatgedisc = -1;
+				App->disk->ultimplayer = 1;
+
+			}
 		}
 
 		else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
 		{
 			currentAnimation = &uprightidleFrisbee;
 
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 
 
 				currentAnimation = &shooting;
@@ -397,7 +413,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		{
 			currentAnimation = &downrightidleFrisbee;
 
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 				currentAnimation = &shooting;
 
 				App->disk->disc_speed_X = 5;
@@ -413,7 +429,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		{
 			currentAnimation = &downrightidleFrisbee;
 
-			if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 				currentAnimation = &shooting;
 
 				App->disk->disc_speed_X = 3;
@@ -422,14 +438,16 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
 			}
+
 		}
 
-		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_W] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_S] != Key_State::KEY_REPEAT)
 		{
 			shooting.Reset();
 			currentAnimation = &shooting;
 
-			 App->disk->disc_speed_X = 6;
+			App->disk->disc_speed_X = 6;
+			
 
 			personatgedisc = -1;
 			App->disk->ultimplayer = 1;
@@ -437,7 +455,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 		}
 		
-		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)
 		{
 			if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE

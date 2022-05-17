@@ -8,7 +8,7 @@
 
 ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 {
-	for(uint i = 0; i < MAX_COLLIDERS; ++i)
+	for (uint i = 0; i < MAX_COLLIDERS; ++i)
 		colliders[i] = nullptr;
 
 
@@ -38,6 +38,10 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER2][Collider::Type::TOP_WALL] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::BOT_WALL] = true;
 	matrix[Collider::Type::PLAYER2][Collider::Type::BOT_WALL] = true;
+
+
+	matrix[Collider::Type::SCOREZONE_1][Collider::Type::DISK] = true;
+	matrix[Collider::Type::SCOREZONE_2][Collider::Type::DISK] = true;
 }
 
 // Destructor
