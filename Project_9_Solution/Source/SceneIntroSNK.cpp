@@ -48,12 +48,12 @@ bool SceneIntroSNK::Start()
 
 Update_Status SceneIntroSNK::Update()
 {
-	if (timer == 3) {
+	if (timer == 2) {
 		frame++;
 		timer = 0;
 	}
 	timer++;
-	if (frame == 80) {
+	if (frame == 77) {
 		App->fade->FadeToBlack(this, (Module*)App->sceneWindjammers, 90);
 	}
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
