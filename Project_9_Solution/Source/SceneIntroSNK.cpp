@@ -6,12 +6,30 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
-#include"SceneLevel1.h"
-#include"ModuleDisk.h"
+#include "SceneLevel1.h"
+#include "ModuleDisk.h"
 
 SceneIntroSNK::SceneIntroSNK(bool startEnabled) : Module(startEnabled)
 {
-	/*SNK.PushBack({ 0,0,304,224 });
+	
+}
+
+SceneIntroSNK::~SceneIntroSNK()
+{
+
+}
+
+// Load assets
+bool SceneIntroSNK::Start()
+{
+	LOG("Loading background assets");
+
+	bool ret = true;
+
+	bgTexture = App->textures->Load("Assets/UI/Screens/SNKIntro.png");
+	App->audio->PlayMusic("Assets/Audios/Music/SNK Intro.ogg", 1.0f);
+
+	SNK.PushBack({ 0,0,304,224 });
 	SNK.PushBack({ 0,305,304,224 });
 	SNK.PushBack({ 0,609,304,224 });
 	SNK.PushBack({ 0,913,304,224 });
@@ -90,26 +108,8 @@ SceneIntroSNK::SceneIntroSNK(bool startEnabled) : Module(startEnabled)
 	SNK.PushBack({ 4257,0,304,224 });
 	SNK.PushBack({ 4257,305,304,224 });
 	SNK.PushBack({ 4257,609,304,224 });
-
-	SNK.speed = 0.4f;*/
-}
-
-SceneIntroSNK::~SceneIntroSNK()
-{
-
-}
-
-// Load assets
-bool SceneIntroSNK::Start()
-{
-	LOG("Loading background assets");
-
-	bool ret = true;
-
-	bgTexture = App->textures->Load("Assets/UI/Screens/SNKIntro.png");
-	App->audio->PlayMusic("Assets/Audios/Music/SNK Intro.ogg", 1.0f);
-
-	/*currentAnimation = &SNK;*/
+	SNK.loop = true;
+	SNK.speed = 0.4f;
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -121,17 +121,13 @@ bool SceneIntroSNK::Start()
 Update_Status SceneIntroSNK::Update()
 {
 
-	/*SNK.Update();*/
+	SNK.Update();
+	currentAnimation = &SNK;
+	
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneWindjammers, 90);
-	}
-
-	if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)
-	{
-		App->sceneLevel_1->Enable();
-		Disable();
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
@@ -141,7 +137,7 @@ Update_Status SceneIntroSNK::Update()
 Update_Status SceneIntroSNK::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	/*App->render->Blit(bgSNK, 0, 0, &(SNK.GetCurrentFrame()));*/
+	App->render->Blit(bgSNK, 0, 0, &(SNK.GetCurrentFrame()));
 	App->render->Blit(bgTexture, 0, 0, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
