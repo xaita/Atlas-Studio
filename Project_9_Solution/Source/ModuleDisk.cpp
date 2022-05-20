@@ -214,7 +214,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER)
 	{
-	    App->player->personatgedisc = 1;
+		App->player->personatgedisc = 1;
 
 
 		position.x = App->player->position.x + 40;
@@ -234,10 +234,10 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		App->player2->personatgedisc2 = 1;
 
 
-		position.x = App->player2->position.x -20;
+		position.x = App->player2->position.x - 20;
 
 		position.y = App->player2->position.y + 10;
-		
+
 
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
@@ -248,27 +248,27 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	}
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
 	{
-		
+
 		position.x = 143;
 		position.y = 191;
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
 
 
-		
+
 
 		timer = 120;
 		App->propsBackground->timersetcount = 350;
-		
 
-		
-		
+
+
+
 		if (ultimplayer == 1) {
 
 			if (godmode != 1) {
-				score_player_1 += 5 ;
+				score_player_1 += 5;
 			}
-			
+
 
 			saque = 2;
 		}
@@ -277,7 +277,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			if (godmode != 1) {
 				score_player_2 += 5;
 			}
-			
+
 			saque = 1;
 		}
 
@@ -285,7 +285,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	}
 	else if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_2)
 	{
-		
+
 
 		position.x = 143;
 		position.y = 191;
@@ -296,16 +296,16 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 
 		timer = 120;
-		
+
 		App->propsBackground->timersetcount = 350;
 
-	
+
 
 		if (ultimplayer == 1) {
 			if (godmode != 1) {
 				score_player_1 += 3;
 			}
-			
+
 			saque = 2;
 		}
 
@@ -317,9 +317,5 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		}
 
 	}
-	
-	
-
-
-
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::OBSTACLE1) { disc_speed_Y *= -1; }
 }
