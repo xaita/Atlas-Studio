@@ -96,7 +96,7 @@ Update_Status SceneIntro::Update()
 	//Player 2
 	switch (selectPlayer2) {
 	case '1':
-		x2 = 24;
+		x2 = 32;
 		y2 = 72;
 		if (App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_DOWN)
 			selectPlayer2 = '2';
@@ -106,7 +106,7 @@ Update_Status SceneIntro::Update()
 		break;
 
 	case '2':
-		x2 = 172;
+		x2 = 180;
 		y2 = 72;
 		if (App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_DOWN)
 			selectPlayer2 = '1';
@@ -116,7 +116,7 @@ Update_Status SceneIntro::Update()
 		break;
 
 	case '3':
-		x2 = 172;
+		x2 = 180;
 		y2 = 184;
 		if (App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_DOWN)
 			selectPlayer2 = '1';
