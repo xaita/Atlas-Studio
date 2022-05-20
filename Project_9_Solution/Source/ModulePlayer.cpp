@@ -134,8 +134,17 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	rightidleFrisbee.loop = true;
 	rightidleFrisbee.speed = 0.08f;
 
-	uprightidleFrisbee.PushBack({ 367, 520, 45, 42, });
+	uprightidleFrisbee.PushBack({ 367, 520, 45, 42 });
 	downrightidleFrisbee.PushBack({ 414, 518, 46, 44 });
+
+	block.PushBack({ 49, 0, 28,	35 });
+	block.PushBack({ 25, 0, 24, 35 });
+	block.PushBack({ 0, 0,	25,	35 });
+	
+	block.loop = false;
+	block.speed = 0.08f;
+
+
 
 	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
 
@@ -376,11 +385,10 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		{
 			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 
-				if(blocktimer==15)
-				if (block == true && ultimadireccio == 2) {
 
+				blockup = true;
+				currentAnimation = &block;
 
-				}
 
 
 			}
@@ -396,12 +404,13 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			&& ultimadireccio == 1)
 			currentAnimation = &leftidleAnim;
 	}
-	}
+	
 	if (App->disk->saque == 1 || App->disk->saque == 2) {
 		currentAnimation = &rightidleAnim;
 	}
 
 }	
+
 	
 
 	if (personatgedisc == 1) {

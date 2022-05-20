@@ -45,7 +45,7 @@ public:
 	bool dashup = true;
 
 	int blocktimer;
-	bool block;
+	bool blockup;
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
 	
@@ -71,6 +71,7 @@ public:
 	Animation leftdash;
 	Animation updash;
 	Animation downdash;
+	Animation block;
 
 	// The player's collider
 	Collider* collider = nullptr;
