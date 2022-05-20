@@ -28,7 +28,7 @@ bool SceneIntro::Start()
 	
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 
-	App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/Select (mp3cut.net).wav");
+	App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/Select.wav");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
