@@ -142,7 +142,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	block.PushBack({ 0, 0,	25,	35 });
 	
 	block.loop = false;
-	block.speed = 0.08f;
+	block.speed = 0.25f;
 
 
 
@@ -396,8 +396,9 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 				}
 
-
 			}
+			if(App->input->keys[SDL_SCANCODE_C] != Key_State::KEY_REPEAT)
+			currentAnimation = &rightidleAnim;
 			
 
 
