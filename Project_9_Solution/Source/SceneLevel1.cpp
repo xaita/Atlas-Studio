@@ -32,7 +32,8 @@ bool SceneLevel1::Start()
 	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete-sprite-sheet.png");				//BG CONCRETE + PROPS
 	bgTopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/top_wall.png");								//
 	bgExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall.png");				//
-	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");	//
+	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");
+	bgObstacle = App->textures->Load("Assets/Sprites/Stages/Concrete/obstacle.png");	//
 	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");										//
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 	P1Win = App->textures->Load("Assets/UI/Others/P1Win.png");
@@ -111,6 +112,10 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
 	App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
 
+	//obstaculos red
+	App->collisions->AddCollider({ 144, 70, 15, 14 }, Collider::Type::OBSTACLE1);
+	App->collisions->AddCollider({ 144, 166, 15, 14 }, Collider::Type::OBSTACLE1);
+
 	App->player->Enable();
 
 	App->player2->Enable();
@@ -138,9 +143,12 @@ Update_Status SceneLevel1::PostUpdate()
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, &(spectators.GetCurrentFrame()));
 	App->render->Blit(bgExtremetopwall, 0, 16, NULL);
+
 	App->render->Blit(bgExtremetopwallright, 267, 16, NULL);
 	App->render->Blit(bgNet, 142, 31, NULL);
 	App->render->Blit(bgTopwall, 30, 20, NULL);
+	App->render->Blit(bgObstacle, 144, 70, NULL);
+	App->render->Blit(bgObstacle, 144, 166, NULL);
 
 	if (App->disk->saque == 0) {
 

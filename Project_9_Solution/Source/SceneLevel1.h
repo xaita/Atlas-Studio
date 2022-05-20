@@ -37,6 +37,7 @@ public:
 	SDL_Texture* bgTopwall = nullptr;
 	SDL_Texture* bgExtremetopwall = nullptr;
 	SDL_Texture* bgExtremetopwallright = nullptr;
+	SDL_Texture* bgObstacle = nullptr;
 	SDL_Texture* bgNet = nullptr;
 	SDL_Texture* UI = nullptr;
 	SDL_Texture* P1Win = nullptr;

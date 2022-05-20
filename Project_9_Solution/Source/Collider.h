@@ -21,6 +21,7 @@ struct Collider
 		DISK,
 		TOP_WALL,
 		BOT_WALL,
+		OBSTACLE1,
 
 		MAX
 	};

@@ -29,6 +29,10 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER2][Collider::Type::PLAYER2] = false;
 	matrix[Collider::Type::PLAYER2][Collider::Type::DISK] = true;
 
+	matrix[Collider::Type::OBSTACLE1][Collider::Type::DISK] = true;
+	matrix[Collider::Type::OBSTACLE1][Collider::Type::PLAYER] = false;
+	matrix[Collider::Type::OBSTACLE1][Collider::Type::PLAYER2] = false;
+
 	matrix[Collider::Type::DISK][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::DISK][Collider::Type::PLAYER2] = true;
 	matrix[Collider::Type::DISK][Collider::Type::SCOREZONE_1] = true;
@@ -146,6 +150,9 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::TOP_WALL:		//yellow
 			App->render->DrawQuad(colliders[i]->rect, 100, 0, 0, alpha);
 			break;
+			case Collider::Type::OBSTACLE1: // blue
+				App->render->DrawQuad(colliders[i]->rect, 0, 250, 126, alpha);
+				break;
 		}
 	}
 }
