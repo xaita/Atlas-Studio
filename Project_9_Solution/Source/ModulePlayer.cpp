@@ -276,13 +276,14 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 		{
 		
-
 			if (currentAnimation != &rightAnim)
 			{
 				rightAnim.Reset();
 				currentAnimation = &rightAnim;
-				ultimadireccio = 2;
+				
 			}
+			
+
 		}
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 		{
@@ -366,14 +367,13 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE
+			
 			&& ultimadireccio == 2)
 			currentAnimation = &rightidleAnim;
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE
 			&& ultimadireccio == 1)
 			currentAnimation = &leftidleAnim;
 	}
