@@ -338,8 +338,6 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && dashup == true)
 			{
-
-
 				currentAnimation = &rightdash;
 			}
 
@@ -385,14 +383,22 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		{
 			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 
+				blocktimer = 10;
+			}
+
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT) {
 
 				blockup = true;
-				currentAnimation = &block;
 
+				if (currentAnimation != &block) {
+					block.Reset();
+					currentAnimation = &block;
+
+				}
 
 
 			}
-			currentAnimation = &rightidleAnim;
+			
 
 
 		}
