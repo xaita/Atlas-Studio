@@ -276,13 +276,14 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 		{
 		
-
 			if (currentAnimation != &rightAnim)
 			{
 				rightAnim.Reset();
 				currentAnimation = &rightAnim;
-				ultimadireccio = 2;
+				
 			}
+			ultimadireccio = 2;
+
 		}
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 		{
@@ -291,8 +292,9 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			{
 				leftAnim.Reset();
 				currentAnimation = &leftAnim;
-				ultimadireccio = 1;
+				
 			}
+			ultimadireccio = 1;
 		}
 		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT /*&& position.y > 29*/)		//moviment cap amunt
 		{
@@ -334,9 +336,10 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			{
 				rightAnim.Reset();
 				currentAnimation = &rightAnim;
-				ultimadireccio = 2;
+				
 			}
 
+			ultimadireccio = 2;
 			if (currentAnimation != &rightdash) {
 				rightdash.Reset();
 			}
@@ -349,8 +352,9 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			{
 				leftAnim.Reset();
 				currentAnimation = &leftAnim;
-				ultimadireccio = 1;
+				
 			}
+			ultimadireccio = 1;
 		}
 		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && currentAnimation != &shooting) {
 
@@ -366,14 +370,13 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE
+			
 			&& ultimadireccio == 2)
 			currentAnimation = &rightidleAnim;
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
-			&& App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE
 			&& ultimadireccio == 1)
 			currentAnimation = &leftidleAnim;
 	}
