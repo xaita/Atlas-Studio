@@ -1,5 +1,6 @@
 #ifndef __SCENE_WINDJAMMERS_H__
 #define __SCENE_WINDJAMMERS_H__
+#define NUM_IMAGES 78
 
 #include "Module.h"
 #include "Animation.h"
@@ -29,7 +30,7 @@ public:
 
 public:
 	// The scene sprite sheet loaded into an SDL_Texture
-	SDL_Texture* bgTexture[200];
+	SDL_Texture* bgTexture[NUM_IMAGES];
 
 	int timer;
 	int frame;
