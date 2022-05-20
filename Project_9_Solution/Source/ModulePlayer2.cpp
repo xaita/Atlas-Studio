@@ -136,7 +136,7 @@ bool ModulePlayer2::Start()
 
 	/*laserFx = App->audio->LoadFx("Assets/Nau/Fx/laser.wav");*/
 	explosionFx = App->audio->LoadFx("Assets/Nau/Fx/explosion.wav");
-	discFx = App->audio->LoadFx("Assets\Audios\SFX and Voice lines\Frisbee/Toss.wav");
+	discFx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Toss.wav");
 
 	position.x = 240;
 	position.y = 112;

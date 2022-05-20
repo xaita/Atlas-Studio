@@ -28,6 +28,8 @@ bool SceneIntro::Start()
 	
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 
+	App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/Select (mp3cut.net).wav");
+
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
@@ -50,30 +52,42 @@ Update_Status SceneIntro::Update()
 	case '1':
 		x1 = 8;
 		y1 = 72;
-		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_DOWN) 
+		if (App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(select, 0);
 			selectPlayer1 = '2';
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN)
+		}
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(select, 0);
 			selectPlayer1 = '3';
+		}
 
 		break;
 
 	   case '2':
 		x1 = 158;
 		y1 = 72;
-		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_DOWN) 
+		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(select, 0);
 			selectPlayer1 = '1';
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN) 
+		}
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(select, 0);
 			selectPlayer1 = '3';
+		}
 		
 		break;
 
 	case '3':
 		x1 = 158;
 		y1 = 184;
-		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_DOWN) 
+		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(select, 0);
 			selectPlayer1 = '1';
-		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN) 
+		}
+		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(select, 0);
 			selectPlayer1 = '2';
+		}
 
 			break;
 	}
@@ -98,30 +112,42 @@ Update_Status SceneIntro::Update()
 	case '1':
 		x2 = 32;
 		y2 = 72;
-		if (App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(select, 0);
 			selectPlayer2 = '2';
-		if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_DOWN)
+		}
+		if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(select, 0);
 			selectPlayer2 = '3';
+		}
 
 		break;
 
 	case '2':
 		x2 = 180;
 		y2 = 72;
-		if (App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(select, 0);
 			selectPlayer2 = '1';
-		if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_DOWN)
+		}
+		if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(select, 0);
 			selectPlayer2 = '3';
+		}
 
 		break;
 
 	case '3':
 		x2 = 180;
 		y2 = 184;
-		if (App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(select,0);
 			selectPlayer2 = '1';
-		if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_DOWN)
+		}
+		if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(select,0);
 			selectPlayer2 = '2';
+		}
 
 		break;
 	}

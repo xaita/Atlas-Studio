@@ -35,6 +35,7 @@ bool SceneIntroSNK::Start()
 		bgTexture[i] = App->textures->Load(s);
 	}
 	frame = 0;
+	timer = 0;
 	App->audio->PlayMusic("Assets/Audios/Music/SNK Intro.ogg", 1.0f);
 
 	
@@ -48,7 +49,7 @@ bool SceneIntroSNK::Start()
 
 Update_Status SceneIntroSNK::Update()
 {
-	if (timer == 2) {
+	if (timer == 3) {
 		frame++;
 		timer = 0;
 	}

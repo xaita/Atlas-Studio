@@ -29,7 +29,7 @@ public:
 
 public:
 	// The scene sprite sheet loaded into an SDL_Texture
-	SDL_Texture* bgTexture[200];
+	SDL_Texture* bgTexture[128];
 	SDL_Texture* bgSNK = nullptr;
 
 	Animation* currentAnimation = nullptr;
