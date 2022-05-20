@@ -43,6 +43,9 @@ public:
 
 	int dashtimer;
 	bool dashup = true;
+
+	int blocktimer;
+	bool block;
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
 	
