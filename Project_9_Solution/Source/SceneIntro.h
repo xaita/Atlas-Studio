@@ -36,6 +36,10 @@ public:
 	SDL_Rect P1 = { 359, 11, 20, 16 };
 	SDL_Rect P2 = { 392, 11, 20, 16 };
 
+	// Sound effects indices
+	uint select = 0;
+
+
 	char selectPlayer1;
 	char selectPlayer2;
 	int x1;
