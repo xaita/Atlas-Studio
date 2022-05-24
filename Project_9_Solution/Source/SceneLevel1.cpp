@@ -46,9 +46,9 @@ bool SceneLevel1::Start()
 
 	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);					//MUSICA
 
-	spectators.PushBack({ 0,0,304,224 });																		//ANIMACIO ESPECTADORS
-	spectators.PushBack({ 308,0,304,224 });
-	spectators.PushBack({ 616,0,304,224 });
+	spectators.PushBack({ 0,0,358,224 });																		//ANIMACIO ESPECTADORS
+	spectators.PushBack({ 363,0,358,224 });
+	spectators.PushBack({ 739,0,358,224 });
 	spectators.loop = true;
 	spectators.speed = 0.15f;
 
@@ -141,7 +141,7 @@ Update_Status SceneLevel1::Update()
 Update_Status SceneLevel1::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	App->render->Blit(bgTexture, 0, 0, &(spectators.GetCurrentFrame()));
+	App->render->Blit(bgTexture, -27, 0, &(spectators.GetCurrentFrame()));
 	App->render->Blit(bgExtremetopwall, 0, 16, NULL);
 
 	App->render->Blit(bgExtremetopwallright, 267, 16, NULL);
