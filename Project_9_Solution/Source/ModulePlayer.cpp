@@ -192,10 +192,20 @@ Update_Status ModulePlayer::Update()
 		dashup = false;
 	}
 
+
 	if (dashtimer > 0) {
 		dashtimer--;
 	}
 
+	if (blocktimer == 0) {
+		blockup = false;
+	}
+	else {
+		blockup = true;
+	}
+	if (blocktimer > 0) {
+		blocktimer--;
+	}
 if(personatgedisc == -1)	//MOVIMENT PLAYER
 {
 
@@ -379,28 +389,22 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
-			&& ultimadireccio == 2)
+			&& ultimadireccio == 2 && currentAnimation !=&shooting)
 		{
-			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && currentAnimation!=&block ) {
 
 				blocktimer = 10;
-			}
-
-			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT) {
-
-				blockup = true;
-
-				if (currentAnimation != &block) {
-					block.Reset();
+				
+					
 					currentAnimation = &block;
 
-				}
-
+				
 			}
-			if(App->input->keys[SDL_SCANCODE_C] != Key_State::KEY_REPEAT)
+
+			
+			if(App->input->keys[SDL_SCANCODE_C] != Key_State::KEY_DOWN && blockup==false)
 			currentAnimation = &rightidleAnim;
 			
-
 
 		}
 
