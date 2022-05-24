@@ -35,19 +35,19 @@ bool PropsBackground::Start()
 
 
 	refereeIdle.PushBack({ 0,0,45,35 });																		//ANIMACIO ARBITRE
-	refereeLookLeft.PushBack({ 0,102,44,34});
-	refereeLookRight.PushBack({ 176,69,44,34 });
+	refereeLookLeft.PushBack({ 0,105,44,35});
+	refereeLookRight.PushBack({ 176,70,44,35 });
 
-	refereePointLeft.PushBack({ 53, 35, 59, 31 });
-	refereePointLeft.PushBack({ 112, 35, 48, 32 });
-	refereePointLeft.PushBack({ 160, 35, 44, 28 });
-	refereePointLeft.PushBack({ 204, 35, 45, 28 });
+	refereePointLeft.PushBack({ 53, 36, 59, 35 });
+	refereePointLeft.PushBack({ 112, 36, 48, 35 });
+	refereePointLeft.PushBack({ 160, 36, 44, 35 });
+	refereePointLeft.PushBack({ 204, 36, 45, 35 });
 	refereePointLeft.speed = 0.1f;
 
-	refereePointRight.PushBack({ 0, 69, 44, 27 });
-	refereePointRight.PushBack({ 44, 69, 44, 28 });
-	refereePointRight.PushBack({ 88, 69, 44, 32 });
-	refereePointRight.PushBack({ 132, 69, 44, 31 });
+	refereePointRight.PushBack({ 0, 70, 44, 35 });
+	refereePointRight.PushBack({ 44, 70, 44, 35 });
+	refereePointRight.PushBack({ 88, 70, 44, 35 });
+	refereePointRight.PushBack({ 132, 70, 44, 35 });
 	refereePointRight.speed = 0.1f;
 
 
@@ -98,7 +98,7 @@ Update_Status PropsBackground::PostUpdate()
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
 
 	if (currentAnimation == &refereePointLeft) {
-		App->render->Blit(referee, 123, 189, &rect);
+		App->render->Blit(referee, 123, 190, &rect);//////////////////////////////
 	}
 
 	else
