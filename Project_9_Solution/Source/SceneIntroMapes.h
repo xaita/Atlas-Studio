@@ -31,14 +31,19 @@ public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* select = nullptr;
-	SDL_Texture* beach = nullptr;
-	SDL_Texture* concrete = nullptr;
-	SDL_Texture* lawn = nullptr;
+	SDL_Texture* beachname = nullptr;
+	SDL_Texture* concretename = nullptr;
+	SDL_Texture* lawnname = nullptr;
+	SDL_Texture* beachimg = nullptr;
+	SDL_Texture* concreteimg = nullptr;
+	SDL_Texture* lawnimg = nullptr;
 
+	// Sound effects indices
+	uint selectm = 0;
+
+	char selectMap;
 	int X1;
 	int Y1;
-	int X2;
-	int Y2;
 	bool Readym1;
 	bool Readym2;
 };

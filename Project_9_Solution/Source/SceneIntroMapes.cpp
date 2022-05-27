@@ -28,15 +28,20 @@ bool SceneIntroMapes::Start()
 	
 	select = App->textures->Load("Assets/UI/Select Screens/Purple rectangle.png");
 
-	beach = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Beach(name).png");
-	concrete = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Concrete(name).png");
-	lawn = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Lawn(name).png");
+	App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/Select.wav");
 
-	
+	beachname = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Beach(name).png");
+	concretename = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Concrete(name).png");
+	lawnname = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Lawn(name).png");
+
+	beachimg = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Beach.png");
+	concreteimg = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Concrete.png");
+	lawnimg = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Lawn.png");
+
+	selectMap = '1';
+
 	X1 = 164;
-	X2 = 164;
 	Y1 = 56;
-	Y2 = 56;
 	Readym1 = false;
 	Readym2 = false;
 
@@ -50,26 +55,48 @@ bool SceneIntroMapes::Start()
 Update_Status SceneIntroMapes::Update()
 {
 	//player 1
-	if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN && Y1 != 56 + 46 && Readym1 == false) {
-		Y1 += 23;
-		App->audio->PlayMusic("Assets/Audios/SFX and Voice lines/Others/Select", 1.0f);////////////////////////////////////////nose si va perque no hi ha altaveus xddddd
-	}
-	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN && Y1 != 56 && Readym1 == false) {
-		Y1 -= 23;
-		App->audio->PlayMusic("Assets/Audios/SFX and Voice lines/Others/Select", 1.0f);////////////////////////////////////////
+	switch (selectMap) {
+	case '1':
+		Y1 = 56;
+		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(selectm, 0);
+			selectMap = '3';
+		}
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(selectm, 0);
+			selectMap = '2';
+		}
 
+		break;
+
+	case '2':
+		Y1 = 80;
+		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(selectm, 0);
+			selectMap = '1';
+		}
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(selectm, 0);
+			selectMap = '3';
+		}
+
+		break;
+
+	case '3':
+		Y1 = 128;
+		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(selectm, 0);
+			selectMap = '2';
+		}
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_DOWN) {
+			App->audio->PlayFx(selectm, 0);
+			selectMap = '1';
+		}
+
+		break;
 	}
 	
-
-	//Player 2
-	/*if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_DOWN && Y2 != 150 && Ready2 == false) {
-		Y2 += 50;
-	}
-	if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_DOWN && Y2 != 50 && Ready2 == false) {
-		Y2 -= 50;
-	}*/
-	
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN) {
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN || App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
 		Readym1 = true;
 	}
 	/*if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
@@ -93,8 +120,15 @@ Update_Status SceneIntroMapes::PostUpdate()
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, 0, 0, NULL);
 	App->render->Blit(select, X1, Y1, NULL); //rectangle de seleccionar stage
-	App->render->Blit(beach, 200, 65, NULL);
-	App->render->Blit(concrete, 192, 89, NULL);
-	App->render->Blit(lawn, 208, 137, NULL);
+	App->render->Blit(beachname, 200, 65, NULL);
+	App->render->Blit(concretename, 192, 89, NULL);
+	App->render->Blit(lawnname, 208, 137, NULL);
+
+	if(selectMap=='1')
+		App->render->Blit(beachimg, 24, 84, NULL);
+	else if(selectMap=='2')
+		App->render->Blit(concreteimg, 24, 84, NULL);
+	else if(selectMap=='3')
+		App->render->Blit(lawnimg, 24, 84, NULL);
 	return Update_Status::UPDATE_CONTINUE;
 }
