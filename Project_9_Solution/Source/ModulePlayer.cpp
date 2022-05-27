@@ -440,7 +440,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 				currentAnimation = &shooting;
 
-				App->disk->disc_speed_X = 5;/////////////////////////////////////////
+				App->disk->disc_speed_X = 5;
 				App->disk->disc_speed_Y = -2;
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
