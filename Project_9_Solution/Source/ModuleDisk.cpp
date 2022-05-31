@@ -239,28 +239,28 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER)
 	{
-		/*if (timerblock > 0) { --timerblock; }
+		if (timerblock > 0) { --timerblock; }
 
-		if (App->player->block == true) {
+		if (App->player->blockdisk == true) {
 			currentAnimation2 = &blocking;
-			timerblock = 60;
-			block = false;
+			timerblock = 600;
+			App->player->blockdisk == false;
 		}
 		else if (timerblock == 0) {
-
-		}*/
-		App->player->personatgedisc = 1;
+			App->player->personatgedisc = 1;
 
 
-		position.x = App->player->position.x + 40;
+			position.x = App->player->position.x + 40;
 
-		position.y = App->player->position.y + 10;
+			position.y = App->player->position.y + 10;
 
-		disc_speed_X = 0;
-		disc_speed_Y = 0;
-		saque = 0;
+			disc_speed_X = 0;
+			disc_speed_Y = 0;
+			saque = 0;
 
-		currentAnimation2 = &invisible;
+			currentAnimation2 = &invisible;
+		}
+		
 	}
 
 
