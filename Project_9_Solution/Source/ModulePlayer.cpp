@@ -197,10 +197,8 @@ Update_Status ModulePlayer::Update()
 		dashtimer--;
 	}
 
-	blocktimer --;
-	if (blocktimer == 0) {
-
-		blockup == true;
+	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE) {
+		blocktimer = 0;
 	}
 
 if(personatgedisc == -1)	//MOVIMENT PLAYER
@@ -386,30 +384,34 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 			&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
-			&& ultimadireccio == 2 && currentAnimation !=&shooting)
+			&& ultimadireccio == 2)
 		{
-			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && blockup == true) {
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && blocktimer < 9) {
 
 				
-				block == true;
-				blockdisk == true;
-				blocktimer = 10;
-				blockup = false;
+				blocktimer++;
+
+				if (blocktimer > 5) {
+
+					block == true;
+					blockdisk == true;
+
+				}
 				
+				if (currentAnimation != &blockanim && currentAnimation != &shooting)
+
+				{
+					blockanim.Reset();
+					currentAnimation = &blockanim;
+
+				}
 				
 			}
-			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && currentAnimation != &blockanim)
 
-			{
-				blockanim.Reset();
-				currentAnimation = &blockanim;
-				
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE || blocktimer >= 9){
 
+				currentAnimation = &rightidleAnim;
 			}
-
-			
-			if(App->input->keys[SDL_SCANCODE_C] != Key_State::KEY_DOWN && blockup==false)
-			currentAnimation = &rightidleAnim;
 			
 
 		}
