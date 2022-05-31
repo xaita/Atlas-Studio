@@ -83,10 +83,16 @@ Update_Status ModuleDisk::Update()
 			sets_player1 +=1;
 			saque = 2;
 			sets += 1;
+			timer_set = 300;
 			score_player_1 = 0;
 			score_player_2 = 0;
+			App->player->personatgedisc = -1;
+			App->player2->personatgedisc2 = -1;
 			position.x = 143;
 			position.y = 191;
+			App->sceneLevel_1->timer2 = 1800;
+			App->sceneLevel_1->timer.Reset();
+			App->propsBackground->timersetcount = 350;
 		}
 
 		if (score_player_2 > score_player_1) {
@@ -94,10 +100,57 @@ Update_Status ModuleDisk::Update()
 			sets_player2 +=1;
 			saque = 1;
 			sets += 1;
+			timer_set = 300;
 			score_player_1 = 0;
 			score_player_2 = 0;
+			App->player->personatgedisc = -1;
+			App->player2->personatgedisc2 = -1;
 			position.x = 143;
 			position.y = 191;
+			App->sceneLevel_1->timer2 = 1800;
+			App->sceneLevel_1->timer.Reset();
+			App->propsBackground->timersetcount = 350;
+		}
+
+		if (score_player_1 == score_player_2) {
+
+
+			sets_player1 += 1;
+			sets_player2 += 1;
+			if (score_player_1 == 2 && score_player_2 == 2) {
+
+				muerte_subita = true;
+				saque = 1;
+				sets += 1;
+				timer_set = 300;
+				score_player_1 = 0;
+				score_player_2 = 0;
+				App->player->personatgedisc = -1;
+				App->player2->personatgedisc2 = -1;
+				position.x = 143;
+				position.y = 191;
+				App->sceneLevel_1->timer2 = 1800;
+				App->sceneLevel_1->timer.Reset();
+				App->propsBackground->timersetcount = 350;
+
+			}
+			else {
+
+				saque = 1;
+				sets += 1;
+				timer_set = 300;
+				score_player_1 = 0;
+				score_player_2 = 0;
+				App->player->personatgedisc = -1;
+				App->player2->personatgedisc2 = -1;
+				position.x = 143;
+				position.y = 191;
+				App->sceneLevel_1->timer2 = 1800;
+				App->sceneLevel_1->timer.Reset();
+				App->propsBackground->timersetcount = 350;
+			}
+		
+
 		}
 
 	}
@@ -117,7 +170,7 @@ Update_Status ModuleDisk::Update()
 		sets_player2 = 2;
 	}
 
-	if ((sets_player1== 2 || sets_player2==2) && si ==1) {
+	if ((sets_player1== 2 || sets_player2==2) && si ==1 && muerte_subita ==false) {
 		
 		timer_Win -= 1;
 		
@@ -149,7 +202,7 @@ Update_Status ModuleDisk::Update()
 		timer_set = 300;
 		score_player_1 = 0;
 		score_player_2 = 0;
-
+		App->sceneLevel_1->timer2 = 1800;
 		App->sceneLevel_1->timer.Reset();
 	}
 
@@ -158,7 +211,7 @@ Update_Status ModuleDisk::Update()
 		sets_player2 += 1;
 		sets += 1;
 	
-
+		App->sceneLevel_1->timer2 = 1800;
 		saque = 1;
 
 		timer_set = 300;
