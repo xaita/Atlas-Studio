@@ -34,7 +34,7 @@ bool PropsBackground::Start()
 	App->render->camera.y = 0;
 
 
-	refereeIdle.PushBack({ 0,0,45,35 });																		//ANIMACIO ARBITRE
+	refereeIdle.PushBack({ 132, 210, 45,35 });																		//ANIMACIO ARBITRE
 	refereeLookLeft.PushBack({ 0,105,44,35});
 	refereeLookRight.PushBack({ 176,70,44,35 });
 
@@ -100,6 +100,10 @@ Update_Status PropsBackground::PostUpdate()
 	if (currentAnimation == &refereePointLeft) {
 		App->render->Blit(referee, 123, 190, &rect);//////////////////////////////
 	}
+	
+	//else if (currentAnimation == &refereeLookLeft || currentAnimation == &refereeLookRight) {
+	//	App->render->Blit(referee, 139, 189, &rect);
+	//}
 
 	else
 	App->render->Blit(referee, 138, 189, &rect);
