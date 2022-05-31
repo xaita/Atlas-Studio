@@ -95,6 +95,7 @@ bool SceneLevel1::Start()
 	
 	
 	timer.speed = 0.017f;
+	timer2 = 400;
 
 
 
@@ -128,10 +129,12 @@ Update_Status SceneLevel1::Update()
 	spectators.Update();
 	currentAnimation = &spectators;
 
-	timer.Update();
+	if (App->disk->saque == 0) {
+		timer2 = -1;
+		timer.Update();
 
-	current_Timer_Animation = &timer;
-
+		current_Timer_Animation = &timer;
+	}
 
 
 	return Update_Status::UPDATE_CONTINUE;
@@ -150,17 +153,13 @@ Update_Status SceneLevel1::PostUpdate()
 	App->render->Blit(bgObstacle, 144, 70, NULL);
 	App->render->Blit(bgObstacle, 144, 166, NULL);
 
-	if (App->disk->saque == 0) {
+
 
 	
 		App->render->Blit(UI_Timer, 144, 13, &(timer.GetCurrentFrame()));
 
 
-	}
-
 	
-
-
 
 	if ((App->propsBackground->timersetcount < 190 && (App->disk->saque == 1 || App->disk->saque == 2)) ) {
 

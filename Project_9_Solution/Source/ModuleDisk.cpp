@@ -76,7 +76,27 @@ bool ModuleDisk::Start()
 
 Update_Status ModuleDisk::Update()
 {
-	
+	if (App->sceneLevel_1->timer2 <= 0) {
+
+		if (score_player_1 < score_player_2) {
+
+			sets_player1 = +1;
+			saque = 2;
+			sets += 1;
+			score_player_1 = 0;
+			score_player_2 = 0;
+		}
+
+		if (score_player_2 < score_player_1) {
+
+			sets_player2 = +1;
+			saque = 1;
+			sets += 1;
+			score_player_1 = 0;
+			score_player_2 = 0;
+		}
+
+	}
 	if (App->player->personatgedisc == -1 && App->player2->personatgedisc2 == -1) {
 		currentAnimation2 = &moving;
 	}
@@ -125,6 +145,8 @@ Update_Status ModuleDisk::Update()
 		timer_set = 300;
 		score_player_1 = 0;
 		score_player_2 = 0;
+
+		App->sceneLevel_1->timer.Reset();
 	}
 
 	if (score_player_2 >= 12) {
@@ -138,6 +160,7 @@ Update_Status ModuleDisk::Update()
 		timer_set = 300;
 		score_player_1 = 0;
 		score_player_2 = 0;
+		App->sceneLevel_1->timer.Reset();
 	}
 
 	if (saque == 1 || saque ==2) {
