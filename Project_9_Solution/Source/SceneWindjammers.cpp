@@ -53,11 +53,8 @@ Update_Status SceneWindjammers::Update()
 	}
 	timer++;
 
-	if (frame == 316) {
-		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
-	}
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_LSHIFT] == Key_State::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
 	}
