@@ -1,5 +1,6 @@
 #ifndef __SCENE_WARNING_H__
 #define __SCENE_WARNING_H__
+#define NUM_IMAGES 16
 
 #include "Module.h"
 #include "Animation.h"
@@ -29,8 +30,9 @@ public:
 
 public:
 	// The scene sprite sheet loaded into an SDL_Texture
-	SDL_Texture* bgTexture = nullptr;;
+	SDL_Texture* bgTexture[NUM_IMAGES];
 
+	int timer;
 	int frame;
 
 };
