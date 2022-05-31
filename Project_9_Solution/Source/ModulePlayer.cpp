@@ -137,12 +137,12 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	uprightidleFrisbee.PushBack({ 367, 520, 45, 42 });
 	downrightidleFrisbee.PushBack({ 414, 518, 46, 44 });
 
-	block.PushBack({ 49, 0, 28,	35 });
-	block.PushBack({ 25, 0, 24, 35 });
-	block.PushBack({ 0, 0,	25,	35 });
+	blockanim.PushBack({ 49, 0, 28,	35 });
+	blockanim.PushBack({ 25, 0, 24, 35 });
+	blockanim.PushBack({ 0, 0,	25,	35 });
 	
-	block.loop = false;
-	block.speed = 0.25f;
+	blockanim.loop = false;
+	blockanim.speed = 0.25f;
 
 
 
@@ -197,15 +197,10 @@ Update_Status ModulePlayer::Update()
 		dashtimer--;
 	}
 
-	if (blocktimer == 0) {
-		blockup = false;
-	}
-	else {
-		blockup = true;
-	}
 	if (blocktimer > 0) {
 		blocktimer--;
 	}
+
 if(personatgedisc == -1)	//MOVIMENT PLAYER
 {
 
@@ -391,16 +386,16 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
 			&& ultimadireccio == 2 && currentAnimation !=&shooting)
 		{
-			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && blockup==true) {
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && blockup == true) {
 
 				
 				blocktimer = 10;
-				
+				block == true;
 					
-				if (currentAnimation != &block) {
+				if (currentAnimation != &blockanim) {
 
 
-					currentAnimation = &block;
+					currentAnimation = &blockanim;
 				}
 				
 			}
