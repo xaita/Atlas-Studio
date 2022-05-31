@@ -394,7 +394,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				
 				blocktimer++;
 
-				if (blocktimer > 1) {
+				if (blocktimer > 10) {
 
 					block == true;
 					blockdisk == true;
