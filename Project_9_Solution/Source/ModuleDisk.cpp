@@ -216,7 +216,7 @@ Update_Status ModuleDisk::Update()
 
 	}
 
-	
+	--timerblock;
 
 	
 	position.x += disc_speed_X;
@@ -245,7 +245,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER)
 	{
-		if (timerblock > 0) { --timerblock; }
+		
 
 		if (App->player->blockdisk == true) {
 			currentAnimation2 = &blocking;
