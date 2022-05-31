@@ -76,9 +76,9 @@ bool ModuleDisk::Start()
 
 Update_Status ModuleDisk::Update()
 {
-	if (App->sceneLevel_1->timer2 <= 0) {
+	if (App->sceneLevel_1->timer2 == 0) {
 
-		if (score_player_1 < score_player_2) {
+		if (score_player_1 > score_player_2) {
 
 			sets_player1 = +1;
 			saque = 2;
@@ -87,7 +87,7 @@ Update_Status ModuleDisk::Update()
 			score_player_2 = 0;
 		}
 
-		if (score_player_2 < score_player_1) {
+		if (score_player_2 > score_player_1) {
 
 			sets_player2 = +1;
 			saque = 1;
