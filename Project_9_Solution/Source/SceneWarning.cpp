@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "SceneWarning.h"
 
 #include "Application.h"
@@ -24,8 +26,17 @@ bool SceneWarning::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
+	char s[128];
 
-	bgTexture = App->textures->Load("Assets/UI/Screens/Windjammers Mention.png");
+	for (int i = 0; i < NUM_IMAGES; ++i)
+	{
+		sprintf_s(s, "Assets/UI/Screens/Warning/Warning%d.png", i + 1);
+		bgTexture[i] = App->textures->Load(s);
+	}
+	frame = 0;
+	timer = 0;
+
+	
 	App->audio->PlayMusic("Assets/Audios/Music/Silence.ogg", 1.0f);
 
 	App->render->camera.x = 0;
@@ -36,19 +47,18 @@ bool SceneWarning::Start()
 
 Update_Status SceneWarning::Update()
 {
-	if (frame == 1) {
-		App->fade->FadeToBlack(this, (Module*)App->sceneWindjammers, 90);
+	if (timer == 12) {
+		if (frame < NUM_IMAGES - 1) {
+			frame++;
+			timer = 0;
+		}
 	}
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
-	{
+	timer++;
+
+	if (frame == 14) {
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntroSNK, 90);
 	}
-
-	if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)
-	{
-		App->sceneLevel_1->Enable();
-		Disable();
-	}
+	
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -57,7 +67,7 @@ Update_Status SceneWarning::Update()
 Update_Status SceneWarning::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	App->render->Blit(bgTexture, 0, 0, NULL);
+	App->render->Blit(bgTexture[frame], 0, 0, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
