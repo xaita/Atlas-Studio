@@ -174,7 +174,7 @@ bool ModulePlayer::Start()
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 25, 40 }, Collider::Type::PLAYER, this);
 
-
+	blockup == true;
 	return ret;
 }
 int ultimadireccio=2; //1=dreta 2=esquerra
@@ -197,8 +197,10 @@ Update_Status ModulePlayer::Update()
 		dashtimer--;
 	}
 
-	if (blocktimer > 0) {
-		blocktimer--;
+	blocktimer --;
+	if (blocktimer == 0) {
+
+		blockup == true;
 	}
 
 if(personatgedisc == -1)	//MOVIMENT PLAYER
@@ -386,16 +388,18 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
 			&& ultimadireccio == 2 && currentAnimation !=&shooting)
 		{
-			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && blockup == true) {
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && blockup == true) {
 
 				
-				blocktimer = 10;
 				block == true;
 					
+				
+				blocktimer = 10;
+				blockup = false;
 				if (currentAnimation != &blockanim) {
 
-
 					currentAnimation = &blockanim;
+
 				}
 				
 			}
