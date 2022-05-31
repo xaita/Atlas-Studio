@@ -40,6 +40,8 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 
 	invisible.PushBack({ 0,0,0,0 });
 
+	blocking.PushBack({ 17, 29, 35, 8 });
+
 }
 
 ModuleDisk::~ModuleDisk()
@@ -214,6 +216,16 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER)
 	{
+		/*if (timerblock > 0) { --timerblock; }
+
+		if (App->player->block == true) {
+			currentAnimation2 = &blocking;
+			timerblock = 60;
+			block = false;
+		}
+		else if (timerblock == 0) {
+
+		}*/
 		App->player->personatgedisc = 1;
 
 
@@ -231,6 +243,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER2)
 	{
+		
 		App->player2->personatgedisc2 = 1;
 
 
