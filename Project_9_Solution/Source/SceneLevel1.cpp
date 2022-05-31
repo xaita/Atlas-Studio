@@ -95,7 +95,7 @@ bool SceneLevel1::Start()
 	
 	
 	timer.speed = 0.017f;
-	timer2 = 1000;
+	timer2 = 1800;
 
 
 
