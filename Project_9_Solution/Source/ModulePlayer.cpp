@@ -391,17 +391,22 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && blockup == true) {
 
 				
-				block == true;
-					
+				block == true;	
 				
 				blocktimer = 10;
 				blockup = false;
+				
+				
+			}
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)
+
+			{
+				
 				if (currentAnimation != &blockanim) {
 
 					currentAnimation = &blockanim;
-
 				}
-				
+
 			}
 
 			
