@@ -79,7 +79,7 @@ public:
 	
 	int timer2;
 
-
+	char moureCameraGol;
 
 
 

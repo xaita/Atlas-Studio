@@ -50,7 +50,7 @@ public:
 	SDL_Rect SetScore3 = { 270, 27, 45, 26 };
 	SDL_Rect SetCount = { 315, 27, 78, 26 };
 
-	Animation* currentAnimation;
+	Animation* currentAnimation = nullptr;
 
 	Animation refereeIdle;
 	Animation refereeLookLeft;

@@ -29,6 +29,8 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
+	moureCameraGol = '1';
+
 	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete-sprite-sheet.png");				//BG CONCRETE + PROPS
 	bgTopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/top_wall.png");								//
 	bgExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall.png");				//
@@ -136,6 +138,41 @@ Update_Status SceneLevel1::Update()
 		current_Timer_Animation = &timer;
 	}
 
+	if (App->disk->saque == 1)
+	{
+		if (moureCameraGol == '1')
+		{
+			App->render->camera.x--;
+			if (App->render->camera.x == -27)
+				moureCameraGol = '2';
+		}
+		else
+		{
+			App->render->camera.x++;
+			if (App->render->camera.x == -20)
+				moureCameraGol = '1';
+		}
+	}
+	else if (App->disk->saque == 2)
+	{
+		if (moureCameraGol == '1')
+		{
+			App->render->camera.x++;
+			if (App->render->camera.x == 27)
+				moureCameraGol = '2';
+		}
+		else
+		{
+			App->render->camera.x--;
+			if (App->render->camera.x == 20)
+				moureCameraGol = '1';
+		}
+	}
+	else
+	{
+		App->render->camera.x = 0;
+		moureCameraGol = '1';
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
