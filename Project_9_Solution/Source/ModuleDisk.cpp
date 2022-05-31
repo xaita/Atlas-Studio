@@ -57,6 +57,7 @@ bool ModuleDisk::Start()
 
 	si = 0;
 	bool ret = true;
+	muerte_subita = false;
 	timer = 120;
 	timer_Win = 300;
 
@@ -95,7 +96,7 @@ Update_Status ModuleDisk::Update()
 			App->propsBackground->timersetcount = 350;
 		}
 
-		if (score_player_2 > score_player_1) {
+		else if (score_player_2 > score_player_1) {
 
 			sets_player2 +=1;
 			saque = 1;
@@ -112,12 +113,12 @@ Update_Status ModuleDisk::Update()
 			App->propsBackground->timersetcount = 350;
 		}
 
-		if (score_player_1 == score_player_2) {
+		else if (score_player_1 == score_player_2) {
 
 
 			sets_player1 += 1;
 			sets_player2 += 1;
-			if (score_player_1 == 2 && score_player_2 == 2) {
+			if (sets_player1 == 2 && sets_player2 == 2) {
 
 				muerte_subita = true;
 				saque = 1;
