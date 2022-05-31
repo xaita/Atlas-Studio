@@ -60,7 +60,7 @@ Update_Status PropsBackground::Update()
 {
 	
 	if (App->disk->saque == 1) {
-		currentAnimation = &refereePointRight;
+		currentAnimation = &refereePointRight;//NO FUNCIONA canvia l'sprite pero no fa l'animacio
 	}
 
 	else if (App->disk->saque == 2) {
@@ -68,18 +68,15 @@ Update_Status PropsBackground::Update()
 	}
 
 	else if (App->disk->position.x < 110) {
-		//position.x += 2;
 		currentAnimation = &refereeLookLeft;
 	}
 
 	else if (App->disk->position.x > 194) {
 		currentAnimation = &refereeLookRight;
-		//position.x += 2;
 	}
 
 	else {
 		currentAnimation = &refereeIdle;
-		//position.x -= 2;
 	}
 
 
@@ -98,12 +95,8 @@ Update_Status PropsBackground::PostUpdate()
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
 
 	if (currentAnimation == &refereePointLeft) {
-		App->render->Blit(referee, 123, 190, &rect);//////////////////////////////
+		App->render->Blit(referee, 123, 190, &rect);//////////////////////////////arreglo de l'animacio de l'arbitre que sortia desplaçada
 	}
-	
-	//else if (currentAnimation == &refereeLookLeft || currentAnimation == &refereeLookRight) {
-	//	App->render->Blit(referee, 139, 189, &rect);
-	//}
 
 	else
 	App->render->Blit(referee, 138, 189, &rect);
