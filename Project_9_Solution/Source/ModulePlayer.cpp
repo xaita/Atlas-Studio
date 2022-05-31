@@ -391,7 +391,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
 			&& ultimadireccio == 2 && currentAnimation !=&shooting)
 		{
-			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && blockup==true) {
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 
 				
 				blocktimer = 10;
