@@ -53,6 +53,8 @@ public:
 	int sets = 0;
 	int godmode = -1;
 	int si = 0;
+
+	bool bloqueig;
 	
 
 
