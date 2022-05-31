@@ -80,20 +80,24 @@ Update_Status ModuleDisk::Update()
 
 		if (score_player_1 > score_player_2) {
 
-			sets_player1 = +1;
+			sets_player1 +=1;
 			saque = 2;
 			sets += 1;
 			score_player_1 = 0;
 			score_player_2 = 0;
+			position.x = 143;
+			position.y = 191;
 		}
 
 		if (score_player_2 > score_player_1) {
 
-			sets_player2 = +1;
+			sets_player2 +=1;
 			saque = 1;
 			sets += 1;
 			score_player_1 = 0;
 			score_player_2 = 0;
+			position.x = 143;
+			position.y = 191;
 		}
 
 	}
@@ -160,6 +164,8 @@ Update_Status ModuleDisk::Update()
 		timer_set = 300;
 		score_player_1 = 0;
 		score_player_2 = 0;
+		App->player->currentAnimation= &App->player->rightidleAnim;
+		App->player2->currentAnimation = &App->player2->leftidleAnim;
 		App->sceneLevel_1->timer.Reset();
 	}
 
