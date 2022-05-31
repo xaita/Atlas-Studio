@@ -1,6 +1,6 @@
 #ifndef __SCENE_WINDJAMMERS_H__
 #define __SCENE_WINDJAMMERS_H__
-#define NUM_IMAGES 78
+#define NUM_IMAGES 319
 
 #include "Module.h"
 #include "Animation.h"
