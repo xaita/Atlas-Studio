@@ -305,7 +305,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			timerblock = 600;
 			App->player->blockdisk == false;
 		}
-		else if (timerblock == 0) {
+		if (timerblock <= 0) {
 			App->player->personatgedisc = 1;
 
 
