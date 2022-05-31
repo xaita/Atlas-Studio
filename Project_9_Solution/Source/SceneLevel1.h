@@ -77,7 +77,7 @@ public:
 
 	
 	
-
+	int timer2;
 
 
 
