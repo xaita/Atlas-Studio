@@ -391,21 +391,19 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && blockup == true) {
 
 				
-				block == true;	
-				
+				block == true;
+				blockdisk == true;
 				blocktimer = 10;
 				blockup = false;
 				
 				
 			}
-			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && currentAnimation != &blockanim)
 
 			{
+				blockanim.Reset();
+				currentAnimation = &blockanim;
 				
-				if (currentAnimation != &blockanim) {
-
-					currentAnimation = &blockanim;
-				}
 
 			}
 
