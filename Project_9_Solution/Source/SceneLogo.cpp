@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "SceneLogo.h"
 
 #include "Application.h"
@@ -25,8 +27,8 @@ bool SceneLogo::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
-
-	bgTexture = App->textures->Load("Assets/UI/Screens/Logo Atlas.png");
+	
+	bgTexture = App->textures->Load("Assets/UI/Screens/Atlas Logo/LogoAtlas0.png");
 	App->audio->PlayMusic("Assets/Audios/Music/Silence.ogg", 1.0f);
 	
 
@@ -38,6 +40,9 @@ bool SceneLogo::Start()
 
 Update_Status SceneLogo::Update()
 {
+	
+
+
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneWarning, 90);
