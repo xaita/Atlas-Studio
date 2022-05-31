@@ -130,7 +130,7 @@ Update_Status SceneLevel1::Update()
 	currentAnimation = &spectators;
 
 	if (App->disk->saque == 0) {
-		timer2 = -1;
+		if (timer2 > 0) { timer2 -=1; }
 		timer.Update();
 
 		current_Timer_Animation = &timer;
