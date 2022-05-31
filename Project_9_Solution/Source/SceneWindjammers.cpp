@@ -25,7 +25,7 @@ bool SceneWindjammers::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
-	char s[128];
+	char s[512];
 
 	for (int i = 0; i < NUM_IMAGES; ++i)
 	{
@@ -45,7 +45,7 @@ bool SceneWindjammers::Start()
 
 Update_Status SceneWindjammers::Update()
 {
-	if (timer == 2) {
+	if (timer == 3) {
 		if (frame < NUM_IMAGES - 1) {
 			frame++;
 			timer = 0;
@@ -53,8 +53,8 @@ Update_Status SceneWindjammers::Update()
 	}
 	timer++;
 
-	
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+
+	if (App->input->keys[SDL_SCANCODE_LSHIFT] == Key_State::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
 	}
