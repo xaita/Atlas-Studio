@@ -395,7 +395,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				blocktimer++;
 
 
-					blockdisk = true;
+				blockdisk = true;
 
 				
 
@@ -412,7 +412,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 
 
-			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE || blocktimer >= 300){
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE || blocktimer >= 20){
 
 				blockdisk = false;
 				currentAnimation = &rightidleAnim;
