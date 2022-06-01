@@ -31,6 +31,11 @@ bool SceneWindjammers::Start()
 	{
 		sprintf_s(s, "Assets/UI/Screens/Windjammers Intro/wjammers%d.png", i+1);
 		bgTexture[i] = App->textures->Load(s);
+		if (i == 63)
+		{
+			sprintf_s(s, "Assets/UI/Screens/Windjammers Intro/wjammers63.png");
+			bgTexture[i] = App->textures->Load(s);
+		}
 	}
 	frame = 0;
 	timer = 0;

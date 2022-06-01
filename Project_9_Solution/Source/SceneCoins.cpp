@@ -31,6 +31,11 @@ bool SceneCoins::Start()
 	{
 		sprintf_s(s, "Assets/UI/Screens/Scene Coins/wjammers%d.png", i + 1);
 		bgTexture[i] = App->textures->Load(s);
+		if (i == 41)
+		{
+			sprintf_s(s, "Assets/UI/Screens/Scene Coins/wjammers41.png");
+			bgTexture[i] = App->textures->Load(s);
+		}
 	}
 	frame = 0;
 	timer = 0;
