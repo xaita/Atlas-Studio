@@ -396,11 +396,14 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 				if (blocktimer > 10) {
 
-					block == true;
-					blockdisk == true;
+					block = true;
+					blockdisk = true;
 
 				}
-				
+
+				if (blocktimer > 300) {
+					blockdisk = false;
+				}
 				if (currentAnimation != &blockanim && currentAnimation != &shooting)
 
 				{

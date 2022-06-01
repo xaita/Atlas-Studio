@@ -272,7 +272,6 @@ Update_Status ModuleDisk::Update()
 
 	}
 
-	--timerblock;
 
 	
 	if (bloqueig == true) {
@@ -280,10 +279,12 @@ Update_Status ModuleDisk::Update()
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
 		currentAnimation2 = &blocking;
-		timerblock = 600;
+		timerblock = 30;
 		bloqueig == false;
+		
 	}
 	
+	--timerblock;
 
 
 	
