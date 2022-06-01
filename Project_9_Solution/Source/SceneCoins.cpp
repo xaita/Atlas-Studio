@@ -25,11 +25,11 @@ bool SceneCoins::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
-	char s[512];
+	char s[64];
 
 	for (int i = 0; i < NUM_IMAGES; ++i)
 	{
-		sprintf_s(s, "Assets/UI/Screens/Windjammers Intro/wjammers%d.png", i + 1);
+		sprintf_s(s, "Assets/UI/Screens/Scene Coins/wjammers%d.png", i + 1);
 		bgTexture[i] = App->textures->Load(s);
 	}
 	frame = 0;
@@ -54,7 +54,7 @@ Update_Status SceneCoins::Update()
 	timer++;
 
 
-	if (App->input->keys[SDL_SCANCODE_LSHIFT] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
 	}

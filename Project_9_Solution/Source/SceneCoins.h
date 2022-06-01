@@ -1,6 +1,6 @@
 #ifndef __SCENE_COINS_H
 #define __SCENE_COINS_H
-#define NUM_IMAGES 316
+#define NUM_IMAGES 42
 
 #include "Module.h"
 #include "Animation.h"
