@@ -54,6 +54,7 @@ Update_Status SceneCoins::Update()
 	timer++;
 
 
+
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);

@@ -25,7 +25,7 @@ bool SceneWindjammers::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
-	char s[512];
+	char s[128];
 
 	for (int i = 0; i < NUM_IMAGES; ++i)
 	{
