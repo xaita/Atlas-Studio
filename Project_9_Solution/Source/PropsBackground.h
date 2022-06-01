@@ -60,6 +60,7 @@ public:
 
 	Animation frisbees;
 	int timersetcount = 189;
+	int timerrefree = 0;
 	//frisbees de l'arbitre, a terra
 };
 
