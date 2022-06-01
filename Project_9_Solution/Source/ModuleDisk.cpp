@@ -101,7 +101,7 @@ Update_Status ModuleDisk::Update()
 		if (score_player_1 > score_player_2) {
 
 			sets_player1 +=1;
-			saque = 2;
+			saque = -2;
 			sets += 1;
 			timer_set = 300;
 			score_player_1 = 0;
@@ -118,7 +118,7 @@ Update_Status ModuleDisk::Update()
 		else if (score_player_2 > score_player_1) {
 
 			sets_player2 +=1;
-			saque = 1;
+			saque = -1;
 			sets += 1;
 			timer_set = 300;
 			score_player_1 = 0;
@@ -140,7 +140,7 @@ Update_Status ModuleDisk::Update()
 			if (sets_player1 == 2 && sets_player2 == 2) {
 
 				muerte_subita = true;
-				saque = 1;
+				saque = -1;
 				sets += 1;
 				timer_set = 300;
 				score_player_1 = 0;
@@ -156,7 +156,7 @@ Update_Status ModuleDisk::Update()
 			}
 			else {
 
-				saque = 1;
+				saque = -1;
 				sets += 1;
 				timer_set = 300;
 				score_player_1 = 0;
@@ -200,7 +200,7 @@ Update_Status ModuleDisk::Update()
 			sets_player1 = 0;
 			sets_player2 = 0;
 
-			saque = 1;
+			saque = -1;
 
 			App->sceneLevel_1->Disable();
 
@@ -218,7 +218,7 @@ Update_Status ModuleDisk::Update()
 
 		sets_player1 += 1;
 		sets += 1;
-		saque = 2;
+		saque = -2;
 		timer_set = 300;
 		score_player_1 = 0;
 		score_player_2 = 0;
@@ -232,7 +232,7 @@ Update_Status ModuleDisk::Update()
 		sets += 1;
 	
 		App->sceneLevel_1->timer2 = 1800;
-		saque = 1;
+		saque = -1;
 
 		timer_set = 300;
 		score_player_1 = 0;
@@ -242,7 +242,7 @@ Update_Status ModuleDisk::Update()
 		App->sceneLevel_1->timer.Reset();
 	}
 
-	if (saque == 1 || saque ==2) {
+	if (saque == 1 || saque == 2 || saque == -1 || saque == -2) {
 		if (timer > 0) {
 			timer -= 1;
 		}
@@ -253,6 +253,28 @@ Update_Status ModuleDisk::Update()
 		App->player2->position.x = 240;
 		App->player2->position.y = 112;
     }
+	
+	if (saque == -1 && timer == 0 && timer_set <= 0) {
+
+
+
+		disc_speed_X = -3;
+		disc_speed_Y = -2;
+
+
+
+	}
+
+	if (saque == -2 && timer == 0 && timer_set <= 0) {
+
+
+
+		disc_speed_X = 3;
+		disc_speed_Y = -2;
+
+
+
+	}
 	
 	if (saque == 1  && timer ==0 && timer_set <= 0 ) {
 
