@@ -343,7 +343,7 @@ Update_Status ModuleDisk::Update()
 
 	if (timerblock > 0) {
 		currentAnimation2 = &blocking;
-		App->audio->PlayFx(onairfx, 5);
+		App->audio->PlayFx(onairfx, 4);
 		timerblock--;
 	}
 
