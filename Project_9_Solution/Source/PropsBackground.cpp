@@ -45,14 +45,14 @@ bool PropsBackground::Start()
 	refereePointLeft.PushBack({ 160, 36, 44, 35 });
 	refereePointLeft.PushBack({ 204, 36, 45, 35 });
 	refereePointLeft.speed = 0.1f;
-	refereePointLeft.loop = false;
+	refereePointLeft.loop = true;
 
 	refereePointRight.PushBack({ 0, 70, 44, 35 });
 	refereePointRight.PushBack({ 44, 70, 44, 35 });
 	refereePointRight.PushBack({ 88, 70, 44, 35 });
 	refereePointRight.PushBack({ 132, 70, 44, 35 });
 	refereePointRight.speed = 0.1f;
-	refereePointRight.loop = false;
+	refereePointRight.loop = true;
 
 
 	frisbees.PushBack({ 245,51,16,12 });
