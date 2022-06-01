@@ -296,7 +296,7 @@ Update_Status ModuleDisk::Update()
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
 		currentAnimation2 = &blocking;
-		timerblock = 100;
+		timerblock = 60;
 		onair = true;
 		bloqueig == false;
 		
@@ -342,7 +342,8 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			bloqueig = true;
 		}
 
-		if (timerblock <= 0 && App->player->blockdisk == false) {
+		if (timerblock <= 0 && bloqueig == false) {
+
 			App->player->personatgedisc = 1;
 
 			position.x = App->player->position.x + 40;
