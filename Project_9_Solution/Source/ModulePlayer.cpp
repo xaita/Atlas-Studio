@@ -165,7 +165,7 @@ bool ModulePlayer::Start()
 	currentAnimation = &rightidleAnim;
 
 
-	discFx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Toss.wav");
+	toss = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Toss.wav");
 
 	position.x = 38;
 	position.y = 112;

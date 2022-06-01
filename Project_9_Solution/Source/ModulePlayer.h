@@ -84,7 +84,17 @@ public:
 	// Sound effects indices
 	uint laserFx = 0;
 	uint explosionFx = 0;
-	uint discFx = 0;
+	uint tossfx = 0;
+	uint chargefx = 0; 
+	uint hitfx = 0;
+	uint powerphrasefx = 0;
+	uint powersoundfx = 0;
+	uint setwinfx = 0;
+	uint blockfx = 0;
+	uint catchfx = 0;
+
+
+
 	// Font score index
 	uint scoreplayer1 = 000;
 	int scoreFont = -1;
