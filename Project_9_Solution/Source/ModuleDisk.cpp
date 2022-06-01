@@ -260,6 +260,8 @@ Update_Status ModuleDisk::Update()
 	}
 
 	if (saque == 1 || saque == 2 || saque == -1 || saque == -2) {
+		App->player->personatgedisc = -1;
+		App->player2->personatgedisc2 = -1;
 		if (timer > 0) {
 			timer -= 1;
 		}
@@ -331,7 +333,7 @@ Update_Status ModuleDisk::Update()
 
 	if (bloqueig == true) {
 
-		App->audio->PlayFx(blockfx, 0);
+		
 		onair = true;
 
 		disc_speed_X = 0;
@@ -402,7 +404,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 			bloqueig = true;
 
-
+			App->audio->PlayFx(blockfx, 0);
 		}
 		
 		
