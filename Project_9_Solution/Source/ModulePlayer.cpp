@@ -128,7 +128,6 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	
 	
 	//Animation idle before shooting
-	
 	rightidleFrisbee.PushBack({ 0, 514, 47, 48 });
 	rightidleFrisbee.PushBack({ 48, 514, 47, 45 });
 	rightidleFrisbee.PushBack({ 96, 514, 47, 48 });
