@@ -79,6 +79,7 @@ bool ModuleDisk::Start()
 
 	blockfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Block.wav");
 	catchfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Catch.wav");
+	onairfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Freesbeonair.wav");
 
 	position.x = 145; //Posicio arbitre
 	position.y = 191; //posicio arbitre
@@ -342,6 +343,7 @@ Update_Status ModuleDisk::Update()
 
 	if (timerblock > 0) {
 		currentAnimation2 = &blocking;
+		App->audio->PlayFx(onairfx, 5);
 		timerblock--;
 	}
 

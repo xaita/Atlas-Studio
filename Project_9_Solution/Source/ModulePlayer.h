@@ -91,8 +91,7 @@ public:
 	uint powerphrasefx = 0;
 	uint powersoundfx = 0;
 	uint setwinfx = 0;
-	uint blockfx = 0;
-	uint catchfx = 0;
+	
 
 
 

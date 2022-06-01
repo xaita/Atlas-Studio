@@ -76,7 +76,7 @@ public:
 
 	uint blockfx = 0;
 	uint catchfx = 0;
-
+	uint onairfx = 0;
 	// The player's collider
 	Collider* diskcollider = nullptr;
 
