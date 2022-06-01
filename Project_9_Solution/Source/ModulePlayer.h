@@ -74,6 +74,7 @@ public:
 	Animation updash;
 	Animation downdash;
 	Animation blockanim;
+	Animation recive;
 
 	// The player's collider
 	Collider* collider = nullptr;

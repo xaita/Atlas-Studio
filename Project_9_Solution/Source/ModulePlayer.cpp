@@ -22,6 +22,8 @@ using namespace std::this_thread;
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
+	//recive.PushBack({ 211,0,30,39 });
+	//recive.loop = false;
 	// idle animation - just one sprite
 	rightidleAnim.PushBack({ 393, 103 , 23, 36 });// frame 1
 	rightidleAnim.PushBack({ 370, 103 , 23, 35 });// frame 2
@@ -126,6 +128,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	
 	
 	//Animation idle before shooting
+	
 	rightidleFrisbee.PushBack({ 0, 514, 47, 48 });
 	rightidleFrisbee.PushBack({ 48, 514, 47, 45 });
 	rightidleFrisbee.PushBack({ 96, 514, 47, 48 });

@@ -72,6 +72,7 @@ public:
 	Animation projectile;
 	Animation invisible;
 	Animation blocking;
+	Animation idle;
 
 
 	// The player's collider
