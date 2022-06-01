@@ -165,7 +165,7 @@ bool ModulePlayer::Start()
 	currentAnimation = &rightidleAnim;
 
 
-	discFx = App->audio->LoadFx("Assets\Audios\SFX and Voice lines\Frisbee/Toss.wav");
+	discFx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Toss.wav");
 
 	position.x = 38;
 	position.y = 112;
@@ -387,23 +387,19 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			&& ultimadireccio == 2)
 		{
 
-
-			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && blocktimer < 300) {
+			
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && blocktimer < 20) {
 
 
 				
 				blocktimer++;
 
-				if (blocktimer > 10) {
 
-					block = true;
 					blockdisk = true;
 
-				}
+				
 
-				if (blocktimer > 300) {
-					blockdisk = false;
-				}
+				
 				if (currentAnimation != &blockanim && currentAnimation != &shooting)
 
 				{
@@ -418,7 +414,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE || blocktimer >= 300){
 
-
+				blockdisk = false;
 				currentAnimation = &rightidleAnim;
 			}
 			

@@ -69,6 +69,8 @@ bool ModuleDisk::Start()
 	position.x = 145; //Posicio arbitre
 	position.y = 191; //posicio arbitre
 
+	onair = false;
+	bloqueig = false;
 
 	destroyed = false;
 
@@ -290,24 +292,26 @@ Update_Status ModuleDisk::Update()
 	}
 
 
-	
 	if (bloqueig == true) {
+
+		onair = true;
 
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
-		currentAnimation2 = &blocking;
 		timerblock = 60;
-		onair = true;
-		bloqueig == false;
+		bloqueig = false;
 		
 	}
-	
-	if (timerblock <= 0) {
-		
-		onair = false;
 
+	if (timerblock > 0) {
+		currentAnimation2 = &blocking;
+		timerblock--;
 	}
-	--timerblock;
+
+	if (timerblock == 0) {
+		onair = false;
+	}
+
 
 
 	
@@ -337,13 +341,10 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER && onair==false)
 	{
-		if (App->player->blockdisk == true)
-		{
-			bloqueig = true;
-		}
+		
+		
 
-		if (timerblock <= 0 && bloqueig == false) {
-
+		if (App->player->blockdisk == false) {
 			App->player->personatgedisc = 1;
 
 			position.x = App->player->position.x + 40;
@@ -355,6 +356,13 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 			currentAnimation2 = &invisible;
 		}
+		else {
+
+			bloqueig = true;
+
+
+		}
+		
 		
 	}
 
