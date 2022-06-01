@@ -405,7 +405,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				blocktimer++;
 				blockdisk = true;
 
-				App->audio->PlayFx(block, 0);
+				App->audio->PlayFx(blockfx, 0);
 
 				
 				if (currentAnimation != &blockanim && currentAnimation != &shooting)
