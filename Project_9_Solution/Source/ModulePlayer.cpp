@@ -165,7 +165,14 @@ bool ModulePlayer::Start()
 	currentAnimation = &rightidleAnim;
 
 
-	toss = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Toss.wav");
+	tossfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Toss.wav");
+	chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiCharge.wav");
+	hitfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiHit.wav");
+	powerphrasefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerPhrase.wav");
+	powersoundfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerSound.wav");
+	setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiSetWin.wav");
+	blockfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Block.wav");
+	catchfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Catch.wav");
 
 	position.x = 38;
 	position.y = 112;
@@ -393,11 +400,9 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 				
 				blocktimer++;
-
-
 				blockdisk = true;
 
-				
+				App->audio->PlayFx(block, 0);
 
 				
 				if (currentAnimation != &blockanim && currentAnimation != &shooting)
