@@ -10,6 +10,7 @@
 #include "SceneIntroSNK.h"
 #include "SceneWarning.h"
 #include "SceneWindjammers.h"
+#include "SceneCoins.h"
 #include "SceneLogo.h"
 #include "SceneIntro.h"
 #include "SceneIntroMapes.h"
@@ -46,14 +47,15 @@ Application::Application()
 	modules[11] =	sceneIntroMapes =	new SceneIntroMapes(false);
 	modules[12] =	sceneIntro =		new SceneIntro(false);
     modules[13] =	sceneWindjammers =  new SceneWindjammers(false);
-	modules[14] =	sceneIntroSNK =		new SceneIntroSNK(false);
-	modules[15] =	sceneWarning =		new SceneWarning(false);
-	modules[16] =	sceneLogo =			new SceneLogo(true);
+	modules[14] =	sceneCoins =		new SceneCoins(false);
+	modules[15] =	sceneIntroSNK =		new SceneIntroSNK(false);
+	modules[16] =	sceneWarning =		new SceneWarning(false);
+	modules[17] =	sceneLogo =			new SceneLogo(true);
 
-	modules[17] =	collisions =		new ModuleCollisions(true);
-	modules[18] =	fade =				new ModuleFadeToBlack(true);
-	modules[19] =	fonts =				new ModuleFonts(true);
-	modules[20] =	render =			new ModuleRender(true);
+	modules[18] =	collisions =		new ModuleCollisions(true);
+	modules[19] =	fade =				new ModuleFadeToBlack(true);
+	modules[20] =	fonts =				new ModuleFonts(true);
+	modules[21] =	render =			new ModuleRender(true);
 
 
 

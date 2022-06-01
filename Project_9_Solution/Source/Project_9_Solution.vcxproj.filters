@@ -29,6 +29,7 @@
     <ClCompile Include="SceneLogo.cpp" />
     <ClCompile Include="SceneJapan.cpp" />
     <ClCompile Include="SceneWarning.cpp" />
+    <ClCompile Include="SceneCoins.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -61,5 +62,6 @@
     <ClInclude Include="SceneLogo.h" />
     <ClInclude Include="SceneJapan.h" />
     <ClInclude Include="SceneWarning.h" />
+    <ClInclude Include="SceneCoins.h" />
   </ItemGroup>
 </Project>

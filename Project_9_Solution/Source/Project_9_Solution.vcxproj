@@ -85,6 +85,7 @@
     <ClInclude Include="ModuleParticles.h" />
     <ClInclude Include="ModulePlayer2.h" />
     <ClInclude Include="PropsBackground.h" />
+    <ClInclude Include="SceneCoins.h" />
     <ClInclude Include="SceneIntro.h" />
     <ClInclude Include="SceneIntroMapes.h" />
     <ClInclude Include="SceneIntroSNK.h" />
@@ -109,6 +110,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Globals.cpp" />
+    <ClCompile Include="SceneCoins.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
     <ClCompile Include="ModuleCollisions.cpp" />
     <ClCompile Include="ModuleDisk.cpp" />
