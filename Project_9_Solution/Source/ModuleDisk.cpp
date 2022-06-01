@@ -25,6 +25,9 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	moving.loop = true;
 	moving.speed = 0.2f;
 
+	idle.PushBack({ 117, 48, 16, 16 });
+	idle.loop = false;
+
 	// Projectile motion animation
 	projectile.PushBack({ 35, 8, 32, 14 });
 	projectile.PushBack({ 53, 7, 25, 31 });
@@ -54,7 +57,16 @@ ModuleDisk::~ModuleDisk()
 bool ModuleDisk::Start()
 {
 	App->collisions->Enable();
-	currentAnimation2 = &moving;
+
+
+
+	if (disc_speed_X != 0 && disc_speed_Y != 0) {
+		currentAnimation2 = &moving;
+	}
+	else {
+		currentAnimation2 = &idle;
+	}
+
 	LOG("Loading Disk textures");
 
 	si = 0;
@@ -367,6 +379,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		
 
 		if (App->player->blockdisk == false) {
+			App->player->currentAnimation = &App->player->recive;
 			App->player->personatgedisc = 1;
 
 			position.x = App->player->position.x + 40;
@@ -377,6 +390,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			saque = 0;
 
 			currentAnimation2 = &invisible;
+		
 		}
 		else {
 

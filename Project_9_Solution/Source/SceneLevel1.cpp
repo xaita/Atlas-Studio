@@ -120,7 +120,6 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 144, 166, 15, 14 }, Collider::Type::OBSTACLE1);
 
 	App->player->Enable();
-
 	App->player2->Enable();
 	App->disk->Enable();
 	return ret;
