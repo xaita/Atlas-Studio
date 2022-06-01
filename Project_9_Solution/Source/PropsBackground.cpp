@@ -45,12 +45,14 @@ bool PropsBackground::Start()
 	refereePointLeft.PushBack({ 160, 36, 44, 35 });
 	refereePointLeft.PushBack({ 204, 36, 45, 35 });
 	refereePointLeft.speed = 0.1f;
+	refereePointLeft.loop = false;
 
 	refereePointRight.PushBack({ 0, 70, 44, 35 });
 	refereePointRight.PushBack({ 44, 70, 44, 35 });
 	refereePointRight.PushBack({ 88, 70, 44, 35 });
 	refereePointRight.PushBack({ 132, 70, 44, 35 });
 	refereePointRight.speed = 0.1f;
+	refereePointRight.loop = false;
 
 
 	frisbees.PushBack({ 245,51,16,12 });
@@ -60,13 +62,16 @@ bool PropsBackground::Start()
 
 Update_Status PropsBackground::Update()
 {
+	--timerrefree;
 	
 	if (App->disk->saque == 1) {
 		currentAnimation = &refereePointRight;//NO FUNCIONA canvia l'sprite pero no fa l'animacio
+		timerrefree = 20;
 	}
 
 	else if (App->disk->saque == 2) {
 		currentAnimation = &refereePointLeft;
+		timerrefree = 20;
 	}
 
 	else if (App->disk->position.x < 110) {
@@ -77,7 +82,7 @@ Update_Status PropsBackground::Update()
 		currentAnimation = &refereeLookRight;
 	}
 
-	else {
+	else if (timerrefree <= 0){
 		currentAnimation = &refereeIdle;
 	}
 

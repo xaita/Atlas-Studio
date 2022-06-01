@@ -41,7 +41,7 @@ public:
 	int disc_speed_Y=0;
 	bool muerte_subita;
 
-	int saque = 1;
+	int saque = -1;
 	int timer =0;
 	int timer_set = 0;
 	int timer_Win =300;
