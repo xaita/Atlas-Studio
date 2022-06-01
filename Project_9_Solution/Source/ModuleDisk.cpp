@@ -79,6 +79,23 @@ bool ModuleDisk::Start()
 
 Update_Status ModuleDisk::Update()
 {
+	if (sets_player1==2 && sets_player2==2) {
+
+		if (score_player_1 > score_player_2) {
+
+			sets_player2 -= 1;
+			muerte_subita = false;
+
+		}
+
+		if (score_player_2 > score_player_1) {
+
+			sets_player1 -= 1;
+			muerte_subita = false;
+
+		}
+
+	}
 	if (App->sceneLevel_1->timer2 == 0) {
 
 		if (score_player_1 > score_player_2) {

@@ -373,7 +373,7 @@ Update_Status SceneLevel1::PostUpdate()
 
 	}
 
-	if (App->disk->sets_player2 == 2) {
+	if (App->disk->sets_player2 == 2 && App->disk->muerte_subita == false) {
 
 		App->render->Blit(P2Win, 0, 0, NULL);
 		App->render->Blit(UI, 30, 54, &P1LOSE);
@@ -382,7 +382,7 @@ Update_Status SceneLevel1::PostUpdate()
 		App->disk->si = 1;
 
 	}
-	if (App->disk->sets_player1 == 2) {
+	if (App->disk->sets_player1 == 2 && App->disk->muerte_subita==false) {
 
 		App->render->Blit(P1Win, 0, 0, NULL);
 		App->render->Blit(UI, 18, 48, &P1WIN);
