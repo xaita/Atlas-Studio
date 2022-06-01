@@ -174,8 +174,7 @@ bool ModulePlayer::Start()
 	powerphrasefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerPhrase.wav");
 	powersoundfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerSound.wav");
 	setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiSetWin.wav");
-	blockfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Block.wav");
-	catchfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Catch.wav");
+	
 
 	position.x = 38;
 	position.y = 112;
@@ -333,7 +332,6 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && dashup == true)
 			{
 				position.y -= 3 * speed;
-
 				currentAnimation = &updash;
 			}
 
@@ -405,7 +403,6 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				blocktimer++;
 				blockdisk = true;
 
-				App->audio->PlayFx(blockfx, 0);
 
 				
 				if (currentAnimation != &blockanim && currentAnimation != &shooting)

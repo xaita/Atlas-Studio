@@ -77,6 +77,8 @@ bool ModuleDisk::Start()
 
 	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
 
+	blockfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Block.wav");
+	catchfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Catch.wav");
 
 	position.x = 145; //Posicio arbitre
 	position.y = 191; //posicio arbitre
@@ -328,6 +330,7 @@ Update_Status ModuleDisk::Update()
 
 	if (bloqueig == true) {
 
+		App->audio->PlayFx(blockfx, 0);
 		onair = true;
 
 		disc_speed_X = 0;
@@ -379,6 +382,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		
 
 		if (App->player->blockdisk == false) {
+			App->audio->PlayFx(catchfx, 0);
 			App->player->currentAnimation = &App->player->recive;
 			App->player->personatgedisc = 1;
 
