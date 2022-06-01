@@ -446,7 +446,11 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 		
 		currentAnimation = &rightidleFrisbee;
-	
+		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) { 
+
+			App->audio->PlayFx(tossfx, 0);
+
+		}
 
 		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D])
 		{
