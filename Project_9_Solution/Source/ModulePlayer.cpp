@@ -559,7 +559,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 	}
 
-		
+	
 
 	collider->SetPos(position.x, position.y);
 

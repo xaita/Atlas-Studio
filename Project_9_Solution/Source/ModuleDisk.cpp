@@ -41,6 +41,8 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	invisible.PushBack({ 0,0,0,0 });
 
 	blocking.PushBack({ 17, 29, 35, 8 });
+	blocking.loop = true;
+	blocking.speed = 0.2f;
 
 }
 
@@ -274,6 +276,9 @@ Update_Status ModuleDisk::Update()
 
 	
 	if (bloqueig == true) {
+
+		disc_speed_X = 0;
+		disc_speed_Y = 0;
 		currentAnimation2 = &blocking;
 		timerblock = 600;
 		bloqueig == false;
@@ -312,7 +317,8 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		{
 			bloqueig = true;
 		}
-		if (timerblock <= 0) {
+
+		if (timerblock <= 0 && App->player->blockdisk == false) {
 			App->player->personatgedisc = 1;
 
 			position.x = App->player->position.x + 40;
