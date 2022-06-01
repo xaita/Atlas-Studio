@@ -56,7 +56,7 @@ public:
 	int si = 0;
 
 	bool bloqueig;
-	
+	bool onair;
 
 
 
