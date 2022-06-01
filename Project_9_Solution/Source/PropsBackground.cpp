@@ -27,6 +27,7 @@ bool PropsBackground::Start()
 	bgGoal = App->textures->Load("Assets/Sprites/Stages/Concrete/goal.png");
 	bgGoalright = App->textures->Load("Assets/Sprites/Stages/Concrete/goalRight.png");
 	bgGoalgoal = App->textures->Load("Assets/Sprites/Stages/Concrete/goal_supergoal.png");											//porteria quan es fa gol
+	bgGoalgoalright = App->textures->Load("Assets/Sprites/Stages/Concrete/goal_supergoalRight.png");
 	referee = App->textures->Load("Assets/Sprites/Referee/SpriteSheet_Arbi_Beach_Definitiu.png");									//ARBITRE
 	bgFrisbees = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");//discos del terra
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
@@ -88,7 +89,6 @@ Update_Status PropsBackground::Update()
 Update_Status PropsBackground::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	App->render->Blit(bgGoalright, 266, 22, NULL);
 	App->render->Blit(bgBotwall, 31, 202, NULL);
 	App->render->Blit(bgFrisbees, 166, 209, &(frisbees.GetCurrentFrame()));
 
@@ -97,7 +97,13 @@ Update_Status PropsBackground::PostUpdate()
 	}
 	else
 		App->render->Blit(bgGoal, 0, 22, NULL);
-	
+
+	if (App->disk->saque == 2) {
+		App->render->Blit(bgGoalgoalright, 266, 22, NULL);
+	}
+	else
+		App->render->Blit(bgGoalright, 266, 22, NULL);
+
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
 
 	if (currentAnimation == &refereePointLeft) {

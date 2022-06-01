@@ -349,13 +349,18 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
 	{
 
-		position.x = 143;
-		position.y = 191;
+		position.x = -17;
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
 
 
-
+		if (saque == 1)
+		{
+		position.x = 143;		//disc torna al arbitre quan fas gol
+		position.y = 191;
+		disc_speed_X = 0;
+		disc_speed_Y = 0;
+		}
 
 		timer = 120;
 		App->propsBackground->timersetcount = 350;

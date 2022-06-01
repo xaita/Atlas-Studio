@@ -142,7 +142,7 @@ Update_Status SceneLevel1::Update()
 	{
 		if (moureCameraGol == '1')
 		{
-			App->render->camera.x-=3;
+			App->render->camera.x-=6;
 			if (App->render->camera.x == -96)
 				moureCameraGol = '2';
 		}
@@ -157,7 +157,7 @@ Update_Status SceneLevel1::Update()
 	{
 		if (moureCameraGol == '1')
 		{
-			App->render->camera.x+=3;
+			App->render->camera.x+=6;
 			if (App->render->camera.x == 96)
 				moureCameraGol = '2';
 		}
