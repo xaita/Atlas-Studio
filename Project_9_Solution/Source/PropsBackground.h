@@ -34,7 +34,7 @@ public:
 	SDL_Texture* bgGoal = nullptr;
 	SDL_Texture* bgGoalright = nullptr;
 	SDL_Texture* bgGoalgoal = nullptr;
-	SDL_Texture* bgGoalsupergoal = nullptr;
+	SDL_Texture* bgGoalgoalright = nullptr;
 	SDL_Texture* referee = nullptr;
 	SDL_Texture* bgFrisbees = nullptr; 
 	SDL_Texture* UI = nullptr;

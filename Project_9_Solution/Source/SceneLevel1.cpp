@@ -138,33 +138,33 @@ Update_Status SceneLevel1::Update()
 		current_Timer_Animation = &timer;
 	}
 
-	if (App->disk->saque == 1)
+	if (App->disk->saque == 1)			//moure camera quan es fa gol
 	{
 		if (moureCameraGol == '1')
 		{
-			App->render->camera.x--;
-			if (App->render->camera.x == -27)
+			App->render->camera.x-=3;
+			if (App->render->camera.x == -96)
 				moureCameraGol = '2';
 		}
 		else
 		{
-			App->render->camera.x++;
-			if (App->render->camera.x == -20)
+			App->render->camera.x+=1;
+			if (App->render->camera.x == -84)
 				moureCameraGol = '1';
 		}
 	}
-	else if (App->disk->saque == 2)
+	else if (App->disk->saque == 2)		//moure camera quan es fa gol
 	{
 		if (moureCameraGol == '1')
 		{
-			App->render->camera.x++;
-			if (App->render->camera.x == 27)
+			App->render->camera.x+=3;
+			if (App->render->camera.x == 96)
 				moureCameraGol = '2';
 		}
 		else
 		{
-			App->render->camera.x--;
-			if (App->render->camera.x == 20)
+			App->render->camera.x-=1;
+			if (App->render->camera.x == 84)
 				moureCameraGol = '1';
 		}
 	}
@@ -183,13 +183,11 @@ Update_Status SceneLevel1::PostUpdate()
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture, -27, 0, &(spectators.GetCurrentFrame()));
 	App->render->Blit(bgExtremetopwall, 0, 16, NULL);
-
 	App->render->Blit(bgExtremetopwallright, 267, 16, NULL);
-	App->render->Blit(bgNet, 142, 31, NULL);
 	App->render->Blit(bgTopwall, 30, 20, NULL);
 	App->render->Blit(bgObstacle, 144, 70, NULL);
 	App->render->Blit(bgObstacle, 144, 166, NULL);
-
+	App->render->Blit(bgNet, 142, 31, NULL);
 
 
 	
