@@ -509,7 +509,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 
 				currentAnimation = &shooting;
-
+				App->disk->currentAnimation2 = &App->disk->moving;
 				App->disk->disc_speed_X = 5;
 				App->disk->disc_speed_Y = -2;
 				personatgedisc = -1;
@@ -520,6 +520,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 
 				currentAnimation = &shooting;
+				App->disk->currentAnimation2 = &App->disk->moving;
 				App->disk->onair = true;
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
@@ -535,7 +536,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 
 				currentAnimation = &shooting;
-
+				App->disk->currentAnimation2 = &App->disk->moving;
 				App->disk->disc_speed_X = 3;
 				App->disk->disc_speed_Y = -6;
 				personatgedisc = -1;
@@ -550,6 +551,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 				currentAnimation = &shooting;
+				App->disk->currentAnimation2 = &App->disk->moving;
 
 				App->disk->disc_speed_X = 5;
 				App->disk->disc_speed_Y = 2;
@@ -566,6 +568,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 				currentAnimation = &shooting;
+				App->disk->currentAnimation2 = &App->disk->moving;
 
 				App->disk->disc_speed_X = 3;
 				App->disk->disc_speed_Y = 6;
@@ -580,6 +583,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		{
 			shooting.Reset();
 			currentAnimation = &shooting;
+			App->disk->currentAnimation2 = &App->disk->moving;
 
 			App->disk->disc_speed_X = 6;
 			
@@ -619,6 +623,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			{
 				shooting.Reset();
 				currentAnimation = &shooting;
+				App->disk->currentAnimation2 = &App->disk->moving;
 				App->disk->projectile.Reset();
 				App->disk->currentAnimation2 = &App->disk->projectile;
 
