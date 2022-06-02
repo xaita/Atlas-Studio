@@ -590,7 +590,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 		}
 		
-		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)		//Tirar disc
 		{
 			if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
@@ -599,6 +599,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			{
 				shooting.Reset();
 				currentAnimation = &shooting;
+				App->disk->currentAnimation2 = &App->disk->moving;
 				
 				 App->disk->disc_speed_X = 6;
 				 personatgedisc = -1;
@@ -618,6 +619,8 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			{
 				shooting.Reset();
 				currentAnimation = &shooting;
+				App->disk->projectile.Reset();
+				App->disk->currentAnimation2 = &App->disk->projectile;
 
 				App->disk->disc_speed_X = 6;
 				personatgedisc = -1;

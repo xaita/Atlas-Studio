@@ -69,14 +69,8 @@ bool ModuleDisk::Start()
 {
 	App->collisions->Enable();
 
+	currentAnimation2 = &moving;
 
-
-	if (disc_speed_X != 0 && disc_speed_Y != 0) {
-		currentAnimation2 = &moving;
-	}
-	else {
-		currentAnimation2 = &idle;
-	}
 
 	LOG("Loading Disk textures");
 
@@ -202,9 +196,9 @@ Update_Status ModuleDisk::Update()
 		}
 
 	}
-	if (App->player->personatgedisc == -1 && App->player2->personatgedisc2 == -1) {
-		currentAnimation2 = &moving;
-	}
+	//if (App->player->personatgedisc == -1 && App->player2->personatgedisc2 == -1) {
+	//	currentAnimation2 = &moving;
+	//}
 
 	if (App->input->keys[SDL_SCANCODE_F4] == Key_State::KEY_DOWN) {
 		godmode *= -1;

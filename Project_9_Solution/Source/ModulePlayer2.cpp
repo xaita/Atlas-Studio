@@ -414,6 +414,9 @@ Update_Status ModulePlayer2::Update()
 			{
 				shooting.Reset();
 				currentAnimation = &shooting;
+				App->disk->currentAnimation2 = &App->disk->moving;
+				App->disk->projectile.Reset();
+
 
 				App->disk->disc_speed_X=-6;
 				personatgedisc2 = -1;
