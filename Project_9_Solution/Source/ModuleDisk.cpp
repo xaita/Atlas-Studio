@@ -29,7 +29,7 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	idle.loop = false;
 
 	// Projectile motion animation
-	projectile.PushBack({ 35, 8, 32, 14 });
+	projectile.PushBack({ 35, 8, 17, 29 });
 	projectile.PushBack({ 53, 7, 25, 31 });
 	projectile.PushBack({ 79, 6, 36, 34 });
 	projectile.PushBack({ 116, 5, 28, 36 });
@@ -37,9 +37,20 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	projectile.PushBack({ 167, 3, 3, 39 });
 	projectile.PushBack({ 171, 2, 23, 41 });
 	projectile.PushBack({ 195, 2, 33, 42 });
+
 	projectile.PushBack({ 229, 0, 43, 44 });
+
+	projectile.PushBack({ 195, 2, 33, 42 });
+	projectile.PushBack({ 171, 2, 23, 41 });
+	projectile.PushBack({ 167, 3, 3, 39 });
+	projectile.PushBack({ 145, 4, 21, 38 });
+	projectile.PushBack({ 116, 5, 28, 36 });
+	projectile.PushBack({ 79, 6, 36, 34 });
+	projectile.PushBack({ 53, 7, 25, 31 });
+	projectile.PushBack({ 35, 8, 17, 29 });
+
 	projectile.loop = false;
-	projectile.speed = 0.1f;
+	projectile.speed = 0.3f;
 
 	invisible.PushBack({ 0,0,0,0 });
 
@@ -344,13 +355,14 @@ Update_Status ModuleDisk::Update()
 	}
 
 	if (timerblock > 0) {
-		currentAnimation2 = &blocking;
-		App->audio->PlayFx(onairfx, 4);
+		currentAnimation2 = &projectile;
+		App->audio->PlayFx(onairfx, 0);
 		timerblock--;
 	}
 
 	if (timerblock == 0) {
 		onair = false;
+		projectile.Reset();
 	}
 
 
