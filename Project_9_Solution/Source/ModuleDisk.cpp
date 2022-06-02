@@ -49,7 +49,7 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	projectile.PushBack({ 53, 7, 25, 31 });
 	projectile.PushBack({ 35, 8, 17, 29 });
 
-	projectile.loop = false;
+	projectile.loop = true;
 	projectile.speed = 0.3f;
 
 	invisible.PushBack({ 0,0,0,0 });
@@ -69,7 +69,7 @@ bool ModuleDisk::Start()
 {
 	App->collisions->Enable();
 
-	currentAnimation2 = &moving;
+	currentAnimation2 = &idle;
 
 
 	LOG("Loading Disk textures");
@@ -356,7 +356,7 @@ Update_Status ModuleDisk::Update()
 
 	if (timerblock == 0) {
 		onair = false;
-		projectile.Reset();
+		
 	}
 
 
@@ -404,6 +404,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			saque = 0;
 
 			currentAnimation2 = &invisible;
+			projectile.Reset();
 		
 		}
 		else {
@@ -433,6 +434,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		saque = 0;
 
 		currentAnimation2 = &invisible;
+		projectile.Reset();
 
 	}
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
