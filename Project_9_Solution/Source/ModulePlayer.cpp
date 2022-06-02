@@ -557,13 +557,28 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				
 				 App->disk->ultimplayer = 1;
 				
-
-				
 			}
 
 
 		}
+		if (App->input->keys[SDL_SCANCODE_V] == Key_State::KEY_DOWN)
+		{
+			if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE)
+			{
+				shooting.Reset();
+				currentAnimation = &shooting;
 
+				App->disk->disc_speed_X = 6;
+				personatgedisc = -1;
+
+				App->disk->ultimplayer = 1;
+			}
+
+		}
+		
 	}
 
 	
