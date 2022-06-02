@@ -471,8 +471,8 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 
 				currentAnimation = &shooting;
-				App->disk->position.x;
-				App->disk->position.y;
+				App->disk->position.x += 10;
+				App->disk->position.y -= 4;
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
 
