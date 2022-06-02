@@ -40,6 +40,7 @@ public:
 	SDL_Texture* bgObstacle = nullptr;
 	SDL_Texture* bgNet = nullptr;
 	SDL_Texture* UI = nullptr;
+	SDL_Texture* points5score = nullptr;
 	SDL_Texture* P1Win = nullptr;
 	SDL_Texture* P2Win = nullptr;
 	
