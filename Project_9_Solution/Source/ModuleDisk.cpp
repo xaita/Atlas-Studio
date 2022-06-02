@@ -196,9 +196,6 @@ Update_Status ModuleDisk::Update()
 		}
 
 	}
-	//if (App->player->personatgedisc == -1 && App->player2->personatgedisc2 == -1) {
-	//	currentAnimation2 = &moving;
-	//}
 
 	if (App->input->keys[SDL_SCANCODE_F4] == Key_State::KEY_DOWN) {
 		godmode *= -1;

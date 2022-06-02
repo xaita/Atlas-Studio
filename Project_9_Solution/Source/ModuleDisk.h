@@ -54,10 +54,11 @@ public:
 	int sets = 0;
 	int godmode = -1;
 	int si = 0;
-	int volea = 0;
+	//int volea = 0;
 
 	bool bloqueig;
 	bool onair;
+	bool volea;
 
 
 
