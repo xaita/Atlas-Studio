@@ -73,6 +73,10 @@ public:
 	Animation leftdash;
 	Animation updash;
 	Animation downdash;
+	Animation rightupdash;
+	Animation leftupdash;
+	Animation rightdowndash;
+	Animation leftdowndash;
 	Animation blockanim;
 	Animation recive;
 

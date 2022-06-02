@@ -113,6 +113,36 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	downdash.loop = false;
 	downdash.speed = 0.1f;
+
+	rightupdash.PushBack({ 329,191,45,41 });
+	rightupdash.PushBack({ 297,191,32,30 });
+	rightupdash.PushBack({ 270,191,27,37 });
+
+	rightupdash.loop = false;
+	rightupdash.speed = 0.1f;
+
+	rightdowndash.PushBack({ 177,46,36,48 });
+	rightdowndash.PushBack({ 140,46,37,40 });
+	rightdowndash.PushBack({ 107,46,33,35 });
+
+	rightdowndash.loop = false;
+	rightdowndash.speed = 0.1f;
+
+	leftupdash.PushBack({ 329,447,45,41 });
+	leftupdash.PushBack({ 297,447,32,30 });
+	leftupdash.PushBack({ 270,447,27,37 });
+
+	leftupdash.loop = false;
+	leftupdash.speed = 0.1f;
+
+	leftdowndash.PushBack({ 177,302,36,48 });
+	leftdowndash.PushBack({ 140,302,37,40 });
+	leftdowndash.PushBack({ 107,302,33,35 });
+
+	leftdowndash.loop = false;
+	leftdowndash.speed = 0.1f;
+
+
 	// animation shooting
 	shooting.PushBack({ 73, 46, 34, 40 });// frame 1
 	shooting.PushBack({ 37, 46, 36, 38 });// frame 2
@@ -299,26 +329,38 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		}
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT)
 		{
-
-			if (currentAnimation != &rightAnim)
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && dashup == true)
+			{
+				currentAnimation = &rightdowndash;
+			}
+			else if (currentAnimation != &rightAnim)
 			{
 				rightAnim.Reset();
 				currentAnimation = &rightAnim;
 
 			}
 			ultimadireccio = 2;
+			if (currentAnimation != &rightdowndash) {
+				rightdowndash.Reset();
+			}
 
 		}
 		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 		{
-
-			if (currentAnimation != &leftAnim)
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && dashup == true)
+			{
+				currentAnimation = &leftdowndash;
+			}
+			else if (currentAnimation != &leftAnim)
 			{
 				leftAnim.Reset();
 				currentAnimation = &leftAnim;
 
 			}
 			ultimadireccio = 1;
+			if (currentAnimation != &leftdowndash) {
+				leftdowndash.Reset();
+			}
 		}
 		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT /*&& position.y > 29*/)		//moviment cap amunt
 		{
@@ -350,7 +392,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && dashup == true)
 			{
-				currentAnimation = &rightdash;
+				currentAnimation = &rightupdash;
 			}
 
 			else if (currentAnimation != &rightAnim)
@@ -361,21 +403,28 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			}
 
 			ultimadireccio = 2;
-			if (currentAnimation != &rightdash) {
-				rightdash.Reset();
+			if (currentAnimation != &rightupdash) {
+				rightupdash.Reset();
 			}
 
 		}
 		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 		{
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_REPEAT && dashup == true)
+			{
+				currentAnimation = &leftupdash;
+			}
 
-			if (currentAnimation != &leftAnim)
+			else if (currentAnimation != &leftAnim)
 			{
 				leftAnim.Reset();
 				currentAnimation = &leftAnim;
 
 			}
 			ultimadireccio = 1;
+			if (currentAnimation != &leftupdash) {
+				leftupdash.Reset();
+			}
 		}
 		if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_REPEAT && currentAnimation != &shooting) {
 
@@ -471,8 +520,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 
 				currentAnimation = &shooting;
-				App->disk->position.x += 10;
-				App->disk->position.y -= 4;
+				App->disk->onair = true;
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
 
