@@ -42,7 +42,7 @@ bool SceneLevel1::Start()
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 	P1Win = App->textures->Load("Assets/UI/Others/P1Win.png");
 	P2Win = App->textures->Load("Assets/UI/Others/P2Win.png");
-	points5score = App->textures->Load("Assets/UI/Points_Goal/5_points_(right)");
+	
 
 
 	UI_Timer = App->textures->Load("Assets/UI/timerSpriteSheet.png");
@@ -431,6 +431,7 @@ Update_Status SceneLevel1::PostUpdate()
 			}
 		}
 	}
+	SDL_Rect P1WIN = {326, 86, 110, 32};
 
 	return Update_Status::UPDATE_CONTINUE;
 }

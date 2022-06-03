@@ -78,6 +78,7 @@ public:
 	SDL_Rect SetScore2 = {222, 27, 47, 26 };
 	SDL_Rect SetScore3 = {270, 27, 45, 26};
 	SDL_Rect SetCount  = {315, 27, 78, 26};
+	SDL_Rect POINTS5SCORE = { 326, 86, 0, 0 };
 
 	
 	
