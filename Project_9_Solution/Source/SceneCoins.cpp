@@ -41,6 +41,8 @@ bool SceneCoins::Start()
 	timer = 0;
 	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
 
+	bgYellow = App->textures->Load("Assets/UI/Screens/YellowUI.png");
+
 	Coinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/InsertedCoin.wav");
 
 	App->render->camera.x = 0;
@@ -77,6 +79,7 @@ Update_Status SceneCoins::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture[frame], 0, 0, NULL);
+	App->render->Blit(bgYellow, 0, 0, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
