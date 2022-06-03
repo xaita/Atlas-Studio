@@ -128,8 +128,8 @@ Update_Status ModuleDisk::Update()
 			timer_set = 300;
 			score_player_1 = 0;
 			score_player_2 = 0;
-			App->player->personatgedisc = -1;
-			App->player2->personatgedisc2 = -1;
+			App->player->currentAnimation = &App->player->rightidleAnim;
+			App->player2->currentAnimation = &App->player2->leftidleAnim;
 			position.x = 143;
 			position.y = 191;
 			App->sceneLevel_1->timer2 = 1800;
@@ -145,8 +145,8 @@ Update_Status ModuleDisk::Update()
 			timer_set = 300;
 			score_player_1 = 0;
 			score_player_2 = 0;
-			App->player->personatgedisc = -1;
-			App->player2->personatgedisc2 = -1;
+			App->player->currentAnimation = &App->player->rightidleAnim;
+			App->player2->currentAnimation = &App->player2->leftidleAnim;
 			position.x = 143;
 			position.y = 191;
 			App->sceneLevel_1->timer2 = 1800;
@@ -167,8 +167,8 @@ Update_Status ModuleDisk::Update()
 				timer_set = 300;
 				score_player_1 = 0;
 				score_player_2 = 0;
-				App->player->personatgedisc = -1;
-				App->player2->personatgedisc2 = -1;
+				App->player->currentAnimation = &App->player->rightidleAnim;
+				App->player2->currentAnimation = &App->player2->leftidleAnim;
 				position.x = 143;
 				position.y = 191;
 				App->sceneLevel_1->timer2 = 1800;
@@ -183,8 +183,8 @@ Update_Status ModuleDisk::Update()
 				timer_set = 300;
 				score_player_1 = 0;
 				score_player_2 = 0;
-				App->player->personatgedisc = -1;
-				App->player2->personatgedisc2 = -1;
+				App->player->currentAnimation = &App->player->rightidleAnim;
+				App->player2->currentAnimation = &App->player2->leftidleAnim;
 				position.x = 143;
 				position.y = 191;
 				App->sceneLevel_1->timer2 = 1800;

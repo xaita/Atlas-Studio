@@ -32,6 +32,8 @@ public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture[NUM_IMAGES];
 
+	uint Coinfx = 0;
+
 	int timer;
 	int frame;
 };

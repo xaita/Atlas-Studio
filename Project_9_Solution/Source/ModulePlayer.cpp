@@ -630,7 +630,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				shooting.Reset();
 				currentAnimation = &shooting;
 				App->disk->currentAnimation2 = &App->disk->projectile;
-				App->disk->disc_speed_X = 2;
+				App->disk->disc_speed_X = 3;
 				App->disk->volea = true;
 
 

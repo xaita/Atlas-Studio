@@ -33,6 +33,9 @@ public:
 	SDL_Texture* bgTexture[NUM_IMAGES];
 	SDL_Texture* bgFoto = nullptr;
 
+
+	uint Coinfx = 0;
+
 	int timer;
 	int frame;
 };
