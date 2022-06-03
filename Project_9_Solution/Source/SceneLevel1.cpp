@@ -11,6 +11,7 @@
 #include "ModulePlayer2.h"
 #include "ModuleDisk.h"
 #include "PropsBackground.h"
+#include "SDL/include/SDL.h"
 
 
 
@@ -42,7 +43,7 @@ bool SceneLevel1::Start()
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 	P1Win = App->textures->Load("Assets/UI/Others/P1Win.png");
 	P2Win = App->textures->Load("Assets/UI/Others/P2Win.png");
-	
+	Points5scoreR = App->textures->Load("Assets/UI/Points_Goal/3_points_goal_(right)/3_points_dreta_2.png");
 
 
 	UI_Timer = App->textures->Load("Assets/UI/timerSpriteSheet.png");
@@ -102,7 +103,7 @@ bool SceneLevel1::Start()
 	timer.speed = 0.017f;
 	timer2 = 1800;
 
-
+	Points5ScoreR.PushBack({ 300, 26, 0, 0 });
 
 	//porteria esquerra
 	App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
@@ -175,6 +176,26 @@ Update_Status SceneLevel1::Update()
 		App->render->camera.x = 0;
 		moureCameraGol = '1';
 	}
+
+	if (timerofpoints <= 0) {
+		Points5ScoreR.Update();
+	}
+
+	/*char s[128];
+	if (SDL_SCANCODE_H == SDL_KEYUP && points5right == 1)
+	{
+		for (int i = 0; i < NUM_POINTS; ++i)
+		{
+			sprintf_s(s, "Assets/UI/Points_Goal/3_points_goal_(right)/3_points_dreta_%d.png", i + 1);
+			diskTexture[i] = App->textures->Load(s);
+			App->render->Blit(diskTexture[i], 60, 60, NULL);
+			if (i >= 17)
+			{
+				points5right = 0;
+				App->textures->Load("Assets/UI/Points_Goal/3_points_goal_(right)/3_points_dreta_17.png");
+			}
+		}
+	}*/
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -418,19 +439,7 @@ Update_Status SceneLevel1::PostUpdate()
 
 	}*/
 
-	char s[128];
-	if (points5right == 1) 
-	{
-		for (int i = 0; i < NUM_POINTS; ++i)
-		{
-			sprintf_s(s, "Assets/UI/Points_Goal/3_points_goal_(right)/3_points_dreta_%d.png", i + 1);
-			diskTexture[i] = App->textures->Load(s);
-			if (i == 17)
-			{
-				points5right = 0;
-			}
-		}
-	}
+	
 	SDL_Rect P1WIN = {326, 86, 110, 32};
 
 	return Update_Status::UPDATE_CONTINUE;
