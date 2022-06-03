@@ -45,7 +45,7 @@ public:
 	SDL_Texture* P1Win = nullptr;
 	SDL_Texture* P2Win = nullptr;
 
-	SDL_Texture* diskTexture[NUM_VOLEA];
+	SDL_Texture* diskTexture[NUM_POINTS];
 	
 	SDL_Texture* UI_Timer = nullptr;
 	//arbitre

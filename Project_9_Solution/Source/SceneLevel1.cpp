@@ -423,12 +423,10 @@ Update_Status SceneLevel1::PostUpdate()
 	{
 		for (int i = 0; i < NUM_POINTS; ++i)
 		{
-			sprintf_s(s, "Assets/UI/Screens/Windjammers Intro/wjammers%d.png", i + 1);
+			sprintf_s(s, "Assets/UI/Points_Goal/3_points_goal_(right)/3_points_dreta_%d.png", i + 1);
 			diskTexture[i] = App->textures->Load(s);
-			if (i == 63)
+			if (i == 17)
 			{
-				sprintf_s(s, "Assets/UI/Screens/Windjammers Intro/wjammers63.png");
-				diskTexture[i] = App->textures->Load(s);
 				points5right = 0;
 			}
 		}
