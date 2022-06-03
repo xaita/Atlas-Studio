@@ -1,5 +1,6 @@
 #ifndef __SCENE_LEVEL1_H__
 #define __SCENE_LEVEL1_H__
+#define NUM_VOLEA 32
 
 #include "Module.h"
 #include "Animation.h"
@@ -43,6 +44,8 @@ public:
 	SDL_Texture* points5score = nullptr;
 	SDL_Texture* P1Win = nullptr;
 	SDL_Texture* P2Win = nullptr;
+
+	SDL_Texture* diskTexture[NUM_VOLEA];
 	
 	SDL_Texture* UI_Timer = nullptr;
 	//arbitre
@@ -82,7 +85,7 @@ public:
 
 	char moureCameraGol;
 
-
+	
 
 
 	
