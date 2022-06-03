@@ -118,7 +118,7 @@ Update_Status ModuleDisk::Update()
 		}
 
 	}
-	if (App->sceneLevel_1->timer2 == 0) {
+	if (App->sceneLevel_1->timer2 == 0 && (App->player->personatgedisc==1 || App->player2->personatgedisc2==1)) {
 
 		if (score_player_1 > score_player_2) {
 
