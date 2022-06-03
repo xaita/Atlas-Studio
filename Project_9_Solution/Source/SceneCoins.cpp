@@ -41,6 +41,7 @@ bool SceneCoins::Start()
 	timer = 0;
 	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
 
+	Coinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/InsertedCoin.wav");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -64,7 +65,10 @@ Update_Status SceneCoins::Update()
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
 	}
-
+	if (App->input->keys[SDL_SCANCODE_LSHIFT] == Key_State::KEY_DOWN)
+	{
+		App->audio->PlayFx(Coinfx, 0);
+	}
 	return Update_Status::UPDATE_CONTINUE;
 }
 
