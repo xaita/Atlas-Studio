@@ -29,5 +29,6 @@ typedef unsigned int uint;
 #define WIN_BORDERLESS 0
 #define WIN_RESIZABLE 1
 #define VSYNC 1
+#define MAX_CONTROLLERS 8
 
 #endif // __GLOBALS_H__

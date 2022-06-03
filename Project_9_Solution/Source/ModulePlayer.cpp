@@ -212,7 +212,7 @@ bool ModulePlayer::Start()
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 25, 40 }, Collider::Type::PLAYER, this);
 
-	blockup == true;
+	blockup = true;
 	return ret;
 }
 int ultimadireccio=2; //1=dreta 2=esquerra

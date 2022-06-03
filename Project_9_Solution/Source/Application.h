@@ -30,6 +30,8 @@ class ModuleFonts;
 class ModuleRender;
 class PropsBackground;
 
+
+
 class Application
 {
 
@@ -83,6 +85,9 @@ public:
 	ModuleFonts* fonts = nullptr;
 
 	ModuleRender* render = nullptr;
+
+
+
 };
 
 // Global var made extern for Application ---
