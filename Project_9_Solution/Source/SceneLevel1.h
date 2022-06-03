@@ -1,6 +1,6 @@
 #ifndef __SCENE_LEVEL1_H__
 #define __SCENE_LEVEL1_H__
-#define NUM_VOLEA 32
+#define NUM_POINTS 32
 
 #include "Module.h"
 #include "Animation.h"
@@ -85,9 +85,10 @@ public:
 
 	char moureCameraGol;
 
-	int points5top = 0;
-	int points5bot = 0;
-	int points3mid = 0;
+	int points5left = 0;
+	int points5right = 0;
+	int points3right = 0;
+	int points3left = 0;
 
 
 	
