@@ -85,7 +85,9 @@ public:
 
 	char moureCameraGol;
 
-	
+	int points5top = 0;
+	int points5bot = 0;
+	int points3mid = 0;
 
 
 	

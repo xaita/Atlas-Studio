@@ -418,8 +418,8 @@ Update_Status SceneLevel1::PostUpdate()
 
 	}*/
 
-	/*char s[128];
-	if (-------- - ) 
+	char s[128];
+	if (points5top == 1) 
 	{
 		for (int i = 0; i < NUM_VOLEA; ++i)
 		{
@@ -429,9 +429,10 @@ Update_Status SceneLevel1::PostUpdate()
 			{
 				sprintf_s(s, "Assets/UI/Screens/Windjammers Intro/wjammers63.png");
 				diskTexture[i] = App->textures->Load(s);
+				points5top = 0;
 			}
 		}
-	}*/
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
