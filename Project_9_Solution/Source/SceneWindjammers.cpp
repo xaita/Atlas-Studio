@@ -50,7 +50,7 @@ bool SceneWindjammers::Start()
 
 Update_Status SceneWindjammers::Update()
 {
-	if (timer == 3) {
+	if (timer == 2) {
 		if (frame < NUM_IMAGES - 1) {
 			frame++;
 			timer = 0;
