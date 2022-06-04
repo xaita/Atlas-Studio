@@ -434,7 +434,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	}
 
 
-	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER2)
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER2 && onair == false)
 	{
 		
 		App->player2->personatgedisc2 = 1;
