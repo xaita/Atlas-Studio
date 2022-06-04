@@ -203,11 +203,9 @@ Update_Status SceneLevel1::Update()
 	spectators.Update();
 	currentAnimation = &spectators;
 	Points3ScoreL.Update();
-	
 
 	if (points5righttop == 1) {
 		currentAnimationScore = &Points5ScoreR;
-		points5righttop = 0;
 	}
 	if (points5rightbot == 1) {
 		currentAnimationScore = &Points5ScoreR;
@@ -233,39 +231,47 @@ Update_Status SceneLevel1::Update()
 
 	if (App->disk->saque == 1)			//moure camera quan es fa gol
 	{
-		if (moureCameraGol == '1')
-		{
-			App->render->camera.x-=6;
-			if (App->render->camera.x == -96)
-				moureCameraGol = '2';
-		}
-		else
-		{
-			App->render->camera.x+=1;
-			if (App->render->camera.x == -84)
-				moureCameraGol = '1';
-		}
+		//if (moureCameraGol == '1')
+		//{
+		//	App->render->camera.x-=6;
+		//	if (App->render->camera.x == -96)
+		//		moureCameraGol = '2';
+		//}
+		//else
+		//{
+		//	App->render->camera.x+=1;
+		//	if (App->render->camera.x == -84)
+		//		moureCameraGol = '1';
+		//}
+
+		if (App->render->camera.x != -96)
+			App->render->camera.x -= 12;
+
 	}
 	else if (App->disk->saque == 2)		//moure camera quan es fa gol
 	{
-		if (moureCameraGol == '1')
-		{
-			App->render->camera.x+=6;
-			if (App->render->camera.x == 96)
-				moureCameraGol = '2';
-		}
-		else
-		{
-			App->render->camera.x-=1;
-			if (App->render->camera.x == 84)
-				moureCameraGol = '1';
-		}
+		//if (moureCameraGol == '1')
+		//{
+		//	App->render->camera.x+=6;
+		//	if (App->render->camera.x == 96)
+		//		moureCameraGol = '2';
+		//}
+		//else
+		//{
+		//	App->render->camera.x-=1;
+		//	if (App->render->camera.x == 84)
+		//		moureCameraGol = '1';
+		//}
+		if (App->render->camera.x != 96)
+		App->render->camera.x += 12;
 	}
 	else
 	{
 		App->render->camera.x = 0;
 		moureCameraGol = '1';
 	}
+
+
 
 	if (timerofpoints <= 0) {
 		//Points5ScoreR.Update();
@@ -306,9 +312,26 @@ Update_Status SceneLevel1::PostUpdate()
 
 	
 	App->render->Blit(UI_Timer, 144, 13, &(timer.GetCurrentFrame()));
-	App->render->Blit(UI, 200, 70, &(Points5ScoreR.GetCurrentFrame()));
+	
 
-
+	if (points5righttop == 1) {
+		App->render->Blit(UI, 266, 48, &(Points5ScoreR.GetCurrentFrame()));
+	}
+	if (points5rightbot == 1) {
+		App->render->Blit(UI, 266, 192, &(Points5ScoreR.GetCurrentFrame()));
+	}
+	if (points5lefttop == 1) {
+		App->render->Blit(UI, 14, 48, &(Points5ScoreL.GetCurrentFrame()));
+	}
+	if (points5leftbot == 1) {
+		App->render->Blit(UI, 14, 192, &(Points5ScoreL.GetCurrentFrame()));
+	}
+	if (points3left == 1) {
+		App->render->Blit(UI, 14, 117, &(Points3ScoreL.GetCurrentFrame()));
+	}
+	if (points3right == 1) {
+		App->render->Blit(UI, 266, 117, &(Points3ScoreR.GetCurrentFrame()));
+	}
 	
 
 	if ((App->propsBackground->timersetcount < 190 && (App->disk->saque == 1 || App->disk->saque == 2||App->disk->saque == -1 || App->disk->saque == -2)) ) {

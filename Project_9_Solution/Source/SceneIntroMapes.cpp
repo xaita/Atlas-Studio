@@ -48,6 +48,7 @@ bool SceneIntroMapes::Start()
 	Readym2 = false;
 
 	App->sceneCoins->Coins;
+	Coinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/InsertedCoin.wav");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -153,7 +154,10 @@ Update_Status SceneIntroMapes::Update()
 	{
 		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits9.png");
 	}
-
+	if (App->input->keys[SDL_SCANCODE_LSHIFT] == Key_State::KEY_DOWN)
+	{
+		App->audio->PlayFx(Coinfx, 0);
+	}
 	return Update_Status::UPDATE_CONTINUE;
 }
 
