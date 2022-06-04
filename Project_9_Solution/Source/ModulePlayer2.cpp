@@ -479,7 +479,7 @@ Update_Status ModulePlayer2::Update()
 
 
 		currentAnimation = &rightidleFrisbee;
-
+		ultimadireccio2 = 1;
 		if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT)
 		{
 
