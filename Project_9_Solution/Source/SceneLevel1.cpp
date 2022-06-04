@@ -231,39 +231,47 @@ Update_Status SceneLevel1::Update()
 
 	if (App->disk->saque == 1)			//moure camera quan es fa gol
 	{
-		if (moureCameraGol == '1')
-		{
-			App->render->camera.x-=6;
-			if (App->render->camera.x == -96)
-				moureCameraGol = '2';
-		}
-		else
-		{
-			App->render->camera.x+=1;
-			if (App->render->camera.x == -84)
-				moureCameraGol = '1';
-		}
+		//if (moureCameraGol == '1')
+		//{
+		//	App->render->camera.x-=6;
+		//	if (App->render->camera.x == -96)
+		//		moureCameraGol = '2';
+		//}
+		//else
+		//{
+		//	App->render->camera.x+=1;
+		//	if (App->render->camera.x == -84)
+		//		moureCameraGol = '1';
+		//}
+
+		if (App->render->camera.x != -96)
+			App->render->camera.x -= 12;
+
 	}
 	else if (App->disk->saque == 2)		//moure camera quan es fa gol
 	{
-		if (moureCameraGol == '1')
-		{
-			App->render->camera.x+=6;
-			if (App->render->camera.x == 96)
-				moureCameraGol = '2';
-		}
-		else
-		{
-			App->render->camera.x-=1;
-			if (App->render->camera.x == 84)
-				moureCameraGol = '1';
-		}
+		//if (moureCameraGol == '1')
+		//{
+		//	App->render->camera.x+=6;
+		//	if (App->render->camera.x == 96)
+		//		moureCameraGol = '2';
+		//}
+		//else
+		//{
+		//	App->render->camera.x-=1;
+		//	if (App->render->camera.x == 84)
+		//		moureCameraGol = '1';
+		//}
+		if (App->render->camera.x != 96)
+		App->render->camera.x += 12;
 	}
 	else
 	{
 		App->render->camera.x = 0;
 		moureCameraGol = '1';
 	}
+
+
 
 	if (timerofpoints <= 0) {
 		//Points5ScoreR.Update();
