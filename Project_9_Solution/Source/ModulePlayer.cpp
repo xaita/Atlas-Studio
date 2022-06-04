@@ -525,7 +525,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
 				App->disk->volea_x = App->disk->position.x + 120;
-				App->disk->volea_y = App->disk->position.y -(120 / 2.5);
+				App->disk->volea_y = App->disk->position.y -(120 / 2.5)-16;
 				if (App->disk->volea_y <= 30) {
 					App->disk->disc_speed_X = 2.5;
 					App->disk->volea = true;
@@ -564,7 +564,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
 				App->disk->volea_x = App->disk->position.x + 120;
-				App->disk->volea_y = App->disk->position.y - (120 / 2.5);
+				App->disk->volea_y = App->disk->position.y - (120 / 2.5)-16;
 				if (App->disk->volea_y <= 30) {
 					App->disk->disc_speed_X = 2.5;
 					App->disk->volea = true;
@@ -602,7 +602,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
 				App->disk->volea_x = App->disk->position.x + 120;
-				App->disk->volea_y = App->disk->position.y + (120/2.5);
+				App->disk->volea_y = App->disk->position.y + (120/2.5)+16;
 				if (App->disk->volea_y >= 180) {
 
 					App->disk->disc_speed_X = 2.5;
@@ -642,7 +642,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 					personatgedisc = -1;
 					App->disk->ultimplayer = 1;
 					App->disk->volea_x = App->disk->position.x + 120;
-					App->disk->volea_y = App->disk->position.y + (120/2.5);
+					App->disk->volea_y = App->disk->position.y + (120/2.5)+16;
 					if (App->disk->volea_y >= 180) {
 
 						App->disk->disc_speed_X = 2.5;
@@ -710,6 +710,8 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				currentAnimation = &shooting;
 				personatgedisc = -1;
 				App->disk->volea_x = App->disk->position.x + 120;
+				App->disk->volea_y = App->disk->position.y;
+
 				App->disk->ultimplayer = 1;
 				App->disk->disc_speed_X = 3.5;
 				App->disk->volea = true;

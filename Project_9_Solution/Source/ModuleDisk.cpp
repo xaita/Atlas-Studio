@@ -317,7 +317,7 @@ Update_Status ModuleDisk::Update()
 
 		disc_speed_X = 2.5;
 
-		if (position.x >= 250 && ultimplayer == 1) {
+		if (position.x >= 300 && ultimplayer == 1) {
 			volea = false;
 			onair = false;
 			disc_speed_X = 0;
@@ -481,8 +481,11 @@ Update_Status ModuleDisk::PostUpdate()
 
 
 	}
-	if(volea==true)
-	App->render->Blit(marca, volea_x, volea_y, NULL);
+	if (volea == true) {
+
+		App->render->Blit(marca, volea_x, volea_y, NULL);
+
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
