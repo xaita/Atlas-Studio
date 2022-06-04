@@ -59,8 +59,8 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	blocking.speed = 0.2f;
 
 	voleaanim.PushBack({ 20, 20, 20, 19});
-	voleaanim.PushBack({ 80, 20, 20, 19 });
-	//voleaanim.PushBack({ 144, 20, 24, 24 });
+	voleaanim.PushBack({ 80, 20, 24, 21 });
+	voleaanim.PushBack({ 144, 20, 24, 24 });
 	voleaanim.PushBack({ 208, 20, 28, 26 });
 	voleaanim.PushBack({ 276, 20, 28, 28 });
 	voleaanim.PushBack({ 345, 20, 32, 30 });
@@ -117,7 +117,7 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	voleaanim.PushBack({ 4213, 20, 16, 16 });
 	voleaanim.PushBack({ 4269, 20, 16, 16 });
 	voleaanim.loop = false;
-	voleaanim.speed = 0.09f;
+	voleaanim.speed = 1.1f;
 
 
 
@@ -134,10 +134,9 @@ bool ModuleDisk::Start()
 	App->collisions->Enable();
 
 	currentAnimation2 = &idle;
-	voleaanimation = &invisible;
+	
 
 	LOG("Loading Disk textures");
-	invisiblex = true;
 	si = 0;
 	bool ret = true;
 	muerte_subita = false;
@@ -308,7 +307,6 @@ Update_Status ModuleDisk::Update()
 	
 	if (volea == true)			//volea
 	{
-		invisiblex = false;
 		onair = true;
 		if (currentAnimation2 != &voleaanim) {
 			voleaanim.Reset();
@@ -477,7 +475,7 @@ Update_Status ModuleDisk::PostUpdate()
 
 
 		App->render->Blit(texture, position.x, position.y, &rect2);
-		if(invisiblex==false)
+		
 		App->render->Blit(texturevolea, position.x, position.y, &rect2);
 
 
@@ -505,7 +503,6 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			saque = 0;
 
 			currentAnimation2 = &invisible;
-			invisiblex = true;
 
 			projectile.Reset();
 		
@@ -537,7 +534,6 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		saque = 0;
 
 		currentAnimation2 = &invisible;
-		invisiblex = true;
 		projectile.Reset();
 
 	}
