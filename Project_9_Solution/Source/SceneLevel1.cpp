@@ -40,6 +40,10 @@ bool SceneLevel1::Start()
 	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");
 	bgObstacle = App->textures->Load("Assets/Sprites/Stages/Concrete/obstacle.png");	//
 	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");										//
+
+	beachTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/beachSpriteSheet.png");
+	beachNet = App->textures->Load("Assets/Sprites/Stages/Concrete/anim901_0007_Red.png");
+
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 	P1Win = App->textures->Load("Assets/UI/Others/P1Win.png");
 	P2Win = App->textures->Load("Assets/UI/Others/P2Win.png");
