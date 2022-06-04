@@ -473,16 +473,16 @@ Update_Status ModuleDisk::PostUpdate()
 	{
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
 		
-
-
-		App->render->Blit(texture, position.x, position.y, &rect2);
+        App->render->Blit(texture, position.x, position.y, &rect2);
 		
-		App->render->Blit(texturevolea, position.x, position.y, &rect2);
+		
 
 
 	}
 	if (volea == true) {
 
+		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
+		App->render->Blit(texturevolea, position.x, position.y, &rect2);
 		App->render->Blit(marca, volea_x, volea_y, NULL);
 
 	}
