@@ -331,7 +331,7 @@ Update_Status ModuleDisk::Update()
 			disc_speed_Y = 0;
 			currentAnimation2 = &idle;
 		}
-		else if (position.x <= 38 && ultimplayer == 2) {
+		else if (position.x <= 20 && ultimplayer == 2) {
 			volea = false;
 			onair = false;
 			disc_speed_X = 0;
@@ -668,5 +668,17 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			disc_speed_Y = 0;
 			currentAnimation2 = &idle;
 		}
+	}
+
+	if (c1->type == Collider::Type::SUPER_ZONE && c2->type == Collider::Type::PLAYER && volea == true){
+
+
+
+	}
+
+	if (c1->type == Collider::Type::SUPER_ZONE && c2->type == Collider::Type::PLAYER2 && volea == true) {
+
+
+
 	}
 }

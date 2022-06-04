@@ -17,6 +17,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::DISK] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::SUPER_ZONE] = true;
 
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER_SHOT] = false;
@@ -28,6 +29,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 
 	matrix[Collider::Type::PLAYER2][Collider::Type::PLAYER2] = false;
 	matrix[Collider::Type::PLAYER2][Collider::Type::DISK] = true;
+	matrix[Collider::Type::PLAYER2][Collider::Type::SUPER_ZONE] = true;
 
 	matrix[Collider::Type::OBSTACLE1][Collider::Type::DISK] = true;
 	matrix[Collider::Type::OBSTACLE1][Collider::Type::PLAYER] = false;
@@ -55,6 +57,9 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::BOT_WALL][Collider::Type::DISK] = true;
 	matrix[Collider::Type::TOP_WALL][Collider::Type::PLAYER2] = true;
 	matrix[Collider::Type::TOP_WALL][Collider::Type::PLAYER] = true;
+
+	matrix[Collider::Type::SUPER_ZONE][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::SUPER_ZONE][Collider::Type::PLAYER2] = true;
 }
 
 // Destructor
