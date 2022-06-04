@@ -78,12 +78,12 @@ Update_Status PropsBackground::Update()
 	
 	if (App->disk->saque == 1) {
 		currentAnimationReferee = &refereePointRight;//NO FUNCIONA canvia l'sprite pero no fa l'animacio
-		timerrefree = 20;
+		timerrefree = 40;
 	}
 
 	else if (App->disk->saque == 2) {
 		currentAnimationReferee = &refereePointLeft;
-		timerrefree = 20;
+		timerrefree = 40;
 	}
 
 	else if (App->disk->position.x < 110) {
@@ -94,8 +94,11 @@ Update_Status PropsBackground::Update()
 		currentAnimationReferee = &refereeLookRight;
 	}
 
-	else if (timerrefree <= 0){
+	else if (timerrefree == 20) {
 		currentAnimationReferee = &refereeNewDisk;
+	}
+	else if (timerrefree <= 0){
+		currentAnimationReferee = &refereeIdle;
 		refereePointRight.Reset();
 		refereePointLeft.Reset();
 	}
