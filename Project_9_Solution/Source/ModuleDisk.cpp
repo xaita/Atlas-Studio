@@ -117,7 +117,7 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	voleaanim.PushBack({ 4213, 20, 16, 16 });
 	voleaanim.PushBack({ 4269, 20, 16, 16 });
 	voleaanim.loop = false;
-	voleaanim.speed = 1.0f;
+	voleaanim.speed = 0.95f;
 
 
 
@@ -315,7 +315,6 @@ Update_Status ModuleDisk::Update()
 	
 		currentAnimation2 = &voleaanim;
 
-		disc_speed_X = 2.5;
 
 		if (position.x >= 300 && ultimplayer == 1) {
 			volea = false;
