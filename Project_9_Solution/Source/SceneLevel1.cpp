@@ -277,8 +277,16 @@ Update_Status SceneLevel1::Update()
 
 
 
-	if (timerofpoints <= 0) {
-		//Points5ScoreR.Update();
+	if (timerofpoints > 0) {
+		timerofpoints--;
+	}
+	if (timerofpoints < 0) {
+		points5righttop = 0;
+		points5rightbot = 0;
+		points5lefttop = 0;
+		points5leftbot = 0;
+		points3left = 0;
+		points3right = 0;
 	}
 	
 
