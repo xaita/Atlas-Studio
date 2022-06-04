@@ -137,7 +137,7 @@ bool ModuleDisk::Start()
 
 
 	LOG("Loading Disk textures");
-	invisiblex = false;
+	invisiblex = true;
 	si = 0;
 	bool ret = true;
 	muerte_subita = false;
