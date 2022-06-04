@@ -75,6 +75,7 @@ bool PropsBackground::Start()
 Update_Status PropsBackground::Update()
 {
 	--timerrefree;
+
 	
 	if (App->disk->saque == 1) {
 		currentAnimationReferee = &refereePointRight;//NO FUNCIONA canvia l'sprite pero no fa l'animacio
@@ -103,7 +104,7 @@ Update_Status PropsBackground::Update()
 		refereePointLeft.Reset();
 	}
 
-
+	currentAnimationReferee->Update();
 	return Update_Status::UPDATE_CONTINUE;
 }
 
