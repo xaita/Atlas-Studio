@@ -60,9 +60,11 @@ public:
 	Animation refereeNewDisk;
 
 	Animation frisbees;
+	//frisbees de l'arbitre, a terra
 	int timersetcount = 189;
 	int timerrefree = 0;
-	//frisbees de l'arbitre, a terra
+
+	bool agafaDisc;
 };
 
 #endif
