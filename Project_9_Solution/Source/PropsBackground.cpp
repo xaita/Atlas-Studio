@@ -22,7 +22,6 @@ bool PropsBackground::Start()
 	LOG("Loading background props");
 
 	bool ret = true;
-	currentAnimationReferee = &refereePointRight;//NO FUNCIONA canvia l'sprite pero no fa l'animacio
 
 	bgBotwall = App->textures->Load("Assets/Sprites/Stages/Concrete/bot_wall.png");
 	bgGoal = App->textures->Load("Assets/Sprites/Stages/Concrete/goal.png");
