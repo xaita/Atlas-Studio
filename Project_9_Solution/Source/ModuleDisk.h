@@ -61,7 +61,6 @@ public:
 	bool bloqueig;
 	bool onair;
 	bool volea;
-	bool invisiblex;
 
 
 	// The player spritesheet loaded into an SDL_Texture
@@ -72,7 +71,7 @@ public:
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation2 = nullptr;
-	Animation* voleaanimation = nullptr;
+	
 
 	// A set of animations
 	Animation moving;
