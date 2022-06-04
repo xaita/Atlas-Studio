@@ -315,22 +315,22 @@ Update_Status SceneLevel1::PostUpdate()
 	
 
 	if (points5righttop == 1) {
-		App->render->Blit(UI, 266, 48, &(Points5ScoreR.GetCurrentFrame()));
+		App->render->Blit(UI, 250, 48, &(Points5ScoreR.GetCurrentFrame()));
 	}
 	if (points5rightbot == 1) {
-		App->render->Blit(UI, 266, 192, &(Points5ScoreR.GetCurrentFrame()));
+		App->render->Blit(UI, 250, 192, &(Points5ScoreR.GetCurrentFrame()));
 	}
 	if (points5lefttop == 1) {
-		App->render->Blit(UI, 14, 48, &(Points5ScoreL.GetCurrentFrame()));
+		App->render->Blit(UI, 30, 48, &(Points5ScoreL.GetCurrentFrame()));
 	}
 	if (points5leftbot == 1) {
-		App->render->Blit(UI, 14, 192, &(Points5ScoreL.GetCurrentFrame()));
+		App->render->Blit(UI, 30, 192, &(Points5ScoreL.GetCurrentFrame()));
 	}
 	if (points3left == 1) {
-		App->render->Blit(UI, 14, 117, &(Points3ScoreL.GetCurrentFrame()));
+		App->render->Blit(UI, 30, 190, &(Points3ScoreL.GetCurrentFrame()));
 	}
 	if (points3right == 1) {
-		App->render->Blit(UI, 266, 117, &(Points3ScoreR.GetCurrentFrame()));
+		App->render->Blit(UI, 250, 90, &(Points3ScoreR.GetCurrentFrame()));
 	}
 	
 
