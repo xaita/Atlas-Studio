@@ -178,6 +178,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 
 
+
 	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
 
 }
@@ -743,13 +744,7 @@ Update_Status ModulePlayer::PostUpdate()
 		App->render->Blit(texture, position.x, position.y, &rect);
 	}
 
-	// Draw UI (score) --------------------------------------
-	
 
-	// TODO 3: Blit the text of the score in at the bottom of the screen    aixo es del joc de la nau encara xdd
-	App->fonts->BlitText(58, 248, scoreFont, scoreText);
-
-	App->fonts->BlitText(150, 248, scoreFont, "this is just a font test");
 
 	return Update_Status::UPDATE_CONTINUE;
 }

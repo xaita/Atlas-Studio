@@ -43,6 +43,11 @@ public:
 	int dashtimer2;
 	bool dashup2 = true;
 
+	int blocktimer;
+	bool blockup;
+	bool block;
+	bool blockdisk;
+
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
 
@@ -64,6 +69,17 @@ public:
 	Animation rightAnim;
 	Animation shooting;
 	Animation ulti;
+	Animation rightdash;
+	Animation leftdash;
+	Animation updash;
+	Animation downdash;
+	Animation rightupdash;
+	Animation leftupdash;
+	Animation rightdowndash;
+	Animation leftdowndash;
+	Animation blockanim;
+	Animation recive;
+
 
 	// The player's collider
 	Collider* collider = nullptr;
@@ -74,7 +90,13 @@ public:
 	// Sound effects indices
 	uint laserFx = 0;
 	uint explosionFx = 0;
-	uint discFx = 0;
+	uint tossfx = 0;
+	uint chargefx = 0;
+	uint hitfx = 0;
+	uint powerphrasefx = 0;
+	uint powersoundfx = 0;
+	uint setwinfx = 0;
+
 	// Font score index
 	uint scoreplayer2 = 00;
 	int scoreFont = -1;
