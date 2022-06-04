@@ -158,6 +158,8 @@ bool SceneLevel1::Start()
 	Points5ScoreR.PushBack({ 169, 223, 28, 35 });
 	Points5ScoreR.PushBack({ 197, 223, 20, 35 });
 	Points5ScoreR.PushBack({ 217, 223, 12, 35 });
+	Points5ScoreR.loop = false;
+	Points5ScoreR.speed = 0.1;
 
 	// 5 Dreta
 	Points5ScoreL.PushBack({ 74, 223, 63, 35 });
@@ -176,6 +178,8 @@ bool SceneLevel1::Start()
 	Points5ScoreL.PushBack({ 218, 188, 12, 35 });
 	Points5ScoreL.PushBack({ 62, 188, 9, 35 });
 	Points5ScoreL.PushBack({ 71, 188, 5, 35 });
+	Points5ScoreL.loop = false;
+	Points5ScoreL.speed = 0.1;
 	
 	
 	//porteria esquerra
@@ -340,19 +344,19 @@ Update_Status SceneLevel1::PostUpdate()
 		App->render->Blit(UI, 250, 192, &(Points5ScoreR.GetCurrentFrame()));
 	}
 	if (points5lefttop == 1) {
-		Points5ScoreL.Reset();
+		
 		App->render->Blit(UI, 30, 48, &(Points5ScoreL.GetCurrentFrame()));
 	}
 	if (points5leftbot == 1) {
-		Points5ScoreL.Reset();
+		
 		App->render->Blit(UI, 30, 192, &(Points5ScoreL.GetCurrentFrame()));
 	}
 	if (points3left == 1) {
-		Points3ScoreL.Update();
+		
 		App->render->Blit(UI, 11, 90, &(Points3ScoreL.GetCurrentFrame()));
 	}
 	if (points3right == 1) {
-		Points3ScoreR.Update();
+		
 		App->render->Blit(UI, 250, 90, &(Points3ScoreR.GetCurrentFrame()));
 	}
 	

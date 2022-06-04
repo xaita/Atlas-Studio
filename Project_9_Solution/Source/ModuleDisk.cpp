@@ -653,11 +653,11 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 
 		if (ultimplayer == 1) {
-			if (position.y > 127) {
-				App->sceneLevel_1->points3right = 1;
-				App->sceneLevel_1->timerofpoints = 120;
-				App->sceneLevel_1->Points3ScoreR.Reset();
-			}
+			
+			App->sceneLevel_1->points3right = 1;
+			App->sceneLevel_1->timerofpoints = 120;
+			App->sceneLevel_1->Points3ScoreR.Reset();
+			
 			if (godmode != true) {
 				score_player_1 += 3;
 				App->audio->PlayFx(Pts3, 0);
