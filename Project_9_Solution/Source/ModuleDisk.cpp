@@ -527,21 +527,31 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER2 && onair == false)
 	{
+		if (App->player2->blockdisk == false) {
+
+			App->audio->PlayFx(catchfx, 0);
+			App->player2->currentAnimation = &App->player2->recive;
+			App->player2->personatgedisc2 = 1;
+
+			position.x = App->player2->position.x + 40;
+			position.y = App->player2->position.y + 10;
+
+			disc_speed_X = 0;
+			disc_speed_Y = 0;
+			saque = 0;
+
+			currentAnimation2 = &invisible;
+
+			projectile.Reset();
+
+		}
+		else {
+
+			bloqueig = true;
+
+			App->audio->PlayFx(blockfx, 0);
+		}
 		
-		App->player2->personatgedisc2 = 1;
-
-
-		position.x = App->player2->position.x - 20;
-
-		position.y = App->player2->position.y + 10;
-
-
-		disc_speed_X = 0;
-		disc_speed_Y = 0;
-		saque = 0;
-
-		currentAnimation2 = &invisible;
-		projectile.Reset();
 
 	}
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
