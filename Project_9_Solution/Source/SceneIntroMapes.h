@@ -40,6 +40,7 @@ public:
 	SDL_Texture* bgCredits = nullptr;
 	// Sound effects indices
 	uint selectm = 0;
+	uint Coinfx = 0;
 
 	char selectMap;
 	int X1;
