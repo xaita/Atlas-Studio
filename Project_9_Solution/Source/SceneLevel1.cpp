@@ -293,6 +293,10 @@ Update_Status SceneLevel1::Update()
 			}
 		}
 	}*/
+	Points5ScoreR.Update();
+	Points5ScoreL.Update();
+	Points3ScoreL.Update();
+	Points3ScoreR.Update();
 
 	return Update_Status::UPDATE_CONTINUE;
 }
