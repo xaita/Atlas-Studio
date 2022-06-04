@@ -176,12 +176,12 @@ bool SceneLevel1::Start()
 	
 	//porteria esquerra
 	App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
-	App->collisions->AddCollider({ 0, 170, 1, 24 }, Collider::Type::SCOREZONE_1);
+	App->collisions->AddCollider({ 0, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
 	App->collisions->AddCollider({ 0, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
 
 	//porteria dreta
 	App->collisions->AddCollider({ 300, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
-	App->collisions->AddCollider({ 300, 170, 1, 24 }, Collider::Type::SCOREZONE_1);
+	App->collisions->AddCollider({ 300, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
 	App->collisions->AddCollider({ 300, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
 
 	//parets

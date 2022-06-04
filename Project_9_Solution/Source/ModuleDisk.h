@@ -112,6 +112,7 @@ public:
 
 	// The player's collider
 	Collider* diskcollider = nullptr;
+	Collider* super_zone_collider = nullptr;
 
 	// A flag to detect when the player has been destroyed
 	bool destroyed = false;

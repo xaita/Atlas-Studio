@@ -22,6 +22,7 @@ struct Collider
 		TOP_WALL,
 		BOT_WALL,
 		OBSTACLE1,
+		SUPER_ZONE,
 
 		MAX
 	};

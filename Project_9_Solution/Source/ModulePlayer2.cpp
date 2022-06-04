@@ -205,8 +205,8 @@ bool ModulePlayer2::Start()
 
 	destroyed = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 25, 40 }, Collider::Type::PLAYER2, this);
-
+	collider = App->collisions->AddCollider({ position.x, position.y, 27, 31 }, Collider::Type::PLAYER2, this);
+	
 	
 	blockup == true;
 
@@ -498,7 +498,7 @@ Update_Status ModulePlayer2::Update()
 				personatgedisc2 = -1;
 				App->disk->ultimplayer = 1;
 				App->disk->volea_x = App->disk->position.x - 120;
-				App->disk->volea_y = App->disk->position.y - (120 / 2.5) - 16;
+				App->disk->volea_y = App->disk->position.y - (120 / 2.5) + 16;
 				if (App->disk->volea_y <= 30) {
 					App->disk->disc_speed_X = -2.5;
 					App->disk->volea = true;
@@ -538,7 +538,7 @@ Update_Status ModulePlayer2::Update()
 				personatgedisc2 = -1;
 				App->disk->ultimplayer = 1;
 				App->disk->volea_x = App->disk->position.x - 120;
-				App->disk->volea_y = App->disk->position.y - (120 / 2.5) - 16;
+				App->disk->volea_y = App->disk->position.y - (120 / 2.5) + 16;
 				if (App->disk->volea_y <= 30) {
 					App->disk->disc_speed_X = -2.5;
 					App->disk->volea = true;
@@ -579,7 +579,7 @@ Update_Status ModulePlayer2::Update()
 				personatgedisc2 = -1;
 				App->disk->ultimplayer = 1;
 				App->disk->volea_x = App->disk->position.x - 120;
-				App->disk->volea_y = App->disk->position.y + (120 / 2.5) + 16;
+				App->disk->volea_y = App->disk->position.y + (120 / 2.5) - 16;
 				if (App->disk->volea_y >= 180) {
 
 					App->disk->disc_speed_X = -2.5;
@@ -617,7 +617,7 @@ Update_Status ModulePlayer2::Update()
 				personatgedisc2 = -1;
 				App->disk->ultimplayer = 1;
 				App->disk->volea_x = App->disk->position.x - 120;
-				App->disk->volea_y = App->disk->position.y + (120 / 2.5) + 16;
+				App->disk->volea_y = App->disk->position.y + (120 / 2.5) - 16;
 				if (App->disk->volea_y >= 180) {
 
 					App->disk->disc_speed_X = -2.5;
@@ -690,7 +690,7 @@ Update_Status ModulePlayer2::Update()
 		}
 	}
 
-
+	
 
 	collider->SetPos(position.x, position.y);
 

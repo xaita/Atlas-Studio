@@ -161,6 +161,7 @@ bool ModuleDisk::Start()
 	destroyed = false;
 
 	diskcollider = App->collisions->AddCollider({ position.x, position.y, 16, 16 }, Collider::Type::DISK, this);
+	super_zone_collider = App->collisions->AddCollider({ volea_x,volea_y,10,10 }, Collider::Type::SUPER_ZONE, this);
 
 	return ret;
 }
@@ -458,6 +459,8 @@ Update_Status ModuleDisk::Update()
 	position.y += disc_speed_Y;
 
 	diskcollider->SetPos(position.x, position.y);
+	super_zone_collider->SetPos(volea_x, volea_y);
+	
 	currentAnimation2->Update();
 	
 	App->propsBackground->timersetcount--;

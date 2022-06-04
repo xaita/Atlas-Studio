@@ -162,6 +162,10 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::OBSTACLE1: // blue
 				App->render->DrawQuad(colliders[i]->rect, 0, 250, 126, alpha);
 				break;
+			case Collider::Type:: SUPER_ZONE:
+				App->render->DrawQuad(colliders[i]->rect, 163, 73, 164, alpha);
+				break;
+
 		}
 	}
 }
