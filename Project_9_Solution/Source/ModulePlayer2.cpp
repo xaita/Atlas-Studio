@@ -85,60 +85,7 @@ ModulePlayer2::ModulePlayer2(bool startEnabled) : Module(startEnabled)
 	leftAnim.loop = true;
 	leftAnim.speed = 0.08f;
 
-	// rightdash
-	rightdash.PushBack({ 43,148,51,24 });
-	rightdash.PushBack({ 0,148,43,31 });
-	rightdash.PushBack({ 474,103,30,33 });
-	rightdash.loop = false;
-	rightdash.speed = 0.1f;
 
-	leftdash.PushBack({ 43,404,51,24 });
-	leftdash.PushBack({ 0,404,43,31 });
-	leftdash.PushBack({ 474,359,30,33 });
-	leftdash.loop = false;
-	leftdash.speed = 0.1f;
-
-
-	updash.PushBack({ 433,191,25,53 });
-	updash.PushBack({ 402,191,31,24 });
-	updash.PushBack({ 374,191,28,33 });
-	updash.loop = false;
-	updash.speed = 0.1f;
-
-	downdash.PushBack({ 277,46,25,57 });
-	downdash.PushBack({ 245,46,32,49 });
-	downdash.PushBack({ 213,46,32,41 });
-
-	downdash.loop = false;
-	downdash.speed = 0.1f;
-
-	rightupdash.PushBack({ 329,191,45,41 });
-	rightupdash.PushBack({ 297,191,32,30 });
-	rightupdash.PushBack({ 270,191,27,37 });
-
-	rightupdash.loop = false;
-	rightupdash.speed = 0.1f;
-
-	rightdowndash.PushBack({ 177,46,36,48 });
-	rightdowndash.PushBack({ 140,46,37,40 });
-	rightdowndash.PushBack({ 107,46,33,35 });
-
-	rightdowndash.loop = false;
-	rightdowndash.speed = 0.1f;
-
-	leftupdash.PushBack({ 329,447,45,41 });
-	leftupdash.PushBack({ 297,447,32,30 });
-	leftupdash.PushBack({ 270,447,27,37 });
-
-	leftupdash.loop = false;
-	leftupdash.speed = 0.1f;
-
-	leftdowndash.PushBack({ 177,302,36,48 });
-	leftdowndash.PushBack({ 140,302,37,40 });
-	leftdowndash.PushBack({ 107,302,33,35 });
-
-	leftdowndash.loop = false;
-	leftdowndash.speed = 0.1f;
 
 
 
@@ -167,13 +114,6 @@ ModulePlayer2::ModulePlayer2(bool startEnabled) : Module(startEnabled)
 	rightidleFrisbee.speed = 0.08f;
 	uprightidleFrisbee.PushBack({ 417, 517, 46, 42 });
 	downrightidleFrisbee.PushBack({ 371, 515, 46, 44, });
-
-	blockanim.PushBack({ 49, 0, 28,	35 });
-	blockanim.PushBack({ 25, 0, 24, 35 });
-	blockanim.PushBack({ 0, 0,	25,	35 });
-
-	blockanim.loop = false;
-	blockanim.speed = 0.25f;
 	
 
 	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
@@ -194,12 +134,8 @@ bool ModulePlayer2::Start()
 	texture = App->textures->Load("Assets/Sprites/Characters/Hiromi Mita/JapaneseSpriteSheedCanviL2P2.png");
 	currentAnimation = &leftidleAnim;
 
+	/*laserFx = App->audio->LoadFx("Assets/Nau/Fx/laser.wav");*/
 	tossfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Toss.wav");
-	chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiCharge.wav");
-	hitfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiHit.wav");
-	powerphrasefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerPhrase.wav");
-	powersoundfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerSound.wav");
-	setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiSetWin.wav");
 
 	position.x = 240;
 	position.y = 112;
@@ -208,9 +144,13 @@ bool ModulePlayer2::Start()
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 25, 40 }, Collider::Type::PLAYER2, this);
 
-	
-	blockup == true;
+	// TODO 0: Notice how a font is loaded and the meaning of all its arguments 
+	//char lookupTable[] = { "!  ,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz" };
+	//scoreFont = App->fonts->Load("Assets/Fonts/rtype_font.png", "! @,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz", 1);
 
+	// TODO 4: Try loading "rtype_font3.png" that has two rows to test if all calculations are correct
+	char lookupTable[] = { "! @,_./0123456789$;< ?abcdefghijklmnopqrstuvwxyz" };
+	scoreFont = App->fonts->Load("Assets/Nau/Fonts/rtype_font3.png", lookupTable, 2);
 
 	return ret;
 }
@@ -231,177 +171,111 @@ Update_Status ModulePlayer2::Update()
 	if (dashtimer2 > 0) {
 		dashtimer2--;
 	}
-	if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_IDLE) {
-		blocktimer = 0;
-	}
+
 	if (personatgedisc2 == -1)
 	{
-		if (App->input->keys[SDL_SCANCODE_O] != Key_State::KEY_REPEAT && dashup2 == false) {
-			dashup2 = true;
-
-		}
 		if (App->disk->saque == 0) {
 			if (App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT && position.x > 162)
 			{
 				position.x -= speed;
-
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN && dashup2 == true) {
-					dashtimer2 = 15;
-
-				}
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_REPEAT && dashup2 == true)
+				if (currentAnimation != &leftAnim && App->input->keys[SDL_SCANCODE_UP] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_DOWN] != Key_State::KEY_REPEAT)
 				{
-					position.x -= 3 * speed;
 
-					currentAnimation = &leftdash;
-				}
-				else if (currentAnimation != &leftAnim)
-				{
-					leftAnim.Reset();
 					currentAnimation = &leftAnim;
 					ultimadireccio2 = 1;
 				}
-				if (currentAnimation != &leftdash) {
-					leftdash.Reset();
+
+				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && dashup2 == true) {
+					dashtimer2 = 15;
+
 				}
-				ultimadireccio2 = 2;
+				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup2 == true)
+				{
+					position.x -= 3 * speed;
+
+					currentAnimation = &leftAnim;
+				}
 			}
 
 			if (App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_REPEAT && position.x < 274)
 			{
 				position.x += speed;
+				ultimadireccio2 = 2;
 
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN && dashup2 == true) {
+				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN && dashup2 == true) {
 					dashtimer2 = 15;
 
 				}
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_REPEAT && dashup2 == true)
+				if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_REPEAT && dashup2 == true)
 				{
 					position.x += 3 * speed;
 
-					currentAnimation = &rightdash;
+					currentAnimation = &rightAnim;
 				}
 
-				else if (currentAnimation != &rightAnim) 
+				if (currentAnimation != &rightAnim && App->input->keys[SDL_SCANCODE_UP] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_DOWN] != Key_State::KEY_REPEAT)
 				{
 					rightAnim.Reset();
 					currentAnimation = &rightAnim;
-					
+					ultimadireccio2 = 2;
 				}
-				if (currentAnimation != &rightdash) {
-					rightdash.Reset();
-				}
-				ultimadireccio2 = 2;
 			}
 			if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT && position.y < 174)
 			{
 				position.y += speed;
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN && dashup2 == true) {
-					dashtimer2 = 15;
-
-				}
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_REPEAT && dashup2 == true)
-				{
-					position.y += 3 * speed;
-
-					currentAnimation = &downdash;
-				}
-				else if (currentAnimation != &downAnim && App->input->keys[SDL_SCANCODE_LEFT] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_RIGHT] != Key_State::KEY_REPEAT)
+				if (currentAnimation != &downAnim && App->input->keys[SDL_SCANCODE_LEFT] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_RIGHT] != Key_State::KEY_REPEAT)
 				{
 					downAnim.Reset();
 					currentAnimation = &downAnim;
 				}
-				if (currentAnimation != &downdash) {
-					downdash.Reset();
-				}
 			}
 			if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_REPEAT)
 			{
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_REPEAT && dashup2 == true)
-				{
-					currentAnimation = &rightdowndash;
-				}
-				else if (currentAnimation != &rightAnim)
+
+				if (currentAnimation != &rightAnim)
 				{
 					rightAnim.Reset();
 					currentAnimation = &rightAnim;
-					
-				}
-				ultimadireccio2 = 2;
-				if (currentAnimation != &rightdowndash) {
-					rightdowndash.Reset();
+					ultimadireccio2 = 2;
 				}
 			}
 			if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT)
 			{
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_REPEAT && dashup2 == true)
-				{
-					currentAnimation = &leftdowndash;
-				}
-				else if (currentAnimation != &leftAnim)
+
+				if (currentAnimation != &leftAnim)
 				{
 					leftAnim.Reset();
 					currentAnimation = &leftAnim;
 					ultimadireccio2 = 1;
 				}
-				ultimadireccio2 = 1;
-				if (currentAnimation != &leftdowndash) {
-					leftdowndash.Reset();
-				}
 			}
-			if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_REPEAT )
+			if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_REPEAT && position.y > 29)
 			{
 				position.y -= speed;
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN && dashup2 == true) {
-					dashtimer2 = 15;
-
-				}
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_REPEAT && dashup2 == true)
-				{
-					position.y -= 3 * speed;
-					currentAnimation = &updash;
-				}
-				else if (currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_LEFT] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_RIGHT] != Key_State::KEY_REPEAT)
+				if (currentAnimation != &upAnim && App->input->keys[SDL_SCANCODE_LEFT] != Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_RIGHT] != Key_State::KEY_REPEAT)
 				{
 					upAnim.Reset();
 					currentAnimation = &upAnim;
 				}
-				if (currentAnimation != &updash) {
-					updash.Reset();
-				}
 			}
 			if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_REPEAT)
 			{
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_REPEAT && dashup2 == true)
-				{
-					currentAnimation = &rightupdash;
-				}
-				else if (currentAnimation != &rightAnim)
+
+				if (currentAnimation != &rightAnim)
 				{
 					rightAnim.Reset();
 					currentAnimation = &rightAnim;
-					
-				}
-				ultimadireccio2 = 2;
-				if (currentAnimation != &rightupdash) {
-					rightupdash.Reset();
+					ultimadireccio2 = 2;
 				}
 			}
 			if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT)
 			{
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_REPEAT && dashup2 == true)
-				{
-					currentAnimation = &leftupdash;
-				}
-				else if (currentAnimation != &leftAnim)
+
+				if (currentAnimation != &leftAnim)
 				{
 					leftAnim.Reset();
 					currentAnimation = &leftAnim;
-					
-				}
-				ultimadireccio2 = 1;
-				if (currentAnimation != &leftupdash) {
-					leftupdash.Reset();
+					ultimadireccio2 = 1;
 				}
 			}
 			if (App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_REPEAT && currentAnimation != &shooting) {
@@ -418,51 +292,19 @@ Update_Status ModulePlayer2::Update()
 				&& App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_IDLE
-				&& App->input->keys[SDL_SCANCODE_V] == Key_State::KEY_IDLE
-				&& ultimadireccio2 == 2) 
-					
-			    {
-
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_REPEAT && blocktimer < 20) {
-
-
-
-							blocktimer++;
-							blockdisk = true;
-
-
-
-				  if (currentAnimation != &blockanim && currentAnimation != &shooting)
-
-				  {
-								blockanim.Reset();
-								currentAnimation = &blockanim;
-
-				   }
-
-				}
-
-
-
-				if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE || blocktimer >= 20) {
-
-							blockdisk = false;
-							currentAnimation = &leftidleAnim;
-				}
-
-
-					
-			}
-				
+				&& App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_IDLE
+				&& ultimadireccio2 == 2)
+				currentAnimation = &rightidleAnim;
 			if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_IDLE
 				&& ultimadireccio2 == 1)
 				currentAnimation = &leftidleAnim;
 		}
 
-		if (App->disk->saque == 2 || App->disk->saque == 1) {
+		if (App->disk->saque == 2 || App->disk->saque == 1 || App->disk->saque == -1 || App->disk->saque == -2) {
 
 			currentAnimation = &leftidleAnim;
 
@@ -479,7 +321,7 @@ Update_Status ModulePlayer2::Update()
 
 
 		currentAnimation = &rightidleFrisbee;
-
+		ultimadireccio2 = 1;
 		if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT)
 		{
 
@@ -614,7 +456,13 @@ Update_Status ModulePlayer2::PostUpdate()
 		App->render->Blit(texture, position.x, position.y, &rect);
 	}
 
+	// Draw UI (score) --------------------------------------
 
+
+	// TODO 3: Blit the text of the score in at the bottom of the screen
+	App->fonts->BlitText(58, 248, scoreFont, scoreText);
+
+	App->fonts->BlitText(150, 248, scoreFont, "this is just a font test");
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -623,14 +471,14 @@ void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::BOT_WALL) //collider paret inferior
 	{
-		position.y = 174;
-		
+		position.y += 0;
+		App->player2->position.y += 0;
 	}
 	
-	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::TOP_WALL) //collider paret superior
+	else if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::TOP_WALL) //collider paret superior
 	{
-		position.y = 29;
-		
+		position.y += 0;
+		App->player2->position.y += 0;
 	}
 
 }
