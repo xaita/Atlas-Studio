@@ -714,7 +714,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				App->disk->volea_y = App->disk->position.y;
 
 				App->disk->ultimplayer = 1;
-				App->disk->disc_speed_X = 3.5;
+				App->disk->disc_speed_X = 2.5;
 				App->disk->volea = true;
 			}
 		}

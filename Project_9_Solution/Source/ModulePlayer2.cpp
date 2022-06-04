@@ -467,6 +467,12 @@ Update_Status ModulePlayer2::Update()
 
 
 		currentAnimation = &rightidleFrisbee;
+		if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
+
+			App->audio->PlayFx(tossfx, 0);
+
+
+		}
 		ultimadireccio2 = 1;
 		if (App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT)
 		{
@@ -478,12 +484,32 @@ Update_Status ModulePlayer2::Update()
 
 				currentAnimation = &shooting;
 				App->disk->currentAnimation2 = &App->disk->moving;
-
 				App->disk->disc_speed_X = -5;
 				App->disk->disc_speed_Y = -2;
 				personatgedisc2 = -1;
 				App->disk->ultimplayer = 2;
 
+			}
+			if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)	//volea
+			{
+
+				shooting.Reset();
+				currentAnimation = &shooting;
+				personatgedisc2 = -1;
+				App->disk->ultimplayer = 1;
+				App->disk->volea_x = App->disk->position.x - 120;
+				App->disk->volea_y = App->disk->position.y - (120 / 2.5) - 16;
+				if (App->disk->volea_y <= 30) {
+					App->disk->disc_speed_X = -2.5;
+					App->disk->volea = true;
+					App->disk->volea_y = App->disk->position.y;
+
+				}
+				else {
+					App->disk->disc_speed_X = -2.5;
+					App->disk->disc_speed_Y = -1;
+					App->disk->volea = true;
+				}
 			}
 		}
 
@@ -504,6 +530,28 @@ Update_Status ModulePlayer2::Update()
 
 				App->disk->ultimplayer = 2;/////
 			}
+			if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)	//volea
+			{
+
+				shooting.Reset();
+				currentAnimation = &shooting;
+				personatgedisc2 = -1;
+				App->disk->ultimplayer = 1;
+				App->disk->volea_x = App->disk->position.x - 120;
+				App->disk->volea_y = App->disk->position.y - (120 / 2.5) - 16;
+				if (App->disk->volea_y <= 30) {
+					App->disk->disc_speed_X = -2.5;
+					App->disk->volea = true;
+					App->disk->volea_y = App->disk->position.y;
+
+				}
+				else {
+					App->disk->disc_speed_X = -2.5;
+					App->disk->disc_speed_Y = -1;
+					App->disk->volea = true;
+				}
+
+			}
 		}
 
 		if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT && App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT)
@@ -523,6 +571,28 @@ Update_Status ModulePlayer2::Update()
 				App->disk->ultimplayer = 2;
 
 			}
+			if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)	//volea
+			{
+
+				shooting.Reset();
+				currentAnimation = &shooting;
+				personatgedisc2 = -1;
+				App->disk->ultimplayer = 1;
+				App->disk->volea_x = App->disk->position.x - 120;
+				App->disk->volea_y = App->disk->position.y + (120 / 2.5) + 16;
+				if (App->disk->volea_y >= 180) {
+
+					App->disk->disc_speed_X = -2.5;
+					App->disk->volea = true;
+					App->disk->volea_y = App->disk->position.y;
+
+				}
+				else {
+					App->disk->disc_speed_X = -2.5;
+					App->disk->disc_speed_Y = 1;
+					App->disk->volea = true;
+				}
+			}
 		}
 
 		else if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT)
@@ -538,6 +608,29 @@ Update_Status ModulePlayer2::Update()
 				 
 				personatgedisc2 = -1;
 				App->disk->ultimplayer = 2;/////
+			}
+			if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)	//volea
+			{
+
+				shooting.Reset();
+				currentAnimation = &shooting;
+				personatgedisc2 = -1;
+				App->disk->ultimplayer = 1;
+				App->disk->volea_x = App->disk->position.x - 120;
+				App->disk->volea_y = App->disk->position.y + (120 / 2.5) + 16;
+				if (App->disk->volea_y >= 180) {
+
+					App->disk->disc_speed_X = -2.5;
+					App->disk->volea = true;
+					App->disk->volea_y = App->disk->position.y;
+
+				}
+				else {
+					App->disk->disc_speed_X = -2.5;
+					App->disk->disc_speed_Y = 1;
+					App->disk->volea = true;
+				}
+
 			}
 
 		}
@@ -574,6 +667,25 @@ Update_Status ModulePlayer2::Update()
 
 				App->disk->ultimplayer = 2;
 
+			}
+		}
+		if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)	//volea
+		{
+			if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_IDLE
+				&& App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_IDLE)
+			{
+				shooting.Reset();
+				currentAnimation = &shooting;
+				personatgedisc2 = -1;
+				App->disk->volea_x = App->disk->position.x - 120;
+				App->disk->volea_y = App->disk->position.y;
+
+				App->disk->ultimplayer = 2;
+				App->disk->disc_speed_X = -2.5;
+				App->disk->volea = true;
 			}
 		}
 	}
