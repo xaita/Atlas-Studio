@@ -596,6 +596,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 
 		if (ultimplayer == 1) {
+			if (position.y > 127) {
+				App->sceneLevel_1->points5righttop = 1;
+			}
 			if (godmode != true) {
 				score_player_1 += 3;
 			}
