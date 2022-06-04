@@ -31,7 +31,7 @@ bool SceneLevel1::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
-
+	timerofpoints = 120;
 	//moureCameraGol = '1';
 
 	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete-sprite-sheet.png");				//BG CONCRETE + PROPS
@@ -40,6 +40,10 @@ bool SceneLevel1::Start()
 	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");
 	bgObstacle = App->textures->Load("Assets/Sprites/Stages/Concrete/obstacle.png");	//
 	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");										//
+
+	beachTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/beachSpriteSheet.png");
+	beachNet = App->textures->Load("Assets/Sprites/Stages/Concrete/anim901_0007_Red.png");
+
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 	P1Win = App->textures->Load("Assets/UI/Others/P1Win.png");
 	P2Win = App->textures->Load("Assets/UI/Others/P2Win.png");
@@ -202,9 +206,9 @@ Update_Status SceneLevel1::Update()
 {
 	spectators.Update();
 	currentAnimation = &spectators;
-	Points3ScoreL.Update();
+	
 
-	if (points5righttop == 1) {
+	/*if (points5righttop == 1) {
 		currentAnimationScore = &Points5ScoreR;
 	}
 	if (points5rightbot == 1) {
@@ -218,7 +222,7 @@ Update_Status SceneLevel1::Update()
 	if (points5leftbot == 1) {
 		currentAnimationScore = &Points5ScoreL;
 		points5leftbot = 0;
-	}
+	}*/
 
 
 
@@ -273,8 +277,16 @@ Update_Status SceneLevel1::Update()
 
 
 
-	if (timerofpoints <= 0) {
-		//Points5ScoreR.Update();
+	if (timerofpoints > 0) {
+		timerofpoints--;
+	}
+	if (timerofpoints == 0) {
+		points5righttop = 0;
+		points5rightbot = 0;
+		points5lefttop = 0;
+		points5leftbot = 0;
+		points3left = 0;
+		points3right = 0;
 	}
 	
 
@@ -293,6 +305,10 @@ Update_Status SceneLevel1::Update()
 			}
 		}
 	}*/
+	Points5ScoreR.Update();
+	Points5ScoreL.Update();
+	Points3ScoreL.Update();
+	Points3ScoreR.Update();
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -315,21 +331,28 @@ Update_Status SceneLevel1::PostUpdate()
 	
 
 	if (points5righttop == 1) {
+		
 		App->render->Blit(UI, 250, 48, &(Points5ScoreR.GetCurrentFrame()));
+		
 	}
 	if (points5rightbot == 1) {
+		
 		App->render->Blit(UI, 250, 192, &(Points5ScoreR.GetCurrentFrame()));
 	}
 	if (points5lefttop == 1) {
+		Points5ScoreL.Reset();
 		App->render->Blit(UI, 30, 48, &(Points5ScoreL.GetCurrentFrame()));
 	}
 	if (points5leftbot == 1) {
+		Points5ScoreL.Reset();
 		App->render->Blit(UI, 30, 192, &(Points5ScoreL.GetCurrentFrame()));
 	}
 	if (points3left == 1) {
-		App->render->Blit(UI, 30, 190, &(Points3ScoreL.GetCurrentFrame()));
+		Points3ScoreL.Update();
+		App->render->Blit(UI, 11, 90, &(Points3ScoreL.GetCurrentFrame()));
 	}
 	if (points3right == 1) {
+		Points3ScoreR.Update();
 		App->render->Blit(UI, 250, 90, &(Points3ScoreR.GetCurrentFrame()));
 	}
 	
