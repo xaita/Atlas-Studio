@@ -32,7 +32,7 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
-	moureCameraGol = '1';
+	//moureCameraGol = '1';
 
 	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete-sprite-sheet.png");				//BG CONCRETE + PROPS
 	bgTopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/top_wall.png");								//
@@ -244,7 +244,7 @@ Update_Status SceneLevel1::Update()
 		//		moureCameraGol = '1';
 		//}
 
-		if (App->render->camera.x != -96)
+		if (App->render->camera.x > -96)
 			App->render->camera.x -= 12;
 
 	}
@@ -262,13 +262,13 @@ Update_Status SceneLevel1::Update()
 		//	if (App->render->camera.x == 84)
 		//		moureCameraGol = '1';
 		//}
-		if (App->render->camera.x != 96)
+		if (App->render->camera.x < 96)
 		App->render->camera.x += 12;
 	}
 	else
 	{
 		App->render->camera.x = 0;
-		moureCameraGol = '1';
+		//moureCameraGol = '1';
 	}
 
 

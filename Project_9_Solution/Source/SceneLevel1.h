@@ -88,7 +88,7 @@ public:
 	
 	int timer2;
 
-	char moureCameraGol;
+	//char moureCameraGol;
 
 	int points5lefttop = 0;
 	int points5leftbot = 0;
