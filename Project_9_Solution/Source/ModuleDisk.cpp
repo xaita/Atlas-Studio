@@ -60,7 +60,7 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 
 	voleaanim.PushBack({ 20, 20, 20, 19});
 	voleaanim.PushBack({ 80, 20, 20, 19 });
-	voleaanim.PushBack({ 144, 20, 24, 24 });
+	//voleaanim.PushBack({ 144, 20, 24, 24 });
 	voleaanim.PushBack({ 208, 20, 28, 26 });
 	voleaanim.PushBack({ 276, 20, 28, 28 });
 	voleaanim.PushBack({ 345, 20, 32, 30 });
@@ -117,7 +117,7 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	voleaanim.PushBack({ 4213, 20, 16, 16 });
 	voleaanim.PushBack({ 4269, 20, 16, 16 });
 	voleaanim.loop = false;
-	voleaanim.speed = 0.2f;
+	voleaanim.speed = 0.09f;
 
 
 
@@ -134,7 +134,7 @@ bool ModuleDisk::Start()
 	App->collisions->Enable();
 
 	currentAnimation2 = &idle;
-
+	voleaanimation = &invisible;
 
 	LOG("Loading Disk textures");
 	invisiblex = false;
@@ -310,11 +310,12 @@ Update_Status ModuleDisk::Update()
 	{
 		invisiblex = false;
 		onair = true;
-		if (voleaanimation != &voleaanim) {
+		if (currentAnimation2 != &voleaanim) {
 			voleaanim.Reset();
-			voleaanimation = &voleaanim;
 		}
-		
+	
+		currentAnimation2 = &voleaanim;
+
 		disc_speed_X = 2.5;
 
 		if (position.x >= 250 && ultimplayer == 1) {
@@ -460,7 +461,7 @@ Update_Status ModuleDisk::Update()
 
 	diskcollider->SetPos(position.x, position.y);
 	currentAnimation2->Update();
-
+	
 	App->propsBackground->timersetcount--;
 
 	return Update_Status::UPDATE_CONTINUE;
@@ -477,7 +478,7 @@ Update_Status ModuleDisk::PostUpdate()
 
 		App->render->Blit(texture, position.x, position.y, &rect2);
 		if(invisiblex==false)
-		App->render->Blit(texturevolea, position.x, position.y, &(voleaanim.GetCurrentFrame()));
+		App->render->Blit(texturevolea, position.x, position.y, &rect2);
 
 
 	}
