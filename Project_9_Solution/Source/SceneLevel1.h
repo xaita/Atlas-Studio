@@ -91,7 +91,7 @@ public:
 	char moureCameraGol;
 
 	int points5left = 0;
-	int points5right = 1;
+	int points5right = 0;
 	int points3right = 0;
 	int points3left = 0;
 	int timerofpoints;
@@ -100,6 +100,7 @@ public:
 	
 
 	Animation* currentAnimation = nullptr;
+	Animation* currentAnimationScore = nullptr;
 
 	Animation* current_Timer_Animation = nullptr;
 	Animation timer;

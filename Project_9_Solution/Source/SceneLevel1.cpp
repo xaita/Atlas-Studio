@@ -43,10 +43,8 @@ bool SceneLevel1::Start()
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 	P1Win = App->textures->Load("Assets/UI/Others/P1Win.png");
 	P2Win = App->textures->Load("Assets/UI/Others/P2Win.png");
-	Points5scoreR = App->textures->Load("Assets/UI/Points_Goal/5_points_(right)/spritesheetpointsRight5");
-	Points5scoreL = App->textures->Load("Assets/UI/Points_Goal/5_points_(left)/spritesheetpointsleft5");
-	Points3scoreR = App->textures->Load("Assets/UI/Points_Goal/3_points_goal_(right)/spritesheetpointsright3");
-	Points3scoreL = App->textures->Load("Assets/UI/Points_Goal/3_points_goal_(left)/spritesheetpointsleft3");
+
+	
 
 
 	UI_Timer = App->textures->Load("Assets/UI/timerSpriteSheet.png");
@@ -106,27 +104,76 @@ bool SceneLevel1::Start()
 	timer.speed = 0.017f;
 	timer2 = 1800;
 
-	// 5 Dreta
-	Points5ScoreR.PushBack({ 24, 0, 63, 35 });
-	Points5ScoreR.PushBack({ 87, 0, 59, 35 });
-	Points5ScoreR.PushBack({ 146, 0, 55, 35 });
-	Points5ScoreR.PushBack({ 201, 0, 51, 35 });
-	Points5ScoreR.PushBack({ 252, 0, 47, 35 });
-	Points5ScoreR.PushBack({ 299, 0, 43, 35 });
-	Points5ScoreR.PushBack({ 342, 0, 39, 35 });
-	Points5ScoreR.PushBack({ 381, 0, 35, 35 });
-	Points5ScoreR.PushBack({ 416, 0, 31, 35 });
-	Points5ScoreR.PushBack({ 478, 0, 28, 35 });
-	Points5ScoreR.PushBack({ 506, 0, 24, 35 });
-	Points5ScoreR.PushBack({ 530, 0, 20, 35 });
-	Points5ScoreR.PushBack({ 550, 0, 16, 35 });
-	Points5ScoreR.PushBack({ 0, 0, 12, 35 });
-	Points5ScoreR.PushBack({ 12, 0, 8, 35 });
-	Points5ScoreR.PushBack({ 20, 0, 4, 35 });
-	Points5ScoreR.loop = false;
-	Points5ScoreR.speed = 0.1;
+	// 3 Esquerra
+	Points3ScoreL.PushBack({ 441, 120, 63, 34 });
+	Points3ScoreL.PushBack({ 112, 120, 59, 34 });
+	Points3ScoreL.PushBack({ 171, 120, 55, 34 });
+	Points3ScoreL.PushBack({ 226, 120, 51, 34 });
+	Points3ScoreL.PushBack({ 277, 120, 47, 34 });
+	Points3ScoreL.PushBack({ 324, 120, 43, 35 });
+	Points3ScoreL.PushBack({ 367, 120, 39, 34 });
+	Points3ScoreL.PushBack({ 406, 120, 35, 34 });
+	Points3ScoreL.PushBack({ 0, 120, 28, 34 });
+	Points3ScoreL.PushBack({ 28, 120, 24, 34 });
+	Points3ScoreL.PushBack({ 52, 120, 20, 34 });
+	Points3ScoreL.PushBack({ 72, 120, 16, 34 });
+	Points3ScoreL.PushBack({ 88, 120, 12, 34 });
+	Points3ScoreL.PushBack({ 100, 120, 8, 34 });
+	Points3ScoreL.PushBack({ 108, 120, 4, 34 });
+	Points3ScoreL.loop = false;
+	Points3ScoreL.speed = 0.1;
 	
+	// 3 Dreta
+	Points3ScoreR.PushBack({ 0, 188, 63, 34 });
+	Points3ScoreR.PushBack({ 132, 154, 59, 34 });
+	Points3ScoreR.PushBack({ 191, 154, 55, 34 });
+	Points3ScoreR.PushBack({ 246, 154, 51, 34 });
+	Points3ScoreR.PushBack({ 297, 154, 47, 34 });
+	Points3ScoreR.PushBack({ 344, 154, 43, 34 });
+	Points3ScoreR.PushBack({ 387, 154, 40, 34 });
+	Points3ScoreR.PushBack({ 427, 154, 36, 34 });
+	Points3ScoreR.PushBack({ 0, 154, 32, 34 });
+	Points3ScoreR.PushBack({ 32, 154, 28, 34 });
+	Points3ScoreR.PushBack({ 60, 154, 24, 34 });
+	Points3ScoreR.PushBack({ 84, 154, 20, 34 });
+	Points3ScoreR.PushBack({ 104, 154, 16, 34 });
+	Points3ScoreR.PushBack({ 120, 154, 12, 34 });
+	Points3ScoreR.loop = false;
+	Points3ScoreR.speed = 0.1;
 
+	// 5 Esquerra
+	Points5ScoreR.PushBack({ 76, 258, 63, 35 });
+	Points5ScoreR.PushBack({ 229, 223, 59, 35 });
+	Points5ScoreR.PushBack({ 288, 223, 55, 35 });
+	Points5ScoreR.PushBack({ 343, 223, 51, 35 });
+	Points5ScoreR.PushBack({ 394, 223, 47, 35 });
+	Points5ScoreR.PushBack({ 441, 223, 43, 35 });
+	Points5ScoreR.PushBack({ 0, 258, 40, 35 });
+	Points5ScoreR.PushBack({ 40, 258, 36, 35 });
+	Points5ScoreR.PushBack({ 137, 223, 32, 35 });
+	Points5ScoreR.PushBack({ 169, 223, 28, 35 });
+	Points5ScoreR.PushBack({ 197, 223, 20, 35 });
+	Points5ScoreR.PushBack({ 217, 223, 12, 35 });
+
+	// 5 Dreta
+	Points5ScoreL.PushBack({ 74, 223, 63, 35 });
+	Points5ScoreL.PushBack({ 230, 188, 59, 35 });
+	Points5ScoreL.PushBack({ 289, 188, 55, 35 });
+	Points5ScoreL.PushBack({ 344, 188, 51, 35 });
+	Points5ScoreL.PushBack({ 395, 188, 47, 35 });
+	Points5ScoreL.PushBack({ 442, 188, 43, 35 });
+	Points5ScoreL.PushBack({ 0, 223, 39, 35 });
+	Points5ScoreL.PushBack({ 39, 223, 35, 35 });
+	Points5ScoreL.PushBack({ 99, 188, 31, 35 });
+	Points5ScoreL.PushBack({ 130, 188, 28, 35 });
+	Points5ScoreL.PushBack({ 158, 188, 24, 35 });
+	Points5ScoreL.PushBack({ 182, 188, 20, 35 });
+	Points5ScoreL.PushBack({ 202, 188, 16, 35 });
+	Points5ScoreL.PushBack({ 218, 188, 12, 35 });
+	Points5ScoreL.PushBack({ 62, 188, 9, 35 });
+	Points5ScoreL.PushBack({ 71, 188, 5, 35 });
+	
+	
 	//porteria esquerra
 	App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
 	App->collisions->AddCollider({ 0, 170, 1, 24 }, Collider::Type::SCOREZONE_1);
@@ -155,6 +202,12 @@ Update_Status SceneLevel1::Update()
 {
 	spectators.Update();
 	currentAnimation = &spectators;
+	Points3ScoreL.Update();
+	currentAnimationScore = &Points3ScoreL;
+
+
+
+
 
 	if (App->disk->saque == 0 && App->disk->godmode == false) {
 		if (timer2 > 0) { timer2 -=1; }
@@ -200,8 +253,9 @@ Update_Status SceneLevel1::Update()
 	}
 
 	if (timerofpoints <= 0) {
-		Points5ScoreR.Update();
+		//Points5ScoreR.Update();
 	}
+	
 
 	/*char s[128];
 	if (SDL_SCANCODE_H == SDL_KEYUP && points5right == 1)
@@ -236,8 +290,8 @@ Update_Status SceneLevel1::PostUpdate()
 
 
 	
-		App->render->Blit(UI_Timer, 144, 13, &(timer.GetCurrentFrame()));
-		App->render->Blit(Points5scoreR, 144, 56, &(Points5ScoreR.GetCurrentFrame()));
+	App->render->Blit(UI_Timer, 144, 13, &(timer.GetCurrentFrame()));
+	App->render->Blit(UI, 200, 70, &(Points5ScoreR.GetCurrentFrame()));
 
 
 	
