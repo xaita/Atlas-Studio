@@ -6,6 +6,8 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "SceneCoins.h"
+
 
 SceneIntroMapes::SceneIntroMapes(bool startEnabled) : Module(startEnabled)
 {
@@ -45,6 +47,7 @@ bool SceneIntroMapes::Start()
 	Readym1 = false;
 	Readym2 = false;
 
+	App->sceneCoins->Coins;
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -110,6 +113,46 @@ Update_Status SceneIntroMapes::Update()
 		App->fade->FadeToBlack(this, (Module*)App->sceneJapan, 90);
 	}
 
+	if (App->input->keys[SDL_SCANCODE_LSHIFT] == Key_State::KEY_DOWN)
+	{
+		App->sceneCoins->Coins++;
+	}
+	if (App->sceneCoins->Coins == 1)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits1.png");
+	}
+	if (App->sceneCoins->Coins == 2)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits2.png");
+	}
+	if (App->sceneCoins->Coins == 3)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits3.png");
+	}
+	if (App->sceneCoins->Coins == 4)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits4.png");
+	}
+	if (App->sceneCoins->Coins == 5)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits5.png");
+	}
+	if (App->sceneCoins->Coins == 6)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits6.png");
+	}
+	if (App->sceneCoins->Coins == 7)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits7.png");
+	}
+	if (App->sceneCoins->Coins == 8)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits8.png");
+	}
+	if (App->sceneCoins->Coins == 9)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits9.png");
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -123,7 +166,7 @@ Update_Status SceneIntroMapes::PostUpdate()
 	App->render->Blit(beachname, 200, 65, NULL);
 	App->render->Blit(concretename, 192, 89, NULL);
 	App->render->Blit(lawnname, 208, 137, NULL);
-
+	App->render->Blit(bgCredits, 0, 0, NULL);
 	if(selectMap=='1')
 		App->render->Blit(beachimg, 24, 84, NULL);
 	else if(selectMap=='2')

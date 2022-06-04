@@ -37,7 +37,7 @@ public:
 	SDL_Texture* beachimg = nullptr;
 	SDL_Texture* concreteimg = nullptr;
 	SDL_Texture* lawnimg = nullptr;
-
+	SDL_Texture* bgCredits = nullptr;
 	// Sound effects indices
 	uint selectm = 0;
 
