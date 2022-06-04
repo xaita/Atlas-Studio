@@ -31,7 +31,7 @@ bool SceneLevel1::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
-
+	timerofpoints = 120;
 	//moureCameraGol = '1';
 
 	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete-sprite-sheet.png");				//BG CONCRETE + PROPS
@@ -280,7 +280,7 @@ Update_Status SceneLevel1::Update()
 	if (timerofpoints > 0) {
 		timerofpoints--;
 	}
-	if (timerofpoints < 0) {
+	if (timerofpoints == 0) {
 		points5righttop = 0;
 		points5rightbot = 0;
 		points5lefttop = 0;
@@ -331,21 +331,28 @@ Update_Status SceneLevel1::PostUpdate()
 	
 
 	if (points5righttop == 1) {
+		
 		App->render->Blit(UI, 250, 48, &(Points5ScoreR.GetCurrentFrame()));
+		
 	}
 	if (points5rightbot == 1) {
+		
 		App->render->Blit(UI, 250, 192, &(Points5ScoreR.GetCurrentFrame()));
 	}
 	if (points5lefttop == 1) {
+		Points5ScoreL.Reset();
 		App->render->Blit(UI, 30, 48, &(Points5ScoreL.GetCurrentFrame()));
 	}
 	if (points5leftbot == 1) {
+		Points5ScoreL.Reset();
 		App->render->Blit(UI, 30, 192, &(Points5ScoreL.GetCurrentFrame()));
 	}
 	if (points3left == 1) {
+		Points3ScoreL.Update();
 		App->render->Blit(UI, 11, 90, &(Points3ScoreL.GetCurrentFrame()));
 	}
 	if (points3right == 1) {
+		Points3ScoreR.Update();
 		App->render->Blit(UI, 250, 90, &(Points3ScoreR.GetCurrentFrame()));
 	}
 	
