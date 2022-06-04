@@ -204,7 +204,7 @@ Update_Status SceneLevel1::Update()
 	currentAnimation = &spectators;
 	
 
-	if (points5righttop == 1) {
+	/*if (points5righttop == 1) {
 		currentAnimationScore = &Points5ScoreR;
 	}
 	if (points5rightbot == 1) {
@@ -218,7 +218,7 @@ Update_Status SceneLevel1::Update()
 	if (points5leftbot == 1) {
 		currentAnimationScore = &Points5ScoreL;
 		points5leftbot = 0;
-	}
+	}*/
 
 
 
