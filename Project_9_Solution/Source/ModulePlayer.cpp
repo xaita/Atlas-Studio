@@ -517,17 +517,19 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
 
+			}	if (App->input->keys[SDL_SCANCODE_V] == Key_State::KEY_DOWN)	//volea
+			{
+
+				shooting.Reset();
+				currentAnimation = &shooting;
+				personatgedisc = -1;
+				App->disk->ultimplayer = 1;
+				App->disk->disc_speed_X = 2.5;
+				App->disk->disc_speed_Y = -2;
+				App->disk->volea = true;
+
 			}
-			//if (App->input->keys[SDL_SCANCODE_V] == Key_State::KEY_DOWN) {
-
-
-			//	currentAnimation = &shooting;
-			//	App->disk->currentAnimation2 = &App->disk->moving;
-			//	App->disk->onair = true;
-			//	personatgedisc = -1;
-			//	App->disk->ultimplayer = 1;
-
-			//}
+		
 		}
 
 		else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
@@ -543,6 +545,18 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				App->disk->disc_speed_Y = -6;
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
+
+			}	
+			if (App->input->keys[SDL_SCANCODE_V] == Key_State::KEY_DOWN)	//volea
+			{
+
+				shooting.Reset();
+				currentAnimation = &shooting;
+				personatgedisc = -1;
+				App->disk->ultimplayer = 1;
+				App->disk->disc_speed_X = 2.5;
+				App->disk->disc_speed_Y = -2;
+				App->disk->volea = true;
 
 			}
 		}
@@ -561,6 +575,18 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
 			}
+			if (App->input->keys[SDL_SCANCODE_V] == Key_State::KEY_DOWN)	//volea
+			{
+
+				shooting.Reset();
+				currentAnimation = &shooting;
+				personatgedisc = -1;
+				App->disk->ultimplayer = 1;
+				App->disk->disc_speed_X = 2.5;
+				App->disk->disc_speed_Y = 2;
+				App->disk->volea = true;
+
+			}
 
 		}
 
@@ -577,6 +603,19 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
+			}
+
+			if (App->input->keys[SDL_SCANCODE_V] == Key_State::KEY_DOWN)	//volea
+			{
+				
+					shooting.Reset();
+					currentAnimation = &shooting;
+					personatgedisc = -1;
+					App->disk->ultimplayer = 1;
+					App->disk->disc_speed_X = 2.5;
+					App->disk->disc_speed_Y = 2;
+					App->disk->volea = true;
+				
 			}
 
 		}
@@ -631,7 +670,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				currentAnimation = &shooting;
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
-
+				App->disk->disc_speed_X = 3.5;
 				App->disk->volea = true;
 			}
 		}

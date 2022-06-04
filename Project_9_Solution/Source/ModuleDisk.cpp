@@ -137,6 +137,7 @@ Update_Status ModuleDisk::Update()
 				App->sceneLevel_1->timer2 = 1800;
 				App->sceneLevel_1->timer.Reset();
 				App->propsBackground->timersetcount = 350;
+				currentAnimation2 = &idle;
 			}
 
 			else if (score_player_2 > score_player_1) {
@@ -154,6 +155,7 @@ Update_Status ModuleDisk::Update()
 				App->sceneLevel_1->timer2 = 1800;
 				App->sceneLevel_1->timer.Reset();
 				App->propsBackground->timersetcount = 350;
+				currentAnimation2 = &idle;
 			}
 
 			else if (score_player_1 == score_player_2) {
@@ -176,6 +178,7 @@ Update_Status ModuleDisk::Update()
 					App->sceneLevel_1->timer2 = 1800;
 					App->sceneLevel_1->timer.Reset();
 					App->propsBackground->timersetcount = 350;
+					currentAnimation2 = &idle;
 
 				}
 				else {
@@ -192,6 +195,7 @@ Update_Status ModuleDisk::Update()
 					App->sceneLevel_1->timer2 = 1800;
 					App->sceneLevel_1->timer.Reset();
 					App->propsBackground->timersetcount = 350;
+					currentAnimation2 = &idle;
 				}
 
 
@@ -237,17 +241,19 @@ Update_Status ModuleDisk::Update()
 	{
 		onair = true;
 		currentAnimation2 = &projectile;
-		disc_speed_X = 2.5;
+		
 		if (position.x >= 250 && ultimplayer == 1) {
 			volea = false;
 			onair = false;
 			disc_speed_X = 0;
+			disc_speed_Y = 0;
 			currentAnimation2 = &idle;
 		}
 		else if (position.x <= 38 && ultimplayer == 2) {
 			volea = false;
 			onair = false;
 			disc_speed_X = 0;
+			disc_speed_Y = 0;
 			currentAnimation2 = &idle;
 		}
 	}
@@ -292,6 +298,7 @@ Update_Status ModuleDisk::Update()
 
 		App->player2->position.x = 240;
 		App->player2->position.y = 112;
+		volea = false;
     }
 	
 	if (saque == -1 && timer == 0 && timer_set <= 0) {
@@ -338,18 +345,6 @@ Update_Status ModuleDisk::Update()
 
 	}
 
-	if (saque == 0 && position.y >= 180) {
-
-		disc_speed_Y = -disc_speed_Y;
-		
-
-	}
-
-	if (saque == 0 && position.y <=30) {
-
-		disc_speed_Y = -disc_speed_Y;
-
-	}
 
 
 	if (bloqueig == true) {
@@ -370,7 +365,7 @@ Update_Status ModuleDisk::Update()
 		timerblock--;
 	}
 
-	if (timerblock == 0) {
+	if (timerblock == 0 && volea == false ) {
 		onair = false;
 		
 	}
@@ -520,5 +515,34 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		}
 
 	}
-	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::OBSTACLE1) { disc_speed_Y *= -1; }
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::OBSTACLE1 && onair == false) { disc_speed_Y *= -1; }
+
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::TOP_WALL) {
+		
+			if (onair == false) {
+				disc_speed_Y = -disc_speed_Y;
+			}
+			else {
+				volea = false;
+				onair = false;
+				disc_speed_X = 0;
+				disc_speed_Y = 0;
+				currentAnimation2 = &idle;
+
+			}
+		
+	}
+
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::BOT_WALL) {
+		if (saque == 0 && onair == false) {
+			disc_speed_Y = -disc_speed_Y;
+		}
+		else {
+			volea = false;
+			onair = false;
+			disc_speed_X = 0;
+			disc_speed_Y = 0;
+			currentAnimation2 = &idle;
+		}
+	}
 }

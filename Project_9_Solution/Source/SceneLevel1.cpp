@@ -198,7 +198,7 @@ Update_Status SceneLevel1::PostUpdate()
 
 	
 
-	if ((App->propsBackground->timersetcount < 190 && (App->disk->saque == 1 || App->disk->saque == 2)) ) {
+	if ((App->propsBackground->timersetcount < 190 && (App->disk->saque == 1 || App->disk->saque == 2||App->disk->saque == -1 || App->disk->saque == -2)) ) {
 
 		switch (App->disk->sets) {
 		 case 0:
