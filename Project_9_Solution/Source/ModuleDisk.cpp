@@ -151,6 +151,30 @@ bool ModuleDisk::Start()
 	catchfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Catch.wav");
 	onairfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Freesbeonair.wav");
 
+	//audio comentarista
+	Pts2 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/2Pts.wav");
+	Pts3 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/3Pts.wav");
+	Pts5 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/5Pts.wav");
+	CongratulationsWinner = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Congratulations Winner.wav");
+	ExcelentGame = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Excelent Game.wav");
+	FinalRound = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Final Round.wav");
+	GameSet = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Game Set.wav");
+	GetReady = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Get Ready.wav");
+	GoodGame = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Good Game.wav");
+	Miss = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Miss.wav");
+	Out = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Out.wav");
+	Round1 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Round1.wav");
+	Round2 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Round2.wav");
+	Round3 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Round3.wav");
+	Round4 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Round4.wav");
+	Round5 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Round5.wav");
+	Set = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Set.wav");
+	Spear = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Spear.wav");
+	Strike = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Strike.wav");
+	WellDone = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Well Done.wav");
+	Wow = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Wow.wav");
+	Ya = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Ya!.wav");
+
 	position.x = 145; //Posicio arbitre
 	position.y = 191; //posicio arbitre
 
@@ -578,6 +602,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			}
 			if (godmode != true) {
 				score_player_1 += 5;
+				App->audio->PlayFx(Pts5, 0);
 			}
 
 
@@ -593,6 +618,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			}
 			if (godmode != true) {
 				score_player_2 += 5;
+				App->audio->PlayFx(Pts5, 0);
 			}
 
 			saque = 1;
@@ -624,6 +650,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			}
 			if (godmode != true) {
 				score_player_1 += 3;
+				App->audio->PlayFx(Pts3, 0);
 			}
 
 			saque = 2;
@@ -633,12 +660,16 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			App->sceneLevel_1->points3left = 1;
 			if (godmode != true) {
 				score_player_2 += 3;
+				App->audio->PlayFx(Pts3, 0);
 			}
 			saque = 1;
 		}
 
 	}
-	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::OBSTACLE1 && onair == false) { disc_speed_Y *= -1; }
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::OBSTACLE1) {
+		if (volea != false)
+			disc_speed_Y *= -1;
+	}
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::TOP_WALL) {
 		
