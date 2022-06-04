@@ -341,19 +341,35 @@ Update_Status ModuleDisk::Update()
 		currentAnimation2 = &voleaanim;
 
 
-		if (position.x >= 300 && ultimplayer == 1) {
+		if (position.x >= 300 && ultimplayer == 1) {		//disc cau a terra
 			volea = false;
 			onair = false;
 			disc_speed_X = 0;
 			disc_speed_Y = 0;
 			currentAnimation2 = &idle;
+			if (App->player->personatgedisc != 1)
+			{
+				App->disk->score_player_1 += 2;
+				App->player->position.x = 38;
+				App->player->position.y = 112;
+
+				saque = 1;
+			}
 		}
-		else if (position.x == volea_x) {
+		else if (position.x == volea_x) {					//disc cau a terra
 			volea = false;
 			onair = false;
 			disc_speed_X = 0;
 			disc_speed_Y = 0;
 			currentAnimation2 = &idle;
+			if (App->player2->personatgedisc2 != 1)
+			{
+				App->disk->score_player_2 += 2;
+				App->player2->position.x = 240;
+				App->player2->position.y = 112;
+
+				saque = 2;
+			}
 		}
 		else if (position.x <= 20 && ultimplayer == 2) {
 			volea = false;
@@ -679,7 +695,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 	}
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::OBSTACLE1) {
-		if (volea != false)
+		if (volea == false)
 			disc_speed_Y *= -1;
 	}
 
