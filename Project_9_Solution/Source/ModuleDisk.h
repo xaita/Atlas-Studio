@@ -37,16 +37,16 @@ public:
 	iPoint position;
 
 	// The speed in which we move the player (pixels per frame)
-	float disc_speed_X=0;
-	float disc_speed_Y=0;
+	float disc_speed_X = 0;
+	float disc_speed_Y = 0;
 	bool muerte_subita;
 
 	int saque = -1;
-	int timer =0;
+	int timer = 0;
 	int timer_set = 0;
-	int timer_Win =300;
+	int timer_Win = 300;
 	int timerblock = 0;
-	int ultimplayer=0;
+	int ultimplayer = 0;
 	int score_player_1 = 0;
 	int score_player_2 = 0;
 	int sets_player1 = 0;
@@ -72,7 +72,7 @@ public:
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation2 = nullptr;
-	
+
 
 	// A set of animations
 	Animation moving;
@@ -85,6 +85,31 @@ public:
 	uint blockfx = 0;
 	uint catchfx = 0;
 	uint onairfx = 0;
+
+	//sfx arbitre
+	uint Pts2 = 0;
+	uint Pts3 = 0;
+	uint Pts5 = 0;
+	uint CongratulationsWinner = 0;
+	uint ExcelentGame = 0;
+	uint FinalRound = 0;
+	uint GameSet = 0;
+	uint GetReady = 0;
+	uint GoodGame = 0;
+	uint Miss = 0;
+	uint Out = 0;
+	uint Round1 = 0;
+	uint Round2 = 0;
+	uint Round3 = 0;
+	uint Round4 = 0;
+	uint Round5 = 0;
+	uint Set = 0;
+	uint Spear = 0;
+	uint Strike = 0;
+	uint WellDone = 0;
+	uint Wow = 0;
+	uint Ya = 0;
+
 	// The player's collider
 	Collider* diskcollider = nullptr;
 
