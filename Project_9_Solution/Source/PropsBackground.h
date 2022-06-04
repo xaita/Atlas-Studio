@@ -50,13 +50,14 @@ public:
 	SDL_Rect SetScore3 = { 270, 27, 45, 26 };
 	SDL_Rect SetCount = { 315, 27, 78, 26 };
 
-	Animation* currentAnimation = nullptr;
+	Animation* currentAnimationReferee = nullptr;
 
 	Animation refereeIdle;
 	Animation refereeLookLeft;
 	Animation refereeLookRight;
 	Animation refereePointLeft;
 	Animation refereePointRight;
+	Animation refereeNewDisk;
 
 	Animation frisbees;
 	int timersetcount = 189;

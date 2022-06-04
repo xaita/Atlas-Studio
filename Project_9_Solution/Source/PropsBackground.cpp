@@ -45,15 +45,27 @@ bool PropsBackground::Start()
 	refereePointLeft.PushBack({ 160, 36, 44, 35 });
 	refereePointLeft.PushBack({ 204, 36, 45, 35 });
 	refereePointLeft.speed = 0.1f;
-	refereePointLeft.loop = true;
+	refereePointLeft.loop = false;
 
 	refereePointRight.PushBack({ 0, 70, 44, 35 });
 	refereePointRight.PushBack({ 44, 70, 44, 35 });
 	refereePointRight.PushBack({ 88, 70, 44, 35 });
 	refereePointRight.PushBack({ 132, 70, 44, 35 });
 	refereePointRight.speed = 0.1f;
-	refereePointRight.loop = true;
+	refereePointRight.loop = false;
 
+	refereeNewDisk.PushBack({ 88,210,44,35 });
+	refereeNewDisk.PushBack({ 44,210,44,35 });
+	refereeNewDisk.PushBack({ 0,210,44,35 });
+	refereeNewDisk.PushBack({ 176,175,44,35 });
+	refereeNewDisk.PushBack({ 132,175,44,35 });
+	refereeNewDisk.PushBack({ 88,175,44,35 });
+	refereeNewDisk.PushBack({ 44,175,44,35 });
+	refereeNewDisk.PushBack({ 0,175,44,35 });
+	refereeNewDisk.PushBack({ 176,175,44,35 });
+	refereeNewDisk.PushBack({ 132,175,44,35 });
+	refereeNewDisk.speed = 0.2f;
+	refereeNewDisk.loop = false;
 
 	frisbees.PushBack({ 245,51,16,12 });
 
@@ -65,25 +77,27 @@ Update_Status PropsBackground::Update()
 	--timerrefree;
 	
 	if (App->disk->saque == 1) {
-		currentAnimation = &refereePointRight;//NO FUNCIONA canvia l'sprite pero no fa l'animacio
+		currentAnimationReferee = &refereePointRight;//NO FUNCIONA canvia l'sprite pero no fa l'animacio
 		timerrefree = 20;
 	}
 
 	else if (App->disk->saque == 2) {
-		currentAnimation = &refereePointLeft;
+		currentAnimationReferee = &refereePointLeft;
 		timerrefree = 20;
 	}
 
 	else if (App->disk->position.x < 110) {
-		currentAnimation = &refereeLookLeft;
+		currentAnimationReferee = &refereeLookLeft;
 	}
 
 	else if (App->disk->position.x > 194) {
-		currentAnimation = &refereeLookRight;
+		currentAnimationReferee = &refereeLookRight;
 	}
 
 	else if (timerrefree <= 0){
-		currentAnimation = &refereeIdle;
+		currentAnimationReferee = &refereeNewDisk;
+		refereePointRight.Reset();
+		refereePointLeft.Reset();
 	}
 
 
@@ -109,9 +123,9 @@ Update_Status PropsBackground::PostUpdate()
 	else
 		App->render->Blit(bgGoalright, 266, 22, NULL);
 
-	SDL_Rect rect = currentAnimation->GetCurrentFrame();
+	SDL_Rect rect = currentAnimationReferee->GetCurrentFrame();
 
-	if (currentAnimation == &refereePointLeft) {
+	if (currentAnimationReferee == &refereePointLeft) {
 		App->render->Blit(referee, 123, 190, &rect);//////////////////////////////arreglo de l'animacio de l'arbitre que sortia desplaçada
 	}
 

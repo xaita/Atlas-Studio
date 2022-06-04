@@ -64,10 +64,13 @@ public:
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
+	SDL_Texture* texturevolea = nullptr;
+
 
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation2 = nullptr;
+	Animation* voleaanimation = nullptr;
 
 	// A set of animations
 	Animation moving;
@@ -75,6 +78,7 @@ public:
 	Animation invisible;
 	Animation blocking;
 	Animation idle;
+	Animation voleaanim;
 
 	uint blockfx = 0;
 	uint catchfx = 0;
