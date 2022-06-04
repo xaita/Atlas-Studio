@@ -529,6 +529,8 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				if (App->disk->volea_y <= 30) {
 					App->disk->disc_speed_X = 2.5;
 					App->disk->volea = true;
+					App->disk->volea_y = App->disk->position.y;
+
 				}
 				else {
 					App->disk->disc_speed_X = 2.5;
@@ -566,6 +568,8 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				if (App->disk->volea_y <= 30) {
 					App->disk->disc_speed_X = 2.5;
 					App->disk->volea = true;
+					App->disk->volea_y = App->disk->position.y;
+
 				}
 				else {
 					App->disk->disc_speed_X = 2.5;
@@ -603,6 +607,8 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 					App->disk->disc_speed_X = 2.5;
 					App->disk->volea = true;
+					App->disk->volea_y = App->disk->position.y;
+
 				}
 				else {
 					App->disk->disc_speed_X = 2.5;
@@ -636,11 +642,13 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 					personatgedisc = -1;
 					App->disk->ultimplayer = 1;
 					App->disk->volea_x = App->disk->position.x + 120;
-					App->disk->volea_y = App->disk->position.x + (120/2.5);
+					App->disk->volea_y = App->disk->position.y + (120/2.5);
 					if (App->disk->volea_y >= 180) {
 
 						App->disk->disc_speed_X = 2.5;
 						App->disk->volea = true;
+						App->disk->volea_y = App->disk->position.y;
+
 					}
 					else {
 						App->disk->disc_speed_X = 2.5;

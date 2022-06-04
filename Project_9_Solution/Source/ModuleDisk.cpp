@@ -145,6 +145,7 @@ bool ModuleDisk::Start()
 
 	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
 	texturevolea = App->textures->Load("Assets/UI/Volea_Caiguda_Frisbee.png");
+	marca = App->textures->Load("Assets/UI/Others/MarcaF1.png");
 
 	blockfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Block.wav");
 	catchfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Catch.wav");
@@ -480,6 +481,9 @@ Update_Status ModuleDisk::PostUpdate()
 
 
 	}
+	if(volea==true)
+	App->render->Blit(marca, volea_x, volea_y, NULL);
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 
