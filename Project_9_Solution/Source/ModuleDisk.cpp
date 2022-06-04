@@ -244,7 +244,7 @@ Update_Status ModuleDisk::Update()
 	{
 		onair = true;
 
-		currentAnimation2 = &projectile;
+		
 		
 
 		voleaanimation = &voleaanim;
