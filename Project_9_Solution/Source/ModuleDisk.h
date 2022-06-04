@@ -52,8 +52,10 @@ public:
 	int sets_player1 = 0;
 	int sets_player2 = 0;
 	int sets = 0;
-	int godmode = -1;
+	bool godmode;
 	int si = 0;
+	int volea_x;
+	int volea_y;
 	//int volea = 0;
 
 	bool bloqueig;

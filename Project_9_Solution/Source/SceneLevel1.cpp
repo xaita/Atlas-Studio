@@ -156,7 +156,7 @@ Update_Status SceneLevel1::Update()
 	spectators.Update();
 	currentAnimation = &spectators;
 
-	if (App->disk->saque == 0) {
+	if (App->disk->saque == 0 && App->disk->godmode == false) {
 		if (timer2 > 0) { timer2 -=1; }
 		timer.Update();
 

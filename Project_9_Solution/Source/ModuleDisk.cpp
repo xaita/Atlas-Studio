@@ -94,6 +94,7 @@ bool ModuleDisk::Start()
 
 	onair = false;
 	bloqueig = false;
+	godmode = false;
 
 	destroyed = false;
 
@@ -123,7 +124,7 @@ Update_Status ModuleDisk::Update()
 	}
 	if (App->sceneLevel_1->timer2 == 0 && (App->player->personatgedisc==1 || App->player2->personatgedisc2==1)) {
 
-		if (godmode != 1)
+		if (godmode != true)
 		{
 			if (score_player_1 > score_player_2) {
 
@@ -206,10 +207,13 @@ Update_Status ModuleDisk::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_F4] == Key_State::KEY_DOWN) {
-		godmode *= -1;
+	if (App->input->keys[SDL_SCANCODE_F1] == Key_State::KEY_DOWN && godmode == false) {
+		godmode = true;
 	}
-
+	else
+	if (App->input->keys[SDL_SCANCODE_F1] == Key_State::KEY_DOWN && godmode == true) {
+		godmode = false;
+	}
 
 	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN) {
 		sets_player1 = 2;
@@ -245,12 +249,19 @@ Update_Status ModuleDisk::Update()
 		onair = true;
 
 		
-		
+		currentAnimation2 = &projectile;
 
-		voleaanimation = &voleaanim;
+		/*voleaanimation = &voleaanim;*/
 		disc_speed_X = 2.5;
 
 		if (position.x >= 250 && ultimplayer == 1) {
+			volea = false;
+			onair = false;
+			disc_speed_X = 0;
+			disc_speed_Y = 0;
+			currentAnimation2 = &idle;
+		}
+		else if (position.x == volea_x) {
 			volea = false;
 			onair = false;
 			disc_speed_X = 0;
@@ -475,7 +486,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 		if (ultimplayer == 1) {
 
-			if (godmode != 1) {
+			if (godmode != true) {
 				score_player_1 += 5;
 			}
 
@@ -484,7 +495,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		}
 
 		if (ultimplayer == 2) {
-			if (godmode != 1) {
+			if (godmode != true) {
 				score_player_2 += 5;
 			}
 
@@ -512,7 +523,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 
 		if (ultimplayer == 1) {
-			if (godmode != 1) {
+			if (godmode != true) {
 				score_player_1 += 3;
 			}
 
@@ -520,7 +531,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		}
 
 		if (ultimplayer == 2) {
-			if (godmode != 1) {
+			if (godmode != true) {
 				score_player_2 += 3;
 			}
 			saque = 1;
