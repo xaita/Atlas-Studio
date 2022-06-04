@@ -42,8 +42,17 @@ bool SceneCoins::Start()
 	App->audio->PlayMusic("Assets/Audios/Music/01_Get Ready (Select Screen).ogg", 1.0f);
 
 	bgYellow = App->textures->Load("Assets/UI/Screens/YellowUI.png");
+	bgCredit = App->textures->Load("Assets/UI/Screens/Credits.png");
 
 	Coinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/InsertedCoin.wav");
+
+
+
+	if (App->input->keys[SDL_SCANCODE_LSHIFT] == Key_State::KEY_DOWN)
+	{
+
+	}
+
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -80,6 +89,7 @@ Update_Status SceneCoins::PostUpdate()
 	// Draw everything --------------------------------------
 	App->render->Blit(bgTexture[frame], 0, 0, NULL);
 	App->render->Blit(bgYellow, 0, 0, NULL);
+	App->render->Blit(bgCredit, 0, 0, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
 }

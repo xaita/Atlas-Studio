@@ -32,6 +32,7 @@ public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture[NUM_IMAGES];
 	SDL_Texture* bgYellow = nullptr;
+	SDL_Texture* bgCredit = nullptr;
 
 	uint Coinfx = 0;
 
