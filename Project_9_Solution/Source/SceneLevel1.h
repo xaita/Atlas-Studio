@@ -42,6 +42,9 @@ public:
 	SDL_Texture* bgNet = nullptr;
 	SDL_Texture* UI = nullptr;
 	SDL_Texture* Points5scoreR = nullptr;
+	SDL_Texture* Points5scoreL = nullptr;
+	SDL_Texture* Points3scoreR = nullptr;
+	SDL_Texture* Points3scoreL = nullptr;
 	SDL_Texture* P1Win = nullptr;
 	SDL_Texture* P2Win = nullptr;
 
@@ -102,6 +105,9 @@ public:
 	Animation timer;
 
 	Animation Points5ScoreR;
+	Animation Points5ScoreL;
+	Animation Points3ScoreR;
+	Animation Points3ScoreL;
 
 	Animation spectators;
 	Animation score;

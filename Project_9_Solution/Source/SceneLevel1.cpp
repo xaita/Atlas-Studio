@@ -43,7 +43,10 @@ bool SceneLevel1::Start()
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 	P1Win = App->textures->Load("Assets/UI/Others/P1Win.png");
 	P2Win = App->textures->Load("Assets/UI/Others/P2Win.png");
-	Points5scoreR = App->textures->Load("Assets/UI/Points_Goal/3_points_goal_(right)/3_points_dreta_2.png");
+	Points5scoreR = App->textures->Load("Assets/UI/Points_Goal/5_points_(right)/spritesheetpointsRight5");
+	Points5scoreL = App->textures->Load("Assets/UI/Points_Goal/5_points_(left)/spritesheetpointsleft5");
+	Points3scoreR = App->textures->Load("Assets/UI/Points_Goal/3_points_goal_(right)/spritesheetpointsright3");
+	Points3scoreL = App->textures->Load("Assets/UI/Points_Goal/3_points_goal_(left)/spritesheetpointsleft3");
 
 
 	UI_Timer = App->textures->Load("Assets/UI/timerSpriteSheet.png");
@@ -103,7 +106,26 @@ bool SceneLevel1::Start()
 	timer.speed = 0.017f;
 	timer2 = 1800;
 
-	Points5ScoreR.PushBack({ 300, 26, 0, 0 });
+	// 5 Dreta
+	Points5ScoreR.PushBack({ 24, 0, 63, 35 });
+	Points5ScoreR.PushBack({ 87, 0, 59, 35 });
+	Points5ScoreR.PushBack({ 146, 0, 55, 35 });
+	Points5ScoreR.PushBack({ 201, 0, 51, 35 });
+	Points5ScoreR.PushBack({ 252, 0, 47, 35 });
+	Points5ScoreR.PushBack({ 299, 0, 43, 35 });
+	Points5ScoreR.PushBack({ 342, 0, 39, 35 });
+	Points5ScoreR.PushBack({ 381, 0, 35, 35 });
+	Points5ScoreR.PushBack({ 416, 0, 31, 35 });
+	Points5ScoreR.PushBack({ 478, 0, 28, 35 });
+	Points5ScoreR.PushBack({ 506, 0, 24, 35 });
+	Points5ScoreR.PushBack({ 530, 0, 20, 35 });
+	Points5ScoreR.PushBack({ 550, 0, 16, 35 });
+	Points5ScoreR.PushBack({ 0, 0, 12, 35 });
+	Points5ScoreR.PushBack({ 12, 0, 8, 35 });
+	Points5ScoreR.PushBack({ 20, 0, 4, 35 });
+	Points5ScoreR.loop = false;
+	Points5ScoreR.speed = 0.1;
+	
 
 	//porteria esquerra
 	App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
@@ -215,6 +237,7 @@ Update_Status SceneLevel1::PostUpdate()
 
 	
 		App->render->Blit(UI_Timer, 144, 13, &(timer.GetCurrentFrame()));
+		App->render->Blit(Points5scoreR, 144, 56, &(Points5ScoreR.GetCurrentFrame()));
 
 
 	
