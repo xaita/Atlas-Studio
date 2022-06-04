@@ -310,8 +310,11 @@ Update_Status ModuleDisk::Update()
 	{
 		invisiblex = false;
 		onair = true;
-		voleaanim.Reset();
-		voleaanimation = &voleaanim;
+		if (voleaanimation != &voleaanim) {
+			voleaanim.Reset();
+			voleaanimation = &voleaanim;
+		}
+		
 		disc_speed_X = 2.5;
 
 		if (position.x >= 250 && ultimplayer == 1) {
