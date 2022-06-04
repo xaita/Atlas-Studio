@@ -117,7 +117,7 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	voleaanim.PushBack({ 4213, 20, 16, 16 });
 	voleaanim.PushBack({ 4269, 20, 16, 16 });
 	voleaanim.loop = false;
-	voleaanim.speed = 0.09f;
+	voleaanim.speed = 1.1f;
 
 
 
