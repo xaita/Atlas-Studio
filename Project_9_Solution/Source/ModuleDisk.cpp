@@ -58,6 +58,8 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	blocking.loop = true;
 	blocking.speed = 0.2f;
 
+	voleaanim.PushBack({ });
+
 }
 
 ModuleDisk::~ModuleDisk()
@@ -81,6 +83,7 @@ bool ModuleDisk::Start()
 	timer_Win = 300;
 
 	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
+	texturevolea = App->textures->Load("Assets/UI/Volea_Caiguda_Frisbee.png");
 
 	blockfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Block.wav");
 	catchfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Catch.wav");
@@ -236,7 +239,7 @@ Update_Status ModuleDisk::Update()
 	if (volea == true)			//volea
 	{
 		onair = true;
-		currentAnimation2 = &projectile;
+		voleaanimation = &voleaanim;
 		disc_speed_X = 2.5;
 		if (position.x >= 250 && ultimplayer == 1) {
 			volea = false;
@@ -395,7 +398,11 @@ Update_Status ModuleDisk::PostUpdate()
 	if (!destroyed)
 	{
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
+
 		App->render->Blit(texture, position.x, position.y, &rect2);
+		App->render->Blit(texturevolea, position.x, position.y, &(voleaanim.GetCurrentFrame()));
+
+
 	}
 	return Update_Status::UPDATE_CONTINUE;
 }
