@@ -410,7 +410,7 @@ Update_Status ModulePlayer2::Update()
 
 		}
 
-		if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN)
+		if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN)			//Tirar disc
 		{
 			if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_IDLE
@@ -428,11 +428,7 @@ Update_Status ModulePlayer2::Update()
 
 				App->disk->ultimplayer = 2;
 
-
-
 			}
-
-
 		}
 	}
 

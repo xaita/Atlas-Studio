@@ -37,8 +37,8 @@ public:
 	iPoint position;
 
 	// The speed in which we move the player (pixels per frame)
-	int disc_speed_X=0;
-	int disc_speed_Y=0;
+	float disc_speed_X=0;
+	float disc_speed_Y=0;
 	bool muerte_subita;
 
 	int saque = -1;

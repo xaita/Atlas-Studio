@@ -518,16 +518,16 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				App->disk->ultimplayer = 1;
 
 			}
-			if (App->input->keys[SDL_SCANCODE_V] == Key_State::KEY_DOWN) {
+			//if (App->input->keys[SDL_SCANCODE_V] == Key_State::KEY_DOWN) {
 
 
-				currentAnimation = &shooting;
-				App->disk->currentAnimation2 = &App->disk->moving;
-				App->disk->onair = true;
-				personatgedisc = -1;
-				App->disk->ultimplayer = 1;
+			//	currentAnimation = &shooting;
+			//	App->disk->currentAnimation2 = &App->disk->moving;
+			//	App->disk->onair = true;
+			//	personatgedisc = -1;
+			//	App->disk->ultimplayer = 1;
 
-			}
+			//}
 		}
 
 		else if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
@@ -629,19 +629,12 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			{
 				shooting.Reset();
 				currentAnimation = &shooting;
-				App->disk->currentAnimation2 = &App->disk->projectile;
-				App->disk->disc_speed_X = 3;
-				App->disk->volea = true;
-
-
 				personatgedisc = -1;
-
 				App->disk->ultimplayer = 1;
+
+				App->disk->volea = true;
 			}
-
 		}
-
-		
 	}
 
 	
@@ -706,18 +699,4 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		position.x = 38;
 		position.y = 112;
 	}
-	//if (App->disk->volea == true)
-	//{
-	//	App->disk->onair = true;
-	//	if (App->disk->position.x == 250) {
-	//		App->disk->volea = false;
-	//		App->disk->onair = false;
-	//		if (c1->type == Collider::Type::DISK && c2->type != Collider::Type::PLAYER
-	//			&& c1->type == Collider::Type::DISK && c2->type != Collider::Type::PLAYER2)
-	//			
-	//			scoreplayer1 += 2;
-	//			position.x = 38;
-	//			position.y = 112;
-	//	}
-	//}
 }

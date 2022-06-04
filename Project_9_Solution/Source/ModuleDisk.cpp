@@ -120,49 +120,12 @@ Update_Status ModuleDisk::Update()
 	}
 	if (App->sceneLevel_1->timer2 == 0 && (App->player->personatgedisc==1 || App->player2->personatgedisc2==1)) {
 
-		if (score_player_1 > score_player_2) {
+		if (godmode != 1)
+		{
+			if (score_player_1 > score_player_2) {
 
-			sets_player1 +=1;
-			saque = -2;
-			sets += 1;
-			timer_set = 300;
-			score_player_1 = 0;
-			score_player_2 = 0;
-			App->player->currentAnimation = &App->player->rightidleAnim;
-			App->player2->currentAnimation = &App->player2->leftidleAnim;
-			position.x = 143;
-			position.y = 191;
-			App->sceneLevel_1->timer2 = 1800;
-			App->sceneLevel_1->timer.Reset();
-			App->propsBackground->timersetcount = 350;
-		}
-
-		else if (score_player_2 > score_player_1) {
-
-			sets_player2 +=1;
-			saque = -1;
-			sets += 1;
-			timer_set = 300;
-			score_player_1 = 0;
-			score_player_2 = 0;
-			App->player->currentAnimation = &App->player->rightidleAnim;
-			App->player2->currentAnimation = &App->player2->leftidleAnim;
-			position.x = 143;
-			position.y = 191;
-			App->sceneLevel_1->timer2 = 1800;
-			App->sceneLevel_1->timer.Reset();
-			App->propsBackground->timersetcount = 350;
-		}
-
-		else if (score_player_1 == score_player_2) {
-
-
-			sets_player1 += 1;
-			sets_player2 += 1;
-			if (sets_player1 == 2 && sets_player2 == 2) {
-
-				muerte_subita = true;
-				saque = -1;
+				sets_player1 += 1;
+				saque = -2;
 				sets += 1;
 				timer_set = 300;
 				score_player_1 = 0;
@@ -174,10 +137,11 @@ Update_Status ModuleDisk::Update()
 				App->sceneLevel_1->timer2 = 1800;
 				App->sceneLevel_1->timer.Reset();
 				App->propsBackground->timersetcount = 350;
-
 			}
-			else {
 
+			else if (score_player_2 > score_player_1) {
+
+				sets_player2 += 1;
 				saque = -1;
 				sets += 1;
 				timer_set = 300;
@@ -191,10 +155,48 @@ Update_Status ModuleDisk::Update()
 				App->sceneLevel_1->timer.Reset();
 				App->propsBackground->timersetcount = 350;
 			}
-		
 
+			else if (score_player_1 == score_player_2) {
+
+
+				sets_player1 += 1;
+				sets_player2 += 1;
+				if (sets_player1 == 2 && sets_player2 == 2) {
+
+					muerte_subita = true;
+					saque = -1;
+					sets += 1;
+					timer_set = 300;
+					score_player_1 = 0;
+					score_player_2 = 0;
+					App->player->currentAnimation = &App->player->rightidleAnim;
+					App->player2->currentAnimation = &App->player2->leftidleAnim;
+					position.x = 143;
+					position.y = 191;
+					App->sceneLevel_1->timer2 = 1800;
+					App->sceneLevel_1->timer.Reset();
+					App->propsBackground->timersetcount = 350;
+
+				}
+				else {
+
+					saque = -1;
+					sets += 1;
+					timer_set = 300;
+					score_player_1 = 0;
+					score_player_2 = 0;
+					App->player->currentAnimation = &App->player->rightidleAnim;
+					App->player2->currentAnimation = &App->player2->leftidleAnim;
+					position.x = 143;
+					position.y = 191;
+					App->sceneLevel_1->timer2 = 1800;
+					App->sceneLevel_1->timer.Reset();
+					App->propsBackground->timersetcount = 350;
+				}
+
+
+			}
 		}
-
 	}
 
 	if (App->input->keys[SDL_SCANCODE_F4] == Key_State::KEY_DOWN) {
@@ -231,7 +233,24 @@ Update_Status ModuleDisk::Update()
 		}
 	}
 	
-
+	if (volea == true)			//volea
+	{
+		onair = true;
+		currentAnimation2 = &projectile;
+		disc_speed_X = 2.5;
+		if (position.x >= 250 && ultimplayer == 1) {
+			volea = false;
+			onair = false;
+			disc_speed_X = 0;
+			currentAnimation2 = &idle;
+		}
+		else if (position.x <= 38 && ultimplayer == 2) {
+			volea = false;
+			onair = false;
+			disc_speed_X = 0;
+			currentAnimation2 = &idle;
+		}
+	}
 
 	if (score_player_1 >= 12) {
 
@@ -415,7 +434,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	}
 
 
-	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER2)
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER2 && onair == false)
 	{
 		
 		App->player2->personatgedisc2 = 1;
