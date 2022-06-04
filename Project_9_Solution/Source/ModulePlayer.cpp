@@ -11,6 +11,7 @@
 #include "ModuleFonts.h"
 #include "ModuleDisk.h"
 #include "SDL/include/SDL.h"
+#include "SceneIntro.h"	
 
 #include <chrono>
 #include <thread>
@@ -22,163 +23,7 @@ using namespace std::this_thread;
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
-	//recive.PushBack({ 211,0,30,39 });
-	//recive.loop = false;
-	// idle animation - just one sprite
-	rightidleAnim.PushBack({ 393, 103 , 23, 36 });// frame 1
-	rightidleAnim.PushBack({ 370, 103 , 23, 35 });// frame 2
-	rightidleAnim.PushBack({ 347, 103 , 23, 36 });// frame 3
-	rightidleAnim.PushBack({ 323, 103 , 24, 36 });// frame 4
-	rightidleAnim.PushBack({ 299, 103 , 24, 35 });// frame 5
-	rightidleAnim.PushBack({ 275, 103 , 24, 36 });// frame 6
-	rightidleAnim.PushBack({ 251, 103 , 24, 39 });// frame 7
-	rightidleAnim.PushBack({ 227, 103 , 24, 37 });// frame 8
-	rightidleAnim.loop = true;
-	rightidleAnim.speed = 0.08f;
-
-	leftidleAnim.PushBack({ 393, 359 , 23, 36 });// frame 1
-	leftidleAnim.PushBack({ 370, 359 , 23, 35 });// frame 2
-	leftidleAnim.PushBack({ 347, 359 , 23, 36 });// frame 3
-	leftidleAnim.PushBack({ 323, 359 , 24, 36 });// frame 4
-	leftidleAnim.PushBack({ 299, 359 , 24, 35 });// frame 5
-	leftidleAnim.PushBack({ 274, 359 , 25, 36 });// frame 6
-	leftidleAnim.PushBack({ 250, 359 , 24, 39 });// frame 7
-	leftidleAnim.PushBack({ 227, 359 , 23, 37 });// frame 8
-	leftidleAnim.loop = true;
-	leftidleAnim.speed = 0.08f;
-
-	// move upwards
-	upAnim.PushBack({ 150, 191, 30, 40 });// frame 1
-	upAnim.PushBack({ 120, 191, 30, 51 });// frame 2
-	upAnim.PushBack({ 90, 191, 30, 50 });// frame 3
-	upAnim.PushBack({ 60, 191, 30, 40 });// frame 4
-	upAnim.PushBack({ 30, 191, 30, 53 });// frame 5
-	upAnim.PushBack({ 0, 191, 30, 50 });// frame 6
-	upAnim.loop = true;
-	upAnim.speed = 0.1f;
-
-	// Move down
-	downAnim.PushBack({ 240, 148, 29, 43 });// frame 1
-	downAnim.PushBack({ 208, 148, 32, 38 });// frame 2
-	downAnim.PushBack({ 179, 148, 29, 35 });// frame 3
-	downAnim.PushBack({ 155, 148, 24, 41 });// frame 4
-	downAnim.PushBack({ 125, 148, 30, 38 });// frame 5
-	downAnim.PushBack({ 94, 148, 31, 34 });// frame 6
-	downAnim.loop = true;
-	downAnim.speed = 0.1f;
-
-	// move right 
-	rightAnim.PushBack({ 454, 148, 45, 32 }); // frame 1
-	rightAnim.PushBack({ 426, 148, 28, 33 }); // frame 2
-	rightAnim.PushBack({ 385, 148, 41, 36 }); // frame 3
-	rightAnim.PushBack({ 339, 148, 46, 29 }); // frame 4
-	rightAnim.PushBack({ 310, 148, 29, 36 }); // frame 5
-	rightAnim.PushBack({ 269, 148, 41, 35 }); // frame 6
-	rightAnim.loop = true;
-	rightAnim.speed = 0.1f;
-
-	// move left
-	leftAnim.PushBack({ 455, 404, 45, 32 });
-	leftAnim.PushBack({ 427, 404, 28, 33 });
-	leftAnim.PushBack({ 386, 404, 40, 36 });
-	leftAnim.PushBack({ 340, 404, 45, 29 });
-	leftAnim.PushBack({ 311, 404, 28, 36 });
-	leftAnim.PushBack({ 270, 404, 40, 35 });
-	leftAnim.loop = true;
-	leftAnim.speed = 0.1f;
-
-	// rightdash
-	rightdash.PushBack({ 43,148,51,24 });
-	rightdash.PushBack({ 0,148,43,31 });
-	rightdash.PushBack({ 474,103,30,33 });
-	rightdash.loop = false;
-	rightdash.speed = 0.1f;
-
-	leftdash.PushBack({ 43,404,51,24 });
-	leftdash.PushBack({ 0,404,43,31 });
-	leftdash.PushBack({ 474,359,30,33 });
-	leftdash.loop = false;
-	leftdash.speed = 0.1f;
-
-
-	updash.PushBack({ 433,191,25,53 });
-	updash.PushBack({ 402,191,31,24 });
-	updash.PushBack({ 374,191,28,33 });
-	updash.loop = false;
-	updash.speed = 0.1f;
-
-	downdash.PushBack({ 277,46,25,57 });
-	downdash.PushBack({ 245,46,32,49 });
-	downdash.PushBack({ 213,46,32,41 });
-
-	downdash.loop = false;
-	downdash.speed = 0.1f;
-
-	rightupdash.PushBack({ 329,191,45,41 });
-	rightupdash.PushBack({ 297,191,32,30 });
-	rightupdash.PushBack({ 270,191,27,37 });
-
-	rightupdash.loop = false;
-	rightupdash.speed = 0.1f;
-
-	rightdowndash.PushBack({ 177,46,36,48 });
-	rightdowndash.PushBack({ 140,46,37,40 });
-	rightdowndash.PushBack({ 107,46,33,35 });
-
-	rightdowndash.loop = false;
-	rightdowndash.speed = 0.1f;
-
-	leftupdash.PushBack({ 329,447,45,41 });
-	leftupdash.PushBack({ 297,447,32,30 });
-	leftupdash.PushBack({ 270,447,27,37 });
-
-	leftupdash.loop = false;
-	leftupdash.speed = 0.1f;
-
-	leftdowndash.PushBack({ 177,302,36,48 });
-	leftdowndash.PushBack({ 140,302,37,40 });
-	leftdowndash.PushBack({ 107,302,33,35 });
-
-	leftdowndash.loop = false;
-	leftdowndash.speed = 0.1f;
-
-
-	// animation shooting
-	shooting.PushBack({ 73, 46, 34, 40 });// frame 1
-	shooting.PushBack({ 37, 46, 36, 38 });// frame 2
-	shooting.PushBack({ 0, 46, 37, 40 });// frame 3
-	shooting.PushBack({ 459, 0,	33,	41 });// frame 4
-	shooting.PushBack({ 432, 0,	27,	46 });// frame 5
-	shooting.PushBack({ 409, 0,	23,	43 });// frame 6
-
-
-	shooting.loop = false;
-	shooting.pingpong = false;
-	shooting.speed = 0.2f;
 	
-	
-	//Animation idle before shooting
-	rightidleFrisbee.PushBack({ 0, 514, 47, 48 });
-	rightidleFrisbee.PushBack({ 48, 514, 47, 45 });
-	rightidleFrisbee.PushBack({ 96, 514, 47, 48 });
-	rightidleFrisbee.PushBack({ 144, 514, 47, 48 });
-	rightidleFrisbee.PushBack({ 192, 514, 47, 48 });
-	rightidleFrisbee.loop = true;
-	rightidleFrisbee.speed = 0.08f;
-
-	uprightidleFrisbee.PushBack({ 367, 520, 45, 42 });
-	downrightidleFrisbee.PushBack({ 414, 518, 46, 44 });
-
-	blockanim.PushBack({ 49, 0, 28,	35 });
-	blockanim.PushBack({ 25, 0, 24, 35 });
-	blockanim.PushBack({ 0, 0,	25,	35 });
-	
-	blockanim.loop = false;
-	blockanim.speed = 0.25f;
-
-
-
-
 	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
 
 }
@@ -191,12 +36,430 @@ ModulePlayer::~ModulePlayer()
 bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
+	switch (App->sceneIntro->xdselectPlayer1) {
 
+	case '1':
+		texture = App->textures->Load("Assets/Sprites/Characters/Hiromi Mita/JapaneseSpriteSheedCanviL2.png");
+
+		rightidleAnim.PushBack({ 393, 103 , 23, 36 });// frame 1
+		rightidleAnim.PushBack({ 370, 103 , 23, 35 });// frame 2
+		rightidleAnim.PushBack({ 347, 103 , 23, 36 });// frame 3
+		rightidleAnim.PushBack({ 323, 103 , 24, 36 });// frame 4
+		rightidleAnim.PushBack({ 299, 103 , 24, 35 });// frame 5
+		rightidleAnim.PushBack({ 275, 103 , 24, 36 });// frame 6
+		rightidleAnim.PushBack({ 251, 103 , 24, 39 });// frame 7
+		rightidleAnim.PushBack({ 227, 103 , 24, 37 });// frame 8
+		rightidleAnim.loop = true;
+		rightidleAnim.speed = 0.08f;
+
+		leftidleAnim.PushBack({ 393, 359 , 23, 36 });// frame 1
+		leftidleAnim.PushBack({ 370, 359 , 23, 35 });// frame 2
+		leftidleAnim.PushBack({ 347, 359 , 23, 36 });// frame 3
+		leftidleAnim.PushBack({ 323, 359 , 24, 36 });// frame 4
+		leftidleAnim.PushBack({ 299, 359 , 24, 35 });// frame 5
+		leftidleAnim.PushBack({ 274, 359 , 25, 36 });// frame 6
+		leftidleAnim.PushBack({ 250, 359 , 24, 39 });// frame 7
+		leftidleAnim.PushBack({ 227, 359 , 23, 37 });// frame 8
+		leftidleAnim.loop = true;
+		leftidleAnim.speed = 0.08f;
+
+		// move upwards
+		upAnim.PushBack({ 150, 191, 30, 40 });// frame 1
+		upAnim.PushBack({ 120, 191, 30, 51 });// frame 2
+		upAnim.PushBack({ 90, 191, 30, 50 });// frame 3
+		upAnim.PushBack({ 60, 191, 30, 40 });// frame 4
+		upAnim.PushBack({ 30, 191, 30, 53 });// frame 5
+		upAnim.PushBack({ 0, 191, 30, 50 });// frame 6
+		upAnim.loop = true;
+		upAnim.speed = 0.1f;
+
+		// Move down
+		downAnim.PushBack({ 240, 148, 29, 43 });// frame 1
+		downAnim.PushBack({ 208, 148, 32, 38 });// frame 2
+		downAnim.PushBack({ 179, 148, 29, 35 });// frame 3
+		downAnim.PushBack({ 155, 148, 24, 41 });// frame 4
+		downAnim.PushBack({ 125, 148, 30, 38 });// frame 5
+		downAnim.PushBack({ 94, 148, 31, 34 });// frame 6
+		downAnim.loop = true;
+		downAnim.speed = 0.1f;
+
+		// move right 
+		rightAnim.PushBack({ 454, 148, 45, 32 }); // frame 1
+		rightAnim.PushBack({ 426, 148, 28, 33 }); // frame 2
+		rightAnim.PushBack({ 385, 148, 41, 36 }); // frame 3
+		rightAnim.PushBack({ 339, 148, 46, 29 }); // frame 4
+		rightAnim.PushBack({ 310, 148, 29, 36 }); // frame 5
+		rightAnim.PushBack({ 269, 148, 41, 35 }); // frame 6
+		rightAnim.loop = true;
+		rightAnim.speed = 0.1f;
+
+		// move left
+		leftAnim.PushBack({ 455, 404, 45, 32 });
+		leftAnim.PushBack({ 427, 404, 28, 33 });
+		leftAnim.PushBack({ 386, 404, 40, 36 });
+		leftAnim.PushBack({ 340, 404, 45, 29 });
+		leftAnim.PushBack({ 311, 404, 28, 36 });
+		leftAnim.PushBack({ 270, 404, 40, 35 });
+		leftAnim.loop = true;
+		leftAnim.speed = 0.1f;
+
+		// rightdash
+		rightdash.PushBack({ 43,148,51,24 });
+		rightdash.PushBack({ 0,148,43,31 });
+		rightdash.PushBack({ 474,103,30,33 });
+		rightdash.loop = false;
+		rightdash.speed = 0.1f;
+
+		leftdash.PushBack({ 43,404,51,24 });
+		leftdash.PushBack({ 0,404,43,31 });
+		leftdash.PushBack({ 474,359,30,33 });
+		leftdash.loop = false;
+		leftdash.speed = 0.1f;
+
+
+		updash.PushBack({ 433,191,25,53 });
+		updash.PushBack({ 402,191,31,24 });
+		updash.PushBack({ 374,191,28,33 });
+		updash.loop = false;
+		updash.speed = 0.1f;
+
+		downdash.PushBack({ 277,46,25,57 });
+		downdash.PushBack({ 245,46,32,49 });
+		downdash.PushBack({ 213,46,32,41 });
+
+		downdash.loop = false;
+		downdash.speed = 0.1f;
+
+		rightupdash.PushBack({ 329,191,45,41 });
+		rightupdash.PushBack({ 297,191,32,30 });
+		rightupdash.PushBack({ 270,191,27,37 });
+
+		rightupdash.loop = false;
+		rightupdash.speed = 0.1f;
+
+		rightdowndash.PushBack({ 177,46,36,48 });
+		rightdowndash.PushBack({ 140,46,37,40 });
+		rightdowndash.PushBack({ 107,46,33,35 });
+
+		rightdowndash.loop = false;
+		rightdowndash.speed = 0.1f;
+
+		leftupdash.PushBack({ 329,447,45,41 });
+		leftupdash.PushBack({ 297,447,32,30 });
+		leftupdash.PushBack({ 270,447,27,37 });
+
+		leftupdash.loop = false;
+		leftupdash.speed = 0.1f;
+
+		leftdowndash.PushBack({ 177,302,36,48 });
+		leftdowndash.PushBack({ 140,302,37,40 });
+		leftdowndash.PushBack({ 107,302,33,35 });
+
+		leftdowndash.loop = false;
+		leftdowndash.speed = 0.1f;
+
+
+		// animation shooting
+		shooting.PushBack({ 73, 46, 34, 40 });// frame 1
+		shooting.PushBack({ 37, 46, 36, 38 });// frame 2
+		shooting.PushBack({ 0, 46, 37, 40 });// frame 3
+		shooting.PushBack({ 459, 0,	33,	41 });// frame 4
+		shooting.PushBack({ 432, 0,	27,	46 });// frame 5
+		shooting.PushBack({ 409, 0,	23,	43 });// frame 6
+
+
+		shooting.loop = false;
+		shooting.pingpong = false;
+		shooting.speed = 0.2f;
+
+
+		//Animation idle before shooting
+		rightidleFrisbee.PushBack({ 0, 514, 47, 48 });
+		rightidleFrisbee.PushBack({ 48, 514, 47, 45 });
+		rightidleFrisbee.PushBack({ 96, 514, 47, 48 });
+		rightidleFrisbee.PushBack({ 144, 514, 47, 48 });
+		rightidleFrisbee.PushBack({ 192, 514, 47, 48 });
+		rightidleFrisbee.loop = true;
+		rightidleFrisbee.speed = 0.08f;
+
+		uprightidleFrisbee.PushBack({ 367, 520, 45, 42 });
+		downrightidleFrisbee.PushBack({ 414, 518, 46, 44 });
+
+		blockanim.PushBack({ 49, 0, 28,	35 });
+		blockanim.PushBack({ 25, 0, 24, 35 });
+		blockanim.PushBack({ 0, 0,	25,	35 });
+
+		blockanim.loop = false;
+		blockanim.speed = 0.25f;
+
+		break;
+
+	case '2':
+
+		texture = App->textures->Load("Assets/Sprites/Characters/Behoo Yoo/beehoYooSpriteSheet.png");
+		for (int i = 0; i < 8; i++) {
+			leftidleAnim.PushBack({ 462 + (i * 66), 462, 66, 66 });
+		}
+		leftidleAnim.loop = true;
+		leftidleAnim.speed = 0.075f;
+
+		//idleRAnim
+		for (int i = 0; i < 8; i++) {
+			rightidleAnim.PushBack({ 198 + (i * 66), 0, 66, 66 });
+		}
+		rightidleAnim.loop = true;
+		rightidleAnim.speed = 0.075f;
+
+		// Move Right
+		for (int i = 0; i < 6; i++) {
+			rightAnim.PushBack({ 792 + (i * 66), 0, 66, 66 });
+		}
+		rightAnim.loop = true;
+		rightAnim.speed = 0.075f;
+
+		//Move Left
+		for (int i = 0; i < 6; i++) {
+			leftAnim.PushBack({ 66 + (i * 66), 462, 66, 66 });
+		}
+		leftAnim.loop = true;
+		leftAnim.speed = 0.075f;
+
+
+		for (int i = 0; i < 6; i++) {
+			downAnim.PushBack({ 792 + (i * 66), 66, 66, 66 });
+		}
+		downAnim.loop = true;
+		downAnim.speed = 0.075f;
+
+		for (int i = 0; i < 6; i++) {
+			upAnim.PushBack({ 330 + (i * 66), 66, 66, 66 });
+		}
+		upAnim.loop = true;
+		upAnim.speed = 0.075f;
+
+		//Idle Disk
+		for (int i = 0; i < 8; i++) {
+			rightidleFrisbee.PushBack({ 0 + (i * 66), 330, 66, 66 });
+		}
+		rightidleFrisbee.loop = true;
+		rightidleFrisbee.speed = 0.075f;
+
+		//Lanzamiento Disco
+		for (int i = 0; i < 6; i++) {
+			shooting.PushBack({ 396 + (i * 66), 396, 66, 66 });
+		}
+		shooting.loop = false;
+		shooting.speed = 0.3f;
+
+		//Dash derecho
+		rightdash.PushBack({ 1122, 66, 66, 66 });
+		for (int i = 0; i < 3; i++) {
+			rightdash.PushBack({ 0 + (i * 66), 132, 66, 66 });
+		}
+		rightdash.loop = false;
+		rightdash.speed = 0.45f;
+
+		//Dash izquierdo
+		for (int i = 3; i >= 0; i--) {
+			leftdash.PushBack({ 1122 + (i * 66), 594, 66, 66 });
+		}
+		leftdash.loop = false;
+		leftdash.speed = 0.45f;
+
+		//Dash arriba
+		for (int i = 0; i < 3; i++) {
+			updash.PushBack({ 198 + (i * 66), 132, 66, 66 });
+		}
+		updash.loop = false;
+		updash.speed = 0.45f;
+
+		//Dash abajo
+		downdash.PushBack({ 726, 132, 66, 66 });
+		downdash.PushBack({ 792, 132, 66, 66 });
+		downdash.PushBack({ 1122, 132, 66, 66 });
+		downdash.PushBack({ 132, 198, 66, 66 });
+		downdash.loop = false;
+		downdash.speed = 0.45f;
+
+		//Win
+		/*for (int i = 0; i < 3; i++) {
+			win.PushBack({ 132 + (i * 66), 264, 66, 66 });
+		}
+		win.loop = true;
+		win.speed = 0.05f;*/
+
+		//Lose
+		/*for (int i = 0; i < 6; i++) {
+			lose.PushBack({ 330 + (i * 66), 264, 66, 66 });
+		}
+		lose.loop = true;
+		lose.speed = 0.05f;*/
+
+		//Dash diagonalUpRight
+		for (int i = 0; i < 4; i++) {
+			rightupdash.PushBack({ 462 + (i * 66), 66, 66, 66 });
+		}
+		rightupdash.loop = false;
+		rightupdash.speed = 0.45f;
+
+		//Dash diagonalDownRight
+		for (int i = 0; i < 4; i++) {
+			rightdowndash.PushBack({ 198 + (i * 66), 132, 66, 66 });
+		}
+		rightdowndash.loop = false;
+		rightdowndash.speed = 0.45f;
+
+		//Dash diagonalDownLeft
+		for (int i = 3; i >= 0; i--) {
+			leftdowndash.PushBack({ 726 + (i * 66), 660, 66, 66 });
+		}
+		leftdowndash.loop = false;
+		leftdowndash.speed = 0.45f;
+
+		//Dash diagonalUpLeft
+		for (int i = 3; i >= 0; i--) {
+			leftupdash.PushBack({ 462 + (i * 66), 594, 66, 66 });
+		}
+		leftupdash.loop = false;
+		leftupdash.speed = 0.45f;
+		break;
+
+	case '3':
+		texture = App->textures->Load("Assets/Sprites/Characters/Klauss Wessel/Alemán.png");
+
+		for (int i = 0; i < 3; i++) {
+			leftidleAnim.PushBack({ 825 + (i * 75), 390, 75, 65 });
+		}
+		leftidleAnim.loop = true;
+		leftidleAnim.speed = 0.075f;
+
+		//idleRAnim
+		for (int i = 0; i < 3; i++) {
+			rightidleAnim.PushBack({ 225 + (i * 75), 0, 75, 65 });
+		}
+		rightidleAnim.loop = true;
+		rightidleAnim.speed = 0.075f;
+
+		// Move Right
+		for (int i = 0; i < 6; i++) {
+			rightAnim.PushBack({ 450 + (i * 75), 0, 75, 65 });
+		}
+		rightAnim.loop = true;
+		rightAnim.speed = 0.075f;
+
+		//Move Left
+		for (int i = 0; i < 6; i++) {
+			leftAnim.PushBack({ 375 + (i * 75), 390, 75, 65 });
+		}
+		leftAnim.loop = true;
+		leftAnim.speed = 0.075f;
+
+		// Move Down Head Right
+		for (int i = 0; i < 6; i++) {
+			downAnim.PushBack({ 525 + (i * 75), 65, 75, 65 });
+		}
+		downAnim.loop = true;
+		downAnim.speed = 0.075f;
+
+		//Move Up Head Right
+		for (int i = 0; i < 6; i++) {
+			upAnim.PushBack({ 75 + (i * 75), 65, 75, 65 });
+		}
+		upAnim.loop = true;
+		upAnim.speed = 0.075f;
+
+		//Idle Disk
+		rightidleFrisbee.PushBack({ 1125, 260, 75, 65 });
+		rightidleFrisbee.PushBack({ 1200, 260, 75, 65 });
+		rightidleFrisbee.PushBack({ 0, 325, 75, 65 });
+		rightidleFrisbee.PushBack({ 75, 325, 75, 65 });
+		rightidleFrisbee.loop = true;
+		rightidleFrisbee.speed = 0.075f;
+
+		//Lanzamiento Disco
+		for (int i = 0; i < 6; i++) {
+			shooting.PushBack({ 750 + (i * 75), 325, 75, 65 });
+		}
+		shooting.loop = false;
+		shooting.speed = 0.3f;
+
+		//Dash derecho
+		for (int i = 0; i < 4; i++) {
+			shooting.PushBack({ 975 + (i * 75), 65, 75, 65 });
+		}
+		shooting.loop = false;
+		shooting.speed = 0.45f;
+
+		//Dash izquierdo
+		for (int i = 3; i >= 0; i--) {
+			leftdash.PushBack({ 0 + (i * 75), 455, 75, 65 });
+		}
+		leftdash.loop = false;
+		leftdash.speed = 0.45f;
+
+		//Dash arriba
+		for (int i = 0; i < 4; i++) {
+			updash.PushBack({ 0 + (i * 75), 130, 75, 65 });
+		}
+		updash.loop = false;
+		updash.speed = 0.45f;
+
+		//Dash abajo
+		for (int i = 0; i < 4; i++) {
+			downdash.PushBack({ 675 + (i * 75), 130, 75, 65 });
+		}
+		downdash.loop = false;
+		downdash.speed = 0.45f;
+
+		//Win
+		/*for (int i = 0; i < 7; i++) {
+			win.PushBack({ 450 + (i * 75), 195, 75, 65 });
+		}
+		win.loop = true;
+		win.speed = 0.05f;*/
+
+		//Lose
+		/*for (int i = 0; i < 4; i++) {
+			lose.PushBack({ 975 + (i * 75), 195, 75, 65 });
+		}
+		lose.PushBack({ 0, 260, 75, 65 });
+		lose.PushBack({ 75, 260, 75, 65 });
+		lose.loop = true;
+		lose.speed = 0.05f;*/
+
+		//Dash diagonalUpRight
+		for (int i = 0; i < 4; i++) {
+			rightdash.PushBack({ 375 + (i * 75), 130, 75, 65 });
+		}
+		rightdash.loop = false;
+		rightdash.speed = 0.45f;
+
+		//Dash diagonalDownRight
+		for (int i = 0; i < 4; i++) {
+			rightdowndash.PushBack({ 975 + (i * 75), 130, 75, 65 });
+		}
+		rightdowndash.loop = false;
+		rightdowndash.speed = 0.45f;
+
+		//Dash diagonalDownLeft
+		for (int i = 3; i >= 0; i--) {
+			leftdowndash.PushBack({ 0 + (i * 75), 520, 75, 65 });
+		}
+		leftdowndash.loop = false;
+		leftdowndash.speed = 0.45f;
+
+		//Dash diagonalUpLeft
+		for (int i = 3; i >= 0; i--) {
+			leftupdash.PushBack({ 600 + (i * 75), 520, 75, 65 });
+		}
+		leftupdash.loop = false;
+		leftupdash.speed = 0.45f;
+		break;
+
+	}
 	bool ret = true;
-
-	texture = App->textures->Load("Assets/Sprites/Characters/Hiromi Mita/JapaneseSpriteSheedCanviL2.png");
+	
 	currentAnimation = &rightidleAnim;
-
 
 	tossfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Toss.wav");
 	chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiCharge.wav");
@@ -720,7 +983,6 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		}
 	}
 
-	
 
 	collider->SetPos(position.x, position.y);
 

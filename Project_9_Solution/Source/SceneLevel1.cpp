@@ -125,7 +125,7 @@ bool SceneLevel1::Start()
 	Points3ScoreL.PushBack({ 100, 120, 8, 34 });
 	Points3ScoreL.PushBack({ 108, 120, 4, 34 });
 	Points3ScoreL.loop = false;
-	Points3ScoreL.speed = 0.1;
+	Points3ScoreL.speed = 0.2;
 	
 	// 3 Dreta
 	Points3ScoreR.PushBack({ 0, 188, 63, 34 });
@@ -143,7 +143,7 @@ bool SceneLevel1::Start()
 	Points3ScoreR.PushBack({ 104, 154, 16, 34 });
 	Points3ScoreR.PushBack({ 120, 154, 12, 34 });
 	Points3ScoreR.loop = false;
-	Points3ScoreR.speed = 0.1;
+	Points3ScoreR.speed = 0.2;
 
 	// 5 Esquerra
 	Points5ScoreR.PushBack({ 76, 258, 63, 35 });
@@ -159,7 +159,7 @@ bool SceneLevel1::Start()
 	Points5ScoreR.PushBack({ 197, 223, 20, 35 });
 	Points5ScoreR.PushBack({ 217, 223, 12, 35 });
 	Points5ScoreR.loop = false;
-	Points5ScoreR.speed = 0.1;
+	Points5ScoreR.speed = 0.2;
 
 	// 5 Dreta
 	Points5ScoreL.PushBack({ 74, 223, 63, 35 });
@@ -179,7 +179,7 @@ bool SceneLevel1::Start()
 	Points5ScoreL.PushBack({ 62, 188, 9, 35 });
 	Points5ScoreL.PushBack({ 71, 188, 5, 35 });
 	Points5ScoreL.loop = false;
-	Points5ScoreL.speed = 0.1;
+	Points5ScoreL.speed = 0.2;
 	
 	
 	//porteria esquerra

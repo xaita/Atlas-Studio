@@ -352,6 +352,7 @@ Update_Status ModuleDisk::Update()
 				App->disk->score_player_1 += 2;
 				App->player->position.x = 38;
 				App->player->position.y = 112;
+				App->audio->PlayFx(Pts2, 0);
 
 				saque = 1;
 			}
@@ -367,6 +368,7 @@ Update_Status ModuleDisk::Update()
 				App->disk->score_player_2 += 2;
 				App->player2->position.x = 240;
 				App->player2->position.y = 112;
+				App->audio->PlayFx(Pts2, 0);
 
 				saque = 2;
 			}
@@ -610,12 +612,12 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 
 		if (ultimplayer == 1) {
-			if (position.y > 127) {
+			if (position.y < 127) {
 				App->sceneLevel_1->points5righttop = 1;
 				App->sceneLevel_1->timerofpoints = 120;
 				App->sceneLevel_1->Points5ScoreR.Reset();
 			}
-			if (position.y < 127) {
+			if (position.y > 127) {
 				App->sceneLevel_1->points5rightbot = 1;
 				App->sceneLevel_1->timerofpoints = 120;
 				App->sceneLevel_1->Points5ScoreR.Reset();
@@ -630,12 +632,12 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		}
 
 		if (ultimplayer == 2) {
-			if (position.y > 127) {
+			if (position.y < 127) {
 				App->sceneLevel_1->points5lefttop = 1;
 				App->sceneLevel_1->timerofpoints = 120;
 				App->sceneLevel_1->Points5ScoreL.Reset();
 			}
-			if (position.y < 127) {
+			if (position.y > 127) {
 				App->sceneLevel_1->points5leftbot = 1;
 				App->sceneLevel_1->timerofpoints = 120;
 				App->sceneLevel_1->Points5ScoreL.Reset();
