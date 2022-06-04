@@ -202,7 +202,7 @@ Update_Status SceneLevel1::Update()
 {
 	spectators.Update();
 	currentAnimation = &spectators;
-	Points3ScoreL.Update();
+	
 
 	if (points5righttop == 1) {
 		currentAnimationScore = &Points5ScoreR;
@@ -327,7 +327,7 @@ Update_Status SceneLevel1::PostUpdate()
 		App->render->Blit(UI, 30, 192, &(Points5ScoreL.GetCurrentFrame()));
 	}
 	if (points3left == 1) {
-		App->render->Blit(UI, 30, 190, &(Points3ScoreL.GetCurrentFrame()));
+		App->render->Blit(UI, 11, 90, &(Points3ScoreL.GetCurrentFrame()));
 	}
 	if (points3right == 1) {
 		App->render->Blit(UI, 250, 90, &(Points3ScoreR.GetCurrentFrame()));
