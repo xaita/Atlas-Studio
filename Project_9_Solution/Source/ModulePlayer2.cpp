@@ -168,10 +168,9 @@ ModulePlayer2::ModulePlayer2(bool startEnabled) : Module(startEnabled)
 	uprightidleFrisbee.PushBack({ 417, 517, 46, 42 });
 	downrightidleFrisbee.PushBack({ 371, 515, 46, 44, });
 
-	blockanim.PushBack({ 49, 0, 28,	35 });
-	blockanim.PushBack({ 25, 0, 24, 35 });
-	blockanim.PushBack({ 0, 0,	25,	35 });
-
+	blockanim.PushBack({ 49, 256, 28,	35 });
+	blockanim.PushBack({ 25, 256, 24, 35 });
+	blockanim.PushBack({ 0,  256, 25,	35 });
 	blockanim.loop = false;
 	blockanim.speed = 0.25f;
 	
@@ -211,11 +210,10 @@ bool ModulePlayer2::Start()
 	
 	blockup == true;
 
-
+	ultimadireccio2 = 1; //1=esquerra 2=dreta
+	podermoverse2 = 0;
 	return ret;
 }
-int ultimadireccio2 = 1; //1=esquerra 2=dreta
-int podermoverse2 = 0;
 
 Update_Status ModulePlayer2::Update()
 {
@@ -259,12 +257,11 @@ Update_Status ModulePlayer2::Update()
 				{
 					leftAnim.Reset();
 					currentAnimation = &leftAnim;
-					ultimadireccio2 = 1;
 				}
 				if (currentAnimation != &leftdash) {
 					leftdash.Reset();
 				}
-				ultimadireccio2 = 2;
+				ultimadireccio2 = 1;
 			}
 
 			if (App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_REPEAT && position.x < 274)
@@ -342,7 +339,6 @@ Update_Status ModulePlayer2::Update()
 				{
 					leftAnim.Reset();
 					currentAnimation = &leftAnim;
-					ultimadireccio2 = 1;
 				}
 				ultimadireccio2 = 1;
 				if (currentAnimation != &leftdowndash) {
@@ -418,48 +414,40 @@ Update_Status ModulePlayer2::Update()
 				&& App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_IDLE
-				&& App->input->keys[SDL_SCANCODE_V] == Key_State::KEY_IDLE
-				&& ultimadireccio2 == 2) 
-					
-			    {
-
-				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_REPEAT && blocktimer < 20) {
-
-
-
-							blocktimer++;
-							blockdisk = true;
-
-
-
-				  if (currentAnimation != &blockanim && currentAnimation != &shooting)
-
-				  {
-								blockanim.Reset();
-								currentAnimation = &blockanim;
-
-				   }
-
-				}
-
-
-
-				if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE || blocktimer >= 20) {
-
-							blockdisk = false;
-							currentAnimation = &leftidleAnim;
-				}
-
-
-					
+				&& App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_IDLE
+				&& ultimadireccio2 == 2)
+			{
+				currentAnimation = &rightidleAnim;
 			}
-				
+			    
+
 			if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_UP] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_RIGHT] == Key_State::KEY_IDLE
 				&& ultimadireccio2 == 1)
-				currentAnimation = &leftidleAnim;
+				{
+					if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_REPEAT && blocktimer < 20) {
+
+						blocktimer++;
+						blockdisk = true;
+
+						if (currentAnimation != &blockanim && currentAnimation != &shooting)
+
+						{
+							blockanim.Reset();
+							currentAnimation = &blockanim;
+
+						}
+
+					}
+
+					if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_IDLE || blocktimer >= 20) {
+
+						blockdisk = false;
+						currentAnimation = &leftidleAnim;
+					}
+			}
 		}
 
 		if (App->disk->saque == 2 || App->disk->saque == 1) {

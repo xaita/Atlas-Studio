@@ -101,7 +101,8 @@ public:
 	uint scoreplayer2 = 00;
 	int scoreFont = -1;
 	char scoreText[10] = { "\0" };
-
+	int ultimadireccio2;
+	int podermoverse2;
 };
 
 #endif //!__MODULE_PLAYER2_H__
