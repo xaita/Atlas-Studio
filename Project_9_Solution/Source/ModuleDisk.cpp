@@ -58,7 +58,69 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	blocking.loop = true;
 	blocking.speed = 0.2f;
 
-	voleaanim.PushBack({ });
+	voleaanim.PushBack({ 20, 20, 20, 19});
+	voleaanim.PushBack({ 80, 20, 20, 19 });
+	voleaanim.PushBack({ 144, 20, 24, 24 });
+	voleaanim.PushBack({ 208, 20, 28, 26 });
+	voleaanim.PushBack({ 276, 20, 28, 28 });
+	voleaanim.PushBack({ 345, 20, 32, 30 });
+	voleaanim.PushBack({ 416, 20, 32, 32 });
+	voleaanim.PushBack({ 488, 20, 36, 33 });
+	voleaanim.PushBack({ 564, 20, 36, 35 });
+	voleaanim.PushBack({ 640, 20, 36, 36 });
+	voleaanim.PushBack({ 716, 20, 40, 37 });
+	voleaanim.PushBack({ 796, 20, 40, 39 });
+	voleaanim.PushBack({ 876, 20, 40, 40 });
+	voleaanim.PushBack({ 956, 20, 40, 40 });
+	voleaanim.PushBack({ 1036, 20, 43, 41 });
+	voleaanim.PushBack({ 1119, 20, 43, 42 });
+	voleaanim.PushBack({ 1202, 20, 43, 43 });
+	voleaanim.PushBack({ 1285, 20, 43, 43 });
+	voleaanim.PushBack({ 1368, 20, 43, 43 });
+	voleaanim.PushBack({ 1451, 20, 43, 42 });
+	voleaanim.PushBack({ 1534, 20, 43, 43 });
+	voleaanim.PushBack({ 1617, 20, 43, 44 });
+	voleaanim.PushBack({ 1700, 20, 43, 44 });
+	voleaanim.PushBack({ 1783, 20, 43, 44 });
+	voleaanim.PushBack({ 1866, 20, 43, 44 });
+	voleaanim.PushBack({ 1949, 20, 43, 44 });
+	voleaanim.PushBack({ 2032, 20, 43, 44 });
+	voleaanim.PushBack({ 2115, 20, 43, 43 });
+	voleaanim.PushBack({ 2198, 20, 43, 43 });
+	voleaanim.PushBack({ 2281, 20, 43, 43 });
+	voleaanim.PushBack({ 2364, 20, 43, 42 });
+	voleaanim.PushBack({ 2447, 20, 43, 41 });
+	voleaanim.PushBack({ 2530, 20, 43, 41 });
+	voleaanim.PushBack({ 2613, 20, 40, 40 });
+	voleaanim.PushBack({ 2693, 20, 40, 39 });
+	voleaanim.PushBack({ 2773, 20, 40, 38 });
+	voleaanim.PushBack({ 2853, 20, 40, 38 });
+	voleaanim.PushBack({ 2933, 20, 40, 37 });
+	voleaanim.PushBack({ 3013, 20, 36, 36 });
+	voleaanim.PushBack({ 3089, 20, 36, 35 });
+	voleaanim.PushBack({ 3165, 20, 36, 34 });
+	voleaanim.PushBack({ 3241, 20, 32, 32 });
+	voleaanim.PushBack({ 3313, 20, 32, 31 });
+	voleaanim.PushBack({ 3385, 20, 32, 30 });
+	voleaanim.PushBack({ 3457, 20, 32, 29 });
+	voleaanim.PushBack({ 3529, 20, 28, 28 });
+	voleaanim.PushBack({ 3597, 20, 28, 26 });
+	voleaanim.PushBack({ 3665, 20, 28, 25 });
+	voleaanim.PushBack({ 3733, 20, 24, 23 });
+	voleaanim.PushBack({ 3797, 20, 24, 22 });
+	voleaanim.PushBack({ 3861, 20, 24, 21 });
+	voleaanim.PushBack({ 3925, 20, 20, 19 });
+	voleaanim.PushBack({ 3985, 20, 20, 17 });
+	voleaanim.PushBack({ 4045, 20, 16, 16 });
+	voleaanim.PushBack({ 4101, 20, 16, 16 });
+	voleaanim.PushBack({ 4157, 20, 16, 16 });
+	voleaanim.PushBack({ 4213, 20, 16, 16 });
+	voleaanim.PushBack({ 4269, 20, 16, 16 });
+	voleaanim.loop = false;
+	voleaanim.speed = 0.2f;
+
+
+
 
 }
 
@@ -75,7 +137,7 @@ bool ModuleDisk::Start()
 
 
 	LOG("Loading Disk textures");
-
+	invisiblex = false;
 	si = 0;
 	bool ret = true;
 	muerte_subita = false;
@@ -246,12 +308,10 @@ Update_Status ModuleDisk::Update()
 	
 	if (volea == true)			//volea
 	{
+		invisiblex = false;
 		onair = true;
-
-		
-		currentAnimation2 = &projectile;
-
-		/*voleaanimation = &voleaanim;*/
+		voleaanim.Reset();
+		voleaanimation = &voleaanim;
 		disc_speed_X = 2.5;
 
 		if (position.x >= 250 && ultimplayer == 1) {
@@ -409,8 +469,11 @@ Update_Status ModuleDisk::PostUpdate()
 	if (!destroyed)
 	{
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
+		
+
 
 		App->render->Blit(texture, position.x, position.y, &rect2);
+		if(invisiblex==false)
 		App->render->Blit(texturevolea, position.x, position.y, &(voleaanim.GetCurrentFrame()));
 
 
@@ -438,6 +501,8 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			saque = 0;
 
 			currentAnimation2 = &invisible;
+			invisiblex = true;
+
 			projectile.Reset();
 		
 		}
@@ -468,6 +533,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		saque = 0;
 
 		currentAnimation2 = &invisible;
+		invisiblex = true;
 		projectile.Reset();
 
 	}
