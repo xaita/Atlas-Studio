@@ -64,7 +64,10 @@ Update_Status SceneIntro::Update()
 			App->audio->PlayFx(select, 0);
 			selectPlayer1 = '3';
 		}
+		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
+			selectPlayer1 = '4';
 
+		}
 		break;
 
 	   case '2':
@@ -78,7 +81,10 @@ Update_Status SceneIntro::Update()
 			App->audio->PlayFx(select, 0);
 			selectPlayer1 = '3';
 		}
-		
+		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
+			selectPlayer1 = '4';
+
+		}
 		break;
 
 	case '3':
@@ -92,8 +98,15 @@ Update_Status SceneIntro::Update()
 			App->audio->PlayFx(select, 0);
 			selectPlayer1 = '2';
 		}
+		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
+			selectPlayer1 = '4';
 
-			break;
+		}
+
+		break;
+	case '4':
+
+		break;
 	}
 
 
@@ -124,6 +137,10 @@ Update_Status SceneIntro::Update()
 			App->audio->PlayFx(select, 0);
 			selectPlayer2 = '3';
 		}
+		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
+			selectPlayer1 = '4';
+
+		}
 
 		break;
 
@@ -137,6 +154,10 @@ Update_Status SceneIntro::Update()
 		if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_DOWN) {
 			App->audio->PlayFx(select, 0);
 			selectPlayer2 = '3';
+		}
+		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
+			selectPlayer1 = '4';
+
 		}
 
 		break;
@@ -152,7 +173,14 @@ Update_Status SceneIntro::Update()
 			App->audio->PlayFx(select,0);
 			selectPlayer2 = '2';
 		}
+		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
+			selectPlayer1 = '4';
 
+		}
+
+		break;
+	case '4':
+		
 		break;
 	}
 
