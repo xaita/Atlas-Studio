@@ -36,34 +36,52 @@ bool PropsBackground::Start()
 	App->render->camera.y = 0;
 
 
-	refereeIdle.PushBack({ 132, 210, 45,35 });																		//ANIMACIO ARBITRE
-	refereeLookLeft.PushBack({ 0,105,44,35});
-	refereeLookRight.PushBack({ 176,70,44,35 });
+	refereeIdle.PushBack({ 177, 210, 59,35 });																		//ANIMACIO ARBITRE
+	refereeLookLeft.PushBack({ 0,105,59,35});
+	refereeLookRight.PushBack({ 236,70,59,35 });
 
-	refereePointLeft.PushBack({ 53, 36, 59, 35 });
-	refereePointLeft.PushBack({ 112, 36, 48, 35 });
-	refereePointLeft.PushBack({ 160, 36, 44, 35 });
-	refereePointLeft.PushBack({ 204, 36, 45, 35 });
+	refereePointLeft.PushBack({ 236, 36, 59, 35 });
+	refereePointLeft.PushBack({ 177, 36, 59, 35 });
+	refereePointLeft.PushBack({ 118, 36, 59, 35 });
+	refereePointLeft.PushBack({ 59, 36, 59, 35 });
+	refereePointLeft.PushBack({ 59, 36, 59, 35 });
+	refereePointLeft.PushBack({ 59, 36, 59, 35 });
+	refereePointLeft.PushBack({ 59, 36, 59, 35 });
+	refereePointLeft.PushBack({ 59, 36, 59, 35 });
+	refereePointLeft.PushBack({ 59, 36, 59, 35 });
+	refereePointLeft.PushBack({ 59, 36, 59, 35 });
+	refereePointLeft.PushBack({ 118, 36, 59, 35 });
+	refereePointLeft.PushBack({ 177, 36, 59, 35 });
+	refereePointLeft.PushBack({ 236, 36, 59, 35 });
 	refereePointLeft.speed = 0.1f;
 	refereePointLeft.loop = false;
 
-	refereePointRight.PushBack({ 0, 70, 44, 35 });
-	refereePointRight.PushBack({ 44, 70, 44, 35 });
-	refereePointRight.PushBack({ 88, 70, 44, 35 });
-	refereePointRight.PushBack({ 132, 70, 44, 35 });
+	refereePointRight.PushBack({ 177, 70, 59, 35 });
+	refereePointRight.PushBack({ 118, 70, 59, 35 });
+	refereePointRight.PushBack({ 59, 70, 59, 35 });
+	refereePointRight.PushBack({ 0, 70, 59, 35 });
+	refereePointRight.PushBack({ 0, 70, 59, 35 });
+	refereePointRight.PushBack({ 0, 70, 59, 35 });
+	refereePointRight.PushBack({ 0, 70, 59, 35 });
+	refereePointRight.PushBack({ 0, 70, 59, 35 });
+	refereePointRight.PushBack({ 0, 70, 59, 35 });
+	refereePointRight.PushBack({ 0, 70, 59, 35 });
+	refereePointRight.PushBack({ 59, 70, 59, 35 });
+	refereePointRight.PushBack({ 118, 70, 59, 35 });
+	refereePointRight.PushBack({ 177, 70, 59, 35 });
 	refereePointRight.speed = 0.1f;
 	refereePointRight.loop = false;
 
-	refereeNewDisk.PushBack({ 88,210,44,35 });
-	refereeNewDisk.PushBack({ 44,210,44,35 });
-	refereeNewDisk.PushBack({ 0,210,44,35 });
-	refereeNewDisk.PushBack({ 176,175,44,35 });
-	refereeNewDisk.PushBack({ 132,175,44,35 });
-	refereeNewDisk.PushBack({ 88,175,44,35 });
-	refereeNewDisk.PushBack({ 44,175,44,35 });
-	refereeNewDisk.PushBack({ 0,175,44,35 });
-	refereeNewDisk.PushBack({ 176,175,44,35 });
-	refereeNewDisk.PushBack({ 132,175,44,35 });
+	refereeNewDisk.PushBack({ 118,210,59,35 });
+	refereeNewDisk.PushBack({ 59,210,59,35 });
+	refereeNewDisk.PushBack({ 0,210,59,35 });
+	refereeNewDisk.PushBack({ 236,175,59,35 });
+	refereeNewDisk.PushBack({ 177,175,59,35 });
+	refereeNewDisk.PushBack({ 118,175,59,35 });
+	refereeNewDisk.PushBack({ 59,175,59,35 });
+	refereeNewDisk.PushBack({ 0,175,59,35 });
+	refereeNewDisk.PushBack({ 236,175,59,35 });
+	refereeNewDisk.PushBack({ 177,175,59,35 });
 	refereeNewDisk.speed = 0.2f;
 	refereeNewDisk.loop = false;
 
@@ -95,15 +113,15 @@ Update_Status PropsBackground::Update()
 		currentAnimationReferee = &refereeLookRight;
 	}
 
-	else if (timerrefree == 20) {
-		currentAnimationReferee = &refereeNewDisk;
-	}
+
 	else if (timerrefree <= 0){
 		currentAnimationReferee = &refereeIdle;
 		refereePointRight.Reset();
 		refereePointLeft.Reset();
 	}
-
+	else if (timerrefree <= 20) {
+		currentAnimationReferee = &refereeNewDisk;
+	}
 	currentAnimationReferee->Update();
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -129,12 +147,7 @@ Update_Status PropsBackground::PostUpdate()
 
 	SDL_Rect rect = currentAnimationReferee->GetCurrentFrame();
 
-	if (currentAnimationReferee == &refereePointLeft) {
-		App->render->Blit(referee, 123, 190, &rect);//////////////////////////////arreglo de l'animacio de l'arbitre que sortia desplaçada
-	}
-
-	else
-	App->render->Blit(referee, 138, 189, &rect);
+	App->render->Blit(referee, 123, 189, &rect);
 
 	if (App->disk->timer_set > 0 && timersetcount > 190 && (App->disk->sets_player1 != 0 || App->disk->sets_player2 != 0)) {
 

@@ -6,6 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "SceneCoins.h"
 
 SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
 {
@@ -29,6 +30,9 @@ bool SceneIntro::Start()
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 
 	App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/Select.wav");
+
+	App->sceneCoins->Coins;
+	Coinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/InsertedCoin.wav");
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -164,6 +168,52 @@ Update_Status SceneIntro::Update()
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntroMapes, 90);
 	}
 
+
+	if (App->input->keys[SDL_SCANCODE_LSHIFT] == Key_State::KEY_DOWN)
+	{
+		App->sceneCoins->Coins++;
+	}
+	if (App->sceneCoins->Coins == 1)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits1.png");
+	}
+	if (App->sceneCoins->Coins == 2)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits2.png");
+	}
+	if (App->sceneCoins->Coins == 3)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits3.png");
+	}
+	if (App->sceneCoins->Coins == 4)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits4.png");
+	}
+	if (App->sceneCoins->Coins == 5)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits5.png");
+	}
+	if (App->sceneCoins->Coins == 6)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits6.png");
+	}
+	if (App->sceneCoins->Coins == 7)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits7.png");
+	}
+	if (App->sceneCoins->Coins == 8)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits8.png");
+	}
+	if (App->sceneCoins->Coins == 9)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits9.png");
+	}
+	if (App->input->keys[SDL_SCANCODE_LSHIFT] == Key_State::KEY_DOWN)
+	{
+		App->audio->PlayFx(Coinfx, 0);
+	}
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -174,6 +224,7 @@ Update_Status SceneIntro::PostUpdate()
 	App->render->Blit(bgTexture, 0, 0, NULL);
 	App->render->Blit(UI, x1, y1, &P1);
 	App->render->Blit(UI, x2, y2, &P2);
+	App->render->Blit(bgCredits, 0, 0, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
 }

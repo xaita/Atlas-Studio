@@ -203,9 +203,24 @@ Update_Status SceneLevel1::Update()
 	spectators.Update();
 	currentAnimation = &spectators;
 	Points3ScoreL.Update();
-	currentAnimationScore = &Points3ScoreL;
+	
 
-
+	if (points5righttop == 1) {
+		currentAnimationScore = &Points5ScoreR;
+		points5righttop = 0;
+	}
+	if (points5rightbot == 1) {
+		currentAnimationScore = &Points5ScoreR;
+		points5rightbot = 0;
+	}
+	if (points5lefttop == 1) {
+		currentAnimationScore = &Points5ScoreL;
+		points5lefttop = 0;
+	}
+	if (points5leftbot == 1) {
+		currentAnimationScore = &Points5ScoreL;
+		points5leftbot = 0;
+	}
 
 
 

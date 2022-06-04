@@ -90,8 +90,10 @@ public:
 
 	char moureCameraGol;
 
-	int points5left = 0;
-	int points5right = 0;
+	int points5lefttop = 0;
+	int points5leftbot = 0;
+	int points5righttop = 0;
+	int points5rightbot = 0;
 	int points3right = 0;
 	int points3left = 0;
 	int timerofpoints;
