@@ -42,7 +42,11 @@ public:
 	uint Coinfx = 0;
 
 	char selectPlayer1;
+	char xdselectPlayer1;
+
 	char selectPlayer2;
+	char xdselectPlayer2;
+
 	int x1;
 	int y1;
 	int x2;

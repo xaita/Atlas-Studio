@@ -66,6 +66,7 @@ Update_Status SceneIntro::Update()
 		}
 		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 			selectPlayer1 = '4';
+			xdselectPlayer1 = '1';
 
 		}
 		break;
@@ -83,6 +84,7 @@ Update_Status SceneIntro::Update()
 		}
 		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 			selectPlayer1 = '4';
+			xdselectPlayer1 = '2';
 
 		}
 		break;
@@ -100,9 +102,9 @@ Update_Status SceneIntro::Update()
 		}
 		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 			selectPlayer1 = '4';
+			xdselectPlayer1 = '3';
 
 		}
-
 		break;
 	case '4':
 
@@ -139,6 +141,7 @@ Update_Status SceneIntro::Update()
 		}
 		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 			selectPlayer1 = '4';
+			xdselectPlayer2 = '1';
 
 		}
 
@@ -157,6 +160,7 @@ Update_Status SceneIntro::Update()
 		}
 		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 			selectPlayer1 = '4';
+			xdselectPlayer2 = '2';
 
 		}
 
@@ -175,6 +179,7 @@ Update_Status SceneIntro::Update()
 		}
 		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 			selectPlayer1 = '4';
+			xdselectPlayer2 = '3';
 
 		}
 
