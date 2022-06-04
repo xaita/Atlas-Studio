@@ -548,6 +548,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			else {
 				volea = false;
 				onair = false;
+				position.y += 10;
 				disc_speed_X = 0;
 				disc_speed_Y = 0;
 				currentAnimation2 = &idle;

@@ -524,11 +524,17 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				currentAnimation = &shooting;
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
-				App->disk->disc_speed_X = 2.5;
 				App->disk->volea_x = App->disk->position.x + 120;
-				App->disk->disc_speed_Y = -1.5;
-				App->disk->volea = true;
-
+				App->disk->volea_y = App->disk->position.y -(120 / 2.5);
+				if (App->disk->volea_y <= 30) {
+					App->disk->disc_speed_X = 2.5;
+					App->disk->volea = true;
+				}
+				else {
+					App->disk->disc_speed_X = 2.5;
+					App->disk->disc_speed_Y = -1;
+					App->disk->volea = true;
+				}
 			}
 		
 		}
@@ -556,9 +562,16 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
 				App->disk->volea_x = App->disk->position.x + 120;
-				App->disk->disc_speed_X = 2.5;
-				App->disk->disc_speed_Y = -1.5;
-				App->disk->volea = true;
+				App->disk->volea_y = App->disk->position.y - (120 / 2.5);
+				if (App->disk->volea_y <= 30) {
+					App->disk->disc_speed_X = 2.5;
+					App->disk->volea = true;
+				}
+				else {
+					App->disk->disc_speed_X = 2.5;
+					App->disk->disc_speed_Y = -1;
+					App->disk->volea = true;
+				}
 
 			}
 		}
@@ -585,10 +598,17 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
 				App->disk->volea_x = App->disk->position.x + 120;
-				App->disk->disc_speed_X = 2.5;
-				App->disk->disc_speed_Y = 1.5;
-				App->disk->volea = true;
+				App->disk->volea_y = App->disk->position.y + (120/2.5);
+				if (App->disk->volea_y >= 180) {
 
+					App->disk->disc_speed_X = 2.5;
+					App->disk->volea = true;
+				}
+				else {
+					App->disk->disc_speed_X = 2.5;
+					App->disk->disc_speed_Y = 1;
+					App->disk->volea = true;
+				}
 			}
 
 		}
@@ -616,9 +636,17 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 					personatgedisc = -1;
 					App->disk->ultimplayer = 1;
 					App->disk->volea_x = App->disk->position.x + 120;
-					App->disk->disc_speed_X = 2.5;
-					App->disk->disc_speed_Y = 1.5;
-					App->disk->volea = true;
+					App->disk->volea_y = App->disk->position.x + (120/2.5);
+					if (App->disk->volea_y >= 180) {
+
+						App->disk->disc_speed_X = 2.5;
+						App->disk->volea = true;
+					}
+					else {
+						App->disk->disc_speed_X = 2.5;
+						App->disk->disc_speed_Y = 1;
+						App->disk->volea = true;
+					}
 				
 			}
 
