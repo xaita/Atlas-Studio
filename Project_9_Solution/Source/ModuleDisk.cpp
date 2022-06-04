@@ -352,6 +352,7 @@ Update_Status ModuleDisk::Update()
 				App->disk->score_player_1 += 2;
 				App->player->position.x = 38;
 				App->player->position.y = 112;
+				App->audio->PlayFx(Pts2, 0);
 
 				saque = 1;
 			}
@@ -367,6 +368,7 @@ Update_Status ModuleDisk::Update()
 				App->disk->score_player_2 += 2;
 				App->player2->position.x = 240;
 				App->player2->position.y = 112;
+				App->audio->PlayFx(Pts2, 0);
 
 				saque = 2;
 			}
