@@ -646,8 +646,6 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 			App->audio->PlayFx(blockfx, 0);
 		}
-		
-		
 	}
 
 
@@ -698,7 +696,6 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 				App->audio->PlayFx(Pts5, 0);
 			}
 
-
 			saque = 2;
 		}
 		if (ultimplayer == 2) {
@@ -727,14 +724,6 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		timer = 120;
 		App->propsBackground->timersetcount = 350;
 
-
-
-
-		
-
-		
-
-
 	}
 	else if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_2)
 	{
@@ -745,14 +734,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		disc_speed_X = 0;
 		disc_speed_Y = 0;
 
-
-
-
 		timer = 120;
 
 		App->propsBackground->timersetcount = 350;
-
-
 
 		if (ultimplayer == 1) {
 			
