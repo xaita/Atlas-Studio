@@ -196,7 +196,7 @@ bool ModulePlayer::Start()
 
 	case '2':
 
-		texture = App->textures->Load("Assets/Sprites/Characters/Behoo Yoo/beehoYooSpriteSheet.png");
+		texture = App->textures->Load("Assets/Sprites/Characters/Beeho Yoo/beehoYooSpriteSheet.png");
 		for (int i = 0; i < 8; i++) {
 			leftidleAnim.PushBack({ 462 + (i * 66), 462, 66, 66 });
 		}
@@ -325,7 +325,7 @@ bool ModulePlayer::Start()
 		break;
 
 	case '3':
-		texture = App->textures->Load("Assets/Sprites/Characters/Klauss Wessel/Alemán.png");
+		texture = App->textures->Load("Assets/Sprites/Characters/Klauss Wessel/Alemancito.png");
 
 		for (int i = 0; i < 3; i++) {
 			leftidleAnim.PushBack({ 825 + (i * 75), 390, 75, 65 });
@@ -502,6 +502,8 @@ Update_Status ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE) {
 		blocktimer = 0;
 	}
+
+	
 
 if(personatgedisc == -1)	//MOVIMENT PLAYER
 {
