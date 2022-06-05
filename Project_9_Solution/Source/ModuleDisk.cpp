@@ -75,12 +75,15 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	hiromisuper.PushBack({ 48, 188, 48, 48 });
 	hiromisuper.PushBack({ 96, 188, 48, 48 });
 	hiromisuper.PushBack({ 144, 188, 48, 48 });
-	hiromisuper.PushBack({ 0, 0, 64, 64 });
-	hiromisuper.PushBack({ 0, 0, 64, 64 });
-	hiromisuper.PushBack({ 0, 0, 64, 64 });
-	hiromisuper.PushBack({ 0, 0, 64, 64 });
-	hiromisuper.PushBack({ 0, 0, 64, 64 });
-	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 192, 188, 64, 64 });
+	hiromisuper.PushBack({ 0, 236, 38, 38 });
+	hiromisuper.PushBack({ 38, 236, 32, 32 });
+	hiromisuper.PushBack({ 70, 236, 16, 96 });
+	hiromisuper.PushBack({ 86, 236, 16, 84 });
+	hiromisuper.PushBack({ 102, 236, 13, 38 });
+
+	//Beeho Super
+
 
 
 
