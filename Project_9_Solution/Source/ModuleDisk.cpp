@@ -104,16 +104,23 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	beehosuper.PushBack({ 177, 156, 45, 48 });
 	beehosuper.PushBack({ 0, 204, 38, 26 });
 
-	//super otros
+	//super Arriba
+	beehosuper.PushBack({ 470, 67, 16, 16 });
+	beehosuper.PushBack({ 486, 67, 16, 16 });
+
+	//super abajo
 	beehosuper.PushBack({});
 	beehosuper.PushBack({});
+
+	//super derecha
 	beehosuper.PushBack({});
 	beehosuper.PushBack({});
+
+	//super izquierda
 	beehosuper.PushBack({});
 	beehosuper.PushBack({});
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
+
+
 	beehosuper.PushBack({});
 	beehosuper.PushBack({});
 	beehosuper.PushBack({});
