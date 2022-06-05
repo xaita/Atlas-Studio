@@ -57,7 +57,7 @@ bool SceneLevel1::Start()
 	lawnNet = App->textures->Load("Assets/Sprites/Stages/Lawn/netSpritesheet.png");
 
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
-	JapanpwinJapan = App->textures->Load("Assets/UI/Others/JapanwinJapan.png");
+	JapanwinJapan = App->textures->Load("Assets/UI/Others/JapanwinJapan.png");
 	JapanlostJapan = App->textures->Load("Assets/UI/Others/JapanlostJapan.png");
 
 	
@@ -585,7 +585,7 @@ Update_Status SceneLevel1::PostUpdate()
 
 	if (App->disk->sets_player2 == 2 && App->disk->muerte_subita == false) {
 
-		App->render->Blit(P2Win, 0, 0, NULL);
+		App->render->Blit(JapanlostJapan, 0, 0, NULL);
 		App->render->Blit(UI, 30, 54, &P1LOSE);
 		App->render->Blit(UI, 176, 48, &P2WIN);
 
@@ -594,7 +594,7 @@ Update_Status SceneLevel1::PostUpdate()
 	}
 	if (App->disk->sets_player1 == 2 && App->disk->muerte_subita==false) {
 
-		App->render->Blit(P1Win, 0, 0, NULL);
+		App->render->Blit(JapanwinJapan, 0, 0, NULL);
 		App->render->Blit(UI, 18, 48, &P1WIN);
 		App->render->Blit(UI, 175, 54, &P2LOSE);
 		App->disk->si = 1;

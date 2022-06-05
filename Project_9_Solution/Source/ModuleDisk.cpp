@@ -345,6 +345,7 @@ bool ModuleDisk::Start()
 	augmentvy = 0;
 	aux = 0;
 	aux2 = 0;
+	sentido = 0;
 
 	destroyed = false;
 
@@ -715,9 +716,10 @@ Update_Status ModuleDisk::Update()
 	
 		if (ultimate_disk == true) {
 		
-			disc_speed_X = 2;
 			
-			augmentvy = -sin(augmentvx /30)*55;
+
+			
+			augmentvy = (-sin(augmentvx /30)*55)*sentido;
 			augmentvx += disc_speed_X;
 			position.x = aux+augmentvx;
 			position.y = aux2+augmentvy;
@@ -940,8 +942,17 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::TOP_WALL) {
 		
-		ultimate_disk = false;
-			if (onair == false) {
+		if (ultimate_disk == true) {
+
+			augmentvx = 1;
+			augmentvy = 0;
+			aux = position.x;
+			aux2 = position.y;
+			sentido = -1;
+
+
+		}
+		else if (onair == false) {
 				disc_speed_Y = -disc_speed_Y;
 			}
 			else {
@@ -958,9 +969,17 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::BOT_WALL) {
 
-		ultimate_disk = false;
+		if (ultimate_disk == true) {
 
-		if (saque == 0 && onair == false) {
+			augmentvx = 1;
+			augmentvy = 0;
+		
+			aux = position.x;
+			aux2 = position.y;
+			sentido = 1;
+
+
+		} else if (saque == 0 && onair == false) {
 			disc_speed_Y = -disc_speed_Y;
 		}
 		else {

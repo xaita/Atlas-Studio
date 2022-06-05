@@ -527,6 +527,7 @@ bool ModulePlayer::Start()
 	position.x = 38;
 	position.y = 112;
 
+
 	destroyed = false;
 	ultimate = false;
 
@@ -1060,23 +1061,42 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		}
 		if (App->player->ultimate == true) {
 
-			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
+		
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT){
+
+
+				App->disk->ultimate_disk = true;
+				App->player->ultimate = false;
+
+				App->disk->sentido = -1;
+
+
+				personatgedisc = -1;
+				App->disk->ultimplayer = 1;
+
+				App->disk->aux2 = App->disk->position.y;
+				App->disk->aux = App->disk->position.x;
+				
+				App->disk->disc_speed_X = 2;
+
+
+			}
+			else if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 
 				/*App->player->currentAnimation = &ultimateanim;*/
 				App->disk->ultimate_disk = true;
 				App->player->ultimate = false;
 
 
+				App->disk->sentido = 1;
 
-			
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
 
 				App->disk->aux2 = App->disk->position.y;
-				 App->disk->aux = App->disk->position.x;
-
+				App->disk->aux = App->disk->position.x;
+				App->disk->disc_speed_X = 2;
 			}
-
 		}
 	}
 

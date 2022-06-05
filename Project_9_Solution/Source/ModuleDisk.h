@@ -61,6 +61,7 @@ public:
 	int timerterrap2;
 	int correcciospritex;
 	int correcciospritey;
+	int sentido;
 
 	double posx;
 	double posy;
