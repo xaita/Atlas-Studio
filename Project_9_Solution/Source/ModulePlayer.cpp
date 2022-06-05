@@ -40,6 +40,8 @@ bool ModulePlayer::Start()
 
 	case '1':
 		texture = App->textures->Load("Assets/Sprites/Characters/Hiromi Mita/JapaneseSpriteSheedCanviL2.png");
+		correcciox = 0;
+		correccioy = 0;
 
 		rightidleAnim.PushBack({ 393, 103 , 23, 36 });// frame 1
 		rightidleAnim.PushBack({ 370, 103 , 23, 35 });// frame 2
@@ -197,52 +199,54 @@ bool ModulePlayer::Start()
 	case '2':
 
 		texture = App->textures->Load("Assets/Sprites/Characters/Beeho Yoo/beehoYooSpriteSheet.png");
+		correcciox = -20;
+		correccioy = -18;
 		for (int i = 0; i < 8; i++) {
 			leftidleAnim.PushBack({ 462 + (i * 66), 462, 66, 66 });
 		}
 		leftidleAnim.loop = true;
-		leftidleAnim.speed = 0.075f;
+		leftidleAnim.speed = 0.1f;
 
 		//idleRAnim
 		for (int i = 0; i < 8; i++) {
 			rightidleAnim.PushBack({ 198 + (i * 66), 0, 66, 66 });
 		}
 		rightidleAnim.loop = true;
-		rightidleAnim.speed = 0.075f;
+		rightidleAnim.speed = 0.1f;
 
 		// Move Right
 		for (int i = 0; i < 6; i++) {
 			rightAnim.PushBack({ 792 + (i * 66), 0, 66, 66 });
 		}
 		rightAnim.loop = true;
-		rightAnim.speed = 0.075f;
+		rightAnim.speed = 0.1f;
 
 		//Move Left
 		for (int i = 0; i < 6; i++) {
 			leftAnim.PushBack({ 66 + (i * 66), 462, 66, 66 });
 		}
 		leftAnim.loop = true;
-		leftAnim.speed = 0.075f;
+		leftAnim.speed = 0.1f;
 
 
 		for (int i = 0; i < 6; i++) {
 			downAnim.PushBack({ 792 + (i * 66), 66, 66, 66 });
 		}
 		downAnim.loop = true;
-		downAnim.speed = 0.075f;
+		downAnim.speed = 0.1f;
 
 		for (int i = 0; i < 6; i++) {
 			upAnim.PushBack({ 330 + (i * 66), 66, 66, 66 });
 		}
 		upAnim.loop = true;
-		upAnim.speed = 0.075f;
+		upAnim.speed = 0.1f;
 
 		//Idle Disk
 		for (int i = 0; i < 8; i++) {
 			rightidleFrisbee.PushBack({ 0 + (i * 66), 330, 66, 66 });
 		}
 		rightidleFrisbee.loop = true;
-		rightidleFrisbee.speed = 0.075f;
+		rightidleFrisbee.speed = 0.1f;
 
 		//Lanzamiento Disco
 		for (int i = 0; i < 6; i++) {
@@ -257,21 +261,23 @@ bool ModulePlayer::Start()
 			rightdash.PushBack({ 0 + (i * 66), 132, 66, 66 });
 		}
 		rightdash.loop = false;
-		rightdash.speed = 0.45f;
+		rightdash.speed = 0.25f;
 
 		//Dash izquierdo
-		for (int i = 3; i >= 0; i--) {
-			leftdash.PushBack({ 1122 + (i * 66), 594, 66, 66 });
-		}
+		leftdash.PushBack({ 0, 528, 66, 66 });
+		leftdash.PushBack({ 1122, 594, 66, 66 });
+		leftdash.PushBack({ 1056, 594, 66, 66 });
+		leftdash.PushBack({ 989, 594, 66, 66 });
+
 		leftdash.loop = false;
-		leftdash.speed = 0.45f;
+		leftdash.speed = 0.25f;
 
 		//Dash arriba
 		for (int i = 0; i < 3; i++) {
 			updash.PushBack({ 198 + (i * 66), 132, 66, 66 });
 		}
 		updash.loop = false;
-		updash.speed = 0.45f;
+		updash.speed = 0.25f;
 
 		//Dash abajo
 		downdash.PushBack({ 726, 132, 66, 66 });
@@ -279,7 +285,7 @@ bool ModulePlayer::Start()
 		downdash.PushBack({ 1122, 132, 66, 66 });
 		downdash.PushBack({ 132, 198, 66, 66 });
 		downdash.loop = false;
-		downdash.speed = 0.45f;
+		downdash.speed = 0.25f;
 
 		//Win
 		/*for (int i = 0; i < 3; i++) {
@@ -296,77 +302,81 @@ bool ModulePlayer::Start()
 		lose.speed = 0.05f;*/
 
 		//Dash diagonalUpRight
-		for (int i = 0; i < 4; i++) {
-			rightupdash.PushBack({ 462 + (i * 66), 66, 66, 66 });
-		}
+		rightupdash.PushBack({ 462, 132, 66, 66 });
+		rightupdash.PushBack({ 528, 132, 66, 66 });
+		rightupdash.PushBack({ 594, 132, 66, 66 });
+		rightupdash.PushBack({ 660, 132, 66, 66 });
+
 		rightupdash.loop = false;
-		rightupdash.speed = 0.45f;
+		rightupdash.speed = 0.25f;
 
 		//Dash diagonalDownRight
-		for (int i = 0; i < 4; i++) {
-			rightdowndash.PushBack({ 198 + (i * 66), 132, 66, 66 });
-		}
+		rightdowndash.PushBack({ 198, 198, 66, 66 });
+		rightdowndash.PushBack({ 264, 198, 66, 66 });
+		rightdowndash.PushBack({ 330, 198, 66, 66 });
+		rightdowndash.PushBack({ 396, 198, 66, 66 });
 		rightdowndash.loop = false;
-		rightdowndash.speed = 0.45f;
+		rightdowndash.speed = 0.25f;
 
 		//Dash diagonalDownLeft
 		for (int i = 3; i >= 0; i--) {
 			leftdowndash.PushBack({ 726 + (i * 66), 660, 66, 66 });
 		}
 		leftdowndash.loop = false;
-		leftdowndash.speed = 0.45f;
+		leftdowndash.speed = 0.25f;
 
 		//Dash diagonalUpLeft
 		for (int i = 3; i >= 0; i--) {
 			leftupdash.PushBack({ 462 + (i * 66), 594, 66, 66 });
 		}
 		leftupdash.loop = false;
-		leftupdash.speed = 0.45f;
+		leftupdash.speed = 0.25f;
 		break;
 
 	case '3':
 		texture = App->textures->Load("Assets/Sprites/Characters/Klauss Wessel/Alemancito.png");
-
+		correcciox = -20;
+		correccioy = -18;
 		for (int i = 0; i < 3; i++) {
 			leftidleAnim.PushBack({ 825 + (i * 75), 390, 75, 65 });
 		}
 		leftidleAnim.loop = true;
-		leftidleAnim.speed = 0.075f;
+		leftidleAnim.speed = 0.1f;
 
 		//idleRAnim
 		for (int i = 0; i < 3; i++) {
 			rightidleAnim.PushBack({ 225 + (i * 75), 0, 75, 65 });
 		}
 		rightidleAnim.loop = true;
-		rightidleAnim.speed = 0.075f;
+		rightidleAnim.speed = 0.1f;
 
 		// Move Right
 		for (int i = 0; i < 6; i++) {
 			rightAnim.PushBack({ 450 + (i * 75), 0, 75, 65 });
 		}
 		rightAnim.loop = true;
-		rightAnim.speed = 0.075f;
+		rightAnim.speed = 0.1f;
 
 		//Move Left
 		for (int i = 0; i < 6; i++) {
 			leftAnim.PushBack({ 375 + (i * 75), 390, 75, 65 });
 		}
 		leftAnim.loop = true;
-		leftAnim.speed = 0.075f;
+		leftAnim.speed = 0.1f;
 
 		// Move Down Head Right
 		for (int i = 0; i < 6; i++) {
 			downAnim.PushBack({ 525 + (i * 75), 65, 75, 65 });
 		}
 		downAnim.loop = true;
-		downAnim.speed = 0.075f;
+		downAnim.speed = 0.1f;
 
 		//Move Up Head Right
 		for (int i = 0; i < 6; i++) {
 			upAnim.PushBack({ 75 + (i * 75), 65, 75, 65 });
 		}
 		upAnim.loop = true;
-		upAnim.speed = 0.075f;
+		upAnim.speed = 0.1f;
 
 		//Idle Disk
 		rightidleFrisbee.PushBack({ 1125, 260, 75, 65 });
@@ -374,7 +384,7 @@ bool ModulePlayer::Start()
 		rightidleFrisbee.PushBack({ 0, 325, 75, 65 });
 		rightidleFrisbee.PushBack({ 75, 325, 75, 65 });
 		rightidleFrisbee.loop = true;
-		rightidleFrisbee.speed = 0.075f;
+		rightidleFrisbee.speed = 0.1f;
 
 		//Lanzamiento Disco
 		for (int i = 0; i < 6; i++) {
@@ -1018,7 +1028,7 @@ Update_Status ModulePlayer::PostUpdate()
 	if (!destroyed)
 	{
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
-		App->render->Blit(texture, position.x, position.y, &rect);
+		App->render->Blit(texture, position.x+correcciox, position.y+correccioy, &rect);
 	}
 
 

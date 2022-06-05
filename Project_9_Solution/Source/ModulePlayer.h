@@ -48,6 +48,10 @@ public:
 	bool blockup;
 	bool block;
 	bool blockdisk;
+	int correcciox;
+	int correccioy;
+
+
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
 	
