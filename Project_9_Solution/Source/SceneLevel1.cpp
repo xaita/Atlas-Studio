@@ -12,6 +12,7 @@
 #include "ModuleDisk.h"
 #include "PropsBackground.h"
 #include "SDL/include/SDL.h"
+#include "SceneIntroMapes.h"
 
 
 
@@ -38,11 +39,14 @@ bool SceneLevel1::Start()
 	bgTopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/top_wall.png");								//
 	bgExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall.png");				//
 	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");
-	bgObstacle = App->textures->Load("Assets/Sprites/Stages/Concrete/obstacle.png");	//
+	bgObstacle = App->textures->Load("Assets/Sprites/Stages/Concrete/obstacle.png");							//
 	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");										//
 
-	beachTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/beachSpriteSheet.png");
-	beachNet = App->textures->Load("Assets/Sprites/Stages/Concrete/anim901_0007_Red.png");
+	beachTexture = App->textures->Load("Assets/Sprites/Stages/Beach/beachSpriteSheet.png");
+	beachNet = App->textures->Load("Assets/Sprites/Stages/Beach/anim901_0007_Red.png");
+
+	lawnTexture = App->textures->Load("Assets/Sprites/Stages/Lawn/Lawn_SpriteSheet.png");
+	lawnNet = App->textures->Load("Assets/Sprites/Stages/Lawn/netSprithesheet.png");
 
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 	P1Win = App->textures->Load("Assets/UI/Others/P1Win.png");
@@ -57,6 +61,22 @@ bool SceneLevel1::Start()
 
 	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);					//MUSICA
 
+	//concrete
+	spectators.PushBack({ 0,0,358,224 });																		//ANIMACIO ESPECTADORS
+	spectators.PushBack({ 363,0,358,224 });
+	spectators.PushBack({ 739,0,358,224 });
+	spectators.loop = true;
+	spectators.speed = 0.15f;
+
+	//beach
+	spectatorsBeach.PushBack({ 0, 0, 304, 224 });
+	spectatorsBeach.PushBack({ 0, 224, 304, 224 });
+	spectatorsBeach.PushBack({ 0, 448, 304, 224 });
+	spectatorsBeach.PushBack({ 0, 672, 304, 224 });
+	spectators.loop = true;
+	spectators.speed = 0.15f;
+
+	//lawn
 	spectators.PushBack({ 0,0,358,224 });																		//ANIMACIO ESPECTADORS
 	spectators.PushBack({ 363,0,358,224 });
 	spectators.PushBack({ 739,0,358,224 });
@@ -207,8 +227,12 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
+	spectatorsBeach.Update();
+	currentAnimation = &spectatorsBeach;
 	spectators.Update();
 	currentAnimation = &spectators;
+	spectatorsLawn.Update();
+	currentAnimation = &spectatorsLawn;
 	
 
 	/*if (points5righttop == 1) {
@@ -320,15 +344,34 @@ Update_Status SceneLevel1::Update()
 Update_Status SceneLevel1::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	App->render->Blit(bgTexture, -27, 0, &(spectators.GetCurrentFrame()));
-	App->render->Blit(bgExtremetopwall, 0, 16, NULL);
-	App->render->Blit(bgExtremetopwallright, 267, 16, NULL);
-	App->render->Blit(bgTopwall, 30, 20, NULL);
-	App->render->Blit(bgObstacle, 144, 70, NULL);
-	App->render->Blit(bgObstacle, 144, 166, NULL);
-	App->render->Blit(bgNet, 142, 31, NULL);
+	
+	App->render->Blit(lawnTexture, -27, 0, &(spectatorsLawn.GetCurrentFrame()));
+	App->render->Blit(lawnNet, 142, 31, NULL);
+	
+	switch (App->sceneIntroMapes->selectMap) {
+		case '1':
+		App->render->Blit(beachTexture, 0, 0, &(spectatorsBeach.GetCurrentFrame()));
+		App->render->Blit(beachNet, 142, 31, NULL);
+		break;
 
+		case '2':
+		App->render->Blit(bgTexture, -27, 0, &(spectators.GetCurrentFrame()));
+		App->render->Blit(bgExtremetopwall, 0, 16, NULL);
+		App->render->Blit(bgExtremetopwallright, 267, 16, NULL);
+		App->render->Blit(bgTopwall, 30, 20, NULL);
+		App->render->Blit(bgObstacle, 144, 70, NULL);
+		App->render->Blit(bgObstacle, 144, 166, NULL);
+		App->render->Blit(bgNet, 142, 31, NULL);
+		break;
 
+	case '3':
+		App->render->Blit(lawnTexture, -27, 0, &(spectatorsLawn.GetCurrentFrame()));
+		App->render->Blit(lawnNet, 142, 31, NULL);
+		break;
+	}
+
+	
+	
 	
 	App->render->Blit(UI_Timer, 144, 13, &(timer.GetCurrentFrame()));
 	

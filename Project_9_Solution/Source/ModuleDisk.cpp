@@ -358,6 +358,14 @@ Update_Status ModuleDisk::Update()
 			if (App->player->personatgedisc != 1)
 			{				
 				timerterrap1 = 60;				
+			{
+				App->player->scoreplayer1 += 2;
+				App->player->position.x = 38;
+				App->player->position.y = 112;
+				App->audio->PlayFx(landingfx, 0);
+				App->audio->PlayFx(Pts2, 0);
+
+				saque = 1;
 			}
 		}
 		else if (position.x == volea_x) {					//disc cau a terra

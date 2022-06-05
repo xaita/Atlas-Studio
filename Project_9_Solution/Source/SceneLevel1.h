@@ -45,6 +45,10 @@ public:
 	SDL_Texture* beachTexture = nullptr;
 	SDL_Texture* beachNet = nullptr;
 
+	//textures lawn
+	SDL_Texture* lawnTexture = nullptr;
+	SDL_Texture* lawnNet = nullptr;
+
 	SDL_Texture* UI = nullptr;
 	SDL_Texture* Points5scoreR = nullptr;
 	SDL_Texture* Points5scoreL = nullptr;
@@ -117,7 +121,10 @@ public:
 	Animation Points3ScoreR;
 	Animation Points3ScoreL;
 
-	Animation spectators;
+	Animation spectators;		//concrete
+	Animation spectatorsBeach;
+	Animation spectatorsLawn;
+
 	Animation score;
 
 

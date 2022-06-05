@@ -44,8 +44,7 @@ bool SceneIntroMapes::Start()
 
 	X1 = 164;
 	Y1 = 56;
-	Readym1 = false;
-	Readym2 = false;
+	Readymap = false;
 
 	App->sceneCoins->Coins;
 	Coinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/InsertedCoin.wav");
@@ -100,16 +99,13 @@ Update_Status SceneIntroMapes::Update()
 		break;
 	}
 	
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN || App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
-		Readym1 = true;
+	if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN || App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
+		Readymap = true;
 	}
-	/*if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
-		Ready2 = true;
-	}*/
+
 	
 	
-	
-	if (Readym1 == true /*&& Ready2 == true*/)
+	if (Readymap == true)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneVS, 90);
 	}

@@ -45,8 +45,7 @@ public:
 	char selectMap;
 	int X1;
 	int Y1;
-	bool Readym1;
-	bool Readym2;
+	bool Readymap;
 };
 
 #endif
