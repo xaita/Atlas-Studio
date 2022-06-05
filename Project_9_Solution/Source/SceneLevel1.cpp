@@ -338,8 +338,8 @@ Update_Status SceneLevel1::PostUpdate()
 	// Draw everything --------------------------------------
 	
 	App->render->Blit(lawnTexture, -27, 0, &(spectatorsLawn.GetCurrentFrame()));
-	App->render->Blit(lawnNet, 142, 31, NULL);
-	
+	App->render->Blit(lawnNet, 142, 31, &(lawnNetAnimation.GetCurrentFrame()));
+
 	switch (App->sceneIntroMapes->selectMap) {
 		case '1':
 		App->render->Blit(beachTexture, 0, 0, &(spectatorsBeach.GetCurrentFrame()));
