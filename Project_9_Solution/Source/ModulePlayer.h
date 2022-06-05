@@ -85,6 +85,7 @@ public:
 	Animation blockanim;
 	Animation recive;
 	Animation charge_ult;
+	Animation ultshot;
 
 	// The player's collider
 	Collider* collider = nullptr;

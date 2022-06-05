@@ -199,6 +199,21 @@ bool ModulePlayer::Start()
 		charge_ult.loop = false;
 		charge_ult.speed = 0.1f;
 
+		ultshot.PushBack({ 73, 46, 34, 40 });
+		ultshot.PushBack({ 37, 46, 36, 38 });
+		ultshot.PushBack({ 0, 46, 37, 40 });
+		ultshot.PushBack({ 459, 0,	33,	41 });
+		ultshot.PushBack({ 432, 0,	27,	46 });
+		ultshot.PushBack({ 409, 0,	23,	43 });
+		ultshot.PushBack({ 0, 573, 50, 38 });
+		ultshot.PushBack({ 50, 570, 28, 53});
+		ultshot.PushBack({ 78, 570, 45, 45 });
+		ultshot.PushBack({ 123, 570, 49, 43 });
+		ultshot.PushBack({ 172, 570, 34, 53 });
+		ultshot.PushBack({ 206, 570, 38, 46 });
+		ultshot.PushBack({ 244, 570, 40, 41 });
+
+
 		break;
 
 	case '2':
