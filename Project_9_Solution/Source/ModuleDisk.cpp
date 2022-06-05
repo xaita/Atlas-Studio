@@ -150,6 +150,8 @@ bool ModuleDisk::Start()
 	blockfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Block.wav");
 	catchfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Catch.wav");
 	onairfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Freesbeonair.wav");
+	landingfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Landing.wav");
+
 
 	//audio comentarista
 	Pts2 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/2Pts.wav");
@@ -363,6 +365,7 @@ Update_Status ModuleDisk::Update()
 				App->disk->score_player_1 += 2;
 				App->player->position.x = 38;
 				App->player->position.y = 112;
+				App->audio->PlayFx(landingfx, 0);
 				App->audio->PlayFx(Pts2, 0);
 
 				saque = 1;
@@ -379,6 +382,7 @@ Update_Status ModuleDisk::Update()
 				App->disk->score_player_2 += 2;
 				App->player2->position.x = 240;
 				App->player2->position.y = 112;
+				App->audio->PlayFx(landingfx, 0);
 				App->audio->PlayFx(Pts2, 0);
 
 				saque = 2;

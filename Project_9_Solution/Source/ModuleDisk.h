@@ -85,6 +85,7 @@ public:
 	uint blockfx = 0;
 	uint catchfx = 0;
 	uint onairfx = 0;
+	uint landingfx = 0;
 
 	//sfx arbitre
 	uint Pts2 = 0;

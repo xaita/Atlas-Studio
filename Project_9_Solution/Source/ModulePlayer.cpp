@@ -467,7 +467,7 @@ bool ModulePlayer::Start()
 	powerphrasefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerPhrase.wav");
 	powersoundfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerSound.wav");
 	setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiSetWin.wav");
-	
+	lobfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Lob.wav");
 
 	position.x = 38;
 	position.y = 112;
@@ -795,11 +795,13 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 					App->disk->volea = true;
 					App->disk->volea_y = App->disk->position.y;
 
+					App->audio->PlayFx(lobfx, 0);
 				}
 				else {
 					App->disk->disc_speed_X = 2.5;
 					App->disk->disc_speed_Y = -1;
 					App->disk->volea = true;
+					App->audio->PlayFx(lobfx, 0);
 				}
 			}
 		
@@ -834,11 +836,14 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 					App->disk->volea = true;
 					App->disk->volea_y = App->disk->position.y;
 
+					App->audio->PlayFx(lobfx, 0);
 				}
 				else {
 					App->disk->disc_speed_X = 2.5;
 					App->disk->disc_speed_Y = -1;
 					App->disk->volea = true;
+
+					App->audio->PlayFx(lobfx, 0);
 				}
 
 			}
@@ -873,11 +878,14 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 					App->disk->volea = true;
 					App->disk->volea_y = App->disk->position.y;
 
+					App->audio->PlayFx(lobfx, 0);
 				}
 				else {
 					App->disk->disc_speed_X = 2.5;
 					App->disk->disc_speed_Y = 1;
 					App->disk->volea = true;
+
+					App->audio->PlayFx(lobfx, 0);
 				}
 			}
 
@@ -913,11 +921,14 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 						App->disk->volea = true;
 						App->disk->volea_y = App->disk->position.y;
 
+						App->audio->PlayFx(lobfx, 0);
 					}
 					else {
 						App->disk->disc_speed_X = 2.5;
 						App->disk->disc_speed_Y = 1;
 						App->disk->volea = true;
+
+						App->audio->PlayFx(lobfx, 0);
 					}
 				
 			}
@@ -979,6 +990,8 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				App->disk->ultimplayer = 1;
 				App->disk->disc_speed_X = 2.5;
 				App->disk->volea = true;
+
+				App->audio->PlayFx(lobfx, 0);
 			}
 		}
 	}
