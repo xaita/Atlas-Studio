@@ -212,7 +212,8 @@ bool ModulePlayer::Start()
 		ultshot.PushBack({ 172, 570, 34, 53 });
 		ultshot.PushBack({ 206, 570, 38, 46 });
 		ultshot.PushBack({ 244, 570, 40, 41 });
-
+		charge_ult.loop = false;
+		ultshot.speed = 0.25f;
 
 		break;
 
