@@ -119,26 +119,6 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	voleaanim.loop = false;
 	voleaanim.speed = 0.95f;
 
-	terraanim.PushBack({ 0, 71, 32, 32});
-	terraanim.PushBack({ 33, 71, 32, 32 });
-	terraanim.PushBack({ 65, 71, 32, 32 });
-	terraanim.PushBack({ 97, 71, 32, 32 });
-	terraanim.PushBack({ 129, 71, 32, 32 });
-	terraanim.PushBack({ 161, 71, 32, 32 });
-	terraanim.PushBack({ 193, 71, 32, 32 });
-	terraanim.PushBack({ 225, 71, 32, 32 });
-	terraanim.PushBack({ 257, 71, 32, 32 });
-	terraanim.PushBack({ 0, 103, 32, 32 });
-	terraanim.PushBack({ 33, 103, 32, 32 });
-	terraanim.PushBack({ 65, 103, 32, 32 });
-	terraanim.PushBack({ 97, 103, 32, 32 });
-	terraanim.PushBack({ 129, 103, 32, 32 });
-	terraanim.PushBack({ 161, 103, 32, 32 });
-	terraanim.PushBack({ 193, 103, 32, 32 });
-	terraanim.PushBack({ 225, 103, 32, 32 });
-	terraanim.loop = false;
-	terraanim.speed = 1.0f;
-
 
 
 
@@ -302,7 +282,6 @@ Update_Status ModuleDisk::Update()
 					App->sceneLevel_1->timer.Reset();
 					App->propsBackground->timersetcount = 350;
 					currentAnimation2 = &idle;
-
 				}
 				else {
 
@@ -321,8 +300,6 @@ Update_Status ModuleDisk::Update()
 					App->propsBackground->timersetcount = 350;
 					currentAnimation2 = &idle;
 				}
-
-
 			}
 		}
 	}
@@ -344,8 +321,7 @@ Update_Status ModuleDisk::Update()
 
 	if ((sets_player1== 2 || sets_player2==2) && si ==1 && muerte_subita ==false) {
 		
-		timer_Win -= 1;
-		
+		timer_Win -= 1;		
 	
 		if (timer_Win <= 0) {
 
@@ -359,8 +335,6 @@ Update_Status ModuleDisk::Update()
 			App->sceneIntroSNK->Enable();
 
 			App->collisions->Disable();
-		
-
 		}
 	}
 	
@@ -373,23 +347,17 @@ Update_Status ModuleDisk::Update()
 	
 		currentAnimation2 = &voleaanim;
 
-
 		if (position.x >= 300 && ultimplayer == 1) {		//disc cau a terra
 			volea = false;
 			onair = false;
 			disc_speed_X = 0;
 			disc_speed_Y = 0;
-			correcciospritex=-9;
+			correcciospritex=-10;
 			correcciospritey=-10;
-			if (currentAnimation2 != &terraanim) {
-				terraanim.Reset();
-			}
-			currentAnimation2 = &terraanim;
+			currentAnimation2 = &moving;
 			if (App->player->personatgedisc != 1)
-			{
-				
-				timerterrap1 = 60;
-				
+			{				
+				timerterrap1 = 60;				
 			}
 		}
 		else if (position.x == volea_x) {					//disc cau a terra
@@ -397,17 +365,12 @@ Update_Status ModuleDisk::Update()
 			onair = false;
 			disc_speed_X = 0;
 			disc_speed_Y = 0;
-			correcciospritex = -9;
+			correcciospritex = -10;
 			correcciospritey = -10;
-			if (currentAnimation2 != &terraanim) {
-				terraanim.Reset();
-			}
-			currentAnimation2 = &terraanim;
+			currentAnimation2 = &moving;
 			if (App->player2->personatgedisc2 != 1)
-			{
-				
-				timerterrap2=60;
-				
+			{				
+				timerterrap2=60;				
 			}
 		}
 		else if (position.x <= 20 && ultimplayer == 2) {
@@ -429,8 +392,7 @@ Update_Status ModuleDisk::Update()
 		timer = 120;
 		App->propsBackground->timersetcount = 350;
 		saque = 1;
-		App->audio->PlayFx(Pts2, 0);
-		
+		App->audio->PlayFx(Pts2, 0);		
 
 	}
 	if (timerterrap2 == 1) {
@@ -445,7 +407,6 @@ Update_Status ModuleDisk::Update()
 		App->propsBackground->timersetcount = 350;
 		saque = 2;
 		App->audio->PlayFx(Pts2, 0);
-
 	}
 	if (score_player_1 >= 12) {
 
