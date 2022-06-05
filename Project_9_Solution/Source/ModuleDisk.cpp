@@ -37,7 +37,9 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	projectile.PushBack({ 167, 3, 3, 39 });
 	projectile.PushBack({ 171, 2, 23, 41 });
 	projectile.PushBack({ 195, 2, 33, 42 });
+
 	projectile.PushBack({ 229, 0, 43, 44 });
+
 	projectile.PushBack({ 195, 2, 33, 42 });
 	projectile.PushBack({ 171, 2, 23, 41 });
 	projectile.PushBack({ 167, 3, 3, 39 });
@@ -47,8 +49,8 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	projectile.PushBack({ 53, 7, 25, 31 });
 	projectile.PushBack({ 35, 8, 17, 29 });
 
-	projectile.loop = false;
-	projectile.speed = 0.25f;
+	projectile.loop = true;
+	projectile.speed = 0.3f;
 
 	invisible.PushBack({ 0,0,0,0 });
 
@@ -102,23 +104,44 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	beehosuper.PushBack({ 177, 156, 45, 48 });
 	beehosuper.PushBack({ 0, 204, 38, 26 });
 
-	//super Arriba
+	//superb Arriba
 	beehosuper.PushBack({ 470, 67, 16, 16 });
 	beehosuper.PushBack({ 486, 67, 16, 16 });
+	beehosuper.PushBack({ 256, 51, 16, 16 });
 
-	//super abajo
+	//superb abajo
+	beehosuper.PushBack({32, 156, 16, 15});
+	beehosuper.PushBack({ 48, 156, 16, 16 });
+	beehosuper.PushBack({ 64, 156, 16, 14 });
+
+	//superb derecha
+	beehosuper.PushBack({ 454, 0, 16, 16 });
+	beehosuper.PushBack({ 272, 51, 16, 16 });
+
+	//superb izquierda
+	beehosuper.PushBack({ 198, 105, 16, 16 });
+	beehosuper.PushBack({ 16, 156, 16, 16 });
+
+	//superb chispas Arriba D->I
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
 	beehosuper.PushBack({});
 	beehosuper.PushBack({});
 
-	//super derecha
+	//superb chispas Arriba I->D
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
 	beehosuper.PushBack({});
 	beehosuper.PushBack({});
 
-	//super izquierda
+	//superb chispas Abajo D->I
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
 	beehosuper.PushBack({});
 	beehosuper.PushBack({});
 
-
+	//superb chispas Abajo I->D
+	beehosuper.PushBack({});
 	beehosuper.PushBack({});
 	beehosuper.PushBack({});
 	beehosuper.PushBack({});
@@ -635,7 +658,6 @@ Update_Status ModuleDisk::Update()
 
 		if (timerblock == 0 && volea == false) {
 			onair = false;
-
 
 		}
 
