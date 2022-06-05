@@ -336,6 +336,13 @@ bool ModulePlayer::Start()
 		}
 		leftupdash.loop = false;
 		leftupdash.speed = 0.25f;
+
+		charge_ult.PushBack({ 445,103,29,45 });
+		charge_ult.PushBack({ 416,103,29,44 });
+		charge_ult.loop = false;
+		charge_ult.speed = 0.1f;
+
+
 		break;
 
 	case '3':
@@ -469,6 +476,13 @@ bool ModulePlayer::Start()
 		}
 		leftupdash.loop = false;
 		leftupdash.speed = 0.45f;
+
+		charge_ult.PushBack({ 445,103,29,45 });
+		charge_ult.PushBack({ 416,103,29,44 });
+		charge_ult.loop = false;
+		charge_ult.speed = 0.1f;
+
+
 		break;
 
 	}

@@ -173,6 +173,11 @@ ModulePlayer2::ModulePlayer2(bool startEnabled) : Module(startEnabled)
 	blockanim.PushBack({ 0,  256, 25,	35 });
 	blockanim.loop = false;
 	blockanim.speed = 0.25f;
+
+	charge_ult.PushBack({ 445,103,29,45 });
+	charge_ult.PushBack({ 416,103,29,44 });
+	charge_ult.loop = false;
+	charge_ult.speed = 0.1f;
 	
 
 	//en les diagonals a la dreta l'animació és la mateixa que moure's cap a dalt o baix.
@@ -447,7 +452,10 @@ Update_Status ModulePlayer2::Update()
 					if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_IDLE || blocktimer >= 20) {
 
 						blockdisk = false;
-						currentAnimation = &leftidleAnim;
+
+						if (currentAnimation != &charge_ult) {
+							currentAnimation = &leftidleAnim;
+						}
 					}
 			}
 		}
@@ -748,6 +756,17 @@ void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 	{
 		position.y = 29;
 		
+	}
+
+	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::SUPER_ZONE && App->disk->onair == true) {
+
+		ultimate = true;
+		currentAnimation = &charge_ult;
+
+	}
+	else {
+
+		charge_ult.Reset();
 	}
 
 }
