@@ -84,7 +84,7 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	hiromisuper.PushBack({ 86, 236, 16, 84 });
 	hiromisuper.PushBack({ 102, 236, 13, 38 });
 
-	//Beeho Super
+	//Beeho Super cargando
 	beehosuper.PushBack({0, 0, 43, 42});
 	beehosuper.PushBack({ 43, 0, 41, 40 });
 	beehosuper.PushBack({ 84, 0, 37, 37 });
