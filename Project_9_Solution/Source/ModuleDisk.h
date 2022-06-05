@@ -56,6 +56,7 @@ public:
 	int si = 0;
 	int volea_x;
 	int volea_y;
+
 	//int volea = 0;
 
 	bool bloqueig;
