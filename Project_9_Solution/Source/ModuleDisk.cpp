@@ -85,71 +85,66 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	hiromisuper.PushBack({ 102, 236, 13, 38 });
 
 	//Beeho Super cargando
-	beehosuper.PushBack({0, 0, 43, 42});
-	beehosuper.PushBack({ 43, 0, 41, 40 });
-	beehosuper.PushBack({ 84, 0, 37, 37 });
-	beehosuper.PushBack({ 121, 0, 53, 52 });
-	beehosuper.PushBack({ 174, 0, 51, 45 });
-	beehosuper.PushBack({ 0, 52, 38, 49 });
-	beehosuper.PushBack({ 40, 52, 58, 53 });
-	beehosuper.PushBack({ 98, 52, 50, 46 });
-	beehosuper.PushBack({ 149, 52, 45, 45 });
-	beehosuper.PushBack({ 194, 52, 45, 49 });
+	beehosupercharging.PushBack({0, 0, 43, 42});
+	beehosupercharging.PushBack({ 43, 0, 41, 40 });
+	beehosupercharging.PushBack({ 84, 0, 37, 37 });
+	beehosupercharging.PushBack({ 121, 0, 53, 52 });
+	beehosupercharging.PushBack({ 174, 0, 51, 45 });
+	beehosupercharging.PushBack({ 0, 52, 38, 49 });
+	beehosupercharging.PushBack({ 40, 52, 58, 53 });
+	beehosupercharging.PushBack({ 98, 52, 50, 46 });
+	beehosupercharging.PushBack({ 149, 52, 45, 45 });
+	beehosupercharging.PushBack({ 194, 52, 45, 49 });
 
 	//al lanzar ulti behoo
-	beehosuper.PushBack({ 80, 156, 18, 19 });
-	beehosuper.PushBack({ 98, 156, 16, 28 });
-	beehosuper.PushBack({ 114, 156, 15, 45 });
-	beehosuper.PushBack({ 129, 156, 48, 46 });
-	beehosuper.PushBack({ 177, 156, 45, 48 });
-	beehosuper.PushBack({ 0, 204, 38, 26 });
+	beehosuperthrowing.PushBack({ 80, 156, 18, 19 });
+	beehosuperthrowing.PushBack({ 98, 156, 16, 28 });
+	beehosuperthrowing.PushBack({ 114, 156, 15, 45 });
+	beehosuperthrowing.PushBack({ 129, 156, 48, 46 });
+	beehosuperthrowing.PushBack({ 177, 156, 45, 48 });
+	beehosuperthrowing.PushBack({ 0, 204, 38, 26 });
 
 	//superb Arriba
-	beehosuper.PushBack({ 470, 67, 16, 16 });
-	beehosuper.PushBack({ 486, 67, 16, 16 });
-	beehosuper.PushBack({ 256, 51, 16, 16 });
+	beehosuperUp.PushBack({ 470, 67, 16, 16 });
+	beehosuperUp.PushBack({ 486, 67, 16, 16 });
+	beehosuperUp.PushBack({ 256, 51, 16, 16 });
 
 	//superb abajo
-	beehosuper.PushBack({32, 156, 16, 15});
-	beehosuper.PushBack({ 48, 156, 16, 16 });
-	beehosuper.PushBack({ 64, 156, 16, 14 });
+	beehosuperDown.PushBack({32, 156, 16, 15});
+	beehosuperDown.PushBack({ 48, 156, 16, 16 });
+	beehosuperDown.PushBack({ 64, 156, 16, 14 });
 
 	//superb derecha
-	beehosuper.PushBack({ 454, 0, 16, 16 });
-	beehosuper.PushBack({ 272, 51, 16, 16 });
+	beehosuperRight.PushBack({ 454, 0, 16, 16 });
+	beehosuperRight.PushBack({ 272, 51, 16, 16 });
 
 	//superb izquierda
-	beehosuper.PushBack({ 198, 105, 16, 16 });
-	beehosuper.PushBack({ 16, 156, 16, 16 });
+	beehosuperLeft.PushBack({ 198, 105, 16, 16 });
+	beehosuperLeft.PushBack({ 16, 156, 16, 16 });
 	
 	//superb chispas Arriba D->I
-	beehosuper.PushBack({ 256, 0, 56, 44 });
-	beehosuper.PushBack({ 396, 0, 58, 51 });
-	beehosuper.PushBack({ 338, 0, 58, 48 });
-	beehosuper.PushBack({ 312, 0, 26, 17 });
-
-	
-		
-		
-		
+	beehosuperUpDI.PushBack({ 256, 0, 56, 44 });
+	beehosuperUpDI.PushBack({ 396, 0, 58, 51 });
+	beehosuperUpDI.PushBack({ 338, 0, 58, 48 });
+	beehosuperUpDI.PushBack({ 312, 0, 26, 17 });
 
 	//superb chispas Arriba I->D
-	beehosuper.PushBack({ 0, 105, 56, 44 });
-	beehosuper.PushBack({ 138, 105, 60, 51 });
-	beehosuper.PushBack({ 82, 105, 56, 48 });
-	beehosuper.PushBack({ 56, 105, 26, 17 });
+	beehosuperUpID.PushBack({ 0, 105, 56, 44 });
+	beehosuperUpID.PushBack({ 138, 105, 60, 51 });
+	beehosuperUpID.PushBack({ 82, 105, 56, 48 });
+	beehosuperUpID.PushBack({ 56, 105, 26, 17 });
 
 	//superb chispas Abajo D->I
-	beehosuper.PushBack({ 256, 118, 56, 44 });
-	beehosuper.PushBack({ 394, 118, 58, 51 });
-	beehosuper.PushBack({ 338, 118, 58, 48 });
-	beehosuper.PushBack({ 312, 118, 26, 44 });
+	beehosuperDownDI.PushBack({ 256, 118, 56, 44 });
+	beehosuperDownDI.PushBack({ 394, 118, 58, 51 });
+	beehosuperDownDI.PushBack({ 338, 118, 58, 48 });
+	beehosuperDownDI.PushBack({ 312, 118, 26, 44 });
 
 	//superb chispas Abajo I->D
-	beehosuper.PushBack({ 256, 67, 56, 44 });
-	beehosuper.PushBack({ 396, 67, 58, 51 });
-	beehosuper.PushBack({ 338, 67, 58, 48 });
-	beehosuper.PushBack({ 312, 67, 26, 44 });
+	beehosuperDownID.PushBack({ 256, 67, 56, 44 });
+	beehosuperDownID.PushBack({ 396, 67, 58, 51 });
+	beehosuperDownID.PushBack({ 338, 67, 58, 48 });
+	beehosuperDownID.PushBack({ 312, 67, 26, 44 });
 
 
 

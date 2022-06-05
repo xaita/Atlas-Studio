@@ -94,7 +94,17 @@ public:
 	Animation voleaanim;
 	Animation terraanim;
 	Animation hiromisuper;
-	Animation beehosuper;
+	Animation beehosupercharging;
+	Animation beehosuperthrowing;
+	Animation beehosuperUp;
+	Animation beehosuperDown;
+	Animation beehosuperRight;
+	Animation beehosuperLeft;
+	Animation beehosuperUpID;
+	Animation beehosuperUpDI;
+	Animation beehosuperDownID;
+	Animation beehosuperDownDI;
+	
 	Animation klausssuper;
 
 	uint blockfx = 0;
