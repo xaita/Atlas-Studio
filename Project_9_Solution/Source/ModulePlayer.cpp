@@ -253,7 +253,7 @@ bool ModulePlayer::Start()
 		rightidleFrisbee.loop = true;
 		rightidleFrisbee.speed = 0.1f;
 
-		uprightidleFrisbee.PushBack({ 660, 330, 45, 42 });
+		uprightidleFrisbee.PushBack({ 660, 330, 66, 66 });
 		downrightidleFrisbee.PushBack({ 264, 396, 66, 66 });
 
 		//Lanzamiento Disco
@@ -342,12 +342,17 @@ bool ModulePlayer::Start()
 		leftupdash.loop = false;
 		leftupdash.speed = 0.25f;
 
-		charge_ult.PushBack({ 445,103,29,45 });
-		charge_ult.PushBack({ 416,103,29,44 });
+		charge_ult.PushBack({ 858,266,66,66 });
+		charge_ult.PushBack({ 924,266,66,66 });
+		charge_ult.PushBack({ 990,266,66,66 });
 		charge_ult.loop = false;
 		charge_ult.speed = 0.1f;
 
 
+		blockanim.PushBack({ 726, 264, 66, 66 });
+		blockanim.PushBack({ 792, 264, 66, 66 });
+		blockanim.loop = false;
+		blockanim.speed = 0.2f;
 		break;
 
 	case '3':

@@ -37,9 +37,7 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	projectile.PushBack({ 167, 3, 3, 39 });
 	projectile.PushBack({ 171, 2, 23, 41 });
 	projectile.PushBack({ 195, 2, 33, 42 });
-
 	projectile.PushBack({ 229, 0, 43, 44 });
-
 	projectile.PushBack({ 195, 2, 33, 42 });
 	projectile.PushBack({ 171, 2, 23, 41 });
 	projectile.PushBack({ 167, 3, 3, 39 });
@@ -49,8 +47,8 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	projectile.PushBack({ 53, 7, 25, 31 });
 	projectile.PushBack({ 35, 8, 17, 29 });
 
-	projectile.loop = true;
-	projectile.speed = 0.3f;
+	projectile.loop = false;
+	projectile.speed = 0.25f;
 
 	invisible.PushBack({ 0,0,0,0 });
 
@@ -637,6 +635,7 @@ Update_Status ModuleDisk::Update()
 
 		if (timerblock == 0 && volea == false) {
 			onair = false;
+
 
 		}
 
