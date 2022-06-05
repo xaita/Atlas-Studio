@@ -233,7 +233,7 @@ bool ModuleDisk::Start()
 	marca = App->textures->Load("Assets/UI/Others/MarcaF1.png");
 	superhiromitexture = App->textures->Load("Assets/Sprites/Characters/Hiromi_Mita/SuperShotEffects.png");
 	superbeehotexture = App->textures->Load("Assets/Sprites/Characters/Beeho_Yoo/superShotEffectsSpriteSheet.png");
-	superklausstexture = App->textures->Load("Assets/Sprites/Characters/Klauss_Wessel/Alemán_SuperShot.png");
+	superklausstexture = App->textures->Load("Assets/Sprites/Characters/Klauss_Wessel/Aleman_SuperShot.png");
 
 	blockfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Block.wav");
 	catchfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Catch.wav");
