@@ -35,6 +35,8 @@ public:
 	SDL_Texture* select = nullptr;
 
 	char VS = '1';
+	char xdselectPlayer1;
+	char xdselectPlayer2;
 
 	Animation* currentAnimation = nullptr;
 

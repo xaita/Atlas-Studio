@@ -6,6 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "SceneIntro.h"
 
 SceneVS::SceneVS(bool startEnabled) : Module(startEnabled)
 {
@@ -25,7 +26,6 @@ bool SceneVS::Start()
 	bool ret = true;
 
 	bgBlueTexture = App->textures->Load("Assets/UI/Screens/Scene Epi.png");
-	bgTexture = App->textures->Load("Assets/UI/Screens/VS/Japan vs Japan.png");
 	
 
 	App->audio->PlayMusic("Assets/Audios/Music/02_Go for Broke! (Round Start).ogg", 1.0f);
@@ -34,6 +34,9 @@ bool SceneVS::Start()
 	background.PushBack({ 305,0,304,224 });
 	background.loop = true;
 	background.speed = 0.4f;
+
+	App->sceneIntro->xdselectPlayer1;
+	App->sceneIntro->xdselectPlayer1;
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -50,6 +53,10 @@ Update_Status SceneVS::Update()
 	switch (VS)
 	{
 	case '1':
+		if (xdselectPlayer1 == '1' && xdselectPlayer2 == '1')
+		{
+			bgTexture = App->textures->Load("Assets/UI/Screens/VS/Japan vs Japan.png");
+		}
 		break;
 	case '2':
 		break;
