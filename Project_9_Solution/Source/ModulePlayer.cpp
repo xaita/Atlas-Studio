@@ -1146,7 +1146,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::BOT_WALL)				//collider paret inferior
 	{
-		App->player->position.y = 174;
+		App->player->position.y = 183;
 	}
 
 	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::TOP_WALL)				//collider paret superior

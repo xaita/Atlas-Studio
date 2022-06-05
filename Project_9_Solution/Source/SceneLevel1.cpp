@@ -36,8 +36,9 @@ bool SceneLevel1::Start()
 			App->sceneIntroMapes->selectMap = '3';
 
 	bool ret = true;
+	moureCameraGol = false;
+
 	timerofpoints = 120;
-	//moureCameraGol = '1';
 
 	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete-sprite-sheet.png");				//BG CONCRETE + PROPS
 	bgTopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/top_wall.png");								//
@@ -216,27 +217,66 @@ bool SceneLevel1::Start()
 	Points5ScoreR.loop = false;
 	Points5ScoreR.speed = 0.2;
 	
-	
-	//porteria esquerra
-	App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
-	App->collisions->AddCollider({ 0, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
-	App->collisions->AddCollider({ 0, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
+	switch (App->sceneIntroMapes->selectMap) {
+	case '1':
+		//porteria esquerra
+		App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
+		App->collisions->AddCollider({ 0, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
+		App->collisions->AddCollider({ 0, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
 
-	//porteria dreta
-	App->collisions->AddCollider({ 300, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
-	App->collisions->AddCollider({ 300, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
-	App->collisions->AddCollider({ 300, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
+		//porteria dreta
+		App->collisions->AddCollider({ 300, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
+		App->collisions->AddCollider({ 300, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
+		App->collisions->AddCollider({ 300, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
 
-	//parets
-	App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
-	App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
+		//parets
+		App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
+		App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
 
-	//obstaculos red
-	if (App->sceneIntroMapes->selectMap == '2') {
-		App->collisions->AddCollider({ 144, 70, 15, 14 }, Collider::Type::OBSTACLE1);
-		App->collisions->AddCollider({ 144, 166, 15, 14 }, Collider::Type::OBSTACLE1);
+
+	case '2':
+		//porteria esquerra
+		App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
+		App->collisions->AddCollider({ 0, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
+		App->collisions->AddCollider({ 0, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
+
+		//porteria dreta
+		App->collisions->AddCollider({ 300, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
+		App->collisions->AddCollider({ 300, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
+		App->collisions->AddCollider({ 300, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
+
+		//parets
+		App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
+		App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
+
+		//obstacles red
+		if (App->sceneIntroMapes->selectMap == '2') {
+			App->collisions->AddCollider({ 144, 70, 15, 14 }, Collider::Type::OBSTACLE1);
+			App->collisions->AddCollider({ 144, 166, 15, 14 }, Collider::Type::OBSTACLE1);
+		}
+
+
+	case '3':
+		//porteria esquerra
+		App->collisions->AddCollider({ 0, 32, 1, 64 }, Collider::Type::SCOREZONE_2);
+		App->collisions->AddCollider({ 0, 111, 1, 34 }, Collider::Type::SCOREZONE_1);
+		App->collisions->AddCollider({ 0, 160, 1, 64 }, Collider::Type::SCOREZONE_2);
+
+		//porteria dreta
+		App->collisions->AddCollider({ 300, 32, 1, 64 }, Collider::Type::SCOREZONE_2);
+		App->collisions->AddCollider({ 300, 111, 1, 34 }, Collider::Type::SCOREZONE_1);
+		App->collisions->AddCollider({ 300, 160, 1, 64 }, Collider::Type::SCOREZONE_2);
+
+		//parets
+		App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
+		App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
+
+		//obstacles red
+		if (App->sceneIntroMapes->selectMap == '2') {
+			App->collisions->AddCollider({ 144, 70, 15, 14 }, Collider::Type::OBSTACLE1);
+			App->collisions->AddCollider({ 144, 166, 15, 14 }, Collider::Type::OBSTACLE1);
+		}
 	}
-
 	App->player->Enable();
 	App->player2->Enable();
 	App->disk->Enable();
@@ -278,49 +318,6 @@ Update_Status SceneLevel1::Update()
 		current_Timer_Animation = &timer;
 	}
 
-	if (App->disk->saque == 1)			//moure camera quan es fa gol
-	{
-		//if (moureCameraGol == '1')
-		//{
-		//	App->render->camera.x-=6;
-		//	if (App->render->camera.x == -96)
-		//		moureCameraGol = '2';
-		//}
-		//else
-		//{
-		//	App->render->camera.x+=1;
-		//	if (App->render->camera.x == -84)
-		//		moureCameraGol = '1';
-		//}
-
-		if (App->render->camera.x > -96)
-			App->render->camera.x -= 12;
-
-	}
-	else if (App->disk->saque == 2)		//moure camera quan es fa gol
-	{
-		//if (moureCameraGol == '1')
-		//{
-		//	App->render->camera.x+=6;
-		//	if (App->render->camera.x == 96)
-		//		moureCameraGol = '2';
-		//}
-		//else
-		//{
-		//	App->render->camera.x-=1;
-		//	if (App->render->camera.x == 84)
-		//		moureCameraGol = '1';
-		//}
-		if (App->render->camera.x < 96)
-		App->render->camera.x += 12;
-	}
-	else
-	{
-		App->render->camera.x = 0;
-		//moureCameraGol = '1';
-	}
-
-
 
 	if (timerofpoints > 0) {
 		timerofpoints--;
@@ -333,7 +330,16 @@ Update_Status SceneLevel1::Update()
 		points3left = 0;
 		points3right = 0;
 	}
-	
+	if (moureCameraGol == true)
+	{
+		if(App->disk->ultimplayer==1)
+			if (App->render->camera.x < -96)
+				App->render->camera.x += 12;			
+		if (App->disk->ultimplayer == 2)
+			if (App->render->camera.x > 96)
+				App->render->camera.x -= 12;//mourecamera
+	}
+
 	Points5ScoreR.Update();
 	Points5ScoreL.Update();
 	Points3ScoreL.Update();

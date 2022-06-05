@@ -924,6 +924,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
 	{
 		ultimate_disk = false;
+		App->sceneLevel_1->moureCameraGol = true;
 		if (ultimplayer == 1) {
 			if (position.y < 127) {
 				App->sceneLevel_1->points5righttop = 1;
@@ -971,7 +972,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	}
 	else if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_2)
 	{
-
+		App->sceneLevel_1->moureCameraGol = true;
 		ultimate_disk = false;
 		position.x = 143;
 		position.y = 191;

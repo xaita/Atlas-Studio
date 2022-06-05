@@ -186,6 +186,7 @@ Update_Status PropsBackground::PostUpdate()
 		App->render->Blit(lawnBotWall, 31, 202, NULL);
 		break;
 	}
+	App->render->Blit(bgFrisbees, 166, 209, &(frisbees.GetCurrentFrame()));
 
 
 	SDL_Rect rect = currentAnimationReferee->GetCurrentFrame();
