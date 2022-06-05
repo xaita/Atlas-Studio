@@ -78,8 +78,8 @@ bool SceneLevel1::Start()
 
 	//lawn
 	spectatorsLawn.PushBack({ 0,0,358,224 });																		//ANIMACIO ESPECTADORS
-	spectatorsLawn.PushBack({ 363,0,358,224 });
-	spectatorsLawn.PushBack({ 739,0,358,224 });
+	spectatorsLawn.PushBack({ 362,0,358,224 });
+	spectatorsLawn.PushBack({ 732,0,358,224 });
 	spectatorsLawn.loop = true;
 	spectatorsLawn.speed = 0.15f;
 
