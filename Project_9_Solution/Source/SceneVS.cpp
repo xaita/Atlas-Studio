@@ -1,4 +1,4 @@
-#include "SceneJapan.h"
+#include "SceneVS.h"
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -7,18 +7,18 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 
-SceneJapan::SceneJapan(bool startEnabled) : Module(startEnabled)
+SceneVS::SceneVS(bool startEnabled) : Module(startEnabled)
 {
 
 }
 
-SceneJapan::~SceneJapan()
+SceneVS::~SceneVS()
 {
 
 }
 
 // Load assets
-bool SceneJapan::Start()
+bool SceneVS::Start()
 {
 	LOG("Loading background assets");
 
@@ -41,7 +41,7 @@ bool SceneJapan::Start()
 	return ret;
 }
 
-Update_Status SceneJapan::Update()
+Update_Status SceneVS::Update()
 {
 
 	background.Update();
@@ -57,7 +57,7 @@ Update_Status SceneJapan::Update()
 }
 
 // Update: draw background
-Update_Status SceneJapan::PostUpdate()
+Update_Status SceneVS::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	App->render->Blit(bgBlueTexture, 0, 0, &(background.GetCurrentFrame()));

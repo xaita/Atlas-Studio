@@ -27,9 +27,9 @@
     <ClCompile Include="SceneWindjammers.cpp" />
     <ClCompile Include="PropsBackground.cpp" />
     <ClCompile Include="SceneLogo.cpp" />
-    <ClCompile Include="SceneJapan.cpp" />
     <ClCompile Include="SceneWarning.cpp" />
     <ClCompile Include="SceneCoins.cpp" />
+    <ClCompile Include="SceneVS.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -60,8 +60,8 @@
     <ClInclude Include="SceneWindjammers.h" />
     <ClInclude Include="PropsBackground.h" />
     <ClInclude Include="SceneLogo.h" />
-    <ClInclude Include="SceneJapan.h" />
     <ClInclude Include="SceneWarning.h" />
     <ClInclude Include="SceneCoins.h" />
+    <ClInclude Include="SceneVS.h" />
   </ItemGroup>
 </Project>

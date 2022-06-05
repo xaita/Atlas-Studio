@@ -89,7 +89,7 @@
     <ClInclude Include="SceneIntro.h" />
     <ClInclude Include="SceneIntroMapes.h" />
     <ClInclude Include="SceneIntroSNK.h" />
-    <ClInclude Include="SceneJapan.h" />
+    <ClInclude Include="SceneVS.h" />
     <ClInclude Include="SceneLevel1.h" />
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModulePlayer.h" />
@@ -122,7 +122,7 @@
     <ClCompile Include="SceneIntro.cpp" />
     <ClCompile Include="SceneIntroMapes.cpp" />
     <ClCompile Include="SceneIntroSNK.cpp" />
-    <ClCompile Include="SceneJapan.cpp" />
+    <ClCompile Include="SceneVS.cpp" />
     <ClCompile Include="SceneLevel1.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />

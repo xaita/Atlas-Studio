@@ -20,7 +20,7 @@ class SceneCoins;
 class SceneLogo;
 class SceneIntro;
 class SceneIntroMapes;
-class SceneJapan;
+class SceneVS;
 class SceneLevel1;
 class ModuleParticles;
 class ModuleCollisions;
@@ -71,7 +71,7 @@ public:
 	SceneLogo* sceneLogo = nullptr;
 	SceneIntro* sceneIntro = nullptr;
 	SceneIntroMapes* sceneIntroMapes = nullptr;
-	SceneJapan* sceneJapan = nullptr;
+	SceneVS* sceneVS = nullptr;
 	SceneLevel1* sceneLevel_1 = nullptr;
 	PropsBackground* propsBackground = nullptr;
 

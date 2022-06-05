@@ -111,7 +111,7 @@ Update_Status SceneIntroMapes::Update()
 	
 	if (Readym1 == true /*&& Ready2 == true*/)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneJapan, 90);
+		App->fade->FadeToBlack(this, (Module*)App->sceneVS, 90);
 	}
 
 	if (App->input->keys[SDL_SCANCODE_LSHIFT] == Key_State::KEY_DOWN)
