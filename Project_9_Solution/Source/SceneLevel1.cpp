@@ -109,77 +109,76 @@ bool SceneLevel1::Start()
 	timer2 = 1800;
 
 	// 3 Esquerra
-	Points3ScoreL.PushBack({ 441, 120, 63, 34 });
-	Points3ScoreL.PushBack({ 112, 120, 59, 34 });
-	Points3ScoreL.PushBack({ 171, 120, 55, 34 });
-	Points3ScoreL.PushBack({ 226, 120, 51, 34 });
-	Points3ScoreL.PushBack({ 277, 120, 47, 34 });
-	Points3ScoreL.PushBack({ 324, 120, 43, 35 });
-	Points3ScoreL.PushBack({ 367, 120, 39, 34 });
-	Points3ScoreL.PushBack({ 406, 120, 35, 34 });
-	Points3ScoreL.PushBack({ 0, 120, 28, 34 });
-	Points3ScoreL.PushBack({ 28, 120, 24, 34 });
-	Points3ScoreL.PushBack({ 52, 120, 20, 34 });
-	Points3ScoreL.PushBack({ 72, 120, 16, 34 });
-	Points3ScoreL.PushBack({ 88, 120, 12, 34 });
-	Points3ScoreL.PushBack({ 100, 120, 8, 34 });
-	Points3ScoreL.PushBack({ 108, 120, 4, 34 });
-	Points3ScoreL.loop = false;
-	Points3ScoreL.speed = 0.2;
-	
-	// 3 Dreta
-	Points3ScoreR.PushBack({ 0, 188, 63, 34 });
-	Points3ScoreR.PushBack({ 132, 154, 59, 34 });
-	Points3ScoreR.PushBack({ 191, 154, 55, 34 });
-	Points3ScoreR.PushBack({ 246, 154, 51, 34 });
-	Points3ScoreR.PushBack({ 297, 154, 47, 34 });
-	Points3ScoreR.PushBack({ 344, 154, 43, 34 });
-	Points3ScoreR.PushBack({ 387, 154, 40, 34 });
-	Points3ScoreR.PushBack({ 427, 154, 36, 34 });
-	Points3ScoreR.PushBack({ 0, 154, 32, 34 });
-	Points3ScoreR.PushBack({ 32, 154, 28, 34 });
-	Points3ScoreR.PushBack({ 60, 154, 24, 34 });
-	Points3ScoreR.PushBack({ 84, 154, 20, 34 });
-	Points3ScoreR.PushBack({ 104, 154, 16, 34 });
-	Points3ScoreR.PushBack({ 120, 154, 12, 34 });
+	Points3ScoreR.PushBack({ 441, 120, 63, 34 });
+	Points3ScoreR.PushBack({ 112, 120, 59, 34 });
+	Points3ScoreR.PushBack({ 171, 120, 55, 34 });
+	Points3ScoreR.PushBack({ 226, 120, 51, 34 });
+	Points3ScoreR.PushBack({ 277, 120, 47, 34 });
+	Points3ScoreR.PushBack({ 324, 120, 43, 35 });
+	Points3ScoreR.PushBack({ 367, 120, 39, 34 });
+	Points3ScoreR.PushBack({ 406, 120, 35, 34 });
+	Points3ScoreR.PushBack({ 0, 120, 28, 34 });
+	Points3ScoreR.PushBack({ 28, 120, 24, 34 });
+	Points3ScoreR.PushBack({ 52, 120, 20, 34 });
+	Points3ScoreR.PushBack({ 72, 120, 16, 34 });
+	Points3ScoreR.PushBack({ 88, 120, 12, 34 });
+	Points3ScoreR.PushBack({ 100, 120, 8, 34 });
+	Points3ScoreR.PushBack({ 108, 120, 4, 34 });
 	Points3ScoreR.loop = false;
 	Points3ScoreR.speed = 0.2;
+	
+	// 3 Dreta
+	Points3ScoreL.PushBack({ 0, 188, 63, 34 });
+	Points3ScoreL.PushBack({ 132, 154, 59, 34 });
+	Points3ScoreL.PushBack({ 191, 154, 55, 34 });
+	Points3ScoreL.PushBack({ 246, 154, 51, 34 });
+	Points3ScoreL.PushBack({ 297, 154, 47, 34 });
+	Points3ScoreL.PushBack({ 344, 154, 43, 34 });
+	Points3ScoreL.PushBack({ 387, 154, 40, 34 });
+	Points3ScoreL.PushBack({ 427, 154, 36, 34 });
+	Points3ScoreL.PushBack({ 0, 154, 32, 34 });
+	Points3ScoreL.PushBack({ 32, 154, 28, 34 });
+	Points3ScoreL.PushBack({ 60, 154, 24, 34 });
+	Points3ScoreL.PushBack({ 84, 154, 20, 34 });
+	Points3ScoreL.PushBack({ 104, 154, 16, 34 });
+	Points3ScoreL.PushBack({ 120, 154, 12, 34 });
+	Points3ScoreL.loop = false;
+	Points3ScoreL.speed = 0.2;
 
 	// 5 Esquerra
-	Points5ScoreR.PushBack({ 76, 258, 63, 35 });
-	Points5ScoreR.PushBack({ 229, 223, 59, 35 });
-	Points5ScoreR.PushBack({ 288, 223, 55, 35 });
-	Points5ScoreR.PushBack({ 343, 223, 51, 35 });
-	Points5ScoreR.PushBack({ 394, 223, 47, 35 });
-	Points5ScoreR.PushBack({ 441, 223, 43, 35 });
-	Points5ScoreR.PushBack({ 0, 258, 40, 35 });
-	Points5ScoreR.PushBack({ 40, 258, 36, 35 });
-	Points5ScoreR.PushBack({ 137, 223, 32, 35 });
-	Points5ScoreR.PushBack({ 169, 223, 28, 35 });
-	Points5ScoreR.PushBack({ 197, 223, 20, 35 });
-	Points5ScoreR.PushBack({ 217, 223, 12, 35 });
-	Points5ScoreR.loop = false;
-	Points5ScoreR.speed = 0.2;
-
-	// 5 Dreta
-	Points5ScoreL.PushBack({ 74, 223, 63, 35 });
-	Points5ScoreL.PushBack({ 230, 188, 59, 35 });
-	Points5ScoreL.PushBack({ 289, 188, 55, 35 });
-	Points5ScoreL.PushBack({ 344, 188, 51, 35 });
-	Points5ScoreL.PushBack({ 395, 188, 47, 35 });
-	Points5ScoreL.PushBack({ 442, 188, 43, 35 });
-	Points5ScoreL.PushBack({ 0, 223, 39, 35 });
-	Points5ScoreL.PushBack({ 39, 223, 35, 35 });
-	Points5ScoreL.PushBack({ 99, 188, 31, 35 });
-	Points5ScoreL.PushBack({ 130, 188, 28, 35 });
-	Points5ScoreL.PushBack({ 158, 188, 24, 35 });
-	Points5ScoreL.PushBack({ 182, 188, 20, 35 });
-	Points5ScoreL.PushBack({ 202, 188, 16, 35 });
-	Points5ScoreL.PushBack({ 218, 188, 12, 35 });
-	Points5ScoreL.PushBack({ 62, 188, 9, 35 });
-	Points5ScoreL.PushBack({ 71, 188, 5, 35 });
+	Points5ScoreL.PushBack({ 76, 258, 63, 35 });
+	Points5ScoreL.PushBack({ 229, 223, 59, 35 });
+	Points5ScoreL.PushBack({ 288, 223, 55, 35 });
+	Points5ScoreL.PushBack({ 343, 223, 51, 35 });
+	Points5ScoreL.PushBack({ 394, 223, 47, 35 });
+	Points5ScoreL.PushBack({ 441, 223, 43, 35 });
+	Points5ScoreL.PushBack({ 0, 258, 40, 35 });
+	Points5ScoreL.PushBack({ 40, 258, 36, 35 });
+	Points5ScoreL.PushBack({ 137, 223, 32, 35 });
+	Points5ScoreL.PushBack({ 169, 223, 28, 35 });
+	Points5ScoreL.PushBack({ 197, 223, 20, 35 });
+	Points5ScoreL.PushBack({ 217, 223, 12, 35 });
 	Points5ScoreL.loop = false;
 	Points5ScoreL.speed = 0.2;
+
+	// 5 Dreta
+	Points5ScoreR.PushBack({ 74, 223, 63, 35 });
+	Points5ScoreR.PushBack({ 230, 188, 59, 35 });
+	Points5ScoreR.PushBack({ 289, 188, 55, 35 });
+	Points5ScoreR.PushBack({ 344, 188, 51, 35 });
+	Points5ScoreR.PushBack({ 395, 188, 47, 35 });
+	Points5ScoreR.PushBack({ 442, 188, 43, 35 });
+	Points5ScoreR.PushBack({ 0, 223, 39, 35 });
+	Points5ScoreR.PushBack({ 39, 223, 35, 35 });
+	Points5ScoreR.PushBack({ 99, 188, 31, 35 });
+	Points5ScoreR.PushBack({ 130, 188, 28, 35 });
+	Points5ScoreR.PushBack({ 182, 188, 20, 35 });
+	Points5ScoreR.PushBack({ 202, 188, 16, 35 });
+	Points5ScoreR.PushBack({ 218, 188, 12, 35 });
+	Points5ScoreR.PushBack({ 62, 188, 9, 35 });
+	Points5ScoreR.PushBack({ 71, 188, 5, 35 });
+	Points5ScoreR.loop = false;
+	Points5ScoreR.speed = 0.2;
 	
 	
 	//porteria esquerra
@@ -336,20 +335,20 @@ Update_Status SceneLevel1::PostUpdate()
 
 	if (points5righttop == 1) {
 		
-		App->render->Blit(UI, 250, 48, &(Points5ScoreR.GetCurrentFrame()));
+		App->render->Blit(UI, 250, 30, &(Points5ScoreR.GetCurrentFrame()));
 		
 	}
 	if (points5rightbot == 1) {
 		
-		App->render->Blit(UI, 250, 192, &(Points5ScoreR.GetCurrentFrame()));
+		App->render->Blit(UI, 250, 165, &(Points5ScoreR.GetCurrentFrame()));
 	}
 	if (points5lefttop == 1) {
 		
-		App->render->Blit(UI, 30, 48, &(Points5ScoreL.GetCurrentFrame()));
+		App->render->Blit(UI, 10, 30, &(Points5ScoreL.GetCurrentFrame()));
 	}
 	if (points5leftbot == 1) {
 		
-		App->render->Blit(UI, 30, 192, &(Points5ScoreL.GetCurrentFrame()));
+		App->render->Blit(UI, 10, 165, &(Points5ScoreL.GetCurrentFrame()));
 	}
 	if (points3left == 1) {
 		
