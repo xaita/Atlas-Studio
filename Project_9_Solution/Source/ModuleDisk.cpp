@@ -60,13 +60,13 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 
 	// Super Hiromi Mita
 	hiromisuper.PushBack({0, 0, 64, 64});
-	hiromisuper.PushBack({ 0, 0, 64, 64 });
-	hiromisuper.PushBack({ 0, 0, 64, 64 });
-	hiromisuper.PushBack({ 0, 0, 64, 64 });
-	hiromisuper.PushBack({ 0, 0, 64, 64 });
-	hiromisuper.PushBack({ 0, 0, 64, 64 });
-	hiromisuper.PushBack({ 0, 0, 64, 64 });
-	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 64, 0, 64, 64 });
+	hiromisuper.PushBack({ 128, 0, 64, 64 });
+	hiromisuper.PushBack({ 192, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 64, 64, 64 });
+	hiromisuper.PushBack({ 64, 64, 64, 64 });
+	hiromisuper.PushBack({ 128, 64, 64, 64 });
+	hiromisuper.PushBack({ 192, 64, 62, 63 });
 	hiromisuper.PushBack({ 0, 0, 64, 64 });
 	hiromisuper.PushBack({ 0, 0, 64, 64 });
 	hiromisuper.PushBack({ 0, 0, 64, 64 });
