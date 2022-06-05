@@ -34,20 +34,19 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	projectile.PushBack({ 79, 6, 36, 34 });
 	projectile.PushBack({ 116, 5, 28, 36 });
 	projectile.PushBack({ 145, 4, 21, 38 });
-	projectile.PushBack({ 167, 3, 3, 39 });
 	projectile.PushBack({ 171, 2, 23, 41 });
 	projectile.PushBack({ 195, 2, 33, 42 });
 
 	projectile.PushBack({ 229, 0, 43, 44 });
+	projectile.PushBack({ 229, 148, 43, 44 });
 
-	projectile.PushBack({ 195, 2, 33, 42 });
-	projectile.PushBack({ 171, 2, 23, 41 });
-	projectile.PushBack({ 167, 3, 3, 39 });
-	projectile.PushBack({ 145, 4, 21, 38 });
-	projectile.PushBack({ 116, 5, 28, 36 });
-	projectile.PushBack({ 79, 6, 36, 34 });
-	projectile.PushBack({ 53, 7, 25, 31 });
-	projectile.PushBack({ 35, 8, 17, 29 });
+	projectile.PushBack({ 195, 150, 33, 42 });
+	projectile.PushBack({ 171, 150, 23, 41 });
+	projectile.PushBack({ 145, 152, 21, 38 });
+	projectile.PushBack({ 116, 153, 28, 36 });
+	projectile.PushBack({ 79, 154, 36, 34 });
+	projectile.PushBack({ 53, 155, 25, 31 });
+	projectile.PushBack({ 35, 156, 17, 29 });
 
 	projectile.loop = true;
 	projectile.speed = 0.3f;
