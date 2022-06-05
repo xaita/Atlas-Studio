@@ -440,20 +440,8 @@ Update_Status ModuleDisk::Update()
 		currentAnimation2 = &voleaanim;
 
 
-		if (position.x >= 300 && ultimplayer == 1) {		//disc cau a terra
-			volea = false;
-			onair = false;
-			disc_speed_X = 0;
-			disc_speed_Y = 0;
-			correcciospritex = -9;
-			correcciospritey = -10;
-			if (currentAnimation2 != &terraanim) {
-				terraanim.Reset();
-			}
-			currentAnimation2 = &terraanim;
-			
-		}
-	    else if (position.x == volea_x) {					//disc cau a terra
+	
+	     if (position.x == volea_x) {					//disc cau a terra
 				volea = false;
 				onair = false;
 				disc_speed_X = 0;
@@ -461,7 +449,7 @@ Update_Status ModuleDisk::Update()
 				correcciospritex = -9;
 				correcciospritey = -10;
 
-				if (App->player->personatgedisc != 1 && ultimplayer ==1)
+				if (App->player->personatgedisc != 1 && ultimplayer ==1 && App->player2->currentAnimation != &App->player2->charge_ult)
 
 				{
 					timerterrap1 = 60;
@@ -474,7 +462,7 @@ Update_Status ModuleDisk::Update()
 					terraanim.Reset();
 				}
 				currentAnimation2 = &terraanim;
-				if (App->player2->personatgedisc2 != 1 && ultimplayer ==2)
+				if (App->player2->personatgedisc2 != 1 && ultimplayer ==2 && App->player->currentAnimation != &App->player->charge_ult)
 				{
 
 					timerterrap2 = 60;
@@ -503,6 +491,7 @@ Update_Status ModuleDisk::Update()
 			App->propsBackground->timersetcount = 350;
 			saque = 2;
 			App->audio->PlayFx(Pts2, 0);
+			currentAnimation2 = &idle;
 
 
 		}
@@ -518,7 +507,7 @@ Update_Status ModuleDisk::Update()
 			App->propsBackground->timersetcount = 350;
 			saque = 1;
 			App->audio->PlayFx(Pts2, 0);
-
+			currentAnimation2 = &idle;
 		}
 		if (score_player_1 >= 12) {
 
@@ -576,7 +565,7 @@ Update_Status ModuleDisk::Update()
 			disc_speed_X = -3;
 			disc_speed_Y = -2;
 
-
+			currentAnimation2 = &moving;
 
 		}
 
@@ -586,7 +575,7 @@ Update_Status ModuleDisk::Update()
 
 			disc_speed_X = 3;
 			disc_speed_Y = -2;
-
+			currentAnimation2 = &moving;
 
 
 		}
@@ -598,7 +587,7 @@ Update_Status ModuleDisk::Update()
 			disc_speed_X = -3;
 			disc_speed_Y = -2;
 
-
+			currentAnimation2 = &moving;
 
 		}
 
@@ -609,7 +598,7 @@ Update_Status ModuleDisk::Update()
 			disc_speed_X = 3;
 			disc_speed_Y = -2;
 
-
+			currentAnimation2 = &moving;
 
 		}
 
@@ -624,8 +613,11 @@ Update_Status ModuleDisk::Update()
 			disc_speed_Y = 0;
 			timerblock = 60;
 			bloqueig = false;
-			volea_x = position.x;
-			volea_y = position.y;
+			if (ultimplayer == 1) { volea_x = position.x + 5;	volea_y = position.y; }
+			else {
+				volea_x = position.x;
+				volea_y = position.y;
+			}
 
 		}
 
