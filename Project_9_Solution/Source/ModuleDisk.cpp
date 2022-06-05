@@ -134,7 +134,8 @@ bool ModuleDisk::Start()
 	App->collisions->Enable();
 
 	currentAnimation2 = &idle;
-	
+	correcciospritex = 0;
+	correcciospritey = 0;
 
 	LOG("Loading Disk textures");
 	si = 0;
@@ -142,7 +143,8 @@ bool ModuleDisk::Start()
 	muerte_subita = false;
 	timer = 120;
 	timer_Win = 300;
-
+	timerterrap1=0;
+	timerterrap2 = 0;
 	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
 	texturevolea = App->textures->Load("Assets/UI/Volea_Caiguda_Frisbee.png");
 	marca = App->textures->Load("Assets/UI/Others/MarcaF1.png");
@@ -150,8 +152,6 @@ bool ModuleDisk::Start()
 	blockfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Block.wav");
 	catchfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Catch.wav");
 	onairfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Freesbeonair.wav");
-	landingfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Landing.wav");
-
 
 	//audio comentarista
 	Pts2 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/2Pts.wav");
@@ -359,16 +359,14 @@ Update_Status ModuleDisk::Update()
 			onair = false;
 			disc_speed_X = 0;
 			disc_speed_Y = 0;
-			currentAnimation2 = &idle;
+			correcciospritex=-10;
+			correcciospritey=-10;
+			currentAnimation2 = &moving;
 			if (App->player->personatgedisc != 1)
 			{
-				App->disk->score_player_1 += 2;
-				App->player->position.x = 38;
-				App->player->position.y = 112;
-				App->audio->PlayFx(landingfx, 0);
-				App->audio->PlayFx(Pts2, 0);
-
-				saque = 1;
+				
+				timerterrap1 = 60;
+				
 			}
 		}
 		else if (position.x == volea_x) {					//disc cau a terra
@@ -376,16 +374,14 @@ Update_Status ModuleDisk::Update()
 			onair = false;
 			disc_speed_X = 0;
 			disc_speed_Y = 0;
-			currentAnimation2 = &idle;
+			correcciospritex = -10;
+			correcciospritey = -10;
+			currentAnimation2 = &moving;
 			if (App->player2->personatgedisc2 != 1)
 			{
-				App->disk->score_player_2 += 2;
-				App->player2->position.x = 240;
-				App->player2->position.y = 112;
-				App->audio->PlayFx(landingfx, 0);
-				App->audio->PlayFx(Pts2, 0);
-
-				saque = 2;
+				
+				timerterrap2=60;
+				
 			}
 		}
 		else if (position.x <= 20 && ultimplayer == 2) {
@@ -393,10 +389,38 @@ Update_Status ModuleDisk::Update()
 			onair = false;
 			disc_speed_X = 0;
 			disc_speed_Y = 0;
-			currentAnimation2 = &idle;
+			currentAnimation2 = &moving;
 		}
 	}
+	if (timerterrap1 == 1) {
+		position.x = 143;
+		position.y = 191;
+		correcciospritex = 0;
+		correcciospritey = 0;
+		App->disk->score_player_1 += 2;
+		App->player->position.x = 38;
+		App->player->position.y = 112;
+		timer = 120;
+		App->propsBackground->timersetcount = 350;
+		saque = 1;
+		App->audio->PlayFx(Pts2, 0);
+		
 
+	}
+	if (timerterrap2 == 1) {
+		position.x = 143;
+		position.y = 191;
+		correcciospritex = 0;
+		correcciospritey = 0;
+		App->disk->score_player_2 += 2;
+		App->player2->position.x = 240;
+		App->player2->position.y = 112;
+		timer = 120;
+		App->propsBackground->timersetcount = 350;
+		saque = 2;
+		App->audio->PlayFx(Pts2, 0);
+
+	}
 	if (score_player_1 >= 12) {
 
 		sets_player1 += 1;
@@ -526,7 +550,8 @@ Update_Status ModuleDisk::Update()
 	currentAnimation2->Update();
 	
 	App->propsBackground->timersetcount--;
-
+	timerterrap1--;
+	timerterrap2--;
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -546,7 +571,7 @@ Update_Status ModuleDisk::PostUpdate()
 	if (volea == true) {
 
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
-		App->render->Blit(texturevolea, position.x, position.y, &rect2);
+		App->render->Blit(texturevolea, position.x+correcciospritex, position.y + correcciospritey, &rect2);
 		App->render->Blit(marca, volea_x, volea_y, NULL);
 
 	}

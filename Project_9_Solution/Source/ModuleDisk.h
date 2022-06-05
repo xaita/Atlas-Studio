@@ -56,6 +56,10 @@ public:
 	int si = 0;
 	int volea_x;
 	int volea_y;
+	int timerterrap1;
+	int timerterrap2;
+	int correcciospritex;
+	int correcciospritey;
 
 	//int volea = 0;
 
