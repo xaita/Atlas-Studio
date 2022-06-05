@@ -253,12 +253,17 @@ bool ModulePlayer::Start()
 		rightidleFrisbee.loop = true;
 		rightidleFrisbee.speed = 0.1f;
 
+		uprightidleFrisbee.PushBack({ 660, 330, 45, 42 });
+		downrightidleFrisbee.PushBack({ 264, 396, 66, 66 });
+
 		//Lanzamiento Disco
-		for (int i = 0; i < 6; i++) {
-			shooting.PushBack({ 396 + (i * 66), 396, 66, 66 });
-		}
+		shooting.PushBack({ 396, 396, 66, 66 });
+		shooting.PushBack({ 594, 396, 66, 66 });
+		shooting.PushBack({ 660, 396, 66, 66 });
+		shooting.PushBack({ 726, 396, 66, 66 });
+
 		shooting.loop = false;
-		shooting.speed = 0.3f;
+		shooting.speed = 0.2f;
 
 		//Dash derecho
 		rightdash.PushBack({ 1122, 66, 66, 66 });
