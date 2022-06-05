@@ -1,19 +1,19 @@
-#ifndef __SCENE_JAPAN_H__
-#define __SCENE_JAPAN_H__
+#ifndef __SCENE_VS_H__
+#define __SCENE_VS_H__
 
 #include "Module.h"
 #include "Animation.h"
 
 struct SDL_Texture;
 
-class SceneJapan : public Module
+class SceneVS : public Module
 {
 public:
 	//Constructor
-	SceneJapan(bool startEnabled);
+	SceneVS(bool startEnabled);
 
 	//Destructor
-	~SceneJapan();
+	~SceneVS();
 
 	// Called when the module is activated
 	// Loads the necessary textures for the map background

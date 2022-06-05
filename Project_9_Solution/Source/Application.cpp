@@ -14,7 +14,7 @@
 #include "SceneLogo.h"
 #include "SceneIntro.h"
 #include "SceneIntroMapes.h"
-#include "SceneJapan.h"
+#include "SceneVS.h"
 #include "SceneLevel1.h"
 #include "ModuleParticles.h"
 #include "ModuleCollisions.h"
@@ -39,11 +39,11 @@ Application::Application()
 	modules[4] =	sceneLevel_1 =		new SceneLevel1(false);		   ////////////posar en false///////////         //Gameplay scene starts disabled
 	modules[5] =	player =			new ModulePlayer(false);	//Player starts disabled
 	modules[6] =    player2 =			new ModulePlayer2(false);	//Player starts disabled
-	modules[7] =   disk =               new ModuleDisk(false);
+	modules[7] =	disk =               new ModuleDisk(false);
 	modules[8] =	particles =			new ModuleParticles(true);
 	modules[9] =	propsBackground =	new PropsBackground(true);
 
-	modules[10] =	sceneJapan =		new SceneJapan(false);
+	modules[10] =	sceneVS		=		new SceneVS(false);
 	modules[11] =	sceneIntroMapes =	new SceneIntroMapes(false);
 	modules[12] =	sceneIntro =		new SceneIntro(false);
     modules[13] =	sceneWindjammers =  new SceneWindjammers(false);
