@@ -50,6 +50,7 @@ Update_Status SceneLogo::Update()
 
 	if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)
 	{
+
 		App->sceneLevel_1->Enable();
 		Disable();
 	}

@@ -41,8 +41,8 @@ public:
 	uint select = 0;
 	uint Coinfx = 0;
 
-	char selectPlayer1;
-	char xdselectPlayer1;
+	char selectPlayer1 = '1';
+	char xdselectPlayer1 = '1';
 
 	char selectPlayer2;
 	char xdselectPlayer2;
