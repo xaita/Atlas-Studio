@@ -721,29 +721,62 @@ Update_Status ModuleDisk::Update()
 		
 			
 			if (personaje == 3) {
+				if (sentido == 1) {
+					if (position.y >= aux2 - 40) {
 
-				if (position.y >= aux2 - 40) {
+						augmentvx = 0;
+						augmentvy = -3;
+					}
 
-					augmentvx = 0;
-					augmentvy = -3* sentido;
+					if (position.y < aux2 - 40) {
+
+						augmentvx = 3;
+						augmentvy = 0;
+					}
+
+					if (position.x >= aux + 80) {
+
+						augmentvx = 0;
+						augmentvy = 3;
+					}
+
+					if (position.y >= aux2 + 40) {
+
+						augmentvx = 3.3;
+						augmentvy = 0;
+
+					}
+
 				}
+				else if (sentido == -1) {
+					if (position.y <= aux2 + 40) {
 
-				if (position.y < aux2 - 40) {
+						augmentvx = 0;
+						augmentvy = 3;
+					}
 
-					augmentvx = 3;
-					augmentvy = 0;
-				}
+					if (position.y > aux2 + 40) {
 
-				if (position.x >= aux + 80) {
+						augmentvx = 3;
+						augmentvy = 0;
+					}
 
-					augmentvx = 0;
-					augmentvy = 3*sentido;
-				}
+					if (position.x >= aux + 80) {
 
-				if (position.y >= aux2+40) {
+						augmentvx = 0;
+						augmentvy = -3;
+					}
 
-					augmentvx = 3.3;
-					augmentvy = 0;
+					if (position.y <= aux2 - 40) {
+
+						augmentvx = 3.3;
+						augmentvy = 0;
+
+					}
+
+
+
+
 
 				}
 				currentAnimation2 = &moving;
