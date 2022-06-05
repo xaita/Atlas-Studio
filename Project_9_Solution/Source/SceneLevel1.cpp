@@ -46,7 +46,7 @@ bool SceneLevel1::Start()
 	beachNet = App->textures->Load("Assets/Sprites/Stages/Beach/anim901_0007_Red.png");
 
 	lawnTexture = App->textures->Load("Assets/Sprites/Stages/Lawn/Lawn_SpriteSheet.png");
-	lawnNet = App->textures->Load("Assets/Sprites/Stages/Lawn/netSprithesheet.png");
+	lawnNet = App->textures->Load("Assets/Sprites/Stages/Lawn/netSpritesheet.png");
 
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 	P1Win = App->textures->Load("Assets/UI/Others/P1Win.png");
@@ -82,6 +82,14 @@ bool SceneLevel1::Start()
 	spectatorsLawn.PushBack({ 732,0,358,224 });
 	spectatorsLawn.loop = true;
 	spectatorsLawn.speed = 0.15f;
+	lawnNetAnimation.PushBack({ 0,0,16,192 });//idle
+	lawnNetAnimation.PushBack({ 16,0,16,192 });//dreta
+	lawnNetAnimation.PushBack({ 32,0,16,192 });//
+	lawnNetAnimation.PushBack({ 48,0,16,192 });//
+	lawnNetAnimation.PushBack({ 100,0,16,192 });//esquerra
+	lawnNetAnimation.PushBack({ 116,0,16,192 });//
+	lawnNetAnimation.PushBack({ 132,0,16,192 });//
+
 
 	//int x = 15;
 	//for (int i = 0; i < 32; i++) {
@@ -350,7 +358,7 @@ Update_Status SceneLevel1::PostUpdate()
 
 	case '3':
 		App->render->Blit(lawnTexture, -27, 0, &(spectatorsLawn.GetCurrentFrame()));
-		App->render->Blit(lawnNet, 142, 31, NULL);
+		App->render->Blit(lawnNet, 142, 31, &(lawnNetAnimation.GetCurrentFrame()));
 		break;
 	}
 

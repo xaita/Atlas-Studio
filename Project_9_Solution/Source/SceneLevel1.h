@@ -124,6 +124,7 @@ public:
 	Animation spectators;		//concrete
 	Animation spectatorsBeach;
 	Animation spectatorsLawn;
+	Animation lawnNetAnimation;
 
 	Animation score;
 
