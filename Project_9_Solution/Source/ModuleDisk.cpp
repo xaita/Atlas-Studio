@@ -146,48 +146,48 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	beehosuperDownID.PushBack({ 312, 67, 26, 44 });
 
 	//klausssuperamunt
-	klausssuperD.PushBack({});
-	klausssuperD.PushBack({});
-	klausssuperD.PushBack({});
-	klausssuperD.PushBack({});
+	klausssuperD.PushBack({ 639, 0, 54, 96 });
+	klausssuperD.PushBack({ 519, 0, 120, 96 });
+	klausssuperD.PushBack({ 161, 433, 141, 96 });
+	klausssuperD.PushBack({ 333, 285, 237, 96 });
 
 	//klausssuper abaix
-	klausssuperU.PushBack({});
-	klausssuperU.PushBack({});
-	klausssuperU.PushBack({});
-	klausssuperU.PushBack({});
+	klausssuperU.PushBack({ 1153, 509, 96, 54 });
+	klausssuperU.PushBack({ 237, 285, 96, 69 });
+	klausssuperU.PushBack({ 1057, 477, 96, 86 });
+	klausssuperU.PushBack({ 141, 285, 96, 99 });
 
 	// Klauss super dreta
-	klausssuperR.PushBack({});
-	klausssuperR.PushBack({});
-	klausssuperR.PushBack({});
-	klausssuperR.PushBack({});
+	klausssuperR.PushBack({ 639, 0, 54, 96 });
+	klausssuperR.PushBack({ 519, 0, 120, 96 });
+	klausssuperR.PushBack({ 161, 433, 141, 96 });
+	klausssuperR.PushBack({ 333, 285, 237, 96 });
 
 	//klauss super esquerra
-	klausssuperL.PushBack({});
-	klausssuperL.PushBack({});
-	klausssuperL.PushBack({});
-	klausssuperL.PushBack({});
+	klausssuperL.PushBack({ 1119, 0, 54, 96 });
+	klausssuperL.PushBack({ 1173, 0, 120, 96 });
+	klausssuperL.PushBack({ 1153, 241, 141, 96 });
+	klausssuperL.PushBack({ 1057, 122, 237, 96 });
 
 	//klauss inicio tiro
-	klausssuperinicio.PushBack({});
-	klausssuperinicio.PushBack({});
-	klausssuperinicio.PushBack({});
-	klausssuperinicio.PushBack({});
-	klausssuperinicio.PushBack({});
+	klausssuperinicio.PushBack({ 264, 731, 144, 143 });
+	klausssuperinicio.PushBack({ 96, 731, 168, 168 });
+	klausssuperinicio.PushBack({ 792, 537, 194, 194 });
+	klausssuperinicio.PushBack({ 598, 433, 192, 194 });
+	klausssuperinicio.PushBack({ 309, 433, 192, 192 });
 
 	//gol ulti klauss
-	klausssupergol.PushBack({});
-	klausssupergol.PushBack({});
+	klausssupergol.PushBack({ 408, 731, 285, 285 });
+	klausssupergol.PushBack({ 0, 0, 285, 285 });
 
 	//canvia sentit 
-	klausssupersentit.PushBack({});
-	klausssupersentit.PushBack({});
-	klausssupersentit.PushBack({});
-	klausssupersentit.PushBack({});
+	klausssupersentit.PushBack({ 0, 285, 141, 141 });
+	klausssupersentit.PushBack({ 11, 435, 141, 141 });
+	klausssupersentit.PushBack({ 693, 731, 141, 141 });
+	klausssupersentit.PushBack({ 584, 292, 141, 141 });
 
 	//choca jugador
-	klausssuperchocar.PushBack({});
+	klausssuperchocar.PushBack({ 285, 0, 234, 255 });
 
 
 
