@@ -42,6 +42,7 @@ public:
 	int personatgedisc=-1; //detecta si el personatge té disc o no
 
 	int dashtimer;
+	int timer_ult;
 	bool dashup = true;
 
 	int blocktimer;

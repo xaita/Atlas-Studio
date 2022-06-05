@@ -539,7 +539,7 @@ bool ModulePlayer::Start()
 
 	position.x = 38;
 	position.y = 112;
-
+	timer_ult = 40;
 
 	destroyed = false;
 	ultimate = false;
@@ -559,6 +559,7 @@ Update_Status ModulePlayer::Update()
 	
 	// Moving the player with the camera scroll
 	App->player->position.x += 0;
+
 
 	if (dashtimer == 0) {
 
@@ -1170,13 +1171,19 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 
 	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::SUPER_ZONE && App->disk->onair == true) {
+		if (timer_ult > 0) {
+			timer_ult--;
 
-		ultimate = true;
-		currentAnimation = &charge_ult;
-
+			currentAnimation = &charge_ult;
+		}
+		
+		if (timer_ult == 0) {
+			ultimate = true;
+			
+		}
 	}
-	else {
-
+	else if(App->disk->onair== false){
+		timer_ult = 40;
 		charge_ult.Reset();
 	}
 }

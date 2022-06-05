@@ -62,7 +62,7 @@ public:
 	int correcciospritex;
 	int correcciospritey;
 	int sentido;
-
+	int personaje; 
 	double posx;
 	double posy;
 

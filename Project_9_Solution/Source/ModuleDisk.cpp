@@ -346,6 +346,8 @@ bool ModuleDisk::Start()
 	aux2 = 0;
 	sentido = 0;
 
+	 personaje = 3;
+
 	destroyed = false;
 
 	diskcollider = App->collisions->AddCollider({ position.x, position.y, 16, 16 }, Collider::Type::DISK, this);
@@ -693,10 +695,12 @@ Update_Status ModuleDisk::Update()
 			disc_speed_Y = 0;
 			timerblock = 60;
 			bloqueig = false;
-			if (ultimplayer == 1) { volea_x = position.x + 5;	volea_y = position.y; }
+			if (ultimplayer == 1) { position.x += 20;  volea_x = position.x;	position.y -= 20;  volea_y = position.y+30; }
 			else {
-				volea_x = position.x;
-				volea_y = position.y;
+				position.x -= 20;
+				position.y -= 20;
+				volea_x = position.x ;
+				volea_y = position.y+20;
 			}
 
 		}
@@ -716,12 +720,45 @@ Update_Status ModuleDisk::Update()
 		if (ultimate_disk == true) {
 		
 			
+			if (personaje == 3) {
 
-			
-			augmentvy = (-sin(augmentvx /30)*55)*sentido;
-			augmentvx += disc_speed_X;
-			position.x = aux+augmentvx;
-			position.y = aux2+augmentvy;
+				if (position.y >= aux2 - 40) {
+
+					augmentvx = 0;
+					augmentvy = -3* sentido;
+				}
+
+				if (position.y < aux2 - 40) {
+
+					augmentvx = 3;
+					augmentvy = 0;
+				}
+
+				if (position.x >= aux + 80) {
+
+					augmentvx = 0;
+					augmentvy = 3*sentido;
+				}
+
+				if (position.y >= aux2+40) {
+
+					augmentvx = 3.3;
+					augmentvy = 0;
+
+				}
+				currentAnimation2 = &moving;
+				position.x += augmentvx;
+				position.y += augmentvy;
+
+			}
+			else {
+
+
+				augmentvy = (-sin(augmentvx / 30) * 55) * sentido;
+				augmentvx += disc_speed_X;
+				position.x = aux + augmentvx;
+				position.y = aux2 + augmentvy;
+			}
 		} 
 		else {
 			aux = 0;
@@ -772,12 +809,16 @@ Update_Status ModuleDisk::PostUpdate()
 
 
 	}
-	if (volea == true) {
+	if (volea == true ) {
 
 		SDL_Rect rect2 = currentAnimation2->GetCurrentFrame();
 		App->render->Blit(texturevolea, position.x, position.y, &rect2);
+		
 		App->render->Blit(marca, volea_x, volea_y, NULL);
 
+	}
+	if (onair == true) {
+		App->render->Blit(marca, volea_x, volea_y, NULL);
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
