@@ -316,22 +316,6 @@ Update_Status SceneLevel1::Update()
 		points3right = 0;
 	}
 	
-
-	/*char s[128];
-	if (SDL_SCANCODE_H == SDL_KEYUP && points5right == 1)
-	{
-		for (int i = 0; i < NUM_POINTS; ++i)
-		{
-			sprintf_s(s, "Assets/UI/Points_Goal/3_points_goal_(right)/3_points_dreta_%d.png", i + 1);
-			diskTexture[i] = App->textures->Load(s);
-			App->render->Blit(diskTexture[i], 60, 60, NULL);
-			if (i >= 17)
-			{
-				points5right = 0;
-				App->textures->Load("Assets/UI/Points_Goal/3_points_goal_(right)/3_points_dreta_17.png");
-			}
-		}
-	}*/
 	Points5ScoreR.Update();
 	Points5ScoreL.Update();
 	Points3ScoreL.Update();
