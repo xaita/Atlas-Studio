@@ -60,8 +60,28 @@ public:
 	SDL_Texture* Points5scoreL = nullptr;
 	SDL_Texture* Points3scoreR = nullptr;
 	SDL_Texture* Points3scoreL = nullptr;
-	SDL_Texture* P1Win = nullptr;
-	SDL_Texture* P2Win = nullptr;
+
+	SDL_Texture* JapanwinJapan = nullptr;
+	SDL_Texture* JapanwinKorea = nullptr;
+	SDL_Texture* JapanwinGermany = nullptr;
+	SDL_Texture* JapanlostJapan = nullptr;
+	SDL_Texture* JapanlostKorea = nullptr;
+	SDL_Texture* JapanlostGermany = nullptr;
+
+	SDL_Texture* KoreawinJapan = nullptr;
+	SDL_Texture* KoreawinKorea = nullptr;
+	SDL_Texture* KoreawinGermany = nullptr;
+	SDL_Texture* KorealostJapan = nullptr;
+	SDL_Texture* KorealostKorea = nullptr;
+	SDL_Texture* KorealostGermany = nullptr;
+
+	SDL_Texture* GermanywinJapan = nullptr;
+	SDL_Texture* GermanywinKorea = nullptr;
+	SDL_Texture* GermanywinGermany = nullptr;
+	SDL_Texture* GermanylostJapan = nullptr;
+	SDL_Texture* GermanylostKorea = nullptr;
+	SDL_Texture* GermanylostGermany = nullptr;
+
 
 
 	SDL_Texture* diskTexture[NUM_POINTS];

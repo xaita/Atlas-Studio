@@ -57,8 +57,8 @@ bool SceneLevel1::Start()
 	lawnNet = App->textures->Load("Assets/Sprites/Stages/Lawn/netSpritesheet.png");
 
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
-	P1Win = App->textures->Load("Assets/UI/Others/P1Win.png");
-	P2Win = App->textures->Load("Assets/UI/Others/P2Win.png");
+	JapanpwinJapan = App->textures->Load("Assets/UI/Others/JapanwinJapan.png");
+	JapanlostJapan = App->textures->Load("Assets/UI/Others/JapanlostJapan.png");
 
 	
 
