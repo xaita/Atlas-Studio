@@ -535,6 +535,14 @@ bool ModulePlayer::Start()
 		charge_ult.loop = false;
 		charge_ult.speed = 0.1f;
 
+		blockanim.PushBack({ 150, 260, 75, 65 });
+		blockanim.PushBack({ 225, 260, 75, 65 });
+		blockanim.PushBack({ 300, 260, 75, 65 });
+		blockanim.loop = false;
+		blockanim.speed = 0.35f;
+
+		uprightidleFrisbee.PushBack({150,325,75,65});
+		downrightidleFrisbee.PushBack({450 ,325,75,65 });
 
 		break;
 
