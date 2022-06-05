@@ -503,7 +503,7 @@ Update_Status ModulePlayer::Update()
 		blocktimer = 0;
 	}
 
-	
+
 
 if(personatgedisc == -1)	//MOVIMENT PLAYER
 {
