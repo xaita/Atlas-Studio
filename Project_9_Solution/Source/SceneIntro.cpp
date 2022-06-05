@@ -24,7 +24,7 @@ bool SceneIntro::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
-
+	selecttimer = 0;
 	bgTexture = App->textures->Load("Assets/UI/Select Screens/SelectPlayerScene.png");
 	
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
@@ -33,7 +33,9 @@ bool SceneIntro::Start()
 
 	App->sceneCoins->Coins;
 	Coinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/InsertedCoin.wav");
-
+	JapanSelectedfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiSelected.wav");
+	GermanySelectedfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussSelected.wav");
+	KoreanSelectedfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Beeho Yoo/B.YooSelect.wav");
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
@@ -67,7 +69,7 @@ Update_Status SceneIntro::Update()
 		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 			selectPlayer1 = '4';
 			xdselectPlayer1 = '1';
-
+			App->audio->PlayFx(JapanSelectedfx, 0);
 		}
 		break;
 
@@ -85,6 +87,7 @@ Update_Status SceneIntro::Update()
 		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 			selectPlayer1 = '4';
 			xdselectPlayer1 = '2';
+			App->audio->PlayFx(KoreanSelectedfx, 0);
 
 		}
 		break;
@@ -103,6 +106,7 @@ Update_Status SceneIntro::Update()
 		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
 			selectPlayer1 = '4';
 			xdselectPlayer1 = '3';
+			App->audio->PlayFx(GermanySelectedfx, 0);
 
 		}
 		break;
@@ -139,9 +143,10 @@ Update_Status SceneIntro::Update()
 			App->audio->PlayFx(select, 0);
 			selectPlayer2 = '3';
 		}
-		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
-			selectPlayer1 = '4';
+		if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
+			selectPlayer2 = '4';
 			xdselectPlayer2 = '1';
+			App->audio->PlayFx(JapanSelectedfx, 0);
 
 		}
 
@@ -158,9 +163,10 @@ Update_Status SceneIntro::Update()
 			App->audio->PlayFx(select, 0);
 			selectPlayer2 = '3';
 		}
-		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
-			selectPlayer1 = '4';
+		if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
+			selectPlayer2 = '4';
 			xdselectPlayer2 = '2';
+			App->audio->PlayFx(KoreanSelectedfx, 0);
 
 		}
 
@@ -177,9 +183,10 @@ Update_Status SceneIntro::Update()
 			App->audio->PlayFx(select,0);
 			selectPlayer2 = '2';
 		}
-		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
-			selectPlayer1 = '4';
+		if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
+			selectPlayer2 = '4';
 			xdselectPlayer2 = '3';
+			App->audio->PlayFx(GermanySelectedfx, 0);
 
 		}
 
@@ -198,7 +205,12 @@ Update_Status SceneIntro::Update()
 
 	if (Readyp1 == true && Readyp2 == true)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneIntroMapes, 90);
+		if (selecttimer <= 0) {
+			selecttimer = 100;
+		}
+		if (selecttimer == 1) {
+			App->fade->FadeToBlack(this, (Module*)App->sceneIntroMapes, 90);
+		}
 	}
 
 
@@ -246,7 +258,7 @@ Update_Status SceneIntro::Update()
 	{
 		App->audio->PlayFx(Coinfx, 0);
 	}
-
+	selecttimer--;
 	return Update_Status::UPDATE_CONTINUE;
 }
 

@@ -40,13 +40,16 @@ public:
 	// Sound effects indices
 	uint select = 0;
 	uint Coinfx = 0;
+	uint JapanSelectedfx = 0;
+	uint GermanySelectedfx = 0;
+	uint KoreanSelectedfx = 0;
 
 	char selectPlayer1 = '1';
 	char xdselectPlayer1 = '1';
 
 	char selectPlayer2;
 	char xdselectPlayer2;
-
+	int selecttimer;
 	int x1;
 	int y1;
 	int x2;
