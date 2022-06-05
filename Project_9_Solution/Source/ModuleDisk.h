@@ -66,6 +66,7 @@ public:
 	bool bloqueig;
 	bool onair;
 	bool volea;
+	bool ultimate_disk;
 
 
 	// The player spritesheet loaded into an SDL_Texture

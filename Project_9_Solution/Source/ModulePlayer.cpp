@@ -1104,3 +1104,22 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		charge_ult.Reset();
 	}
 }
+
+
+void  ultimate( Animation ultimateanim) {
+
+	if (App->player->ultimate == true) {
+
+		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
+
+			App->player->currentAnimation = &ultimateanim;
+			App->disk->ultimate_disk = true;
+			App->player->ultimate = false;
+		}
+
+	}
+
+
+
+
+}

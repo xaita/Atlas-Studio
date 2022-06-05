@@ -223,6 +223,7 @@ bool ModuleDisk::Start()
 	LOG("Loading Disk textures");
 	si = 0;
 	bool ret = true;
+	ultimate_disk = false;
 	muerte_subita = false;
 	timer = 120;
 	timer_Win = 300;
