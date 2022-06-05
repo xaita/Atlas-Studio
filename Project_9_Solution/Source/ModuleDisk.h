@@ -109,6 +109,14 @@ public:
 	Animation beehosuperDownDI;
 	
 	Animation klausssuper;
+	Animation klausssuperchocar;
+	Animation klausssupersentit;
+	Animation klausssupergol;
+	Animation klausssuperinicio;
+	Animation klausssuperL;
+	Animation klausssuperR;
+	Animation klausssuperU;
+	Animation klausssuperD;
 
 	uint blockfx = 0;
 	uint catchfx = 0;

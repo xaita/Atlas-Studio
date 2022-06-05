@@ -146,6 +146,49 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	beehosuperDownID.PushBack({ 338, 67, 58, 48 });
 	beehosuperDownID.PushBack({ 312, 67, 26, 44 });
 
+	//klausssuperamunt
+	klausssuperD.PushBack({});
+	klausssuperD.PushBack({});
+	klausssuperD.PushBack({});
+	klausssuperD.PushBack({});
+
+	//klausssuper abaix
+	klausssuperU.PushBack({});
+	klausssuperU.PushBack({});
+	klausssuperU.PushBack({});
+	klausssuperU.PushBack({});
+
+	// Klauss super dreta
+	klausssuperR.PushBack({});
+	klausssuperR.PushBack({});
+	klausssuperR.PushBack({});
+	klausssuperR.PushBack({});
+
+	//klauss super esquerra
+	klausssuperL.PushBack({});
+	klausssuperL.PushBack({});
+	klausssuperL.PushBack({});
+	klausssuperL.PushBack({});
+
+	//klauss inicio tiro
+	klausssuperinicio.PushBack({});
+	klausssuperinicio.PushBack({});
+	klausssuperinicio.PushBack({});
+	klausssuperinicio.PushBack({});
+	klausssuperinicio.PushBack({});
+
+	//gol ulti klauss
+	klausssupergol.PushBack({});
+	klausssupergol.PushBack({});
+
+	//canvia sentit 
+	klausssupersentit.PushBack({});
+	klausssupersentit.PushBack({});
+	klausssupersentit.PushBack({});
+	klausssupersentit.PushBack({});
+
+	//choca jugador
+	klausssuperchocar.PushBack({});
 
 
 
