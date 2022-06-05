@@ -78,12 +78,45 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	hiromisuper.PushBack({ 192, 188, 64, 64 });
 	hiromisuper.PushBack({ 0, 236, 38, 38 });
 	hiromisuper.PushBack({ 38, 236, 32, 32 });
+
+	//Super Hiromi disk advance
 	hiromisuper.PushBack({ 70, 236, 16, 96 });
 	hiromisuper.PushBack({ 86, 236, 16, 84 });
 	hiromisuper.PushBack({ 102, 236, 13, 38 });
 
 	//Beeho Super
+	beehosuper.PushBack({0, 0, 43, 42});
+	beehosuper.PushBack({ 43, 0, 41, 40 });
+	beehosuper.PushBack({ 84, 0, 37, 37 });
+	beehosuper.PushBack({ 121, 0, 53, 52 });
+	beehosuper.PushBack({ 174, 0, 51, 45 });
+	beehosuper.PushBack({ 0, 52, 38, 49 });
+	beehosuper.PushBack({ 40, 52, 58, 53 });
+	beehosuper.PushBack({ 98, 52, 50, 46 });
+	beehosuper.PushBack({ 149, 52, 45, 45 });
+	beehosuper.PushBack({ 194, 52, 45, 49 });
 
+	//al lanzar ulti behoo
+	beehosuper.PushBack({ 80, 156, 18, 19 });
+	beehosuper.PushBack({ 98, 156, 16, 28 });
+	beehosuper.PushBack({ 114, 156, 15, 45 });
+	beehosuper.PushBack({ 129, 156, 48, 46 });
+	beehosuper.PushBack({ 177, 156, 45, 48 });
+	beehosuper.PushBack({ 0, 204, 38, 26 });
+
+	//super otros
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
+	beehosuper.PushBack({});
 
 
 
@@ -198,7 +231,9 @@ bool ModuleDisk::Start()
 	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
 	texturevolea = App->textures->Load("Assets/UI/Volea_Caiguda_Frisbee.png");
 	marca = App->textures->Load("Assets/UI/Others/MarcaF1.png");
-	superhiromi = App->textures->Load("Assets/Sprites/Characters/Hiromi_Mita/SuperShotEffects.png");
+	superhiromitexture = App->textures->Load("Assets/Sprites/Characters/Hiromi_Mita/SuperShotEffects.png");
+	superbeehotexture = App->textures->Load("Assets/Sprites/Characters/Beeho_Yoo/superShotEffectsSpriteSheet.png");
+	superklausstexture = App->textures->Load("Assets/Sprites/Characters/Klauss_Wessel/Alemán_SuperShot.png");
 
 	blockfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Block.wav");
 	catchfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Catch.wav");

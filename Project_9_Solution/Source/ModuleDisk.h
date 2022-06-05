@@ -74,7 +74,9 @@ public:
 
 	SDL_Texture* marca = nullptr;
 
-	SDL_Texture* superhiromi = nullptr;
+	SDL_Texture* superhiromitexture = nullptr;
+	SDL_Texture* superbeehotexture = nullptr;
+	SDL_Texture* superklausstexture = nullptr;
 
 
 	// The pointer to the current player animation
@@ -91,6 +93,8 @@ public:
 	Animation voleaanim;
 	Animation terraanim;
 	Animation hiromisuper;
+	Animation beehosuper;
+	Animation klausssuper;
 
 	uint blockfx = 0;
 	uint catchfx = 0;
