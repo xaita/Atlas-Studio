@@ -50,6 +50,7 @@ public:
 	bool blockdisk;
 	int correcciox;
 	int correccioy;
+	bool ultimate;
 
 
 	// The player spritesheet loaded into an SDL_Texture
@@ -83,6 +84,7 @@ public:
 	Animation leftdowndash;
 	Animation blockanim;
 	Animation recive;
+	Animation charge_ult;
 
 	// The player's collider
 	Collider* collider = nullptr;

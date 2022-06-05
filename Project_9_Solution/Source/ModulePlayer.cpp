@@ -194,6 +194,11 @@ bool ModulePlayer::Start()
 		blockanim.loop = false;
 		blockanim.speed = 0.25f;
 
+		charge_ult.PushBack({ 445,103,29,45 });
+		charge_ult.PushBack({ 416,103,29,44 });
+		charge_ult.loop = false;
+		charge_ult.speed = 0.1f;
+
 		break;
 
 	case '2':
@@ -483,6 +488,7 @@ bool ModulePlayer::Start()
 	position.y = 112;
 
 	destroyed = false;
+	ultimate = false;
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 27, 31 }, Collider::Type::PLAYER, this);
 
@@ -742,11 +748,15 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 
 
-			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE || blocktimer >= 20){
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE || blocktimer >= 20 ){
 
 				blockdisk = false;
-				currentAnimation = &rightidleAnim;
+				if (currentAnimation != &charge_ult) {
+					currentAnimation = &rightidleAnim;
+				}
+				
 			}
+			
 			
 
 		}
@@ -810,7 +820,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 					App->audio->PlayFx(lobfx, 0);
 				}
 				else {
-					App->disk->disc_speed_X = 2.5;
+					App->disk->disc_speed_X = 2.0;
 					App->disk->disc_speed_Y = -1;
 					App->disk->volea = true;
 					App->audio->PlayFx(lobfx, 0);
@@ -844,14 +854,14 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				App->disk->volea_x = App->disk->position.x + 120;
 				App->disk->volea_y = App->disk->position.y - (120 / 2.5)-16;
 				if (App->disk->volea_y <= 30) {
-					App->disk->disc_speed_X = 2.5;
+					App->disk->disc_speed_X = 2.0;
 					App->disk->volea = true;
 					App->disk->volea_y = App->disk->position.y;
 
 					App->audio->PlayFx(lobfx, 0);
 				}
 				else {
-					App->disk->disc_speed_X = 2.5;
+					App->disk->disc_speed_X = 2.0;
 					App->disk->disc_speed_Y = -1;
 					App->disk->volea = true;
 
@@ -886,14 +896,14 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				App->disk->volea_y = App->disk->position.y + (120/2.5)+16;
 				if (App->disk->volea_y >= 180) {
 
-					App->disk->disc_speed_X = 2.5;
+					App->disk->disc_speed_X = 2.0;
 					App->disk->volea = true;
 					App->disk->volea_y = App->disk->position.y;
 
 					App->audio->PlayFx(lobfx, 0);
 				}
 				else {
-					App->disk->disc_speed_X = 2.5;
+					App->disk->disc_speed_X = 2.0;
 					App->disk->disc_speed_Y = 1;
 					App->disk->volea = true;
 
@@ -929,14 +939,14 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 					App->disk->volea_y = App->disk->position.y + (120/2.5)+16;
 					if (App->disk->volea_y >= 180) {
 
-						App->disk->disc_speed_X = 2.5;
+						App->disk->disc_speed_X = 2.0;
 						App->disk->volea = true;
 						App->disk->volea_y = App->disk->position.y;
 
 						App->audio->PlayFx(lobfx, 0);
 					}
 					else {
-						App->disk->disc_speed_X = 2.5;
+						App->disk->disc_speed_X = 2.0;
 						App->disk->disc_speed_Y = 1;
 						App->disk->volea = true;
 
@@ -1000,7 +1010,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				App->disk->volea_y = App->disk->position.y;
 
 				App->disk->ultimplayer = 1;
-				App->disk->disc_speed_X = 2.5;
+				App->disk->disc_speed_X = 2.0;
 				App->disk->volea = true;
 
 				App->audio->PlayFx(lobfx, 0);
@@ -1062,5 +1072,16 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		position.x = 38;
 		position.y = 112;
+	}
+
+	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::SUPER_ZONE && App->disk->onair == true) {
+
+		ultimate = true;
+		currentAnimation = &charge_ult;
+
+	}
+	else {
+
+		charge_ult.Reset();
 	}
 }

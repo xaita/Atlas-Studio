@@ -500,9 +500,9 @@ Update_Status ModulePlayer2::Update()
 				personatgedisc2 = -1;
 				App->disk->ultimplayer = 1;
 				App->disk->volea_x = App->disk->position.x - 120;
-				App->disk->volea_y = App->disk->position.y - (120 / 2.5) + 16;
+				App->disk->volea_y = App->disk->position.y - (120 / 2.5) - 16;
 				if (App->disk->volea_y <= 30) {
-					App->disk->disc_speed_X = -2.5;
+					App->disk->disc_speed_X = -2.0;
 					App->disk->volea = true;
 					App->disk->volea_y = App->disk->position.y;
 
@@ -510,7 +510,7 @@ Update_Status ModulePlayer2::Update()
 
 				}
 				else {
-					App->disk->disc_speed_X = -2.5;
+					App->disk->disc_speed_X = -2.0;
 					App->disk->disc_speed_Y = -1;
 					App->disk->volea = true;
 
@@ -544,16 +544,16 @@ Update_Status ModulePlayer2::Update()
 				personatgedisc2 = -1;
 				App->disk->ultimplayer = 1;
 				App->disk->volea_x = App->disk->position.x - 120;
-				App->disk->volea_y = App->disk->position.y - (120 / 2.5) + 16;
+				App->disk->volea_y = App->disk->position.y - (120 / 2.5) - 16;
 				if (App->disk->volea_y <= 30) {
-					App->disk->disc_speed_X = -2.5;
+					App->disk->disc_speed_X = -2.0;
 					App->disk->volea = true;
 					App->disk->volea_y = App->disk->position.y;
 
 					App->audio->PlayFx(lobfx, 0);
 				}
 				else {
-					App->disk->disc_speed_X = -2.5;
+					App->disk->disc_speed_X = -2.0;
 					App->disk->disc_speed_Y = -1;
 					App->disk->volea = true;
 
@@ -588,17 +588,17 @@ Update_Status ModulePlayer2::Update()
 				personatgedisc2 = -1;
 				App->disk->ultimplayer = 1;
 				App->disk->volea_x = App->disk->position.x - 120;
-				App->disk->volea_y = App->disk->position.y + (120 / 2.5) - 16;
+				App->disk->volea_y = App->disk->position.y + (120 / 2.5) + 16;
 				if (App->disk->volea_y >= 180) {
 
-					App->disk->disc_speed_X = -2.5;
+					App->disk->disc_speed_X = -2.0;
 					App->disk->volea = true;
 					App->disk->volea_y = App->disk->position.y;
 
 					App->audio->PlayFx(lobfx, 0);
 				}
 				else {
-					App->disk->disc_speed_X = -2.5;
+					App->disk->disc_speed_X = -2.0;
 					App->disk->disc_speed_Y = 1;
 					App->disk->volea = true;
 
@@ -629,17 +629,17 @@ Update_Status ModulePlayer2::Update()
 				personatgedisc2 = -1;
 				App->disk->ultimplayer = 1;
 				App->disk->volea_x = App->disk->position.x - 120;
-				App->disk->volea_y = App->disk->position.y + (120 / 2.5) - 16;
+				App->disk->volea_y = App->disk->position.y + (120 / 2.5) + 16;
 				if (App->disk->volea_y >= 180) {
 
-					App->disk->disc_speed_X = -2.5;
+					App->disk->disc_speed_X = -2.0;
 					App->disk->volea = true;
 					App->disk->volea_y = App->disk->position.y;
 
 					App->audio->PlayFx(lobfx, 0);
 				}
 				else {
-					App->disk->disc_speed_X = -2.5;
+					App->disk->disc_speed_X = -2.0;
 					App->disk->disc_speed_Y = 1;
 					App->disk->volea = true;
 
@@ -699,7 +699,7 @@ Update_Status ModulePlayer2::Update()
 				App->disk->volea_y = App->disk->position.y;
 
 				App->disk->ultimplayer = 2;
-				App->disk->disc_speed_X = -2.5;
+				App->disk->disc_speed_X = -2.0;
 				App->disk->volea = true;
 
 				App->audio->PlayFx(lobfx, 0);

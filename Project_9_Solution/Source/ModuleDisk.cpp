@@ -588,6 +588,8 @@ Update_Status ModuleDisk::Update()
 			disc_speed_Y = 0;
 			timerblock = 60;
 			bloqueig = false;
+			volea_x = position.x;
+			volea_y = position.y;
 
 		}
 
@@ -833,9 +835,5 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 	}
 
-	if (c1->type == Collider::Type::SUPER_ZONE && c2->type == Collider::Type::PLAYER2 && volea == true) {
-
-
-
-	}
+	
 }
