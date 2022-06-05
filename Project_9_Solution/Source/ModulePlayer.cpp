@@ -406,14 +406,19 @@ bool ModulePlayer::Start()
 			rightAnim.PushBack({ 450 + (i * 75), 0, 75, 65 });
 		}
 		rightAnim.loop = true;
-		rightAnim.speed = 0.1f;
+		rightAnim.speed = 0.12f;
 
 		//Move Left
-		for (int i = 0; i < 6; i++) {
-			leftAnim.PushBack({ 375 + (i * 75), 390, 75, 65 });
-		}
+		leftAnim.PushBack({ 750, 390, 75, 65 });
+		leftAnim.PushBack({ 675, 390, 75, 65 });
+		leftAnim.PushBack({ 600, 390, 75, 65 });
+		leftAnim.PushBack({ 525, 390, 75, 65 });
+		leftAnim.PushBack({ 450, 390, 75, 65 });
+		leftAnim.PushBack({ 375, 390, 75, 65 });
+
+
 		leftAnim.loop = true;
-		leftAnim.speed = 0.1f;
+		leftAnim.speed = 0.12f;
 
 		// Move Down Head Right
 		for (int i = 0; i < 6; i++) {
@@ -489,11 +494,20 @@ bool ModulePlayer::Start()
 		lose.speed = 0.05f;*/
 
 		//Dash diagonalUpRight
-		for (int i = 0; i < 4; i++) {
-			rightdash.PushBack({ 375 + (i * 75), 130, 75, 65 });
-		}
+		rightdash.PushBack({ 975, 65, 75, 65 });
+		rightdash.PushBack({ 1050, 65, 75, 65 });
+		rightdash.PushBack({ 1125, 65, 75, 65 });
+		rightdash.PushBack({ 1200, 65, 75, 65 });
+
 		rightdash.loop = false;
 		rightdash.speed = 0.45f;
+
+		rightupdash.PushBack({ 375,130,75,65});
+		rightupdash.PushBack({ 450,130,75,65 });
+		rightupdash.PushBack({ 525,130,75,65 });
+		rightupdash.PushBack({ 600,130,75,65 });
+		rightupdash.loop = false;
+		rightupdash.speed = 0.45f;
 
 		//Dash diagonalDownRight
 		for (int i = 0; i < 4; i++) {
@@ -516,8 +530,8 @@ bool ModulePlayer::Start()
 		leftupdash.loop = false;
 		leftupdash.speed = 0.45f;
 
-		charge_ult.PushBack({ 445,103,29,45 });
-		charge_ult.PushBack({ 416,103,29,44 });
+		charge_ult.PushBack({ 450, 260,75, 65 });
+		charge_ult.PushBack({ 525, 260,75, 65 });
 		charge_ult.loop = false;
 		charge_ult.speed = 0.1f;
 
