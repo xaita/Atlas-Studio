@@ -71,6 +71,7 @@ public:
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
 	SDL_Texture* texturevolea = nullptr;
+
 	SDL_Texture* marca = nullptr;
 
 
@@ -86,6 +87,7 @@ public:
 	Animation blocking;
 	Animation idle;
 	Animation voleaanim;
+	Animation terraanim;
 
 	uint blockfx = 0;
 	uint catchfx = 0;

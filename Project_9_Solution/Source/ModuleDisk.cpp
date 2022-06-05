@@ -119,6 +119,26 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	voleaanim.loop = false;
 	voleaanim.speed = 0.95f;
 
+	terraanim.PushBack({ 0, 71, 32, 32});
+	terraanim.PushBack({ 33, 71, 32, 32 });
+	terraanim.PushBack({ 65, 71, 32, 32 });
+	terraanim.PushBack({ 97, 71, 32, 32 });
+	terraanim.PushBack({ 129, 71, 32, 32 });
+	terraanim.PushBack({ 161, 71, 32, 32 });
+	terraanim.PushBack({ 193, 71, 32, 32 });
+	terraanim.PushBack({ 225, 71, 32, 32 });
+	terraanim.PushBack({ 257, 71, 32, 32 });
+	terraanim.PushBack({ 0, 103, 32, 32 });
+	terraanim.PushBack({ 33, 103, 32, 32 });
+	terraanim.PushBack({ 65, 103, 32, 32 });
+	terraanim.PushBack({ 97, 103, 32, 32 });
+	terraanim.PushBack({ 129, 103, 32, 32 });
+	terraanim.PushBack({ 161, 103, 32, 32 });
+	terraanim.PushBack({ 193, 103, 32, 32 });
+	terraanim.PushBack({ 225, 103, 32, 32 });
+	terraanim.loop = false;
+	terraanim.speed = 1.0f;
+
 
 
 
@@ -359,9 +379,12 @@ Update_Status ModuleDisk::Update()
 			onair = false;
 			disc_speed_X = 0;
 			disc_speed_Y = 0;
-			correcciospritex=-10;
+			correcciospritex=-9;
 			correcciospritey=-10;
-			currentAnimation2 = &moving;
+			if (currentAnimation2 != &terraanim) {
+				terraanim.Reset();
+			}
+			currentAnimation2 = &terraanim;
 			if (App->player->personatgedisc != 1)
 			{
 				
@@ -374,9 +397,12 @@ Update_Status ModuleDisk::Update()
 			onair = false;
 			disc_speed_X = 0;
 			disc_speed_Y = 0;
-			correcciospritex = -10;
+			correcciospritex = -9;
 			correcciospritey = -10;
-			currentAnimation2 = &moving;
+			if (currentAnimation2 != &terraanim) {
+				terraanim.Reset();
+			}
+			currentAnimation2 = &terraanim;
 			if (App->player2->personatgedisc2 != 1)
 			{
 				
