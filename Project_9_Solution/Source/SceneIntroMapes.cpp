@@ -30,7 +30,7 @@ bool SceneIntroMapes::Start()
 	
 	select = App->textures->Load("Assets/UI/Select Screens/Purple rectangle.png");
 
-	App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/Select.wav");
+	selectm = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/Select.wav");
 
 	beachname = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Beach(name).png");
 	concretename = App->textures->Load("Assets/UI/Maps_screenshots_and_titles/Concrete(name).png");

@@ -31,7 +31,9 @@ bool SceneLevel1::Start()
 {
 	LOG("Loading background assets");
 
-	App->sceneIntroMapes->selectMap = '1';
+	if(App->sceneIntroMapes->selectMap != '2')
+		if(App->sceneIntroMapes->selectMap != '1')
+			App->sceneIntroMapes->selectMap = '3';
 
 	bool ret = true;
 	timerofpoints = 120;
@@ -51,6 +53,7 @@ bool SceneLevel1::Start()
 
 	lawnTexture = App->textures->Load("Assets/Sprites/Stages/Lawn/Lawn_SpriteSheet.png");
 	lawnTopwall = App->textures->Load("Assets/Sprites/Stages/Lawn/topWall.png");
+	lawnExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Lawn/topporteria.png");
 	lawnNet = App->textures->Load("Assets/Sprites/Stages/Lawn/netSpritesheet.png");
 
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
@@ -74,10 +77,10 @@ bool SceneLevel1::Start()
 	spectators.speed = 0.15f;
 
 	//beach
-	spectatorsBeach.PushBack({ 0, 0, 304, 224 });
-	spectatorsBeach.PushBack({ 0, 224, 304, 224 });
-	spectatorsBeach.PushBack({ 0, 448, 304, 224 });
-	spectatorsBeach.PushBack({ 0, 672, 304, 224 });
+	spectatorsBeach.PushBack({ 103, 0, 304, 224 });
+	spectatorsBeach.PushBack({ 103, 224, 304, 224 });
+	spectatorsBeach.PushBack({ 103, 448, 304, 224 });
+	spectatorsBeach.PushBack({ 103, 672, 304, 224 });
 	spectators.loop = true;
 	spectators.speed = 0.15f;
 
@@ -366,10 +369,10 @@ Update_Status SceneLevel1::PostUpdate()
 		case '3':
 		App->render->Blit(lawnTexture, -27, 0, &(spectatorsLawn.GetCurrentFrame()));
 		App->render->Blit(lawnTopwall, 30, 20, NULL);
+		App->render->Blit(lawnExtremetopwall, 0, 0, NULL);
 		App->render->Blit(lawnNet, 142, 31, &(lawnNetAnimation.GetCurrentFrame()));
 		break;
 	}
-
 	
 	
 	
