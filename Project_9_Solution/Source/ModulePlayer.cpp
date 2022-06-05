@@ -236,23 +236,36 @@ bool ModulePlayer::Start()
 		rightidleAnim.speed = 0.1f;
 
 		// Move Right
-		for (int i = 0; i < 6; i++) {
-			rightAnim.PushBack({ 792 + (i * 66), 0, 66, 66 });
-		}
+
+	    rightAnim.PushBack({ 726, 0, 66, 66 });
+		rightAnim.PushBack({ 792, 0, 66, 66 });
+		rightAnim.PushBack({ 858, 0, 66, 66 });
+		rightAnim.PushBack({ 924, 0, 66, 66 });
+		rightAnim.PushBack({ 990, 0, 66, 66 });
+		rightAnim.PushBack({ 1056, 0, 66, 66 });
+
 		rightAnim.loop = true;
 		rightAnim.speed = 0.1f;
 
 		//Move Left
-		for (int i = 0; i < 6; i++) {
-			leftAnim.PushBack({ 66 + (i * 66), 462, 66, 66 });
-		}
+		leftAnim.PushBack({ 1122, 0, 66, 66 });
+		leftAnim.PushBack({ 0, 66, 66, 66 });
+		leftAnim.PushBack({ 66, 66, 66, 66 });
+		leftAnim.PushBack({ 132, 66, 66, 66 });
+		leftAnim.PushBack({ 198, 66, 66, 66 });
+		leftAnim.PushBack({ 264, 66, 66, 66 });
+
 		leftAnim.loop = true;
 		leftAnim.speed = 0.1f;
 
 
-		for (int i = 0; i < 6; i++) {
-			downAnim.PushBack({ 792 + (i * 66), 66, 66, 66 });
-		}
+		downAnim.PushBack({ 726, 66, 66, 66 });
+		downAnim.PushBack({ 792, 66, 66, 66 });
+		downAnim.PushBack({ 858, 66, 66, 66 });
+		downAnim.PushBack({ 924, 66, 66, 66 });
+		downAnim.PushBack({ 990, 66, 66, 66 });
+		downAnim.PushBack({ 1056, 66, 66, 66 });
+
 		downAnim.loop = true;
 		downAnim.speed = 0.1f;
 
