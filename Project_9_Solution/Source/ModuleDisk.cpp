@@ -216,7 +216,7 @@ bool ModuleDisk::Start()
 
 Update_Status ModuleDisk::Update()
 {
-	if (sets_player1==2 && sets_player2==2) {
+	if (sets_player1 == 2 && sets_player2 == 2) {
 
 		if (score_player_1 > score_player_2) {
 
@@ -233,7 +233,7 @@ Update_Status ModuleDisk::Update()
 		}
 
 	}
-	if (App->sceneLevel_1->timer2 == 0 && (App->player->personatgedisc==1 || App->player2->personatgedisc2==1)) {
+	if (App->sceneLevel_1->timer2 == 0 && (App->player->personatgedisc == 1 || App->player2->personatgedisc2 == 1)) {
 
 		if (godmode != true)
 		{
@@ -331,9 +331,9 @@ Update_Status ModuleDisk::Update()
 		godmode = true;
 	}
 	else
-	if (App->input->keys[SDL_SCANCODE_F1] == Key_State::KEY_DOWN && godmode == true) {
-		godmode = false;
-	}
+		if (App->input->keys[SDL_SCANCODE_F1] == Key_State::KEY_DOWN && godmode == true) {
+			godmode = false;
+		}
 
 	if (App->input->keys[SDL_SCANCODE_F2] == Key_State::KEY_DOWN) {
 		sets_player1 = 2;
@@ -342,11 +342,11 @@ Update_Status ModuleDisk::Update()
 		sets_player2 = 2;
 	}
 
-	if ((sets_player1== 2 || sets_player2==2) && si ==1 && muerte_subita ==false) {
-		
+	if ((sets_player1 == 2 || sets_player2 == 2) && si == 1 && muerte_subita == false) {
+
 		timer_Win -= 1;
-		
-	
+
+
 		if (timer_Win <= 0) {
 
 			sets_player1 = 0;
@@ -359,53 +359,22 @@ Update_Status ModuleDisk::Update()
 			App->sceneIntroSNK->Enable();
 
 			App->collisions->Disable();
-		
+
 
 		}
 	}
-	
+
 	if (volea == true)			//volea
 	{
 		onair = true;
 		if (currentAnimation2 != &voleaanim) {
 			voleaanim.Reset();
 		}
-	
+
 		currentAnimation2 = &voleaanim;
 
 
 		if (position.x >= 300 && ultimplayer == 1) {		//disc cau a terra
-			volea = false;
-			onair = false;
-			disc_speed_X = 0;
-			disc_speed_Y = 0;
-			correcciospritex=-9;
-			correcciospritey=-10;
-			if (currentAnimation2 != &terraanim) {
-				terraanim.Reset();
-			}
-			currentAnimation2 = &terraanim;
-			if (App->player->personatgedisc != 1)
-<<<<<<< HEAD
-			{				
-				timerterrap1 = 60;				
-			{
-				App->player->scoreplayer1 += 2;
-				App->player->position.x = 38;
-				App->player->position.y = 112;
-				App->audio->PlayFx(landingfx, 0);
-				App->audio->PlayFx(Pts2, 0);
-
-				saque = 1;
-=======
-			{
-				
-				timerterrap1 = 60;
-				
->>>>>>> parent of e75e2f8 (Update ModuleDisk.cpp)
-			}
-		}
-		else if (position.x == volea_x) {					//disc cau a terra
 			volea = false;
 			onair = false;
 			disc_speed_X = 0;
@@ -416,182 +385,211 @@ Update_Status ModuleDisk::Update()
 				terraanim.Reset();
 			}
 			currentAnimation2 = &terraanim;
-			if (App->player2->personatgedisc2 != 1)
+			if (App->player->personatgedisc != 1)
+
 			{
-				
-				timerterrap2=60;
-				
+				timerterrap1 = 60;
+				App->player->scoreplayer1 += 2;
+				App->player->position.x = 38;
+				App->player->position.y = 112;
+				App->audio->PlayFx(landingfx, 0);
+				App->audio->PlayFx(Pts2, 0);
+				saque = 1;
+				timerterrap1 = 60;
 			}
 		}
-		else if (position.x <= 20 && ultimplayer == 2) {
+
+			else if (position.x == volea_x) {					//disc cau a terra
+				volea = false;
+				onair = false;
+				disc_speed_X = 0;
+				disc_speed_Y = 0;
+				correcciospritex = -9;
+				correcciospritey = -10;
+				if (currentAnimation2 != &terraanim) {
+					terraanim.Reset();
+				}
+				currentAnimation2 = &terraanim;
+				if (App->player2->personatgedisc2 != 1)
+				{
+
+					timerterrap2 = 60;
+
+				}
+			}
+			else if (position.x <= 20 && ultimplayer == 2) {
+				volea = false;
+				onair = false;
+				disc_speed_X = 0;
+				disc_speed_Y = 0;
+				currentAnimation2 = &moving;
+			}
+
+		
+	}
+		if (timerterrap1 == 1) {
+			position.x = 143;
+			position.y = 191;
+			correcciospritex = 0;
+			correcciospritey = 0;
+			App->disk->score_player_1 += 2;
+			App->player->position.x = 38;
+			App->player->position.y = 112;
+			timer = 120;
+			App->propsBackground->timersetcount = 350;
+			saque = 1;
+			App->audio->PlayFx(Pts2, 0);
+
+
+		}
+		if (timerterrap2 == 1) {
+			position.x = 143;
+			position.y = 191;
+			correcciospritex = 0;
+			correcciospritey = 0;
+			App->disk->score_player_2 += 2;
+			App->player2->position.x = 240;
+			App->player2->position.y = 112;
+			timer = 120;
+			App->propsBackground->timersetcount = 350;
+			saque = 2;
+			App->audio->PlayFx(Pts2, 0);
+
+		}
+		if (score_player_1 >= 12) {
+
+			sets_player1 += 1;
+			sets += 1;
+			saque = -2;
+			timer_set = 600;
+			score_player_1 = 0;
+			score_player_2 = 0;
+			App->sceneLevel_1->timer2 = 1800;
+			App->sceneLevel_1->timer.Reset();
+		}
+
+		if (score_player_2 >= 12) {
+
+			sets_player2 += 1;
+			sets += 1;
+
+			App->sceneLevel_1->timer2 = 1800;
+			saque = -1;
+
+			timer_set = 600;
+			score_player_1 = 0;
+			score_player_2 = 0;
+			App->player->currentAnimation = &App->player->rightidleAnim;
+			App->player2->currentAnimation = &App->player2->leftidleAnim;
+			App->sceneLevel_1->timer.Reset();
+		}
+
+		if (saque == 1 || saque == 2 || saque == -1 || saque == -2) {
+			App->player->personatgedisc = -1;
+			App->player2->personatgedisc2 = -1;
+			if (timer > 0) {
+				timer -= 1;
+			}
+			timer_set -= 1;
+			App->player->position.x = 38;
+			App->player->position.y = 112;
+
+			App->player2->position.x = 240;
+			App->player2->position.y = 112;
 			volea = false;
-			onair = false;
+		}
+	
+
+		if (timer_set == 301)
+		{
+			App->audio->PlayFx(GetReady, 0);
+		}
+
+		if (saque == -1 && timer == 0 && timer_set <= 0) {
+
+
+
+			disc_speed_X = -3;
+			disc_speed_Y = -2;
+
+
+
+		}
+
+		if (saque == -2 && timer == 0 && timer_set <= 0) {
+
+
+
+			disc_speed_X = 3;
+			disc_speed_Y = -2;
+
+
+
+		}
+
+		if (saque == 1 && timer == 0 && timer_set <= 0) {
+
+
+
+			disc_speed_X = -3;
+			disc_speed_Y = -2;
+
+
+
+		}
+
+		if (saque == 2 && timer == 0 && timer_set <= 0) {
+
+
+
+			disc_speed_X = 3;
+			disc_speed_Y = -2;
+
+
+
+		}
+
+
+
+		if (bloqueig == true) {
+
+
+			onair = true;
+
 			disc_speed_X = 0;
 			disc_speed_Y = 0;
-			currentAnimation2 = &moving;
+			timerblock = 60;
+			bloqueig = false;
+
 		}
-	}
-	if (timerterrap1 == 1) {
-		position.x = 143;
-		position.y = 191;
-		correcciospritex = 0;
-		correcciospritey = 0;
-		App->disk->score_player_1 += 2;
-		App->player->position.x = 38;
-		App->player->position.y = 112;
-		timer = 120;
-		App->propsBackground->timersetcount = 350;
-		saque = 1;
-		App->audio->PlayFx(Pts2, 0);
-		
 
-	}
-	if (timerterrap2 == 1) {
-		position.x = 143;
-		position.y = 191;
-		correcciospritex = 0;
-		correcciospritey = 0;
-		App->disk->score_player_2 += 2;
-		App->player2->position.x = 240;
-		App->player2->position.y = 112;
-		timer = 120;
-		App->propsBackground->timersetcount = 350;
-		saque = 2;
-		App->audio->PlayFx(Pts2, 0);
-
-	}
-	if (score_player_1 >= 12) {
-
-		sets_player1 += 1;
-		sets += 1;
-		saque = -2;
-		timer_set = 600;
-		score_player_1 = 0;
-		score_player_2 = 0;
-		App->sceneLevel_1->timer2 = 1800;
-		App->sceneLevel_1->timer.Reset();
-	}
-
-	if (score_player_2 >= 12) {
-
-		sets_player2 += 1;
-		sets += 1;
-	
-		App->sceneLevel_1->timer2 = 1800;
-		saque = -1;
-
-		timer_set = 600;
-		score_player_1 = 0;
-		score_player_2 = 0;
-		App->player->currentAnimation= &App->player->rightidleAnim;
-		App->player2->currentAnimation = &App->player2->leftidleAnim;
-		App->sceneLevel_1->timer.Reset();
-	}
-
-	if (saque == 1 || saque == 2 || saque == -1 || saque == -2) {
-		App->player->personatgedisc = -1;
-		App->player2->personatgedisc2 = -1;
-		if (timer > 0) {
-			timer -= 1;
+		if (timerblock > 0) {
+			currentAnimation2 = &projectile;
+			App->audio->PlayFx(onairfx, 0);
+			timerblock--;
 		}
-		timer_set -= 1;
-		App->player->position.x = 38;
-		App->player->position.y = 112;
 
-		App->player2->position.x = 240;
-		App->player2->position.y = 112;
-		volea = false;
-    }
-	
-	if (timer_set == 301)
-	{
-		App->audio->PlayFx(GetReady, 0);
-	}
+		if (timerblock == 0 && volea == false) {
+			onair = false;
 
-	if (saque == -1 && timer == 0 && timer_set <= 0) {
-
-
-
-		disc_speed_X = -3;
-		disc_speed_Y = -2;
-
-
-
-	}
-
-	if (saque == -2 && timer == 0 && timer_set <= 0) {
-
-
-
-		disc_speed_X = 3;
-		disc_speed_Y = -2;
-
-
-
-	}
-	
-	if (saque == 1  && timer ==0 && timer_set <= 0 ) {
-
-		
-
-		disc_speed_X = -3;
-		disc_speed_Y = -2;
-
-
-
-	}
-
-	if (saque == 2 && timer == 0 && timer_set <= 0) {
-
-
-
-		disc_speed_X = 3;
-		disc_speed_Y = -2;
-
-
-
-	}
-
-
-
-	if (bloqueig == true) {
-
-		
-		onair = true;
-
-		disc_speed_X = 0;
-		disc_speed_Y = 0;
-		timerblock = 60;
-		bloqueig = false;
-		
-	}
-
-	if (timerblock > 0) {
-		currentAnimation2 = &projectile;
-		App->audio->PlayFx(onairfx, 0);
-		timerblock--;
-	}
-
-	if (timerblock == 0 && volea == false ) {
-		onair = false;
-		
-	}
-
-
+		}
 
 	
+
+
 	position.x += disc_speed_X;
 	position.y += disc_speed_Y;
-
 	diskcollider->SetPos(position.x, position.y);
 	super_zone_collider->SetPos(volea_x, volea_y);
-	
+
 	currentAnimation2->Update();
-	
+
 	App->propsBackground->timersetcount--;
 	timerterrap1--;
 	timerterrap2--;
+	
 	return Update_Status::UPDATE_CONTINUE;
+
 }
 
 Update_Status ModuleDisk::PostUpdate()
