@@ -187,6 +187,8 @@ bool ModuleDisk::Start()
 	diskcollider = App->collisions->AddCollider({ position.x, position.y, 16, 16 }, Collider::Type::DISK, this);
 	super_zone_collider = App->collisions->AddCollider({ volea_x,volea_y,10,10 }, Collider::Type::SUPER_ZONE, this);
 
+	App->audio->PlayFx(Round1, 0);
+
 	return ret;
 }
 
@@ -218,7 +220,9 @@ Update_Status ModuleDisk::Update()
 				sets_player1 += 1;
 				saque = -2;
 				sets += 1;
-				timer_set = 300;
+				App->audio->PlayFx(Set, 0);
+				timer_set = 600;
+
 				score_player_1 = 0;
 				score_player_2 = 0;
 				App->player->currentAnimation = &App->player->rightidleAnim;
@@ -229,6 +233,7 @@ Update_Status ModuleDisk::Update()
 				App->sceneLevel_1->timer.Reset();
 				App->propsBackground->timersetcount = 350;
 				currentAnimation2 = &idle;
+
 			}
 
 			else if (score_player_2 > score_player_1) {
@@ -236,7 +241,9 @@ Update_Status ModuleDisk::Update()
 				sets_player2 += 1;
 				saque = -1;
 				sets += 1;
-				timer_set = 300;
+				App->audio->PlayFx(Set, 0);
+				timer_set = 600;
+
 				score_player_1 = 0;
 				score_player_2 = 0;
 				App->player->currentAnimation = &App->player->rightidleAnim;
@@ -247,6 +254,7 @@ Update_Status ModuleDisk::Update()
 				App->sceneLevel_1->timer.Reset();
 				App->propsBackground->timersetcount = 350;
 				currentAnimation2 = &idle;
+
 			}
 
 			else if (score_player_1 == score_player_2) {
@@ -259,7 +267,9 @@ Update_Status ModuleDisk::Update()
 					muerte_subita = true;
 					saque = -1;
 					sets += 1;
-					timer_set = 300;
+					App->audio->PlayFx(Set, 0);
+					timer_set = 600;
+
 					score_player_1 = 0;
 					score_player_2 = 0;
 					App->player->currentAnimation = &App->player->rightidleAnim;
@@ -277,6 +287,7 @@ Update_Status ModuleDisk::Update()
 					saque = -1;
 					sets += 1;
 					timer_set = 300;
+
 					score_player_1 = 0;
 					score_player_2 = 0;
 					App->player->currentAnimation = &App->player->rightidleAnim;
@@ -387,7 +398,7 @@ Update_Status ModuleDisk::Update()
 		sets_player1 += 1;
 		sets += 1;
 		saque = -2;
-		timer_set = 300;
+		timer_set = 600;
 		score_player_1 = 0;
 		score_player_2 = 0;
 		App->sceneLevel_1->timer2 = 1800;
@@ -402,7 +413,7 @@ Update_Status ModuleDisk::Update()
 		App->sceneLevel_1->timer2 = 1800;
 		saque = -1;
 
-		timer_set = 300;
+		timer_set = 600;
 		score_player_1 = 0;
 		score_player_2 = 0;
 		App->player->currentAnimation= &App->player->rightidleAnim;
@@ -425,6 +436,11 @@ Update_Status ModuleDisk::Update()
 		volea = false;
     }
 	
+	if (timer_set == 301)
+	{
+		App->audio->PlayFx(GetReady, 0);
+	}
+
 	if (saque == -1 && timer == 0 && timer_set <= 0) {
 
 
