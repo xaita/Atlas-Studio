@@ -451,32 +451,30 @@ Update_Status ModuleDisk::Update()
 				terraanim.Reset();
 			}
 			currentAnimation2 = &terraanim;
-			if (App->player->personatgedisc != 1)
-
-			{
-				timerterrap1 = 60;
-				App->player->scoreplayer1 += 2;
-				App->player->position.x = 38;
-				App->player->position.y = 112;
-				App->audio->PlayFx(landingfx, 0);
-				App->audio->PlayFx(Pts2, 0);
-				saque = 1;
-				timerterrap1 = 60;
-			}
+			
 		}
-
-			else if (position.x == volea_x) {					//disc cau a terra
+	    else if (position.x == volea_x) {					//disc cau a terra
 				volea = false;
 				onair = false;
 				disc_speed_X = 0;
 				disc_speed_Y = 0;
 				correcciospritex = -9;
 				correcciospritey = -10;
+
+				if (App->player->personatgedisc != 1 && ultimplayer ==1)
+
+				{
+					timerterrap1 = 60;
+					
+					App->audio->PlayFx(landingfx, 0);
+				
+				}
+				
 				if (currentAnimation2 != &terraanim) {
 					terraanim.Reset();
 				}
 				currentAnimation2 = &terraanim;
-				if (App->player2->personatgedisc2 != 1)
+				if (App->player2->personatgedisc2 != 1 && ultimplayer ==2)
 				{
 
 					timerterrap2 = 60;
@@ -503,7 +501,7 @@ Update_Status ModuleDisk::Update()
 			App->player->position.y = 112;
 			timer = 120;
 			App->propsBackground->timersetcount = 350;
-			saque = 1;
+			saque = 2;
 			App->audio->PlayFx(Pts2, 0);
 
 
@@ -518,7 +516,7 @@ Update_Status ModuleDisk::Update()
 			App->player2->position.y = 112;
 			timer = 120;
 			App->propsBackground->timersetcount = 350;
-			saque = 2;
+			saque = 1;
 			App->audio->PlayFx(Pts2, 0);
 
 		}
@@ -690,6 +688,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	{
 		
 		
+
 
 		if (App->player->blockdisk == false) {
 			App->audio->PlayFx(catchfx, 0);
