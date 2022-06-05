@@ -5,6 +5,7 @@
 #include "ModuleRender.h"
 #include "Animation.h"
 #include "ModuleDisk.h"
+#include "SceneIntroMapes.h"
 
 PropsBackground::PropsBackground(bool startEnabled) : Module(startEnabled)
 {
@@ -23,12 +24,31 @@ bool PropsBackground::Start()
 
 	bool ret = true;
 
+	//beach
+	beachBotWall = App->textures->Load("Assets/Sprites/Stages/Beach/botWall.png");
+	beachTopWall = App->textures->Load("Assets/Sprites/Stages/Beach/topWall.png");
+	beachLeftGoal = App->textures->Load("Assets/Sprites/Stages/Beach/porteriaEsquerra.png");
+	beachRightGoal = App->textures->Load("Assets/Sprites/Stages/Beach/porteriaDreta.png");
+	//beachGoalGoal = App->textures->Load("Assets/Sprites/Stages/Beach/.png"); falta sprite
+
+
+	//concrete
 	bgBotwall = App->textures->Load("Assets/Sprites/Stages/Concrete/bot_wall.png");
 	bgGoal = App->textures->Load("Assets/Sprites/Stages/Concrete/goal.png");
 	bgGoalright = App->textures->Load("Assets/Sprites/Stages/Concrete/goalRight.png");
 	bgGoalgoal = App->textures->Load("Assets/Sprites/Stages/Concrete/goal_supergoal.png");											//porteria quan es fa gol
 	bgGoalgoalright = App->textures->Load("Assets/Sprites/Stages/Concrete/goal_supergoalRight.png");
-	referee = App->textures->Load("Assets/Sprites/Referee/SpriteSheet_Arbi_Beach_Definitiu.png");									//ARBITRE
+
+	//lawn
+	lawnBotWall = App->textures->Load("Assets/Sprites/Stages/Lawn/botWall.png");
+	lawnTopWall = App->textures->Load("Assets/Sprites/Stages/Lawn/topWall.png");
+	lawnLeftGoal = App->textures->Load("Assets/Sprites/Stages/Lawn/porteriaEsquerra.png");
+	lawnRightGoal = App->textures->Load("Assets/Sprites/Stages/Lawn/porteriaDreta.png");
+	lawnLeftGoalGoal = App->textures->Load("Assets/Sprites/Stages/Lawn/porteriaGolEsquerra.png");
+	lawnRightGoalGoal = App->textures->Load("Assets/Sprites/Stages/Lawn/porteriaGolDreta.png");
+
+	//ARBITRE
+	referee = App->textures->Load("Assets/Sprites/Referee/SpriteSheet_Arbi_Beach_Definitiu.png");									
 	bgFrisbees = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");//discos del terra
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 
@@ -87,6 +107,10 @@ bool PropsBackground::Start()
 
 	frisbees.PushBack({ 245,51,16,12 });
 
+	App->render->Blit(bgFrisbees, 166, 209, &(frisbees.GetCurrentFrame()));
+	App->render->Blit(lawnBotWall, 31, 202, NULL);
+
+
 	return ret;
 }
 
@@ -130,20 +154,33 @@ Update_Status PropsBackground::Update()
 Update_Status PropsBackground::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	App->render->Blit(bgBotwall, 31, 202, NULL);
-	App->render->Blit(bgFrisbees, 166, 209, &(frisbees.GetCurrentFrame()));
-
-	if (App->disk->saque == 1) {
-		App->render->Blit(bgGoalgoal, -15, 22, NULL);
-	}
-	else
+	switch (App->sceneIntroMapes->selectMap) {
+	case '1':
+		if (App->disk->saque == 1)
+			App->render->Blit(beachLeftGoalGoal, -15, 22, NULL);
+		else if (App->disk->saque == 2)
+			App->render->Blit(beachRightGoalGoal, 266, 22, NULL);
+		App->render->Blit(beachLeftGoal, 0, 22, NULL);
+		App->render->Blit(beachBotWall, 31, 202, NULL);
+		break;
+	case'2':
+		if (App->disk->saque == 1)
+			App->render->Blit(bgGoalgoal, -15, 22, NULL);
+		else if (App->disk->saque == 2)
+			App->render->Blit(bgGoalgoalright, 266, 22, NULL);
 		App->render->Blit(bgGoal, 0, 22, NULL);
-
-	if (App->disk->saque == 2) {
-		App->render->Blit(bgGoalgoalright, 266, 22, NULL);
+		App->render->Blit(bgBotwall, 31, 202, NULL);
+		break;
+	case '3':
+		if (App->disk->saque == 1)
+			App->render->Blit(lawnLeftGoalGoal, -15, 22, NULL);
+		else if (App->disk->saque == 2)
+			App->render->Blit(lawnRightGoalGoal, 266, 22, NULL);
+		App->render->Blit(lawnLeftGoal, 0, 22, NULL);
+		App->render->Blit(lawnBotWall, 31, 202, NULL);
+		break;
 	}
-	else
-		App->render->Blit(bgGoalright, 266, 22, NULL);
+
 
 	SDL_Rect rect = currentAnimationReferee->GetCurrentFrame();
 

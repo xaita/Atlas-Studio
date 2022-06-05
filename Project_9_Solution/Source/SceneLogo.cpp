@@ -29,7 +29,8 @@ bool SceneLogo::Start()
 	bool ret = true;
 	
 	bgTexture = App->textures->Load("Assets/UI/Screens/Atlas Logo/LogoAtlas0.png");
-	App->audio->PlayMusic("Assets/Audios/Music/Among Us Impostor Sound Effect.ogg", 1.0f);
+	atlas = App->audio->LoadFx("Assets/Audios/Music/Among Us Impostor Sound Effect.ogg");
+	App->audio->PlayFx(atlas, 0);
 	
 
 	App->render->camera.x = 0;

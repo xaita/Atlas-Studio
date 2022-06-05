@@ -30,11 +30,32 @@ public:
 public:
 
 	// The scene sprite sheet loaded into an SDL_Texture
+
+	//beach
+	SDL_Texture* beachBotWall = nullptr;
+	SDL_Texture* beachTopWall = nullptr;
+	SDL_Texture* beachLeftGoal = nullptr;
+	SDL_Texture* beachRightGoal = nullptr;
+	SDL_Texture* beachLeftGoalGoal = nullptr;
+	SDL_Texture* beachRightGoalGoal = nullptr;
+
+	//concrete
 	SDL_Texture* bgBotwall = nullptr;
 	SDL_Texture* bgGoal = nullptr;
 	SDL_Texture* bgGoalright = nullptr;
 	SDL_Texture* bgGoalgoal = nullptr;
 	SDL_Texture* bgGoalgoalright = nullptr;
+
+	//lawn
+	SDL_Texture* lawnBotWall = nullptr;
+	SDL_Texture* lawnTopWall = nullptr;
+	SDL_Texture* lawnLeftGoal = nullptr;
+	SDL_Texture* lawnRightGoal = nullptr;
+	SDL_Texture* lawnLeftGoalGoal = nullptr;
+	SDL_Texture* lawnRightGoalGoal = nullptr;
+
+
+
 	SDL_Texture* referee = nullptr;
 	SDL_Texture* bgFrisbees = nullptr; 
 	SDL_Texture* UI = nullptr;

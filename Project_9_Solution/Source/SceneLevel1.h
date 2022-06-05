@@ -33,7 +33,14 @@ public:
 
 public:
 	
-	// Textures del bg concrete
+	//textures platja
+	SDL_Texture* beachTexture = nullptr;
+	SDL_Texture* beachTopwall = nullptr;
+	SDL_Texture* beachExtremetopwall = nullptr;
+	SDL_Texture* beachExtremetopwallright = nullptr;
+	SDL_Texture* beachNet = nullptr;
+
+	// Textures concrete
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* bgTopwall = nullptr;
 	SDL_Texture* bgExtremetopwall = nullptr;
@@ -41,12 +48,11 @@ public:
 	SDL_Texture* bgObstacle = nullptr;
 	SDL_Texture* bgNet = nullptr;
 
-	//textures platja
-	SDL_Texture* beachTexture = nullptr;
-	SDL_Texture* beachNet = nullptr;
-
 	//textures lawn
 	SDL_Texture* lawnTexture = nullptr;
+	SDL_Texture* lawnTopwall = nullptr;
+	SDL_Texture* lawnExtremetopwall = nullptr;
+	SDL_Texture* lawnExtremetopwallright = nullptr;
 	SDL_Texture* lawnNet = nullptr;
 
 	SDL_Texture* UI = nullptr;

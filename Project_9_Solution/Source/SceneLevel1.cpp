@@ -31,6 +31,8 @@ bool SceneLevel1::Start()
 {
 	LOG("Loading background assets");
 
+	App->sceneIntroMapes->selectMap = '1';
+
 	bool ret = true;
 	timerofpoints = 120;
 	//moureCameraGol = '1';
@@ -38,14 +40,18 @@ bool SceneLevel1::Start()
 	bgTexture = App->textures->Load("Assets/Sprites/Stages/Concrete/concrete-sprite-sheet.png");				//BG CONCRETE + PROPS
 	bgTopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/top_wall.png");								//
 	bgExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall.png");				//
-	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");
+	bgExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Concrete/extreme_top_wall_Right.png");	//
 	bgObstacle = App->textures->Load("Assets/Sprites/Stages/Concrete/obstacle.png");							//
 	bgNet = App->textures->Load("Assets/Sprites/Stages/Concrete/net.png");										//
 
 	beachTexture = App->textures->Load("Assets/Sprites/Stages/Beach/beachSpriteSheet.png");
+	beachTopwall = App->textures->Load("Assets/Sprites/Stages/Beach/topWall.png");								
+	//beachExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Beach/extreme_top_wall.png");				
+	//beachExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Beach/extreme_top_wall_Right.png");
 	beachNet = App->textures->Load("Assets/Sprites/Stages/Beach/anim901_0007_Red.png");
 
 	lawnTexture = App->textures->Load("Assets/Sprites/Stages/Lawn/Lawn_SpriteSheet.png");
+	lawnTopwall = App->textures->Load("Assets/Sprites/Stages/Lawn/topWall.png");
 	lawnNet = App->textures->Load("Assets/Sprites/Stages/Lawn/netSpritesheet.png");
 
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
@@ -339,12 +345,11 @@ Update_Status SceneLevel1::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	
-	App->render->Blit(lawnTexture, -27, 0, &(spectatorsLawn.GetCurrentFrame()));
-	App->render->Blit(lawnNet, 142, 31, &(lawnNetAnimation.GetCurrentFrame()));
 
 	switch (App->sceneIntroMapes->selectMap) {
 		case '1':
 		App->render->Blit(beachTexture, 0, 0, &(spectatorsBeach.GetCurrentFrame()));
+		App->render->Blit(beachTopwall, 30, 22, NULL);
 		App->render->Blit(beachNet, 142, 31, NULL);
 		break;
 
@@ -358,8 +363,9 @@ Update_Status SceneLevel1::PostUpdate()
 		App->render->Blit(bgNet, 142, 31, NULL);
 		break;
 
-	case '3':
+		case '3':
 		App->render->Blit(lawnTexture, -27, 0, &(spectatorsLawn.GetCurrentFrame()));
+		App->render->Blit(lawnTopwall, 30, 20, NULL);
 		App->render->Blit(lawnNet, 142, 31, &(lawnNetAnimation.GetCurrentFrame()));
 		break;
 	}
