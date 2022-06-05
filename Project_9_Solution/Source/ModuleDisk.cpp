@@ -58,6 +58,33 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	blocking.loop = true;
 	blocking.speed = 0.2f;
 
+	// Super Hiromi Mita
+	hiromisuper.PushBack({0, 0, 64, 64});
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+	hiromisuper.PushBack({ 0, 0, 64, 64 });
+
+
+
+
 	voleaanim.PushBack({ 20, 20, 20, 19});
 	voleaanim.PushBack({ 80, 20, 24, 21 });
 	voleaanim.PushBack({ 144, 20, 24, 24 });
@@ -168,6 +195,7 @@ bool ModuleDisk::Start()
 	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
 	texturevolea = App->textures->Load("Assets/UI/Volea_Caiguda_Frisbee.png");
 	marca = App->textures->Load("Assets/UI/Others/MarcaF1.png");
+	superhiromi = App->textures->Load("Assets/Sprites/Characters/Hiromi_Mita/SuperShotEffects.png");
 
 	blockfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Block.wav");
 	catchfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Catch.wav");

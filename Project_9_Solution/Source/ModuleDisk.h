@@ -74,6 +74,8 @@ public:
 
 	SDL_Texture* marca = nullptr;
 
+	SDL_Texture* superhiromi = nullptr;
+
 
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
@@ -88,6 +90,7 @@ public:
 	Animation idle;
 	Animation voleaanim;
 	Animation terraanim;
+	Animation hiromisuper;
 
 	uint blockfx = 0;
 	uint catchfx = 0;
