@@ -59,25 +59,25 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	blocking.speed = 0.2f;
 
 	// Super Hiromi Mita
-	hiromisuper.PushBack({0, 0, 64, 64});
-	hiromisuper.PushBack({ 64, 0, 64, 64 });
-	hiromisuper.PushBack({ 128, 0, 64, 64 });
-	hiromisuper.PushBack({ 192, 0, 64, 64 });
-	hiromisuper.PushBack({ 0, 64, 64, 64 });
-	hiromisuper.PushBack({ 64, 64, 64, 64 });
-	hiromisuper.PushBack({ 128, 64, 64, 64 });
-	hiromisuper.PushBack({ 192, 64, 62, 63 });
-	hiromisuper.PushBack({ 0, 128, 60, 60 });
-	hiromisuper.PushBack({ 60, 128, 56, 56 });
-	hiromisuper.PushBack({ 116, 128, 52, 52 });
-	hiromisuper.PushBack({ 168, 128, 48, 48 });
-	hiromisuper.PushBack({ 0, 188, 48, 48 });
-	hiromisuper.PushBack({ 48, 188, 48, 48 });
-	hiromisuper.PushBack({ 96, 188, 48, 48 });
-	hiromisuper.PushBack({ 144, 188, 48, 48 });
-	hiromisuper.PushBack({ 192, 188, 64, 64 });
-	hiromisuper.PushBack({ 0, 236, 38, 38 });
-	hiromisuper.PushBack({ 38, 236, 32, 32 });
+	hiromisupercharging.PushBack({0, 0, 64, 64});
+	hiromisupercharging.PushBack({ 64, 0, 64, 64 });
+	hiromisupercharging.PushBack({ 128, 0, 64, 64 });
+	hiromisupercharging.PushBack({ 192, 0, 64, 64 });
+	hiromisupercharging.PushBack({ 0, 64, 64, 64 });
+	hiromisupercharging.PushBack({ 64, 64, 64, 64 });
+	hiromisupercharging.PushBack({ 128, 64, 64, 64 });
+	hiromisupercharging.PushBack({ 192, 64, 62, 63 });
+	hiromisupercharging.PushBack({ 0, 128, 60, 60 });
+	hiromisupercharging.PushBack({ 60, 128, 56, 56 });
+	hiromisupercharging.PushBack({ 116, 128, 52, 52 });
+	hiromisupercharging.PushBack({ 168, 128, 48, 48 });
+	hiromisupercharging.PushBack({ 0, 188, 48, 48 });
+	hiromisupercharging.PushBack({ 48, 188, 48, 48 });
+	hiromisupercharging.PushBack({ 96, 188, 48, 48 });
+	hiromisupercharging.PushBack({ 144, 188, 48, 48 });
+	hiromisupercharging.PushBack({ 192, 188, 64, 64 });
+	hiromisupercharging.PushBack({ 0, 236, 38, 38 });
+	hiromisupercharging.PushBack({ 38, 236, 32, 32 });
 
 	//Super Hiromi disk advance
 	hiromisuper.PushBack({ 70, 236, 16, 96 });

@@ -93,7 +93,10 @@ public:
 	Animation idle;
 	Animation voleaanim;
 	Animation terraanim;
+
 	Animation hiromisuper;
+	Animation hiromisupercharging;
+
 	Animation beehosupercharging;
 	Animation beehosuperthrowing;
 	Animation beehosuperUp;
