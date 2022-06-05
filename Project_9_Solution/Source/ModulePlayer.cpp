@@ -287,7 +287,7 @@ bool ModulePlayer::Start()
 			rightdash.PushBack({ 0 + (i * 66), 132, 66, 66 });
 		}
 		rightdash.loop = false;
-		rightdash.speed = 0.25f;
+		rightdash.speed = 0.15f;
 
 		//Dash izquierdo
 		leftdash.PushBack({ 0, 528, 66, 66 });
@@ -296,14 +296,14 @@ bool ModulePlayer::Start()
 		leftdash.PushBack({ 989, 594, 66, 66 });
 
 		leftdash.loop = false;
-		leftdash.speed = 0.25f;
+		leftdash.speed = 0.15f;
 
 		//Dash arriba
 		for (int i = 0; i < 3; i++) {
 			updash.PushBack({ 198 + (i * 66), 132, 66, 66 });
 		}
 		updash.loop = false;
-		updash.speed = 0.25f;
+		updash.speed = 0.15f;
 
 		//Dash abajo
 		downdash.PushBack({ 726, 132, 66, 66 });
@@ -311,7 +311,7 @@ bool ModulePlayer::Start()
 		downdash.PushBack({ 1122, 132, 66, 66 });
 		downdash.PushBack({ 132, 198, 66, 66 });
 		downdash.loop = false;
-		downdash.speed = 0.25f;
+		downdash.speed = 0.15f;
 
 		//Win
 		/*for (int i = 0; i < 3; i++) {
@@ -334,7 +334,7 @@ bool ModulePlayer::Start()
 		rightupdash.PushBack({ 660, 132, 66, 66 });
 
 		rightupdash.loop = false;
-		rightupdash.speed = 0.25f;
+		rightupdash.speed = 0.15f;
 
 		//Dash diagonalDownRight
 		rightdowndash.PushBack({ 198, 198, 66, 66 });
@@ -342,21 +342,21 @@ bool ModulePlayer::Start()
 		rightdowndash.PushBack({ 330, 198, 66, 66 });
 		rightdowndash.PushBack({ 396, 198, 66, 66 });
 		rightdowndash.loop = false;
-		rightdowndash.speed = 0.25f;
+		rightdowndash.speed = 0.15f;
 
 		//Dash diagonalDownLeft
 		for (int i = 3; i >= 0; i--) {
 			leftdowndash.PushBack({ 726 + (i * 66), 660, 66, 66 });
 		}
 		leftdowndash.loop = false;
-		leftdowndash.speed = 0.25f;
+		leftdowndash.speed = 0.15f;
 
 		//Dash diagonalUpLeft
 		for (int i = 3; i >= 0; i--) {
 			leftupdash.PushBack({ 462 + (i * 66), 594, 66, 66 });
 		}
 		leftupdash.loop = false;
-		leftupdash.speed = 0.25f;
+		leftupdash.speed = 0.15f;
 
 		charge_ult.PushBack({ 858,266,66,66 });
 		charge_ult.PushBack({ 924,266,66,66 });
@@ -533,6 +533,7 @@ bool ModulePlayer::Start()
 	collider = App->collisions->AddCollider({ position.x, position.y, 27, 31 }, Collider::Type::PLAYER, this);
 
 	blockup == true;
+
 	return ret;
 }
 int ultimadireccio=2; //1=dreta 2=esquerra
@@ -1018,7 +1019,8 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_D] == Key_State::KEY_IDLE
-				&& App->input->keys[SDL_SCANCODE_V] == Key_State::KEY_IDLE)
+				&& App->input->keys[SDL_SCANCODE_V] == Key_State::KEY_IDLE 
+				&& ultimate == false)
 			{
 				shooting.Reset();
 				currentAnimation = &shooting;
@@ -1055,6 +1057,26 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 				App->audio->PlayFx(lobfx, 0);
 			}
+		}
+		if (App->player->ultimate == true) {
+
+			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) {
+
+				/*App->player->currentAnimation = &ultimateanim;*/
+				App->disk->ultimate_disk = true;
+				App->player->ultimate = false;
+
+
+
+			
+				personatgedisc = -1;
+				App->disk->ultimplayer = 1;
+
+				App->disk->aux2 = App->disk->position.y;
+				 App->disk->aux = App->disk->position.x;
+
+			}
+
 		}
 	}
 
@@ -1136,6 +1158,14 @@ void  ultimate( Animation ultimateanim) {
 			App->player->currentAnimation = &ultimateanim;
 			App->disk->ultimate_disk = true;
 			App->player->ultimate = false;
+
+
+
+			personatgedisc = -1;
+			App->disk->ultimplayer = 1;
+
+			
+			
 		}
 
 	}

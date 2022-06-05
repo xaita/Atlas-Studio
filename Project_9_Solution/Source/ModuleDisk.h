@@ -34,7 +34,8 @@ public:
 
 public:
 	// Position of the player in the map
-	iPoint position;
+
+		iPoint position;
 
 	// The speed in which we move the player (pixels per frame)
 	float disc_speed_X = 0;
@@ -60,6 +61,14 @@ public:
 	int timerterrap2;
 	int correcciospritex;
 	int correcciospritey;
+
+	double posx;
+	double posy;
+
+	double augmentvx;
+	double augmentvy;
+	double aux;
+	double aux2;
 
 	//int volea = 0;
 

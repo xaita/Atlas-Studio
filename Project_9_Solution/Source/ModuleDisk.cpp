@@ -341,6 +341,10 @@ bool ModuleDisk::Start()
 	onair = false;
 	bloqueig = false;
 	godmode = false;
+	augmentvx = 0;
+	augmentvy = 0;
+	aux = 0;
+	aux2 = 0;
 
 	destroyed = false;
 
@@ -354,6 +358,10 @@ bool ModuleDisk::Start()
 
 Update_Status ModuleDisk::Update()
 {
+
+
+
+
 	if (sets_player1 == 2 && sets_player2 == 2) {
 
 		if (score_player_1 > score_player_2) {
@@ -536,7 +544,7 @@ Update_Status ModuleDisk::Update()
 				currentAnimation2 = &terraanim;
 				if (App->player2->personatgedisc2 != 1 && ultimplayer ==2 && App->player->currentAnimation != &App->player->charge_ult)
 				{
-
+					App->audio->PlayFx(landingfx, 0);
 					timerterrap2 = 60;
 
 				}
@@ -705,10 +713,38 @@ Update_Status ModuleDisk::Update()
 		}
 
 	
+		if (ultimate_disk == true) {
+		
+			disc_speed_X = 2;
+			
+			augmentvy = -sin(augmentvx /30)*55;
+			augmentvx += disc_speed_X;
+			position.x = aux+augmentvx;
+			position.y = aux2+augmentvy;
+		} 
+		else {
+			aux = 0;
+			aux = 0;
+			augmentvx = 0;
+			augmentvy = 0;
+			position.x += disc_speed_X;
+			position.y += disc_speed_Y;
+		}
+		
+
+		
+	
+	
+	
+
+		
 
 
-	position.x += disc_speed_X;
-	position.y += disc_speed_Y;
+	
+
+		
+		
+
 	diskcollider->SetPos(position.x, position.y);
 	super_zone_collider->SetPos(volea_x, volea_y);
 
@@ -751,7 +787,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER && onair==false)
 	{
 		
-		
+		ultimate_disk = false;
 
 
 		if (App->player->blockdisk == false) {
@@ -782,6 +818,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER2 && onair == false)
 	{
+		ultimate_disk = false;
 		if (App->player2->blockdisk == false) {
 
 			App->audio->PlayFx(catchfx, 0);
@@ -811,6 +848,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	}
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
 	{
+		ultimate_disk = false;
 		if (ultimplayer == 1) {
 			if (position.y < 127) {
 				App->sceneLevel_1->points5righttop = 1;
@@ -859,7 +897,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	else if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_2)
 	{
 
-
+		ultimate_disk = false;
 		position.x = 143;
 		position.y = 191;
 		disc_speed_X = 0;
@@ -902,6 +940,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::TOP_WALL) {
 		
+		ultimate_disk = false;
 			if (onair == false) {
 				disc_speed_Y = -disc_speed_Y;
 			}
@@ -918,6 +957,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	}
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::BOT_WALL) {
+
+		ultimate_disk = false;
+
 		if (saque == 0 && onair == false) {
 			disc_speed_Y = -disc_speed_Y;
 		}
@@ -930,11 +972,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 
-	if (c1->type == Collider::Type::SUPER_ZONE && c2->type == Collider::Type::PLAYER && volea == true){
 
-
-
-	}
 
 	
 }
