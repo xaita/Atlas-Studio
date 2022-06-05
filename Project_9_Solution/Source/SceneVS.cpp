@@ -25,7 +25,7 @@ bool SceneVS::Start()
 	bool ret = true;
 
 	bgBlueTexture = App->textures->Load("Assets/UI/Screens/Scene Epi.png");
-	bgTexture = App->textures->Load("Assets/UI/Screens/Japan vs Japan.png");
+	bgTexture = App->textures->Load("Assets/UI/Screens/VS/Japan vs Japan.png");
 	
 
 	App->audio->PlayMusic("Assets/Audios/Music/02_Go for Broke! (Round Start).ogg", 1.0f);
@@ -46,6 +46,8 @@ Update_Status SceneVS::Update()
 
 	background.Update();
 	currentAnimation = &background;
+
+
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{

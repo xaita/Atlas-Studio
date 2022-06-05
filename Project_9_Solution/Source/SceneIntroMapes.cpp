@@ -118,6 +118,10 @@ Update_Status SceneIntroMapes::Update()
 	{
 		App->sceneCoins->Coins++;
 	}
+	if (App->sceneCoins->Coins == 0)
+	{
+		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits0.png");
+	}
 	if (App->sceneCoins->Coins == 1)
 	{
 		bgCredits = App->textures->Load("Assets/UI/Screens/Credits/Credits1.png");
