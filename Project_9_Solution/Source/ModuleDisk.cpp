@@ -121,30 +121,35 @@ ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 	//superb izquierda
 	beehosuper.PushBack({ 198, 105, 16, 16 });
 	beehosuper.PushBack({ 16, 156, 16, 16 });
-
+	
 	//superb chispas Arriba D->I
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
+	beehosuper.PushBack({ 256, 0, 56, 44 });
+	beehosuper.PushBack({ 396, 0, 58, 51 });
+	beehosuper.PushBack({ 338, 0, 58, 48 });
+	beehosuper.PushBack({ 312, 0, 26, 17 });
+
+	
+		
+		
+		
 
 	//superb chispas Arriba I->D
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
+	beehosuper.PushBack({ 0, 105, 56, 44 });
+	beehosuper.PushBack({ 138, 105, 60, 51 });
+	beehosuper.PushBack({ 82, 105, 56, 48 });
+	beehosuper.PushBack({ 56, 105, 26, 17 });
 
 	//superb chispas Abajo D->I
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
+	beehosuper.PushBack({ 256, 118, 56, 44 });
+	beehosuper.PushBack({ 394, 118, 58, 51 });
+	beehosuper.PushBack({ 338, 118, 58, 48 });
+	beehosuper.PushBack({ 312, 118, 26, 44 });
 
 	//superb chispas Abajo I->D
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
-	beehosuper.PushBack({});
+	beehosuper.PushBack({ 256, 67, 56, 44 });
+	beehosuper.PushBack({ 396, 67, 58, 51 });
+	beehosuper.PushBack({ 338, 67, 58, 48 });
+	beehosuper.PushBack({ 312, 67, 26, 44 });
 
 
 
