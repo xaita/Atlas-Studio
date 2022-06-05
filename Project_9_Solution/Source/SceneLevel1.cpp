@@ -224,8 +224,10 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
 
 	//obstaculos red
-	App->collisions->AddCollider({ 144, 70, 15, 14 }, Collider::Type::OBSTACLE1);
-	App->collisions->AddCollider({ 144, 166, 15, 14 }, Collider::Type::OBSTACLE1);
+	if (App->sceneIntroMapes->selectMap == '2') {
+		App->collisions->AddCollider({ 144, 70, 15, 14 }, Collider::Type::OBSTACLE1);
+		App->collisions->AddCollider({ 144, 166, 15, 14 }, Collider::Type::OBSTACLE1);
+	}
 
 	App->player->Enable();
 	App->player2->Enable();
