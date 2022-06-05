@@ -34,6 +34,7 @@ public:
 	SDL_Texture* bgWhiteTexture = nullptr;
 	SDL_Texture* select = nullptr;
 
+	char VS = '1';
 
 	Animation* currentAnimation = nullptr;
 
