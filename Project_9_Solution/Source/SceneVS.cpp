@@ -35,9 +35,6 @@ bool SceneVS::Start()
 	background.loop = true;
 	background.speed = 0.4f;
 
-	App->sceneIntro->xdselectPlayer1;
-	App->sceneIntro->xdselectPlayer1;
-
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
@@ -50,31 +47,45 @@ Update_Status SceneVS::Update()
 	background.Update();
 	currentAnimation = &background;
 
-	switch (VS)
+
+	if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '1')
 	{
-	case '1':
-		if (xdselectPlayer1 == '1' && xdselectPlayer2 == '1')
-		{
 			bgTexture = App->textures->Load("Assets/UI/Screens/VS/Japan vs Japan.png");
-		}
-		break;
-	case '2':
-		break;
-	case '3':
-		break;
-	case '4':
-		break;
-	case '5':
-		break;
-	case '6':
-		break;
-	case '7':
-		break;
-	case '8':
-		break;
-	case '9':
-		break;
 	}
+	if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '2')
+	{
+		bgTexture = App->textures->Load("Assets/UI/Screens/VS/Japan vs Korea.png");
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '3')
+	{
+		bgTexture = App->textures->Load("Assets/UI/Screens/VS/Japan vs Germany.png");
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '1')
+	{
+		bgTexture = App->textures->Load("Assets/UI/Screens/VS/Korea vs Japan.png");
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '2')
+	{
+		bgTexture = App->textures->Load("Assets/UI/Screens/VS/Korea vs Korean.png");
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '1')
+	{
+		bgTexture = App->textures->Load("Assets/UI/Screens/VS/Germany vs Japan.png");
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '3')
+	{
+		bgTexture = App->textures->Load("Assets/UI/Screens/VS/Korea vs Germany.png");
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '2')
+	{
+		bgTexture = App->textures->Load("Assets/UI/Screens/VS/Germany vs Korea.png");
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '3')
+	{
+		bgTexture = App->textures->Load("Assets/UI/Screens/VS/Germany vs Germany.png");
+	}
+
+	
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{

@@ -47,10 +47,6 @@ bool SceneCoins::Start()
 
 	Coinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/InsertedCoin.wav");
 
-
-	
-	
-
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
