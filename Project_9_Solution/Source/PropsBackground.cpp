@@ -26,7 +26,7 @@ bool PropsBackground::Start()
 
 	//beach
 	beachBotWall = App->textures->Load("Assets/Sprites/Stages/Beach/botWall.png");
-	beachTopWall = App->textures->Load("Assets/Sprites/Stages/Beach/topWall.png");
+	//beachTopWall = App->textures->Load("Assets/Sprites/Stages/Beach/topWall.png");
 	beachLeftGoal = App->textures->Load("Assets/Sprites/Stages/Beach/porteriaEsquerra.png");
 	beachRightGoal = App->textures->Load("Assets/Sprites/Stages/Beach/porteriaDreta.png");
 	//beachGoalGoal = App->textures->Load("Assets/Sprites/Stages/Beach/.png"); falta sprite
@@ -157,11 +157,12 @@ Update_Status PropsBackground::PostUpdate()
 	switch (App->sceneIntroMapes->selectMap) {
 	case '1':
 		if (App->disk->saque == 1)
-			App->render->Blit(beachLeftGoalGoal, -15, 22, NULL);
+			App->render->Blit(beachLeftGoalGoal, 0, 0, NULL);
 		else if (App->disk->saque == 2)
-			App->render->Blit(beachRightGoalGoal, 266, 22, NULL);
-		App->render->Blit(beachLeftGoal, 0, 22, NULL);
-		App->render->Blit(beachBotWall, 31, 202, NULL);
+			App->render->Blit(beachRightGoalGoal, 0, 0, NULL);
+		App->render->Blit(beachLeftGoal, 0, 0, NULL);
+		App->render->Blit(beachRightGoal, 0, 0, NULL);
+		App->render->Blit(beachBotWall, 0, 0, NULL);
 		break;
 	case'2':
 		if (App->disk->saque == 1)

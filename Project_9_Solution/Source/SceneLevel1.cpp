@@ -46,9 +46,8 @@ bool SceneLevel1::Start()
 
 	beachTexture = App->textures->Load("Assets/Sprites/Stages/Beach/beachSpriteSheet.png");
 	beachTopwall = App->textures->Load("Assets/Sprites/Stages/Beach/topWall.png");								
-	//beachExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Beach/extreme_top_wall.png");				
-	//beachExtremetopwallright = App->textures->Load("Assets/Sprites/Stages/Beach/extreme_top_wall_Right.png");
-	beachNet = App->textures->Load("Assets/Sprites/Stages/Beach/anim901_0007_Red.png");
+	beachExtremetopwall = App->textures->Load("Assets/Sprites/Stages/Beach/topporteria.png");
+	beachNet = App->textures->Load("Assets/Sprites/Stages/Beach/xarxa.png");
 
 	lawnTexture = App->textures->Load("Assets/Sprites/Stages/Lawn/Lawn_SpriteSheet.png");
 	lawnTopwall = App->textures->Load("Assets/Sprites/Stages/Lawn/topWall.png");
@@ -349,8 +348,9 @@ Update_Status SceneLevel1::PostUpdate()
 	switch (App->sceneIntroMapes->selectMap) {
 		case '1':
 		App->render->Blit(beachTexture, 0, 0, &(spectatorsBeach.GetCurrentFrame()));
-		App->render->Blit(beachTopwall, 30, 22, NULL);
-		App->render->Blit(beachNet, 142, 31, NULL);
+		App->render->Blit(beachExtremetopwall, 0, 0, NULL);
+		App->render->Blit(beachTopwall, 0, 0, NULL);
+		App->render->Blit(beachNet, 0, 0, NULL);
 		break;
 
 		case '2':
