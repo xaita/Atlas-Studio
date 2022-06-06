@@ -58,15 +58,27 @@ bool SceneLevel1::Start()
 	lawnNet = App->textures->Load("Assets/Sprites/Stages/Lawn/netSpritesheet.png");
 
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
+
 	JapanwinJapan = App->textures->Load("Assets/UI/Others/JapanwinJapan.png");
+	JapanwinKorea = App->textures->Load("Assets/UI/Others/JapanwinKorea.png");
+	JapanwinGermany = App->textures->Load("Assets/UI/Others/JapanwinGermany.png");
 	JapanlostJapan = App->textures->Load("Assets/UI/Others/JapanlostJapan.png");
-
-	
-
+	JapanlostKorea = App->textures->Load("Assets/UI/Others/JapanlostKorea.png");
+	JapanlostGermany = App->textures->Load("Assets/UI/Others/JapanlostGermany.png");
+	KoreawinJapan = App->textures->Load("Assets/UI/Others/KoreawinJapan.png");
+	KoreawinKorea = App->textures->Load("Assets/UI/Others/KoreawinKorea.png");
+	KoreawinGermany = App->textures->Load("Assets/UI/Others/KoreawinGErmany.png");
+	KorealostJapan = App->textures->Load("Assets/UI/Others/KorealostJapan.png");
+	KorealostKorea = App->textures->Load("Assets/UI/Others/KorealostKorea.png");
+	KorealostGermany = App->textures->Load("Assets/UI/Others/KorealostGermany.png");
+	GermanywinJapan = App->textures->Load("Assets/UI/Others/GermanywinJapan.png");
+	GermanywinKorea = App->textures->Load("Assets/UI/Others/GermanywinKorea.png");
+	GermanywinGermany = App->textures->Load("Assets/UI/Others/GermanywinGErmany.png");
+	GermanylostJapan = App->textures->Load("Assets/UI/Others/GermanylostJapan.png");
+	GermanylostKorea = App->textures->Load("Assets/UI/Others/GermanylostKorea.png");
+	GermanylostGermany = App->textures->Load("Assets/UI/Others/GermanylostGermany.png");
 
 	UI_Timer = App->textures->Load("Assets/UI/timerSpriteSheet.png");
-
-	
 
 	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);					//MUSICA
 
@@ -598,7 +610,7 @@ Update_Status SceneLevel1::PostUpdate()
 		App->disk->si = 1;
 
 	}
-	if (App->disk->sets_player1 == 2 && App->disk->muerte_subita==false) {
+	if (App->disk->sets_player1 == 2 && App->disk->muerte_subita == false) {
 
 		App->render->Blit(JapanwinJapan, 0, 0, NULL);
 		App->render->Blit(UI, 18, 48, &P1WIN);
