@@ -22,7 +22,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/Sprites/Stages/Concrete/Neo Geo NGCD - Windjammers Flying Power Disc - Concrete.png");
+	texture = App->textures->Load("Assets/Sprites/particlesAndEffects.png");
 
 	cargahiromipart.anim.PushBack({ 0, 523, 65, 65 });
 	cargahiromipart.anim.PushBack({ 65, 523, 65, 65 });
