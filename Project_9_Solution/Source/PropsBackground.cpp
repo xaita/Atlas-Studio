@@ -29,7 +29,8 @@ bool PropsBackground::Start()
 	//beachTopWall = App->textures->Load("Assets/Sprites/Stages/Beach/topWall.png");
 	beachLeftGoal = App->textures->Load("Assets/Sprites/Stages/Beach/porteriaEsquerra.png");
 	beachRightGoal = App->textures->Load("Assets/Sprites/Stages/Beach/porteriaDreta.png");
-	//beachGoalGoal = App->textures->Load("Assets/Sprites/Stages/Beach/.png"); falta sprite
+	beachLeftGoalGoal = App->textures->Load("Assets/Sprites/Stages/Beach/porteriaEsquerraGol.png");
+	beachRightGoalGoal = App->textures->Load("Assets/Sprites/Stages/Beach/porteriaDretaGol.png");
 
 
 	//concrete

@@ -61,8 +61,40 @@ public:
 
 	//Template particle for the disk
 	Particle disk;
-	Particle ultimate;
-	
+	Particle cargahiromipart;
+	Particle klausscanvisentitpart;
+	Particle hiromiultipart;
+	Particle bhoocargaultipart;
+	Particle klausscargaultipart;
+	Particle klaussdreta1;
+	Particle klaussdreta2;
+	Particle klaussdreta3;
+	Particle klaussdreta4;
+	Particle klaussesquerra1;
+	Particle klaussesquerra2;
+	Particle klaussesquerra3;
+	Particle klaussesquerra4;
+	Particle klaussesamunt1;
+	Particle klaussesamunt2;
+	Particle klaussesamunt3;
+	Particle klaussesamunt4;
+	Particle klaussesavall1;
+	Particle klaussesavall2;
+	Particle klaussesavall3;
+	Particle klaussesavall4;
+	Particle bhootopmurdreta;
+	Particle bhootopmuresquerra;
+	Particle bhoobotmurdreta;
+	Particle bhoobotmuresquerra;
+	Particle bhoouppart;
+	Particle bhoodownpart;
+
+
+
+
+
+
+
 
 	
 
