@@ -122,3 +122,8 @@ Each Character has theiy unique Super Hability, so make sure to try every one of
 * General analysis and UI
 
 
+# Game Release Link
+
+*[Release](https://github.com/xaita/Atlas-Studio/releases/tag/Windjammersv1)
+
+
