@@ -1,87 +1,62 @@
+# Atlas-Studio
+Project1 (Windajammers)
+https://github.com/xaita/Atlas-Studio
 
-# Windjammers
-![chupa mi muñaño](https://assets.nintendo.com/image/upload/c_pad,f_auto,h_613,q_auto,w_1089/ncom/es_MX/games/switch/w/windjammers-switch/hero?v=2022021822)
-
-El GOTY del 2022 📽️
-
-##Description
-
-This project is a game created to be a copy of Windjammers. It has been made by 5 first-year students of CITM in order to complete an assignment.
-The game consists of an intro, one map and 2 players. 
-
-## Installation
-
-To install the game, download the .zip from the Releases GitHub section and unzip the file. Then open the sln file and debug it.
-
-## Usage
-Intro:
-- Next frame Intro --> SPACE
-
-Player 1 Keys: 
-- Up --> W
-- Down --> S
-- Right --> D
-- Left --> A
-- Throw Disk --> SPACE
-
-Player 2 Keys:
-- Up --> Up Arrow
-- Down --> Down Arrow
-- Right --> Right Arrow
-- Left --> Left Arrow
-- Throw Disk --> O
-
-Cheat Keys:
-- Show Colliders --> F1
-- Insta Win (P1) --> F2
-- Insta Win (P2) --> F3
-- God Mode(Punctuation no added, unlimited match until key pressed again): --> F4
-
-How To play: 
-- Move your character to catch the disk.
-- To shoot your disk in diagonal, try using the up and down keys of your character while in throwing state.
-- Try to score the disk in the enemy's score goal.
-- Try to stop the disk from going into your score goal.
-- There are 3 score Zones: Red zones value 5 points and yellow zones value 3 points
-- The first player to score 13 points or more wins a set. 
-- The first player to win 2 Sets also wins the match.
-
-## Contributing
+Team Members: 
 - Xavi Prats: https://github.com/Xarderos
 - Joan Giol: https://github.com/GHOSTVCL
 - Xiao Shan Costajussà: https://github.com/xaita
-- Lluc Estruch: https://github.com/LlucAieaie
+- Lluch Estruch: https://github.com/Llucaieaie
 - Pau Garriga: https://github.com/DonnoNonno
 
-## History
-Link to Atlas Studios' GitHub: https://github.com/xaita/Atlas-Studio
+Windjammers is a sports arcade game developed by Data East in 1994 for SNK’s Neo Geo. It can be seen a lot of similaritieswith Pong or Air Hockey, 
+where the players shoot the disc to the goal zone of the opponent. The game can be played against another player or the computer.
 
-## License
-MIT License
+The player choose from six playable characters, each with their own speed/power and specials. 
+Players maneuver around their respective sides of the court in any of the eight cardinal directions. 
+They must attack the oponent side with different types of attacks and try to defend from the oponents attacks. 
+There are yellow zones, worth 3 points and red zones, worth 5 points, 
+if the player fails to catch the disk this is considered as a "miss" and gives 2 points to the oponent.
 
-Copyright (c) [2022] [Atlas Studio]
+Keyboard mechanics:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Player 1 (Left character):
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+- W: Move Upwards.
+- A: Move to the left.
+- S: Move Downwards.
+- D: Move to the right.
+- C: Throws the disk.
+- C: Dash while not holding the disk, press the throwing button to perform a dash.
+- C: To block an upcoming disk before it arrives to you, it will make the disk go flying.
+- V: To make a lob.
+- 
+Player 2 (right character):
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
- 
+- Up Arrow: Move Upwards.
+- Left Arrow: Move to the left.
+- Down Arrow: Move Downwards.
+- Right Arrow: Move to the right.
+- O: Throws the disk.
+- O: Dash while not holding the disk, press the throwing button to perform a dash.
+- O: To block an upcoming disk before it arrives to you, it will make the disk go flying.
+- p: To make a lob.
 
+F1: God mode.
+F2: Insta Win P1.
+F3: Insta Win P2.
+Space: jumps to next screen.
+Shift: Inserts Coin in Windjammers’ Screen.
 
+Controller mechanics:
 
+- Arrows: Movement.
+- A: Equals to the C/O of the keyboard.
+- B: Equals to the V/P of the keyboard.
+- Options: Equals to the Space of the keyboard.
+- Share: Equals to the shift of the keyboard.
 
+To throw a Super Shot, first you need to block the disk and when the disk comes down, press the throwing button to release it.
+Each Character has theiy unique Super Hability, so make sure to try every one of them to know which one is more suitable to you
 
 
