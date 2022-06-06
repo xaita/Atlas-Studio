@@ -1115,7 +1115,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		App->propsBackground->timersetcount = 350;
 
 		if (ultimplayer == 1) {
-			if (App->sceneIntroMapes->selectMap == '2' || App->sceneIntroMapes->selectMap == '3') {
+			if (App->sceneIntroMapes->selectMap == '1' || App->sceneIntroMapes->selectMap == '3') {
 				if (position.y < 127) {
 					App->sceneLevel_1->points3righttop = 1;
 					App->sceneLevel_1->timerofpoints = 120;
@@ -1128,7 +1128,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 					App->sceneLevel_1->Points3ScoreR.Reset();
 				}
 			}
-			if (App->sceneIntroMapes->selectMap == '1') {
+			if (App->sceneIntroMapes->selectMap == '2') {
 				App->sceneLevel_1->points3rightmid = 1;
 				App->sceneLevel_1->timerofpoints = 120;
 				App->sceneLevel_1->Points3ScoreR.Reset();
@@ -1147,7 +1147,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		}
 
 		if (ultimplayer == 2) {
-			if (App->sceneIntroMapes->selectMap == '2' || App->sceneIntroMapes->selectMap == '3') {
+			if (App->sceneIntroMapes->selectMap == '1' || App->sceneIntroMapes->selectMap == '3') {
 				if (position.y < 127) {
 					App->sceneLevel_1->points3lefttop = 1;
 					App->sceneLevel_1->timerofpoints = 120;
