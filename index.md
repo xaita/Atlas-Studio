@@ -54,14 +54,4 @@ The player choose from six playable characters, each with their own speed/power 
 _For this project we divided the work to do with the group Piojo Games who did the same videogame. They did/search for some sprites/audios and us the rest of them. Then we share what we find between the two groups. Also, checkout his GitHub too!: [Piojo Games](https://github.com/PauM4/Windjammers)_
 ***
 
-# Index
 
-* [General analysis](https://github.com/xaita/Atlas-Studio/wiki/1.-GENERAL-ANALYSIS)
-
-* [Design](https://github.com/xaita/Atlas-Studio/wiki/2.-DESIGN)
-
-* [UI](https://github.com/xaita/Atlas-Studio/wiki/3.-UI)
-
-* [Audio](https://github.com/xaita/Atlas-Studio/wiki/4.-AUDIO)
-
-* [Art](https://github.com/xaita/Atlas-Studio/wiki/5.-ART)
