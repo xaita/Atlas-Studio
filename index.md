@@ -136,3 +136,158 @@ The Neo Geo was a worldwide commercial success upon release in arcades, becoming
 
 ***
 
+# **DESIGN**
+
+***
+
+
+# **Concept & gameplay overview**
+
+Windjammers can somewhat be compared to tennis or even to one of the first video game based on that sport, Pong. Here though, we're dealing with frisbees.
+Two players face each other on a field divided in two by a net. They have to sent the frisbee past their opponent to score.
+Windjammers is a two-button game, very easy to understand and to play.
+
+You can select one of six characters. They all control the same but have slightly different statistics.
+When they are not holding the disc, they are free to move in their respective side of the arena and prepare for a catch.
+
+When they do hold the frisbee, players can no longer move and must throw the disc with straight, curved or lob shots and even go for a special attack if ready.
+
+The scoring zone is divided into sections worth either 3 (yellow) or 5 (red) points, dispatched differently depending on the stage. Only two points are awarded if the disc falls flat on the ground.
+
+
+***
+
+
+# Win condition
+Matches employ a first-to-two (best-of-three) round format and every set lasts 30 seconds although it is usually extended to 99 seconds in competitive formats.
+
+In case of a draw, both players win a round. If the score was already 1 -1, a sudden death occurs: a 30 seconds round during which the first player to score is declared the winner.
+
+
+***
+
+
+# Characters
+There are 6 characters from different countries and with unique stats: Hiromi Mita (Japan), Beeho Yoo (South Korea) or Steve Miller (UK) depending on the version of the game, Jordi Costa (Spain), Loris Biaggi (Italy), Gary Scott (USA) and Klauss Wessel (Germany). The first one, H.Mita, is the one with the highest movement speed and the lowest strength and the last one, K.Wessel, is the strongest and the slowest.
+
+![image](https://user-images.githubusercontent.com/99950138/156932041-d672e02a-be00-42cd-81e6-8110d04b2608.png)
+![image](https://user-images.githubusercontent.com/99950138/156932228-3396fffc-5e08-4ec0-9a21-046ec9a0136e.png)
+![image](https://user-images.githubusercontent.com/99950138/156932198-01d14937-c928-47f8-b819-22121e9978fc.png)
+![image](https://user-images.githubusercontent.com/99950138/156932237-7fbdc757-4fc6-40b5-ab9d-86340fe15363.png)
+![image](https://user-images.githubusercontent.com/99950138/156932207-532ae92d-82a2-467f-9ab6-fa4c225fe718.png)
+![image](https://user-images.githubusercontent.com/99950138/156932247-57caed01-e6fd-4f35-aec6-8c81c0dea020.png)
+
+
+In our project, we will recreate 3 of the 6 characters and they will be:
+
+- **Hiromi Mita**: from Japan, the fastest character with lowest strength, the super is called Fire Snake and when it's used she shoots the frisbee doing an S shape.
+
+![Hiromi Mita super](https://user-images.githubusercontent.com/99950000/156932918-4f5db574-0e8b-4ed4-b5b9-69f0a48472a1.gif)
+
+
+- **Beeho Yoo**: from Corea, a fast character with low strength, the super is called Sideburner and as it can be deduced from the name, when it's used the frisbee goes directly to the side the player chooses (up or down) and then it follows the wall until it is stopped by the player or hits the goal.
+
+![Beeho Yoo super (2)](https://user-images.githubusercontent.com/99950000/156940824-29a7621a-27fe-4663-8ee8-ffa837598070.gif)
+
+
+
+- **Klauss Wessel**: from Germany, a very strong character but also the slowest one, his super is called Blitzkrieg and it changes depending on the direction.  If it's thrown up, it describes a pattern that goes up, left, long down and left until it hits the goal: 
+
+      · If it’s thrown down, it goes down, left, long up and left until it hits the goal.
+
+      · If it’s thrown straight, it goes like the up throw but a little bit faster and it goes less down.
+
+![Klauss Wessel super](https://user-images.githubusercontent.com/99950000/156932927-5325d961-6a6b-4721-8c17-0c70458a4f30.gif)
+
+
+***
+
+
+# Stages
+
+There are also six courts on which matches can be held.
+
+**Beach:** The smallest court available, 5 point zone in the center and 3 point zones on the edges.
+
+**Lawn:** Second largest court available, 5 point zone in the center and 3 point zones on the edges.
+
+**Tiled:** The second smallest court available, 3 point zone in the center and 5 point zones on the edges.
+
+**Concrete:** Same size as the lawn court, except with two barriers near the walls. Discs that hit a barrier will bounce off at an odd angle, making defense more difficult. 5 point zone in the center and 3 point zones on the edges.
+
+**Clay:** Same size as the lawn court, except with two barriers in the middle. Discs that hit a barrier will bounce off at an odd angle, making defense more difficult. 5 point zone in the center and 3 point zones on the edges.
+
+**Stadium:** The largest court available, 5 point zone in the center and 3 point zones on the edges. The central 5 point zone will grow larger every time a player scores more than once in a row, giving the player who is behind a greater opportunity to catch up.
+
+
+***
+
+
+# Controls
+
+## Basics
+
+Windjammers is controlled with only two buttons and the standard fighting game eight direction joystick. The A button can throw the disc, block an incoming disc, and make your character dash when they are not holding a disc. The B button lobs the disc. It does nothing when your character is not holding a disc.Directions are notated using numpad notation, which uses numbers to describe directions in accordance to their location on a numpad.
+
+## Movement
+
+- *Move* - hold any of the eight directions on the control stick to move in that direction.
+
+ ![image](https://user-images.githubusercontent.com/99950138/156935111-684b4aac-232c-4cb4-af19-193ecc0842f9.png)
+
+
+- *Sliding/Dashing* - when your character is not holding the disc, press the **A** button while holding a direction on the control stick to dash. Holding the A button will cause your character to dash longer distances.
+
+![image](https://user-images.githubusercontent.com/99950138/156935267-585185a0-320d-4b8f-b573-4d3e43ae2342.png)
+![image](https://user-images.githubusercontent.com/99950138/156935276-f0c1012b-0a4d-49cb-8c9d-a3d57c29c118.png)
+
+
+
+## Simple Mechanics
+
+- *Catch a disc* - simply move into a disc's path to catch it. Your character will catch it automatically. Throw a straight shot - after catching the disc, press A to throw the disc in a straight shot. Holding the stick forward or backward will throw the disc straight directly in front of the character; they are the same shot.
+
+
+- *Throw a curved shot* - after catching the disc, perform a directional curve, then press A to throw the disc in a curved shot. Each character has  a unique set of curves.
+
+ ![image](https://user-images.githubusercontent.com/99950138/156935325-6f885959-d23b-4077-9a33-175e3d38209f.png)
+
+
+- *Throw a lob* - after catching the disc , press B to toss the disc into a targeted lob.
+
+![image](https://user-images.githubusercontent.com/99950138/156935376-def20b93-c78a-4c25-b32a-08bf2e8eb7ba.png)
+
+
+- *Block a shot* - Or "toss", it happens when you press A without holding any direction.
+
+![image](https://user-images.githubusercontent.com/99950138/156935391-fccc3e81-914d-4c90-af76-27053057e3f8.png)
+
+
+- *Moving Block* - When your character is not holding the disc and is standing still, tap the A button and then hold a direction on the control stick. Instead of a full dash, your character should perform a mini-dash that also blocks a shot.
+
+![image](https://user-images.githubusercontent.com/99950138/156935391-fccc3e81-914d-4c90-af76-27053057e3f8.png)
+![image](https://user-images.githubusercontent.com/99950138/156935424-ebe50de0-52f5-4cac-a203-a91c9903e933.png)
+   
+## Super Mechanics
+
+- *Reversal*-As with supersonic shots, with the correct timing (depending on the characters and the situation) you can send a super attack back to your opponent. But if you miss the time window you will end up being pushed back into your own score zone...
+
+Super customs can be returned as super customs, super spins or super lobs.
+Super spins and super lobs can only be returned as either super spins or super lobs.
+
+- *Throw a custom super shot* –Each character has a unique super attack we call "super custom". To release a super custom, just press A after your character has finished charging. You can choose whether it will start by going up (default) or down with the stick. Just as regular throws, the quicker you launch a super custom, the faster it'll go. If your opponent manages to make a reversal attack when receiving your super custom they will send your character's custom move back at you and not their own super custom.
+
+![image](https://user-images.githubusercontent.com/99950138/156935743-5f720fb6-1693-4326-8d4a-a3f62b0ecda1.png)
+
+ 
+- *Throw a super spin shot* –To release a super spin, do a curved shot motion after you're done charging and press A. Depending on the motion, the disc will start spiraling either towards the edges of the stage or its center. And just as regular throws, the quicker you launch a super spin, the faster it'll go.
+
+![image](https://user-images.githubusercontent.com/99950138/156935751-c84b223e-0ec2-45ec-8259-79c01ef0b3bc.png)
+
+
+- *Throw a super lob* – Also called "hammer throw". The frisbee goes very high in the sky and continues its course on the ground by rolling on the side until it scores (or gets caught). Like the regular lob shot, the quicker you press B after charging, the farther it will go.
+
+![image](https://user-images.githubusercontent.com/99950138/156935766-b33797f6-e71d-49e4-9b23-c47426a73814.png)
+
+
+***
