@@ -32,9 +32,9 @@ bool SceneLevel1::Start()
 {
 	LOG("Loading background assets");
 
-	if(App->sceneIntroMapes->selectMap != '2')
-		if(App->sceneIntroMapes->selectMap != '1')
-			App->sceneIntroMapes->selectMap = '3';
+	if(App->sceneIntroMapes->selectMap != '1')
+		if(App->sceneIntroMapes->selectMap != '3')
+			App->sceneIntroMapes->selectMap = '2';
 
 	bool ret = true;
 	moureCameraGol = false;
@@ -237,64 +237,62 @@ bool SceneLevel1::Start()
 	Points5ScoreR.loop = false;
 	Points5ScoreR.speed = 0.2;
 	
-	switch (App->sceneIntroMapes->selectMap) {
-	case '1':
-		//porteria esquerra
-		App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 0, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 0, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
+	if (App->sceneIntroMapes->Readymap == true)
+	{
+		switch (App->sceneIntroMapes->selectMap) {
+		case '1':
+			//porteria esquerra
+			App->collisions->AddCollider({ 0, 35, 1, 47 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 0, 96, 1, 49 }, Collider::Type::SCOREZONE_2);
+			App->collisions->AddCollider({ 0, 144, 1, 47 }, Collider::Type::SCOREZONE_1);
 
-		//porteria dreta
-		App->collisions->AddCollider({ 300, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 300, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 300, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
+			//porteria dreta
+			App->collisions->AddCollider({ 300, 35, 1, 47 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 300, 96, 1, 49 }, Collider::Type::SCOREZONE_2);
+			App->collisions->AddCollider({ 300, 144, 1, 47 }, Collider::Type::SCOREZONE_1);
 
-		//parets
-		App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
-		App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
+			//parets
+			App->collisions->AddCollider({ 0, 201, 304, 42 }, Collider::Type::BOT_WALL);
+			App->collisions->AddCollider({ 0, 0, 304, 42 }, Collider::Type::TOP_WALL);
+			break;
 
+		case '2':
+			//porteria esquerra
+			App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 0, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 0, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
 
-	case '2':
-		//porteria esquerra
-		App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 0, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 0, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
+			//porteria dreta
+			App->collisions->AddCollider({ 300, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 300, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 300, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
 
-		//porteria dreta
-		App->collisions->AddCollider({ 300, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 300, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 300, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
+			//parets
+			App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
+			App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
 
-		//parets
-		App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
-		App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
-
-		//obstacles red
-		if (App->sceneIntroMapes->selectMap == '2') {
+			//obstacles red
 			App->collisions->AddCollider({ 144, 70, 15, 14 }, Collider::Type::OBSTACLE1);
 			App->collisions->AddCollider({ 144, 166, 15, 14 }, Collider::Type::OBSTACLE1);
-		}
+			
+			break;
 
+		case '3':
+			//porteria esquerra
+			App->collisions->AddCollider({ 0, 32, 1, 64 }, Collider::Type::SCOREZONE_2);
+			App->collisions->AddCollider({ 0, 111, 1, 34 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 0, 160, 1, 64 }, Collider::Type::SCOREZONE_2);
 
-	case '3':
-		//porteria esquerra
-		App->collisions->AddCollider({ 0, 32, 1, 64 }, Collider::Type::SCOREZONE_2);
-		App->collisions->AddCollider({ 0, 111, 1, 34 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 0, 160, 1, 64 }, Collider::Type::SCOREZONE_2);
+			//porteria dreta
+			App->collisions->AddCollider({ 300, 32, 1, 64 }, Collider::Type::SCOREZONE_2);
+			App->collisions->AddCollider({ 300, 111, 1, 34 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 300, 160, 1, 64 }, Collider::Type::SCOREZONE_2);
 
-		//porteria dreta
-		App->collisions->AddCollider({ 300, 32, 1, 64 }, Collider::Type::SCOREZONE_2);
-		App->collisions->AddCollider({ 300, 111, 1, 34 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 300, 160, 1, 64 }, Collider::Type::SCOREZONE_2);
+			//parets
+			App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
+			App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
 
-		//parets
-		App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
-		App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
-
-		//obstacles red
-		if (App->sceneIntroMapes->selectMap == '2') {
-			App->collisions->AddCollider({ 144, 70, 15, 14 }, Collider::Type::OBSTACLE1);
-			App->collisions->AddCollider({ 144, 166, 15, 14 }, Collider::Type::OBSTACLE1);
+			break;
 		}
 	}
 	App->player->Enable();

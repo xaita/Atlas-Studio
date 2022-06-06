@@ -639,7 +639,7 @@ Update_Status ModulePlayer2::Update()
 				}
 				ultimadireccio2 = 2;
 			}
-			if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT && position.y < 174)
+			if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT)
 			{
 				position.y += speed;
 				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN && dashup2 == true) {

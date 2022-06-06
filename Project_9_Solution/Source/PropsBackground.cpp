@@ -151,40 +151,42 @@ Update_Status PropsBackground::Update()
 Update_Status PropsBackground::PostUpdate()
 {
 	// Draw everything --------------------------------------
-	switch (App->sceneIntroMapes->selectMap) {
-	case '1':
-		if (App->disk->saque == 1)
-			App->render->Blit(beachLeftGoalGoal, 0, 0, NULL);
-		else
-			App->render->Blit(beachLeftGoal, 0, 0, NULL);
-		if (App->disk->saque == 2)
-			App->render->Blit(beachRightGoalGoal, 0, 0, NULL);
-		else
-			App->render->Blit(beachRightGoal, 0, 0, NULL);
-		App->render->Blit(beachBotWall, 0, 0, NULL);
-		break;
-	case'2':
-		if (App->disk->saque == 1)
-			App->render->Blit(bgGoalgoal, -15, 22, NULL);
-		else
-			App->render->Blit(bgGoal, 0, 22, NULL);
-		if (App->disk->saque == 2)
-			App->render->Blit(bgGoalgoalright, 266, 22, NULL);
-		else
-			App->render->Blit(bgGoalright, 266, 22, NULL);
-		App->render->Blit(bgBotwall, 31, 202, NULL);
-		break;
-	case '3':
-		if (App->disk->saque == 1)
-			App->render->Blit(lawnLeftGoalGoal, -15, 22, NULL);
-		else
-			App->render->Blit(lawnLeftGoal, -9, 20, NULL);
-		if (App->disk->saque == 2)
-			App->render->Blit(lawnRightGoalGoal, 266, 22, NULL);
-		else
-			App->render->Blit(lawnRightGoal, 266, 22, NULL);
-		App->render->Blit(lawnBotWall, 31, 202, NULL);
-		break;
+	if (App->sceneIntroMapes->Readymap == true) {
+		switch (App->sceneIntroMapes->selectMap) {
+		case '1':
+			if (App->disk->saque == 1)
+				App->render->Blit(beachLeftGoalGoal, 0, 0, NULL);
+			else
+				App->render->Blit(beachLeftGoal, 0, 0, NULL);
+			if (App->disk->saque == 2)
+				App->render->Blit(beachRightGoalGoal, 0, 0, NULL);
+			else
+				App->render->Blit(beachRightGoal, 0, 0, NULL);
+			App->render->Blit(beachBotWall, 0, 0, NULL);
+			break;
+		case'2':
+			if (App->disk->saque == 1)
+				App->render->Blit(bgGoalgoal, -15, 22, NULL);
+			else
+				App->render->Blit(bgGoal, 0, 22, NULL);
+			if (App->disk->saque == 2)
+				App->render->Blit(bgGoalgoalright, 266, 22, NULL);
+			else
+				App->render->Blit(bgGoalright, 266, 22, NULL);
+			App->render->Blit(bgBotwall, 31, 202, NULL);
+			break;
+		case '3':
+			if (App->disk->saque == 1)
+				App->render->Blit(lawnLeftGoalGoal, -15, 22, NULL);
+			else
+				App->render->Blit(lawnLeftGoal, -9, 20, NULL);
+			if (App->disk->saque == 2)
+				App->render->Blit(lawnRightGoalGoal, 266, 22, NULL);
+			else
+				App->render->Blit(lawnRightGoal, 266, 22, NULL);
+			App->render->Blit(lawnBotWall, 31, 202, NULL);
+			break;
+		}
 	}
 	App->render->Blit(bgFrisbees, 166, 209, &(frisbees.GetCurrentFrame()));
 

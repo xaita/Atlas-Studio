@@ -12,6 +12,7 @@
 #include "ModuleDisk.h"
 #include "SDL/include/SDL.h"
 #include "SceneIntro.h"	
+#include "SceneIntroMapes.h"
 
 #include <chrono>
 #include <thread>
@@ -669,7 +670,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			}
 			ultimadireccio = 2;
 		}
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT /*&& position.y < 174*/)		//moviment cap a baix
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)		//moviment cap a baix
 		{
 			position.y += speed;
 			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && dashup == true) {
@@ -1174,12 +1175,19 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::BOT_WALL)				//collider paret inferior
 	{
-		App->player->position.y = 183;
+		if (App->sceneIntroMapes->selectMap == '1' && App->sceneIntroMapes->Readymap == true)
+			App->player->position.y = 171;
+		else if (App->sceneIntroMapes->Readymap == true)
+			App->player->position.y = 183;
 	}
 
 	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::TOP_WALL)				//collider paret superior
 	{
-		App->player->position.y = 29;
+		
+		if (App->sceneIntroMapes->selectMap == '1' && App->sceneIntroMapes->Readymap == true)
+			App->player->position.y = 42;
+		else if (App->sceneIntroMapes->Readymap == true)
+			App->player->position.y = 29;
 	}
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)		//collider goal
