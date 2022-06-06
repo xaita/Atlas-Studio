@@ -159,6 +159,8 @@ public:
 	uint Wow = 0;
 	uint Ya = 0;
 
+	uint Applause = 0;
+
 	// The player's collider
 	Collider* diskcollider = nullptr;
 	Collider* super_zone_collider = nullptr;
