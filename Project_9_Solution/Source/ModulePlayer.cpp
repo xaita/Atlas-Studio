@@ -1279,7 +1279,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				if (App->sceneIntro->xdselectPlayer1 == '1') {
 					App->particles->AddParticle(0, 0, App->particles->cargahiromipart, position.x - 30, position.y - 30);
 				}
-				else if (App->sceneIntro->xdselectPlayer1 == '3') {
+				if (App->sceneIntro->xdselectPlayer1 == '3') {
 					App->particles->AddParticle(0, 0, App->particles->klausscargaultipart, position.x-10, position.y-10);
 				}
 				currentAnimation = &charge_ult;
