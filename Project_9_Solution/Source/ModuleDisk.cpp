@@ -11,6 +11,7 @@
 #include "ModulePlayer2.h"
 #include"SceneLevel1.h"
 #include"SceneIntroSNK.h"
+#include"SceneIntro.h"
 #include "Animation.h"
 #include "SDL/include/SDL.h"
 #include "PropsBackground.h"
@@ -719,8 +720,9 @@ Update_Status ModuleDisk::Update()
 	
 		if (ultimate_disk == true) {
 		
+			App->sceneIntro->xdselectPlayer2 = '3';
 			
-			if (personaje == 3) {
+			if (App->sceneIntro->xdselectPlayer1 == '3' && ultimplayer ==1) {
 				if (sentido == 1) {
 					if (position.y >= aux2 - 40) {
 
@@ -774,9 +776,80 @@ Update_Status ModuleDisk::Update()
 
 					}
 
+				}
+				currentAnimation2 = &moving;
+				position.x += augmentvx;
+				position.y += augmentvy;
 
+			}
+			else if (App->sceneIntro->xdselectPlayer1 == '2' && ultimplayer == 1) {
+			
+				augmentvx = 0;
+				augmentvy = -3*sentido;
 
+		     }
+			else if(App->sceneIntro->xdselectPlayer1 =='1' && ultimplayer ==1) {
 
+				currentAnimation2 = &moving;
+				augmentvy = (-sin(augmentvx / 30) * 55) * sentido;
+				augmentvx += disc_speed_X;
+				position.x = aux + augmentvx;
+				position.y = aux2 + augmentvy;
+			}
+
+			if (App->sceneIntro->xdselectPlayer2 == '3' && ultimplayer ==2) {
+				if (sentido == 1) {
+					if (position.y >= aux2 - 40) {
+
+						augmentvx = 0;
+						augmentvy = -3;
+					}
+
+					if (position.y <  aux2- 40) {
+
+						augmentvx = -3;
+						augmentvy = 0;
+					}
+
+					if (position.x <= aux - 80) {
+
+						augmentvx = 0;
+						augmentvy = 3;
+					}
+
+					if (position.y >= aux2 + 40) {
+
+						augmentvx = -3.3;
+						augmentvy = 0;
+
+					}
+
+				}
+				else if (sentido == -1) {
+					if (position.y <= aux2 + 40) {
+
+						augmentvx = 0;
+						augmentvy = 3;
+					}
+
+					if (position.y > aux2 + 40) {
+
+						augmentvx = -3;
+						augmentvy = 0;
+					}
+
+					if (position.x <= aux - 80) {
+
+						augmentvx = 0;
+						augmentvy = -3;
+					}
+
+					if (position.y <= aux2 - 40) {
+
+						augmentvx = -3.3;
+						augmentvy = 0;
+
+					}
 
 				}
 				currentAnimation2 = &moving;
@@ -784,9 +857,15 @@ Update_Status ModuleDisk::Update()
 				position.y += augmentvy;
 
 			}
-			else {
+			else if (App->sceneIntro->xdselectPlayer2 == '2') {
 
+				augmentvx = 0;
+				augmentvy = -3 * sentido;
 
+			}
+			else if(App->sceneIntro->xdselectPlayer2 == '2') {
+
+				currentAnimation2 = &moving;
 				augmentvy = (-sin(augmentvx / 30) * 55) * sentido;
 				augmentvx += disc_speed_X;
 				position.x = aux + augmentvx;

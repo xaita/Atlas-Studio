@@ -209,6 +209,7 @@ bool ModulePlayer2::Start()
 
 	position.x = 240;
 	position.y = 112;
+	timer_ult = 40;
 
 	destroyed = false;
 
@@ -713,6 +714,45 @@ Update_Status ModulePlayer2::Update()
 				App->audio->PlayFx(lobfx, 0);
 			}
 		}
+		if (App->player2->ultimate == true) {
+
+
+			if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT) {
+
+
+				App->disk->ultimate_disk = true;
+				App->player2->ultimate = false;
+
+				App->disk->sentido = -1;
+
+
+				personatgedisc2 = -1;
+				App->disk->ultimplayer = 2;
+
+				App->disk->aux2 = App->disk->position.y;
+				App->disk->aux = App->disk->position.x;
+
+				App->disk->disc_speed_X = -2;
+
+
+			}
+			else if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN) {
+
+				/*App->player->currentAnimation = &ultimateanim;*/
+				App->disk->ultimate_disk = true;
+				App->player2->ultimate = false;
+
+
+				App->disk->sentido = 1;
+
+				personatgedisc2 = -1;
+				App->disk->ultimplayer = 2;
+
+				App->disk->aux2 = App->disk->position.y;
+				App->disk->aux = App->disk->position.x;
+				App->disk->disc_speed_X = -2;
+			}
+		}
 	}
 
 	
@@ -760,13 +800,21 @@ void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 
 	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::SUPER_ZONE && App->disk->onair == true) {
 
-		ultimate = true;
-		currentAnimation = &charge_ult;
+		if (timer_ult > 0) {
+			timer_ult--;
 
+			currentAnimation = &charge_ult;
+		}
+
+		if (timer_ult == 0) {
+			ultimate = true;
+
+		}
 	}
-	else {
-
+	else if (App->disk->onair == false) {
+		timer_ult = 40;
 		charge_ult.Reset();
 	}
+
 
 }
