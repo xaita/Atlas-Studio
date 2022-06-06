@@ -348,15 +348,7 @@ Update_Status SceneLevel1::Update()
 		points3left = 0;
 		points3right = 0;
 	}
-	if (moureCameraGol == true)
-	{
-		if(App->disk->ultimplayer==1)
-			if (App->render->camera.x < -96)
-				App->render->camera.x += 12;			
-		if (App->disk->ultimplayer == 2)
-			if (App->render->camera.x > 96)
-				App->render->camera.x -= 12;//mourecamera
-	}
+
 
 	Points5ScoreR.Update();
 	Points5ScoreL.Update();
@@ -371,6 +363,24 @@ Update_Status SceneLevel1::PostUpdate()
 {
 	// Draw everything --------------------------------------
 	
+	if (moureCameraGol == true)
+	{
+		if (App->disk->ultimplayer == 2)
+			if (App->render->camera.x > -96)
+				App->render->camera.x -= 12;
+			//else {
+			//	moureCameraGol == false;
+			//	App->render->camera.x = 0;
+			//}
+		if (App->disk->ultimplayer == 1)
+			if (App->render->camera.x < 96)
+				App->render->camera.x += 12;//mourecamera
+			//else {
+			//	moureCameraGol == false;
+			//	App->render->camera.x = 0;
+			//}
+	}
+
 
 	switch (App->sceneIntroMapes->selectMap) {
 		case '1':
