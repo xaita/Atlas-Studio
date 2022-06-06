@@ -4,6 +4,8 @@
 
 ***
 
+![image](https://user-images.githubusercontent.com/99949755/156932480-90d2ce66-946b-41b0-84f2-45cdfac99277.png)
+
 # The project
 
 This project is a replica of the windjammers game (the arcade version) in honour to the game.
@@ -39,8 +41,13 @@ The controls are simple:
 - Space: jumps to next screen.
 - Shift: Inserts Coin in Windjammers' Screen.
 
+
+Gamepad: 
+- Arrows -> Movement
+- A equals to C/O
+- B equals to V/P
+
 ## Movement 
-Gamepad: Joystick.
 
 ### Player 1 (Left character):
 - W: Move Upwards.
