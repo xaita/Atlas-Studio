@@ -132,7 +132,8 @@ public:
 	uint catchfx = 0;
 	uint onairfx = 0;
 	uint landingfx = 0;
-
+	uint goalfx = 0;
+	uint ricochetfx = 0;
 	//sfx arbitre
 	uint Pts2 = 0;
 	uint Pts3 = 0;

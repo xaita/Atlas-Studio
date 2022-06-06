@@ -311,6 +311,8 @@ bool ModuleDisk::Start()
 	blockfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Block.wav");
 	catchfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Catch.wav");
 	onairfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Freesbeonair.wav");
+	goalfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/GoalHit.wav");
+	ricochetfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/WallHit.wav");
 
 	//audio comentarista
 	Pts2 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/2Pts.wav");
@@ -1007,6 +1009,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	{
 		ultimate_disk = false;
 		App->sceneLevel_1->moureCameraGol = true;
+		App->audio->PlayFx(goalfx, 0);
 		if (ultimplayer == 1) {
 			if (App->sceneIntroMapes->selectMap == '1') {
 				App->sceneLevel_1->points5rightmid = 1;
@@ -1081,6 +1084,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	}
 	else if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_2)
 	{
+		App->audio->PlayFx(goalfx, 0);
 		App->sceneLevel_1->moureCameraGol = true;
 		ultimate_disk = false;
 		position.x = 143;
@@ -1155,10 +1159,14 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::OBSTACLE1) {
 		if (volea == false)
 			disc_speed_Y *= -1;
+		App->audio->PlayFx(ricochetfx, 0);
+
 	}
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::TOP_WALL) {
-		
+
+		App->audio->PlayFx(ricochetfx, 0);
+
 		if (ultimate_disk == true) {
 
 	
@@ -1211,6 +1219,8 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	}
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::BOT_WALL) {
+
+		App->audio->PlayFx(ricochetfx, 0);
 
 		if (ultimate_disk == true) {
 	
