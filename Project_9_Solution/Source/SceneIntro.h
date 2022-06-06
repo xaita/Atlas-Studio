@@ -45,10 +45,10 @@ public:
 	uint KoreanSelectedfx = 0;
 
 	char selectPlayer1 = '1';
-	char xdselectPlayer1 = '3';
+	char xdselectPlayer1 = '2';
 
 	char selectPlayer2;
-	char xdselectPlayer2 = '1';
+	char xdselectPlayer2 = '2';
 	int selecttimer;
 	int x1;
 	int y1;

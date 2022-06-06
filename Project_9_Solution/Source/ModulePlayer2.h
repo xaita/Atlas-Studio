@@ -39,7 +39,8 @@ public:
 	// The speed in which we move the player (pixels per frame)
 	int speed = 1.5;
 	int personatgedisc2= -1;
-
+	int correcciox;
+	int correccioy;
 	int dashtimer2;
 	bool dashup2 = true;
 
