@@ -4,7 +4,7 @@
 
 ***
 
-#The project
+# The project
 
 This project is a replica of the windjammers game (the arcade version) in honour to the game.
 It was developed by Atlas Studio, five students from UPC-CITM from Terrassa, Spain.
@@ -16,11 +16,11 @@ Windjammers is a sports arcade game developed by Data East in 1994 for SNK’s N
 In our tribute version of this game, there is only the gamemode player Vs player, which are allowed to choose from 3 different characters and 3 different maps. 
 The objective of this game is to make the disk enter the enemy's goal and make as much points as you can in order to win the match. The first player to win 2 sets wins the match.
 
-#Windjammers Gameplay
+# Windjammers Gameplay
 
 Aqui va el video de nuestro gameplay
 
-#**Controls**
+# **Controls**
 
 ## Basics
 
