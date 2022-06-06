@@ -45,7 +45,7 @@ public:
 	uint KoreanSelectedfx = 0;
 
 	char selectPlayer1;
-	char *xdselectPlayer1;
+	char xdselectPlayer1;
 
 	char selectPlayer2;
 	char xdselectPlayer2;
