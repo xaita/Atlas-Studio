@@ -1213,7 +1213,10 @@ void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 			App->audio->PlayFx(chargefx, 0);
 			App->audio->PlayFx(chargevoice, 0);
 		}
-
+		if (App->sceneIntro->xdselectPlayer1 == '2' && particulacarga == true) {
+			particulacarga = false;
+			App->particles->AddParticle(0, 0, App->particles->bhoocargaultipart, position.x - 10, position.y - 10);
+		}
 		if (timer_ult == 0) {
 			ultimate = true;
 
