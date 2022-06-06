@@ -66,7 +66,7 @@ Update_Status SceneVS::Update()
 	}
 	if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '2')
 	{
-		bgTexture = App->textures->Load("Assets/UI/Screens/VS/Korea vs Korean.png");
+		bgTexture = App->textures->Load("Assets/UI/Screens/VS/Korea vs Korea.png");
 	}
 	if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '1')
 	{
