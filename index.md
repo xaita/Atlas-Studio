@@ -24,25 +24,30 @@ Aqui va el video de nuestro gameplay
 
 ## Basics
 
-Windjammers is controlled with only two buttons and the standard fighting game eight direction joystick. The A button can throw the disc, block an incoming disc, and make your character dash when they are not holding a disc. The B button lobs the disc. It does nothing when your character is not holding a disc.Directions are notated using numpad notation, which uses numbers to describe directions in accordance to their location on a numpad.
+This game is controlled by keyboard or gamepad. 
+The controls are simple: 
 
 ## Movement
 
-- *Move* - hold any of the eight directions on the control stick to move in that direction.
+### Player 1 (Left character):
+- W: Move Upwards.
+- A: Move to the left.
+- S: Move Downwards.
+- D: Move to the right.
 
- ![image](https://user-images.githubusercontent.com/99950138/156935111-684b4aac-232c-4cb4-af19-193ecc0842f9.png)
-
-
-- *Sliding/Dashing* - when your character is not holding the disc, press the **A** button while holding a direction on the control stick to dash. Holding the A button will cause your character to dash longer distances.
-
-![image](https://user-images.githubusercontent.com/99950138/156935267-585185a0-320d-4b8f-b573-4d3e43ae2342.png)
-![image](https://user-images.githubusercontent.com/99950138/156935276-f0c1012b-0a4d-49cb-8c9d-a3d57c29c118.png)
-
+### Player 2 (right character):
+- Up Arrow: Move Upwards.
+- Left Arrow: Move to the left.
+- Down Arrow: Move Downwards.
+- Right Arrow: Move to the right.
 
 
 ## Simple Mechanics
 
-- *Catch a disc* - simply move into a disc's path to catch it. Your character will catch it automatically. Throw a straight shot - after catching the disc, press A to throw the disc in a straight shot. Holding the stick forward or backward will throw the disc straight directly in front of the character; they are the same shot.
+- Catch Disk: To catch the disk your character must touch it. Try to predict its trajectory.
+- Throw Disk: To throw the disk press C (player 1) or O (player 2) while holding it.
+- Block Disk: To block an upcoming disk, hold V (player 1) or P (Player 2), it will make the disk go flying.
+- Disk Lob: To make a lob, pres
 
 
 - *Throw a curved shot* - after catching the disc, perform a directional curve, then press A to throw the disc in a curved shot. Each character has  a unique set of curves.
