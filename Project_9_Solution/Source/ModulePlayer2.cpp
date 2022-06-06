@@ -37,9 +37,7 @@ ModulePlayer2::~ModulePlayer2()
 
 bool ModulePlayer2::Start()
 {
-<<<<<<< Updated upstream
-	
-=======
+
 	rightidleAnim.totalFrames=0;
 	leftidleAnim.totalFrames=0;
 	rightidleFrisbee.totalFrames=0;
@@ -65,7 +63,6 @@ bool ModulePlayer2::Start()
 	recive.totalFrames=0;
 	charge_ult.totalFrames=0;
 
->>>>>>> Stashed changes
 	LOG("Loading player textures");
 	switch (App->sceneIntro->xdselectPlayer2) {
 
