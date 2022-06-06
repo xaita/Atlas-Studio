@@ -729,6 +729,7 @@ Update_Status ModuleDisk::Update()
 			else if(App->sceneIntro->xdselectPlayer1 =='1' && ultimplayer ==1) {
 
 				currentAnimation2 = &moving;
+				App->particles->AddParticle(0, 0, App->particles->hiromiultipart, position.x-10, position.y-50, Collider::NONE, 1);
 				augmentvy = (-sin(augmentvx / 30) * 55) * sentido;
 				augmentvx += disc_speed_X;
 				position.x = aux + augmentvx;
@@ -815,6 +816,7 @@ Update_Status ModuleDisk::Update()
 			else if(App->sceneIntro->xdselectPlayer2 == '1' && ultimplayer == 2) {
 
 				currentAnimation2 = &moving;
+				App->particles->AddParticle(0, 0, App->particles->hiromiultipart, position.x - 10, position.y - 50, Collider::NONE, 1);
 				augmentvy = (sin(augmentvx / 30) * 55) * sentido;
 				augmentvx += disc_speed_X;
 				position.x = aux + augmentvx;
