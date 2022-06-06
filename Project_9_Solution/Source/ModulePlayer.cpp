@@ -1143,6 +1143,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 				App->disk->sentido = -1;
 
+				currentAnimation = &shooting;
 
 				personatgedisc = -1;
 				App->disk->ultimplayer = 1;
@@ -1169,7 +1170,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				App->disk->ultimate_disk = true;
 				App->player->ultimate = false;
 
-
+				currentAnimation = &shooting;
 				App->disk->sentido = 1;
 
 				personatgedisc = -1;

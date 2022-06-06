@@ -77,6 +77,7 @@ public:
 	bool onair;
 	bool volea;
 	bool ultimate_disk;
+	bool caiguda;
 
 
 	// The player spritesheet loaded into an SDL_Texture

@@ -352,8 +352,9 @@ bool ModuleDisk::Start()
 	aux = 0;
 	aux2 = 0;
 	sentido = 0;
-
+	caiguda = false;
 	 personaje = 3;
+	 timerblock = 0;
 
 	destroyed = false;
 
@@ -712,8 +713,9 @@ Update_Status ModuleDisk::Update()
 
 			disc_speed_X = 0;
 			disc_speed_Y = 0;
-			timerblock = 60;
+			timerblock = 90;
 			bloqueig = false;
+			caiguda = true;
 			if (ultimplayer == 1) { position.x += 20;  volea_x = position.x;	position.y -= 20;  volea_y = position.y+30; }
 			else {
 				position.x -= 20;
@@ -723,11 +725,50 @@ Update_Status ModuleDisk::Update()
 			}
 
 		}
+	
+		if (timerblock == 31 && caiguda == false) {
+			onair = false;
+			timerblock = 0;
+		}
+		else if(timerblock == 31 && caiguda == true){
+			currentAnimation2 = &terraanim;
+			App->audio->PlayFx(landingfx, 0);
+		}
 
-		if (timerblock > 0) {
+		if (timerblock > 0 && timerblock <= 31) {
+			timerblock--;
+
+
+		}
+
+		if (timerblock > 31) {
 			currentAnimation2 = &projectile;
 			App->audio->PlayFx(onairfx, 0);
 			timerblock--;
+		}
+		if (timerblock == 1) {
+			
+			position.x = 143;
+			position.y = 191;
+			if (ultimplayer == 1 && godmode == false) { App->disk->score_player_1 += 2;	saque = 2;
+			}
+			else if( godmode == false){ App->disk->score_player_2 += 2;	saque = 1;
+			}
+			else if( ultimplayer == 1) {
+				saque = 2;
+			}
+			else {
+				saque = 1;
+			}
+			App->player->position.x = 38;
+			App->player->position.y = 112;
+			timer = 120;
+			App->propsBackground->timersetcount = 350;
+			App->audio->PlayFx(Pts2, 0);
+			currentAnimation2 = &idle;
+			timerblock = 0;
+			onair = false;
+
 		}
 
 		if (timerblock == 0 && volea == false) {
@@ -961,66 +1002,77 @@ Update_Status ModuleDisk::PostUpdate()
 
 void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER && onair==false)
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER )
 	{
-		
-		ultimate_disk = false;
-
-
-		if (App->player->blockdisk == false) {
-			App->audio->PlayFx(catchfx, 0);
-			App->player->currentAnimation = &App->player->recive;
-			App->player->personatgedisc = 1;
-
-			position.x = App->player->position.x + 40;
-			position.y = App->player->position.y + 10;
-
-			disc_speed_X = 0;
-			disc_speed_Y = 0;
-			saque = 0;
-
-			currentAnimation2 = &invisible;
-
-			projectile.Reset();
-		
+		if (timerblock == 32)
+		{
+			caiguda = false;
 		}
-		else {
+		if (onair == false) {
+			ultimate_disk = false;
 
-			bloqueig = true;
 
-			App->audio->PlayFx(blockfx, 0);
+			if (App->player->blockdisk == false ) {
+				App->audio->PlayFx(catchfx, 0);
+				App->player->currentAnimation = &App->player->recive;
+				App->player->personatgedisc = 1;
+
+				position.x = App->player->position.x + 40;
+				position.y = App->player->position.y + 10;
+
+				disc_speed_X = 0;
+				disc_speed_Y = 0;
+				saque = 0;
+
+				currentAnimation2 = &invisible;
+
+				projectile.Reset();
+
+			}
+			else {
+
+				bloqueig = true;
+
+				App->audio->PlayFx(blockfx, 0);
+			}
 		}
 	}
 
 
-	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER2 && onair == false)
+	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::PLAYER2 )
 	{
-		ultimate_disk = false;
-		if (App->player2->blockdisk == false) {
-
-			App->audio->PlayFx(catchfx, 0);
-			App->player2->currentAnimation = &App->player2->recive;
-			App->player2->personatgedisc2 = 1;
-
-			position.x = App->player2->position.x - 20;
-			position.y = App->player2->position.y + 10;
-
-			disc_speed_X = 0;
-			disc_speed_Y = 0;
-			saque = 0;
-
-			currentAnimation2 = &invisible;
-
-			projectile.Reset();
-
-		}
-		else {
-
-			bloqueig = true;
-
-			App->audio->PlayFx(blockfx, 0);
-		}
 		
+		if (timerblock == 32)
+		{
+			caiguda = false;
+		}
+		if (onair == false) {
+			ultimate_disk = false;
+			if (App->player2->blockdisk == false) {
+
+				App->audio->PlayFx(catchfx, 0);
+				App->player2->currentAnimation = &App->player2->recive;
+				App->player2->personatgedisc2 = 1;
+
+				position.x = App->player2->position.x - 20;
+				position.y = App->player2->position.y + 10;
+
+				disc_speed_X = 0;
+				disc_speed_Y = 0;
+				saque = 0;
+
+				currentAnimation2 = &invisible;
+
+				projectile.Reset();
+
+			}
+			else {
+
+				bloqueig = true;
+
+				App->audio->PlayFx(blockfx, 0);
+			}
+		}
 
 	}
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
@@ -1102,6 +1154,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	}
 	else if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_2)
 	{
+	
 		App->audio->PlayFx(goalfx, 0);
 		App->sceneLevel_1->moureCameraGol = true;
 		ultimate_disk = false;
