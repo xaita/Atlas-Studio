@@ -1166,7 +1166,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 				if (App->sceneIntro->xdselectPlayer1 == '2') {
 					App->disk->disc_speed_X = 0;
-					App->disk->disc_speed_Y = 3.5;
+					App->disk->disc_speed_Y = 4;
 
 				}
 				if (App->sceneIntro->xdselectPlayer1 == '3') {
@@ -1198,7 +1198,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 				if (App->sceneIntro->xdselectPlayer1 == '2') {
 					App->disk->disc_speed_X = 0;
-					App->disk->disc_speed_Y = -3.5;
+					App->disk->disc_speed_Y = -4;
 
 				}
 			}
@@ -1289,6 +1289,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				if (App->sceneIntro->xdselectPlayer1 == '3' && particulacarga == true) {
 					particulacarga = false;
 					App->particles->AddParticle(0, 0, App->particles->klausscargaultipart, position.x-10, position.y-10);
+				}
+
+				 if (App->sceneIntro->xdselectPlayer1 == '2') {
+					App->particles->AddParticle(0, 0, App->particles->bhoocargaultipart, position.x-10 , position.y -10,Collider::NONE,0u );
 				}
 				currentAnimation = &charge_ult;
 				App->audio->PlayFx(chargefx, 0);

@@ -70,8 +70,8 @@ bool ModuleParticles::Start()
 	bhoocargaultipart.anim.PushBack({ 267, 59, 50, 53 });
 	bhoocargaultipart.anim.PushBack({ 327, 61, 50, 53 });
 	bhoocargaultipart.anim.PushBack({ 388, 60, 50, 53 });
-	bhoocargaultipart.lifetime = 20;
-	bhoocargaultipart.anim.speed = 0.1f;
+	bhoocargaultipart.lifetime = 30;
+	bhoocargaultipart.anim.speed = 0.3f;
 
 	klausscargaultipart.anim.PushBack({ 408, 139, 50, 50 });
 	klausscargaultipart.anim.PushBack({ 408, 187, 50, 50 });
@@ -135,8 +135,8 @@ bool ModuleParticles::Start()
 	bhoobotmurdreta.anim.PushBack({ 37, 214, 32, 19 });
 	bhoobotmurdreta.anim.PushBack({ 70, 214, 32, 19 });
 	bhoobotmurdreta.anim.PushBack({ 101, 214, 32, 19 });
-	bhoobotmurdreta.lifetime = 20;
-	bhoobotmurdreta.anim.speed = 0.1f;
+	bhoobotmurdreta.lifetime = 12;
+	bhoobotmurdreta.anim.speed = 0.2f;
 
 	bhoobotmuresquerra.anim.PushBack({ 133, 315, 30, 19 });
 	bhoobotmuresquerra.anim.PushBack({ 99, 315, 30, 19 });
@@ -150,7 +150,8 @@ bool ModuleParticles::Start()
 	bhoouppart.anim.PushBack({ 274, 237, 16, 15 });
 	bhoouppart.anim.PushBack({ 274, 220, 16, 13 });
 	bhoouppart.lifetime = 20;
-	bhoouppart.anim.speed = 0.1f;
+	bhoouppart.anim.loop = false;
+	bhoouppart.anim.speed = 0.05f;
 
 	bhoodownpart.anim.PushBack({ 293,  220, 16, 14 });
 	bhoodownpart.anim.PushBack({ 293,  236, 16, 16 });

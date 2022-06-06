@@ -711,8 +711,17 @@ Update_Status ModuleDisk::Update()
 				position.y += augmentvy;
 
 			}
-			else if (App->sceneIntro->xdselectPlayer1 == '2' && ultimplayer == 1) {
-			
+			else if (App->sceneIntro->xdselectPlayer1 == '2' && ultimplayer == 1 ) {
+				if (disc_speed_Y == -4) {
+					App->particles->AddParticle(0, 0, App->particles->bhoouppart, position.x, position.y);
+				}
+				else if (disc_speed_Y == 4) {
+					App->particles->AddParticle(0, 0, App->particles->bhoodownpart, position.x, position.y);
+				}
+				else {
+
+					App->particles->AddParticle(0, 0, App->particles->bhootopmurdreta, position.x-20, position.y );
+				}
 				currentAnimation2 = &moving;
 				position.x += disc_speed_X;
 				position.y += (disc_speed_Y * sentido);
@@ -789,7 +798,16 @@ Update_Status ModuleDisk::Update()
 			}
 			else if (App->sceneIntro->xdselectPlayer2 == '2' && ultimplayer ==2) {
 
-			
+				if (disc_speed_Y == -4) {
+					App->particles->AddParticle(0, 0, App->particles->bhoouppart, position.x, position.y);
+				}
+				else if (disc_speed_Y == 4) {
+					App->particles->AddParticle(0, 0, App->particles->bhoodownpart, position.x, position.y);
+				}
+				else {
+
+					App->particles->AddParticle(0, 0, App->particles->bhootopmuresquerra, position.x - 20, position.y);
+				}
 				currentAnimation2 = &moving;
 				position.x += disc_speed_X;
 				position.y += (disc_speed_Y *sentido);
