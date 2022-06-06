@@ -46,26 +46,10 @@ The controls are simple:
 
 - Catch Disk: To catch the disk your character must touch it. Try to predict its trajectory.
 - Throw Disk: To throw the disk press C (player 1) or O (player 2) while holding it.
-- Block Disk: To block an upcoming disk, hold V (player 1) or P (Player 2), it will make the disk go flying.
-- Disk Lob: To make a lob, pres
-
-
-- *Throw a curved shot* - after catching the disc, perform a directional curve, then press A to throw the disc in a curved shot. Each character has  a unique set of curves.
-
- ![image](https://user-images.githubusercontent.com/99950138/156935325-6f885959-d23b-4077-9a33-175e3d38209f.png)
-
-
-- *Throw a lob* - after catching the disc , press B to toss the disc into a targeted lob.
-
-![image](https://user-images.githubusercontent.com/99950138/156935376-def20b93-c78a-4c25-b32a-08bf2e8eb7ba.png)
-
-
-- *Block a shot* - Or "toss", it happens when you press A without holding any direction.
-
-![image](https://user-images.githubusercontent.com/99950138/156935391-fccc3e81-914d-4c90-af76-27053057e3f8.png)
-
-
-- *Moving Block* - When your character is not holding the disc and is standing still, tap the A button and then hold a direction on the control stick. Instead of a full dash, your character should perform a mini-dash that also blocks a shot.
+- Block Disk: To block an upcoming disk, hold C (player 1) or O (Player 2) before it arrives to you, it will make the disk go flying.
+- Disk Lob: To make a lob, press V (player 1) or P (player 2).
+- Targeted throw: While holding the disk, combine the movement keys to direct your throw.
+- Dash: While not holding the disk, press the throwing button to perform a dash.
 
 ![image](https://user-images.githubusercontent.com/99950138/156935391-fccc3e81-914d-4c90-af76-27053057e3f8.png)
 ![image](https://user-images.githubusercontent.com/99950138/156935424-ebe50de0-52f5-4cac-a203-a91c9903e933.png)
