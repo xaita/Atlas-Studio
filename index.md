@@ -120,5 +120,5 @@ Each Character has theiy unique Super Hability, so make sure to try every one of
 * Github: [GHOSTVCL](https://github.com/GHOSTVCL)
 
 * General analysis and UI
-* 
-* 
+
+
