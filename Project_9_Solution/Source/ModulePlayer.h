@@ -102,11 +102,10 @@ public:
 	uint tossfx = 0;
 	uint chargefx = 0; 
 	uint hitfx = 0;
-	uint powerphrasefx = 0;
-	uint powersoundfx = 0;
 	uint setwinfx = 0;
 	uint lobfx = 0;
-	
+	uint chargevoice=0;
+	uint supervoice=0;
 
 
 

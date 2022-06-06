@@ -40,6 +40,11 @@ bool ModulePlayer::Start()
 
 	case '1':
 		texture = App->textures->Load("Assets/Sprites/Characters/Hiromi Mita/JapaneseSpriteSheedCanviL2.png");
+		supervoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerPhrase.wav");
+		chargevoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiCharge.wav");
+		setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiSetWin.wav");
+		chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerSound.wav");
+
 		correcciox = 0;
 		correccioy = 0;
 
@@ -215,11 +220,16 @@ bool ModulePlayer::Start()
 		charge_ult.loop = false;
 		ultshot.speed = 0.25f;
 
+
 		break;
 
 	case '2':
 
 		texture = App->textures->Load("Assets/Sprites/Characters/Beeho Yoo/beehoYooSpriteSheet.png");
+		supervoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Beeho Yoo/B.YooSuperPhrase.wav");
+		chargevoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Beeho Yoo/B.YooCharge.wav");
+		setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Beeho Yoo/B.YooSetWin.wav");
+		chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Beeho Yoo/B.YooSuperSound.wav");
 		correcciox = -20;
 		correccioy = -18;
 		for (int i = 0; i < 8; i++) {
@@ -386,6 +396,10 @@ bool ModulePlayer::Start()
 
 	case '3':
 		texture = App->textures->Load("Assets/Sprites/Characters/Klauss Wessel/Alemancito.png");
+		supervoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussPowerPhrase.wav");
+		chargevoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussCharge.wav");
+		setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussSetWin.wav");
+		chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussPowerSound.wav");
 		correcciox = -20;
 		correccioy = -18;
 		for (int i = 0; i < 3; i++) {
@@ -541,7 +555,7 @@ bool ModulePlayer::Start()
 
 		uprightidleFrisbee.PushBack({150,325,75,65});
 		downrightidleFrisbee.PushBack({450 ,325,75,65 });
-
+		chargevoice = App->audio->LoadFx("");
 		break;
 
 	}
@@ -550,11 +564,6 @@ bool ModulePlayer::Start()
 	currentAnimation = &rightidleAnim;
 
 	tossfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Toss.wav");
-	chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiCharge.wav");
-	hitfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiHit.wav");
-	powerphrasefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerPhrase.wav");
-	powersoundfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerSound.wav");
-	setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiSetWin.wav");
 	lobfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Lob.wav");
 
 	position.x = 38;
