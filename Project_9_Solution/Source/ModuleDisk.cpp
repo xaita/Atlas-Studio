@@ -1009,7 +1009,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		App->sceneLevel_1->moureCameraGol = true;
 		if (ultimplayer == 1) {
 			if (App->sceneIntroMapes->selectMap == '1') {
-
+				App->sceneLevel_1->points5rightmid = 1;
+				App->sceneLevel_1->timerofpoints = 120;
+				App->sceneLevel_1->Points5ScoreR.Reset();
 			}
 			if (App->sceneIntroMapes->selectMap == '2') {
 				if (position.y < 127) {
@@ -1024,7 +1026,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 				}
 			}
 			if (App->sceneIntroMapes->selectMap == '3') {
-
+				App->sceneLevel_1->points5rightmid = 1;
+				App->sceneLevel_1->timerofpoints = 120;
+				App->sceneLevel_1->Points5ScoreR.Reset();
 			}
 			
 			if (godmode != true) {
@@ -1036,7 +1040,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		}
 		if (ultimplayer == 2) {
 			if (App->sceneIntroMapes->selectMap == '1') {
-
+				App->sceneLevel_1->points5leftmid = 1;
+				App->sceneLevel_1->timerofpoints = 120;
+				App->sceneLevel_1->Points5ScoreL.Reset();
 			}
 			if (App->sceneIntroMapes->selectMap == '2') {
 				if (position.y < 127) {
@@ -1052,7 +1058,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 				}
 			}
 			if (App->sceneIntroMapes->selectMap == '3') {
-
+				App->sceneLevel_1->points5leftmid = 1;
+				App->sceneLevel_1->timerofpoints = 120;
+				App->sceneLevel_1->Points5ScoreL.Reset();
 			}
 			
 			if (godmode != true) {
