@@ -17,9 +17,10 @@ In our tribute version of this game, there is only the gamemode player Vs player
 The objective of this game is to make the disk enter the enemy's goal and make as much points as you can in order to win the match. The first player to win 2 sets wins the match.
 
 #Windjammers Gameplay
+
 Aqui va el video de nuestro gameplay
 
-#Controls
+#**Controls**
 
 ## Basics
 
