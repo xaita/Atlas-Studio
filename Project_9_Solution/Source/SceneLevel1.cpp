@@ -102,8 +102,8 @@ bool SceneLevel1::Start()
 	spectatorsBeach.PushBack({ 103, 224, 304, 224 });
 	spectatorsBeach.PushBack({ 103, 448, 304, 224 });
 	spectatorsBeach.PushBack({ 103, 672, 304, 224 });
-	spectators.loop = true;
-	spectators.speed = 0.15f;
+	spectatorsBeach.loop = true;
+	spectatorsBeach.speed = 0.15f;
 
 	//lawn
 	spectatorsLawn.PushBack({ 0,0,358,224 });																		//ANIMACIO ESPECTADORS
