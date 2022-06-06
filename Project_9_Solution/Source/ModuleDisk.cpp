@@ -1160,14 +1160,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		App->audio->PlayFx(goalfx, 0);
 		App->sceneLevel_1->moureCameraGol = true;
 		ultimate_disk = false;
-		position.x = 143;
-		position.y = 191;
-		disc_speed_X = 0;
-		disc_speed_Y = 0;
-
-		timer = 120;
-
-		App->propsBackground->timersetcount = 350;
+		
 
 		if (ultimplayer == 1) {
 			if (App->sceneIntroMapes->selectMap == '1' ) {
@@ -1240,7 +1233,14 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			}
 			saque = 1;
 		}
+		position.x = 143;
+		position.y = 191;
+		disc_speed_X = 0;
+		disc_speed_Y = 0;
 
+		timer = 120;
+
+		App->propsBackground->timersetcount = 350;
 	}
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::OBSTACLE1) {
 		if (volea == false)
