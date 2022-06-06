@@ -1,35 +1,67 @@
 ## Welcome to Atlas Studio
 
+# ATLAS STUDIOS: PROJECT 1- WINDJAMMERS
+
+***
+# Team Photo
+![IMG_20220218_100241](https://user-images.githubusercontent.com/99949891/156900215-e9541ebc-0f53-4dd9-9dad-71796c68718a.jpg)
+
+***
+
+# Windjammers
+Windjammers is a sports arcade game developed by Data East in 1994 for SNK’s Neo Geo. It can be seen a lot of similarities with Pong or Air Hockey, where the players shoot the disc to the goal zone of the opponent. The game can be played against another player or the computer.
+
+The player choose from six playable characters, each with their own speed/power and specials. Players maneuver around their respective sides of the court in any of the eight cardinal directions. They must attack the oponent side with different types of attacks and try to defend from the oponents attacks. There are yellow zones, worth 3 points and red zones, worth 5 points, if the player fails to catch the disk this is considered as a "miss" and gives 2 points to the oponent.
+
+![image](https://user-images.githubusercontent.com/99949755/156932480-90d2ce66-946b-41b0-84f2-45cdfac99277.png)
 
 
-### Markdown
+***
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+# Team members
 
-# Header 1
-## Header 2
-### Header 3
+**Xiao Shan Costajussà**
 
-- Bulleted
-- List
+* Github: [Xaita](https://github.com/xaita)
 
-1. Numbered
-2. List
+* Design and Art
 
-**Bold** and _Italic_ and `Code` text
+**Lluc Estruch**
 
-[Link](url) and ![Image](src)
-```
+* Github: [Llucaieaie](https://github.com/Llucaieaie)
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+* Design
 
-### Jekyll Themes
+**Pau Garriga**
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/DonnoNonno/ProjectTest/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+* Github: [DonnoNonno](https://github.com/DonnoNonno)
 
-### Support or Contact
+* Art and General analysis
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+**Xavi Prats**
+
+* Github: [Xarderos](https://github.com/Xarderos)
+
+* UI and Art
+
+**Joan Giol**
+
+* Github: [GHOSTVCL](https://github.com/GHOSTVCL)
+
+* General analysis and UI
+
+_For this project we divided the work to do with the group Piojo Games who did the same videogame. They did/search for some sprites/audios and us the rest of them. Then we share what we find between the two groups. Also, checkout his GitHub too!: [Piojo Games](https://github.com/PauM4/Windjammers)_
+***
+
+# Index
+
+* [General analysis](https://github.com/xaita/Atlas-Studio/wiki/1.-GENERAL-ANALYSIS)
+
+* [Design](https://github.com/xaita/Atlas-Studio/wiki/2.-DESIGN)
+
+* [UI](https://github.com/xaita/Atlas-Studio/wiki/3.-UI)
+
+* [Audio](https://github.com/xaita/Atlas-Studio/wiki/4.-AUDIO)
+
+* [Art](https://github.com/xaita/Atlas-Studio/wiki/5.-ART)
