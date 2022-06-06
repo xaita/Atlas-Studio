@@ -241,6 +241,7 @@ bool SceneLevel1::Start()
 	{
 		switch (App->sceneIntroMapes->selectMap) {
 		case '1':
+			App->audio->PlayMusic("Assets/Audios/Music/08_Flying Power Disc (Beach Court).ogg", 1.0f);					//MUSICA
 			//porteria esquerra
 			App->collisions->AddCollider({ 0, 35, 1, 47 }, Collider::Type::SCOREZONE_2);
 			App->collisions->AddCollider({ 0, 96, 1, 49 }, Collider::Type::SCOREZONE_1);
@@ -257,6 +258,7 @@ bool SceneLevel1::Start()
 			break;
 
 		case '2':
+			App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);					//MUSICA
 			//porteria esquerra
 			App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
 			App->collisions->AddCollider({ 0, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
@@ -278,6 +280,7 @@ bool SceneLevel1::Start()
 			break;
 
 		case '3':
+			App->audio->PlayMusic("Assets/Audios/Music/06_Windjammers (Lawn Court).ogg", 1.0f);					//MUSICA
 			//porteria esquerra
 			App->collisions->AddCollider({ 0, 32, 1, 64 }, Collider::Type::SCOREZONE_2);
 			App->collisions->AddCollider({ 0, 111, 1, 34 }, Collider::Type::SCOREZONE_1);

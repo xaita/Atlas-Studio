@@ -321,6 +321,7 @@ bool ModuleDisk::Start()
 	Pts2 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/2Pts.wav");
 	Pts3 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/3Pts.wav");
 	Pts5 = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/5Pts.wav");
+	Applause = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/Applause.wav");
 	CongratulationsWinner = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Congratulations Winner.wav");
 	ExcelentGame = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Excelent Game.wav");
 	FinalRound = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Comentarist/Final Round.wav");
@@ -1109,6 +1110,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			if (godmode != true) {
 				score_player_1 += 5;
 				App->audio->PlayFx(Pts5, 0);
+				App->audio->PlayFx(Applause, 0);
 			}
 
 			saque = 2;
@@ -1141,6 +1143,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			if (godmode != true) {
 				score_player_2 += 5;
 				App->audio->PlayFx(Pts5, 0);
+				App->audio->PlayFx(Applause, 0);
 			}
 
 			saque = 1;
