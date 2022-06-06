@@ -1281,6 +1281,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 					particulacarga = false;
 					App->particles->AddParticle(0, 0, App->particles->cargahiromipart, position.x - 10, position.y - 10, Collider::NONE, 0);
 				}
+				if(App->sceneIntro->xdselectPlayer1 == '2' && particulacarga == true) {
+					particulacarga = false;
+					App->particles->AddParticle(0, 0, App->particles->bhoocargaultipart, position.x - 10, position.y - 10);
+				}
 
 				if (App->sceneIntro->xdselectPlayer1 == '3' && particulacarga == true) {
 					particulacarga = false;
