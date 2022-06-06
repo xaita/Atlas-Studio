@@ -1234,58 +1234,61 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::BOT_WALL)				//collider paret inferior
+	if (App->disk->saque == 0)
 	{
-		if (App->sceneIntroMapes->selectMap == '1' && App->sceneIntroMapes->Readymap == true)
-			App->player->position.y = 171;
-		else if (App->sceneIntroMapes->Readymap == true)
-			App->player->position.y = 183;
-	}
-
-	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::TOP_WALL)				//collider paret superior
-	{
-		
-		if (App->sceneIntroMapes->selectMap == '1' && App->sceneIntroMapes->Readymap == true)
-			App->player->position.y = 42;
-		else if (App->sceneIntroMapes->Readymap == true)
-			App->player->position.y = 29;
-	}
-
-	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)		//collider goal
-	{
-		scoreplayer1 += 5;
-
-		position.x = 38;
-		position.y = 112;
-	}
-	
-	else if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
-	{
-		scoreplayer1 += 3;
-
-		position.x = 38;
-		position.y = 112;
-	}
-
-	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::SUPER_ZONE && App->disk->onair == true) {
-		if (timer_ult > 0) {
-			timer_ult--;
-
-			currentAnimation = &charge_ult;
-			App->audio->PlayFx(chargefx, 0);
-			App->audio->PlayFx(chargevoice, 0);
-
-
+		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::BOT_WALL)				//collider paret inferior
+		{
+			if (App->sceneIntroMapes->selectMap == '1' && App->sceneIntroMapes->Readymap == true)
+				App->player->position.y = 171;
+			else if (App->sceneIntroMapes->Readymap == true)
+				App->player->position.y = 183;
 		}
-		
-		if (timer_ult == 0) {
-			ultimate = true;
-			
+
+		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::TOP_WALL)				//collider paret superior
+		{
+
+			if (App->sceneIntroMapes->selectMap == '1' && App->sceneIntroMapes->Readymap == true)
+				App->player->position.y = 42;
+			else if (App->sceneIntroMapes->Readymap == true)
+				App->player->position.y = 29;
 		}
-	}
-	else if(App->disk->onair== false){
-		timer_ult = 40;
-		charge_ult.Reset();
+
+		if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)		//collider goal
+		{
+			scoreplayer1 += 5;
+
+			position.x = 38;
+			position.y = 112;
+		}
+
+		else if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)
+		{
+			scoreplayer1 += 3;
+
+			position.x = 38;
+			position.y = 112;
+		}
+
+		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::SUPER_ZONE && App->disk->onair == true) {
+			if (timer_ult > 0) {
+				timer_ult--;
+
+				currentAnimation = &charge_ult;
+				App->audio->PlayFx(chargefx, 0);
+				App->audio->PlayFx(chargevoice, 0);
+
+
+			}
+
+			if (timer_ult == 0) {
+				ultimate = true;
+
+			}
+		}
+		else if (App->disk->onair == false) {
+			timer_ult = 40;
+			charge_ult.Reset();
+		}
 	}
 }
 
