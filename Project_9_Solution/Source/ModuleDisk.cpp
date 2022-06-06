@@ -1187,6 +1187,8 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 
 		if (ultimate_disk == true) {
 
+			
+
 	
 		if (App->sceneIntro->xdselectPlayer1 == '2' && ultimplayer ==1) {
 
@@ -1203,6 +1205,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 				aux2 = position.y;
 				sentido = -1;
 			  }
+		else if (App->sceneIntro->xdselectPlayer1 == '3'  && sentido == 1) {
+			augmentvy = 4;
+		    }
 			if (App->sceneIntro->xdselectPlayer2 == '1' && ultimplayer == 2) {
 
 				augmentvx = -1;
@@ -1216,6 +1221,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 				disc_speed_X = -4;
 				disc_speed_Y = 0;
 				position.y += 5;
+			}
+			else if ( App->sceneIntro->xdselectPlayer2 == '3' && sentido == 1) {
+				augmentvy = 4;
 			}
 		
 
@@ -1237,9 +1245,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 	}
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::BOT_WALL) {
-
-		App->audio->PlayFx(ricochetfx, 0);
-
+		if (saque != 1 && saque != 2 && saque != -1 && saque != -2) {
+			App->audio->PlayFx(ricochetfx, 0);
+		}
 		if (ultimate_disk == true) {
 	
 
@@ -1259,6 +1267,13 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			sentido = 1;
 			}
 
+			else if (App->sceneIntro->xdselectPlayer1 == '3'  && sentido == -1) {
+
+				augmentvy = -4;
+ 
+	        }
+		
+
 			if (App->sceneIntro->xdselectPlayer2 == '2' && ultimplayer == 2) {
 
 				disc_speed_X = -4;
@@ -1273,6 +1288,12 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			aux2 = position.y;
 			sentido = 1;
 			}
+			else if (App->sceneIntro->xdselectPlayer2 == '3' && sentido == -1) {
+
+				augmentvy = -4;
+
+			}
+	
 
 	
 
