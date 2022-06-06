@@ -81,6 +81,10 @@ bool SceneLevel1::Start()
 
 	UI_Timer = App->textures->Load("Assets/UI/timerSpriteSheet.png");
 
+	japanFlag = App->textures->Load("Assets/UI/Flags/Japan.png");
+	koreaFlag = App->textures->Load("Assets/UI/Flags/Corea.png");
+	germanyFlag = App->textures->Load("Assets/UI/Flags/Germany.png");
+
 	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);					//MUSICA
 
 	//concrete
@@ -686,6 +690,52 @@ Update_Status SceneLevel1::PostUpdate()
 		App->render->Blit(UI, 18, 48, &P1WIN);
 		App->render->Blit(UI, 175, 54, &P2LOSE);
 		App->disk->si = 1;
+	}
+
+	if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '1')
+	{
+		App->render->Blit(japanFlag, 32, 8, NULL);
+		App->render->Blit(japanFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '2')
+	{
+		App->render->Blit(japanFlag, 32, 8, NULL);
+		App->render->Blit(koreaFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '3')
+	{
+		App->render->Blit(japanFlag, 32, 8, NULL);
+		App->render->Blit(germanyFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '1')
+	{
+		App->render->Blit(koreaFlag, 32, 8, NULL);
+		App->render->Blit(japanFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '2')
+	{
+		App->render->Blit(koreaFlag, 32, 8, NULL);
+		App->render->Blit(koreaFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '3')
+	{
+		App->render->Blit(koreaFlag, 32, 8, NULL);
+		App->render->Blit(germanyFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '1')
+	{
+		App->render->Blit(germanyFlag, 32, 8, NULL);
+		App->render->Blit(japanFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '2')
+	{
+		App->render->Blit(germanyFlag, 32, 8, NULL);
+		App->render->Blit(koreaFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '3')
+	{
+		App->render->Blit(germanyFlag, 32, 8, NULL);
+		App->render->Blit(germanyFlag, 224, 8, NULL);
 	}
 /*	if (App->disk->timer_set>0 && timersetcount > 190 && (App->disk->sets_player1 != 0 || App->disk->sets_player2 != 0)) {
 
