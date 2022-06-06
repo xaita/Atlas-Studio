@@ -42,10 +42,15 @@ The controls are simple:
 - Shift: Inserts Coin in Windjammers' Screen.
 
 
-Gamepad: 
-- Arrows -> Movement
-- A equals to C/O
-- B equals to V/P
+Gamepad:
+
+![Controller](https://user-images.githubusercontent.com/99905953/172215421-591d0037-d969-4ce1-8030-d0416dfae93b.png)
+
+- Arrows(Red) -> Movement
+- A equals to C/O (Green)
+- B equals to V/P (Yellow)
+- Pink -> Space
+- Brown -> Shift
 
 ## Movement 
 
