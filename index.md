@@ -63,12 +63,7 @@ The controls are simple:
    
 ## Super Mechanics
 
-- *Reversal*-As with supersonic shots, with the correct timing (depending on the characters and the situation) you can send a super attack back to your opponent. But if you miss the time window you will end up being pushed back into your own score zone...
-
-Super customs can be returned as super customs, super spins or super lobs.
-Super spins and super lobs can only be returned as either super spins or super lobs.
-
-- *Throw a custom super shot* –Each character has a unique super attack we call "super custom". To release a super custom, just press A after your character has finished charging. You can choose whether it will start by going up (default) or down with the stick. Just as regular throws, the quicker you launch a super custom, the faster it'll go. If your opponent manages to make a reversal attack when receiving your super custom they will send your character's custom move back at you and not their own super custom.
+To throw a Super Shot, first you need to block the disk and when the disk comes down, press the throwing button to release it.
 
 ![image](https://user-images.githubusercontent.com/99950138/156935743-5f720fb6-1693-4326-8d4a-a3f62b0ecda1.png)
 
