@@ -61,7 +61,7 @@ public:
 
 	//Template particle for the disk
 	Particle disk;
-
+	Particle ultimate;
 	
 
 	
