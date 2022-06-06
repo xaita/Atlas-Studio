@@ -51,8 +51,7 @@ The controls are simple:
 - Targeted throw: While holding the disk, combine the movement keys to direct your throw.
 - Dash: While not holding the disk, press the throwing button to perform a dash.
 
-![image](https://user-images.githubusercontent.com/99950138/156935391-fccc3e81-914d-4c90-af76-27053057e3f8.png)
-![image](https://user-images.githubusercontent.com/99950138/156935424-ebe50de0-52f5-4cac-a203-a91c9903e933.png)
+
    
 ## Super Mechanics
 
