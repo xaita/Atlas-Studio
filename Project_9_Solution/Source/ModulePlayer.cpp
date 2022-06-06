@@ -1265,9 +1265,18 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		{
 			scoreplayer1 += 3;
 
+<<<<<<< Updated upstream
 			position.x = 38;
 			position.y = 112;
 		}
+=======
+			currentAnimation = &charge_ult;
+			if (App->sceneIntro->xdselectPlayer1 == '1') {
+				App->particles->AddParticle(0, 0, App->particles->cargahiromipart, position.x-30, position.y-30);
+			}
+			App->audio->PlayFx(chargefx, 0);
+			App->audio->PlayFx(chargevoice, 0);
+>>>>>>> Stashed changes
 
 		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::SUPER_ZONE && App->disk->onair == true) {
 			if (timer_ult > 0) {

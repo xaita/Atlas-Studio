@@ -23,25 +23,26 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	texture = App->textures->Load("Assets/Sprites/particlesAndEffects.png");
-
-	cargahiromipart.anim.PushBack({ 0, 523, 65, 65 });
-	cargahiromipart.anim.PushBack({ 65, 523, 65, 65 });
-	cargahiromipart.anim.PushBack({ 130, 523, 65, 65 });
-	cargahiromipart.anim.PushBack({ 195, 523, 65, 65 });
-	cargahiromipart.anim.PushBack({ 0, 588, 65, 65 });
-	cargahiromipart.anim.PushBack({ 65, 588, 65, 65 });
-	cargahiromipart.anim.PushBack({ 130, 588, 65, 65 });
-	cargahiromipart.anim.PushBack({ 195, 588, 65, 65 });
-	cargahiromipart.anim.PushBack({ 0, 653, 65, 65 });
-	cargahiromipart.anim.PushBack({ 65, 653, 65, 65 });
-	cargahiromipart.anim.PushBack({ 130, 653, 65, 65 });
-	cargahiromipart.anim.PushBack({ 195, 653, 65, 65 });
-	cargahiromipart.anim.PushBack({ 0, 718, 65, 65 });
-	cargahiromipart.anim.PushBack({ 65, 718, 65, 65 });
-	cargahiromipart.anim.PushBack({ 130, 718, 65, 65 });
 	cargahiromipart.anim.PushBack({ 195, 718, 65, 65 });
-	cargahiromipart.lifetime = 20;
-	cargahiromipart.anim.speed = 0.1f;
+	cargahiromipart.anim.PushBack({ 130, 718, 65, 65 });
+	cargahiromipart.anim.PushBack({ 65, 718, 65, 65 });
+	cargahiromipart.anim.PushBack({ 0, 718, 65, 65 });
+	cargahiromipart.anim.PushBack({ 195, 653, 65, 65 });
+	cargahiromipart.anim.PushBack({ 130, 653, 65, 65 });
+	cargahiromipart.anim.PushBack({ 65, 653, 65, 65 });
+	cargahiromipart.anim.PushBack({ 0, 653, 65, 65 });
+	cargahiromipart.anim.PushBack({ 195, 588, 65, 65 });
+	cargahiromipart.anim.PushBack({ 130, 588, 65, 65 });
+	cargahiromipart.anim.PushBack({ 65, 588, 65, 65 });
+	cargahiromipart.anim.PushBack({ 0, 588, 65, 65 });
+	cargahiromipart.anim.PushBack({ 195, 523, 65, 65 });
+	cargahiromipart.anim.PushBack({ 130, 523, 65, 65 });
+	cargahiromipart.anim.PushBack({ 65, 523, 65, 65 });
+	cargahiromipart.anim.PushBack({ 0, 523, 65, 65 });
+
+	cargahiromipart.lifetime = 5;
+	cargahiromipart.anim.loop = false;
+	cargahiromipart.anim.speed = 0.5f;
 
 	klausscanvisentitpart.anim.PushBack({ 1, 342, 53, 51 });
 	klausscanvisentitpart.anim.PushBack({ 54, 342, 53, 51 });
