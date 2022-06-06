@@ -86,6 +86,9 @@ public:
 	SDL_Texture* koreaFlag = nullptr;
 	SDL_Texture* germanyFlag = nullptr;
 
+	SDL_Texture* P1 = nullptr;
+	SDL_Texture* P2 = nullptr;
+
 	SDL_Texture* diskTexture[NUM_POINTS];
 	
 	SDL_Texture* UI_Timer = nullptr;

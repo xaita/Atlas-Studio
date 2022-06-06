@@ -85,6 +85,9 @@ bool SceneLevel1::Start()
 	koreaFlag = App->textures->Load("Assets/UI/Flags/Corea.png");
 	germanyFlag = App->textures->Load("Assets/UI/Flags/Germany.png");
 
+	P1 = App->textures->Load("Assets/UI/P1P2/P1-P2 (yellow)/P1.png");
+	P1 = App->textures->Load("Assets/UI/P1P2/P1-P2 (yellow)/P2.png");
+
 	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);					//MUSICA
 
 	//concrete
@@ -737,6 +740,13 @@ Update_Status SceneLevel1::PostUpdate()
 		App->render->Blit(germanyFlag, 32, 8, NULL);
 		App->render->Blit(germanyFlag, 224, 8, NULL);
 	}
+
+	
+	App->render->Blit(P1, 8, 8, NULL);
+	App->render->Blit(P2, 200, 8, NULL);
+	
+	
+
 /*	if (App->disk->timer_set>0 && timersetcount > 190 && (App->disk->sets_player1 != 0 || App->disk->sets_player2 != 0)) {
 
 		App->render->Blit(UI, 113, 124, &SetCount);
