@@ -242,14 +242,14 @@ bool SceneLevel1::Start()
 		switch (App->sceneIntroMapes->selectMap) {
 		case '1':
 			//porteria esquerra
-			App->collisions->AddCollider({ 0, 35, 1, 47 }, Collider::Type::SCOREZONE_1);
-			App->collisions->AddCollider({ 0, 96, 1, 49 }, Collider::Type::SCOREZONE_2);
-			App->collisions->AddCollider({ 0, 144, 1, 47 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 0, 35, 1, 47 }, Collider::Type::SCOREZONE_2);
+			App->collisions->AddCollider({ 0, 96, 1, 49 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 0, 144, 1, 47 }, Collider::Type::SCOREZONE_2);
 
 			//porteria dreta
-			App->collisions->AddCollider({ 300, 35, 1, 47 }, Collider::Type::SCOREZONE_1);
-			App->collisions->AddCollider({ 300, 96, 1, 49 }, Collider::Type::SCOREZONE_2);
-			App->collisions->AddCollider({ 300, 144, 1, 47 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 300, 35, 1, 47 }, Collider::Type::SCOREZONE_2);
+			App->collisions->AddCollider({ 300, 96, 1, 49 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 300, 144, 1, 47 }, Collider::Type::SCOREZONE_2);
 
 			//parets
 			App->collisions->AddCollider({ 0, 201, 304, 42 }, Collider::Type::BOT_WALL);
