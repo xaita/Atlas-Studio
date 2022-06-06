@@ -428,14 +428,8 @@ bool ModulePlayer2::Start()
 			shooting.PushBack({ 75 + (i * 75), 715, 75, 65 });
 		}
 		shooting.loop = false;
-		shooting.speed = 0.3f;
+		shooting.speed = 0.4f;
 
-		//Dash derecho
-		for (int i = 0; i < 4; i++) {
-			shooting.PushBack({ 975 + (i * 75), 65, 75, 65 });
-		}
-		shooting.loop = false;
-		shooting.speed = 0.45f;
 
 		//Dash izquierdo
 		for (int i = 3; i >= 0; i--) {
