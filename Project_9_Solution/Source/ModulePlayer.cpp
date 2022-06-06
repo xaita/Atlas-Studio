@@ -1281,7 +1281,13 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 					particulacarga = false;
 					App->particles->AddParticle(0, 0, App->particles->cargahiromipart, position.x - 10, position.y - 10, Collider::NONE, 0);
 				}
+<<<<<<< HEAD
 
+=======
+				if (App->sceneIntro->xdselectPlayer1 == '3') {
+					App->particles->AddParticle(0, 0, App->particles->klausscargaultipart, position.x-10, position.y-10);
+				}
+>>>>>>> 6d24cbb4c9ba8518e3d0718cadf099f9ee3d36c9
 				currentAnimation = &charge_ult;
 				App->audio->PlayFx(chargefx, 0);
 				App->audio->PlayFx(chargevoice, 0);
