@@ -345,8 +345,14 @@ Update_Status SceneLevel1::Update()
 		points5rightbot = 0;
 		points5lefttop = 0;
 		points5leftbot = 0;
-		points3left = 0;
-		points3right = 0;
+		points5leftmid = 0;
+		points5rightmid = 0;
+		points3leftmid = 0;
+		points3lefttop = 0;
+		points3leftbot = 0;
+		points3rightmid = 0;
+		points3righttop = 0;
+		points3rightbot = 0;
 	}
 
 
@@ -411,7 +417,11 @@ Update_Status SceneLevel1::PostUpdate()
 	
 	App->render->Blit(UI_Timer, 144, 13, &(timer.GetCurrentFrame()));
 	
+	if (points5rightmid == 1) {
 
+		App->render->Blit(UI, 250, 90, &(Points5ScoreR.GetCurrentFrame()));
+
+	}
 	if (points5righttop == 1) {
 		
 		App->render->Blit(UI, 250, 30, &(Points5ScoreR.GetCurrentFrame()));
@@ -421,6 +431,10 @@ Update_Status SceneLevel1::PostUpdate()
 		
 		App->render->Blit(UI, 250, 165, &(Points5ScoreR.GetCurrentFrame()));
 	}
+	if (points5leftmid == 1) {
+
+		App->render->Blit(UI, 10, 90, &(Points5ScoreL.GetCurrentFrame()));
+	}
 	if (points5lefttop == 1) {
 		
 		App->render->Blit(UI, 10, 30, &(Points5ScoreL.GetCurrentFrame()));
@@ -429,13 +443,29 @@ Update_Status SceneLevel1::PostUpdate()
 		
 		App->render->Blit(UI, 10, 165, &(Points5ScoreL.GetCurrentFrame()));
 	}
-	if (points3left == 1) {
+	if (points3leftmid == 1) {
 		
-		App->render->Blit(UI, 11, 90, &(Points3ScoreL.GetCurrentFrame()));
+		App->render->Blit(UI, 10, 90, &(Points3ScoreL.GetCurrentFrame()));
 	}
-	if (points3right == 1) {
+	if (points3lefttop == 1) {
+
+		App->render->Blit(UI, 10, 30, &(Points3ScoreL.GetCurrentFrame()));
+	}
+	if (points3leftbot == 1) {
+
+		App->render->Blit(UI, 10, 165, &(Points3ScoreL.GetCurrentFrame()));
+	}
+	if (points3rightmid == 1) {
 		
 		App->render->Blit(UI, 250, 90, &(Points3ScoreR.GetCurrentFrame()));
+	}
+	if (points3righttop == 1) {
+
+		App->render->Blit(UI, 250, 30, &(Points3ScoreR.GetCurrentFrame()));
+	}
+	if (points3rightbot == 1) {
+
+		App->render->Blit(UI, 250, 165, &(Points3ScoreR.GetCurrentFrame()));
 	}
 	
 

@@ -55,8 +55,6 @@ Gamepad: Joystick.
 - Right Arrow: Move to the right.
 
 
-
-
 ## Simple Mechanics
 
 - Catch Disk: To catch the disk your character must touch it. Try to predict its trajectory.
@@ -74,10 +72,37 @@ To throw a Super Shot, first you need to block the disk and when the disk comes 
 
 Each Character has theiy unique Super Hability, so make sure to try every one of them to know which one is more suitable to you
 
-***
 
-# Team Photo
+***
+# Team members
+***
 ![IMG_20220218_100241](https://user-images.githubusercontent.com/99949891/156900215-e9541ebc-0f53-4dd9-9dad-71796c68718a.jpg)
-
 ***
 
+**Xiao Shan Costajussà**
+
+* Github: [Xaita](https://github.com/xaita)
+
+* Design and Art
+
+**Lluc Estruch**
+
+* Github: [Llucaieaie](https://github.com/Llucaieaie)
+
+* Design
+
+**Pau Garriga**
+
+* Github: [DonnoNonno](https://github.com/DonnoNonno)
+
+* Art and General analysis
+
+**Xavi Prats**
+
+* Github: [Xarderos](https://github.com/Xarderos)
+
+* UI and Art
+
+**Joan Giol**
+
+* Github: [GHOSTVCL](https://github.com/GHOSTVCL)

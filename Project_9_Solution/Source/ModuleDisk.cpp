@@ -15,6 +15,7 @@
 #include "Animation.h"
 #include "SDL/include/SDL.h"
 #include "PropsBackground.h"
+#include "SceneIntroMapes.h"
 
 ModuleDisk::ModuleDisk(bool startEnabled) : Module(startEnabled)
 {
@@ -1007,16 +1008,29 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		ultimate_disk = false;
 		App->sceneLevel_1->moureCameraGol = true;
 		if (ultimplayer == 1) {
-			if (position.y < 127) {
-				App->sceneLevel_1->points5righttop = 1;
+			if (App->sceneIntroMapes->selectMap == '1') {
+				App->sceneLevel_1->points5rightmid = 1;
 				App->sceneLevel_1->timerofpoints = 120;
 				App->sceneLevel_1->Points5ScoreR.Reset();
 			}
-			else if (position.y > 127) {
-				App->sceneLevel_1->points5rightbot = 1;
+			if (App->sceneIntroMapes->selectMap == '2') {
+				if (position.y < 127) {
+					App->sceneLevel_1->points5righttop = 1;
+					App->sceneLevel_1->timerofpoints = 120;
+					App->sceneLevel_1->Points5ScoreR.Reset();
+				}
+				else if (position.y > 127) {
+					App->sceneLevel_1->points5rightbot = 1;
+					App->sceneLevel_1->timerofpoints = 120;
+					App->sceneLevel_1->Points5ScoreR.Reset();
+				}
+			}
+			if (App->sceneIntroMapes->selectMap == '3') {
+				App->sceneLevel_1->points5rightmid = 1;
 				App->sceneLevel_1->timerofpoints = 120;
 				App->sceneLevel_1->Points5ScoreR.Reset();
 			}
+			
 			if (godmode != true) {
 				score_player_1 += 5;
 				App->audio->PlayFx(Pts5, 0);
@@ -1025,16 +1039,30 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			saque = 2;
 		}
 		if (ultimplayer == 2) {
-			if (position.y < 127) {
-				App->sceneLevel_1->points5lefttop = 1;
+			if (App->sceneIntroMapes->selectMap == '1') {
+				App->sceneLevel_1->points5leftmid = 1;
 				App->sceneLevel_1->timerofpoints = 120;
 				App->sceneLevel_1->Points5ScoreL.Reset();
 			}
-			if (position.y > 127) {
-				App->sceneLevel_1->points5leftbot = 1;
+			if (App->sceneIntroMapes->selectMap == '2') {
+				if (position.y < 127) {
+					App->sceneLevel_1->points5lefttop = 1;
+					App->sceneLevel_1->timerofpoints = 120;
+					App->sceneLevel_1->Points5ScoreL.Reset();
+				}
+				if (position.y > 127) {
+
+					App->sceneLevel_1->points5leftbot = 1;
+					App->sceneLevel_1->timerofpoints = 120;
+					App->sceneLevel_1->Points5ScoreL.Reset();
+				}
+			}
+			if (App->sceneIntroMapes->selectMap == '3') {
+				App->sceneLevel_1->points5leftmid = 1;
 				App->sceneLevel_1->timerofpoints = 120;
 				App->sceneLevel_1->Points5ScoreL.Reset();
 			}
+			
 			if (godmode != true) {
 				score_player_2 += 5;
 				App->audio->PlayFx(Pts5, 0);
@@ -1065,10 +1093,28 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		App->propsBackground->timersetcount = 350;
 
 		if (ultimplayer == 1) {
+			if (App->sceneIntroMapes->selectMap == '2' || App->sceneIntroMapes->selectMap == '3') {
+				if (position.y < 127) {
+					App->sceneLevel_1->points3righttop = 1;
+					App->sceneLevel_1->timerofpoints = 120;
+					App->sceneLevel_1->Points3ScoreR.Reset();
+				}
+				if (position.y > 127) {
+
+					App->sceneLevel_1->points3rightbot = 1;
+					App->sceneLevel_1->timerofpoints = 120;
+					App->sceneLevel_1->Points3ScoreR.Reset();
+				}
+			}
+			if (App->sceneIntroMapes->selectMap == '1') {
+				App->sceneLevel_1->points3rightmid = 1;
+				App->sceneLevel_1->timerofpoints = 120;
+				App->sceneLevel_1->Points3ScoreR.Reset();
+			}
 			
-			App->sceneLevel_1->points3right = 1;
-			App->sceneLevel_1->timerofpoints = 120;
-			App->sceneLevel_1->Points3ScoreR.Reset();
+			
+			
+			
 			
 			if (godmode != true) {
 				score_player_1 += 3;
@@ -1079,9 +1125,25 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		}
 
 		if (ultimplayer == 2) {
-			App->sceneLevel_1->points3left = 1;
-			App->sceneLevel_1->timerofpoints = 120;
-			App->sceneLevel_1->Points3ScoreL.Reset();
+			if (App->sceneIntroMapes->selectMap == '2' || App->sceneIntroMapes->selectMap == '3') {
+				if (position.y < 127) {
+					App->sceneLevel_1->points3lefttop = 1;
+					App->sceneLevel_1->timerofpoints = 120;
+					App->sceneLevel_1->Points3ScoreL.Reset();
+				}
+				if (position.y > 127) {
+
+					App->sceneLevel_1->points3leftbot = 1;
+					App->sceneLevel_1->timerofpoints = 120;
+					App->sceneLevel_1->Points3ScoreL.Reset();
+				}
+			}
+			if (App->sceneIntroMapes->selectMap == '2') {
+				App->sceneLevel_1->points3leftmid = 1;
+				App->sceneLevel_1->timerofpoints = 120;
+				App->sceneLevel_1->Points3ScoreL.Reset();
+			}
+			
 			if (godmode != true) {
 				score_player_2 += 3;
 				App->audio->PlayFx(Pts3, 0);
