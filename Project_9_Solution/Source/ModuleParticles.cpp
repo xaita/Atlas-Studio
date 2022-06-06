@@ -40,9 +40,11 @@ bool ModuleParticles::Start()
 	cargahiromipart.anim.PushBack({ 65, 523, 65, 65 });
 	cargahiromipart.anim.PushBack({ 0, 523, 65, 65 });
 
-	cargahiromipart.lifetime = 5;
+	cargahiromipart.lifetime = 40;
+	cargahiromipart.anim.pingpong = false;
 	cargahiromipart.anim.loop = false;
-	cargahiromipart.anim.speed = 0.5f;
+	cargahiromipart.anim.speed = 0.7f;
+
 
 	klausscanvisentitpart.anim.PushBack({ 1, 342, 53, 51 });
 	klausscanvisentitpart.anim.PushBack({ 54, 342, 53, 51 });

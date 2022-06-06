@@ -53,7 +53,7 @@ public:
 	int correccioy;
 	bool ultimate;
 	int timer_frisbi_ma;
-
+	bool particulacarga;
 
 
 

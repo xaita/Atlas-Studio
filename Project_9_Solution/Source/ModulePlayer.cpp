@@ -852,7 +852,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				
 				blocktimer++;
 				blockdisk = true;
-
+				particulacarga = true;
 
 				
 				if (currentAnimation != &blockanim && currentAnimation != &shooting)
@@ -1137,6 +1137,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				App->disk->volea = true;
 
 				App->audio->PlayFx(lobfx, 0);
+				particulacarga = true;
 			}
 		}
 		if (App->player->ultimate == true) {
@@ -1276,9 +1277,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			if (timer_ult > 0) {
 				timer_ult--;
 
-				if (App->sceneIntro->xdselectPlayer1 == '1') {
-					App->particles->AddParticle(0, 0, App->particles->cargahiromipart, position.x - 30, position.y - 30);
+				if (App->sceneIntro->xdselectPlayer1 == '1' && particulacarga==true){
+					particulacarga = false;
+					App->particles->AddParticle(0, 0, App->particles->cargahiromipart, position.x - 10, position.y - 10, Collider::NONE, 0);
 				}
+
 				currentAnimation = &charge_ult;
 				App->audio->PlayFx(chargefx, 0);
 				App->audio->PlayFx(chargevoice, 0);
