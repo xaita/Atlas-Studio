@@ -82,7 +82,9 @@ public:
 	SDL_Texture* GermanylostKorea = nullptr;
 	SDL_Texture* GermanylostGermany = nullptr;
 
-
+	SDL_Texture* japanFlag = nullptr;
+	SDL_Texture* koreaFlag = nullptr;
+	SDL_Texture* germanyFlag = nullptr;
 
 	SDL_Texture* diskTexture[NUM_POINTS];
 	
@@ -118,8 +120,6 @@ public:
 	SDL_Rect SetScore3 = {270, 27, 45, 26};
 	SDL_Rect SetCount  = {315, 27, 78, 26};
 	SDL_Rect points5scoreR = { 326, 86, 0, 0 };
-
-	
 	
 	int timer2;
 
