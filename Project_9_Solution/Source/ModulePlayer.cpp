@@ -399,7 +399,7 @@ bool ModulePlayer::Start()
 		supervoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussPowerPhrase.wav");
 		chargevoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussCharge.wav");
 		setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussSetWin.wav");
-		chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussPowerSound.wav");
+		chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussSuperSound.wav");
 		correcciox = -20;
 		correccioy = -18;
 		for (int i = 0; i < 3; i++) {
@@ -555,7 +555,6 @@ bool ModulePlayer::Start()
 
 		uprightidleFrisbee.PushBack({150,325,75,65});
 		downrightidleFrisbee.PushBack({450 ,325,75,65 });
-		chargevoice = App->audio->LoadFx("");
 		break;
 
 	}
@@ -1204,6 +1203,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			timer_ult--;
 
 			currentAnimation = &charge_ult;
+			App->audio->PlayFx(chargefx, 0);
+			App->audio->PlayFx(chargevoice, 0);
+
+
 		}
 		
 		if (timer_ult == 0) {

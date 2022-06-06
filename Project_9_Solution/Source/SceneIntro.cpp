@@ -29,7 +29,7 @@ bool SceneIntro::Start()
 	
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
 
-	App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/Select.wav");
+	select = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/Select.wav");
 
 	App->sceneCoins->Coins;
 	Coinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Others/InsertedCoin.wav");
