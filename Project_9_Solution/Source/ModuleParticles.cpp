@@ -63,8 +63,8 @@ bool ModuleParticles::Start()
 	hiromiultipart.anim.PushBack({ 269, 114, 16, 96 });
 	hiromiultipart.anim.PushBack({ 286, 114, 16, 96 });
 	hiromiultipart.anim.PushBack({ 303, 114, 16, 96 });
-	hiromiultipart.lifetime = 20;
-	hiromiultipart.anim.speed = 0.1f;
+	hiromiultipart.lifetime = 15;
+	hiromiultipart.anim.speed = 0.3f;
 
 	bhoocargaultipart.anim.PushBack({ 207, 58, 50, 53 });
 	bhoocargaultipart.anim.PushBack({ 267, 59, 50, 53 });
