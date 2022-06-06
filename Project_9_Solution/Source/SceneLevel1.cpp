@@ -13,6 +13,7 @@
 #include "PropsBackground.h"
 #include "SDL/include/SDL.h"
 #include "SceneIntroMapes.h"
+#include "SceneIntro.h"
 
 
 
@@ -602,8 +603,42 @@ Update_Status SceneLevel1::PostUpdate()
 	}
 
 	if (App->disk->sets_player2 == 2 && App->disk->muerte_subita == false) {
-
-		App->render->Blit(JapanlostJapan, 0, 0, NULL);
+		if(App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '1')
+		{
+			App->render->Blit(JapanlostJapan, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '2')
+		{
+			App->render->Blit(JapanlostKorea, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '3')
+		{
+			App->render->Blit(JapanlostGermany, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '1')
+		{
+			App->render->Blit(KorealostJapan, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '2')
+		{
+			App->render->Blit(KorealostKorea, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '3')
+		{
+			App->render->Blit(KorealostGermany, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '1')
+		{
+			App->render->Blit(GermanylostJapan, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '2')
+		{
+			App->render->Blit(GermanylostKorea, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '3')
+		{
+			App->render->Blit(GermanylostGermany, 0, 0, NULL);
+		}
 		App->render->Blit(UI, 30, 54, &P1LOSE);
 		App->render->Blit(UI, 176, 48, &P2WIN);
 
@@ -612,12 +647,46 @@ Update_Status SceneLevel1::PostUpdate()
 	}
 	if (App->disk->sets_player1 == 2 && App->disk->muerte_subita == false) {
 
-		App->render->Blit(JapanwinJapan, 0, 0, NULL);
+		if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '1')
+		{
+			App->render->Blit(JapanwinJapan, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '2')
+		{
+			App->render->Blit(JapanwinKorea, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '3')
+		{
+			App->render->Blit(JapanwinGermany, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '1')
+		{
+			App->render->Blit(KoreawinJapan, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '2')
+		{
+			App->render->Blit(KoreawinKorea, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '3')
+		{
+			App->render->Blit(KoreawinGermany, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '1')
+		{
+			App->render->Blit(GermanywinJapan, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '2')
+		{
+			App->render->Blit(GermanywinKorea, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '3')
+		{
+			App->render->Blit(GermanywinGermany, 0, 0, NULL);
+		}
 		App->render->Blit(UI, 18, 48, &P1WIN);
 		App->render->Blit(UI, 175, 54, &P2LOSE);
 		App->disk->si = 1;
 	}
-
 /*	if (App->disk->timer_set>0 && timersetcount > 190 && (App->disk->sets_player1 != 0 || App->disk->sets_player2 != 0)) {
 
 		App->render->Blit(UI, 113, 124, &SetCount);
