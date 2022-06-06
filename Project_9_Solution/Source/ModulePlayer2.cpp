@@ -888,7 +888,7 @@ Update_Status ModulePlayer2::Update()
 		if (App->player2->ultimate == true) {
 
 
-			if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_LEFT] == Key_State::KEY_REPEAT) {
+			if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN && App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT) {
 
 
 				App->disk->ultimate_disk = true;
@@ -903,7 +903,16 @@ Update_Status ModulePlayer2::Update()
 				App->disk->aux2 = App->disk->position.y;
 				App->disk->aux = App->disk->position.x;
 
-				App->disk->disc_speed_X = -2;
+				if (App->sceneIntro->xdselectPlayer1 == '1') {
+					App->disk->disc_speed_X = -2;
+
+				}
+
+				if (App->sceneIntro->xdselectPlayer1 == '2') {
+					App->disk->disc_speed_X = 0;
+					App->disk->disc_speed_Y = 3.5;
+
+				}
 
 
 			}
@@ -921,7 +930,16 @@ Update_Status ModulePlayer2::Update()
 
 				App->disk->aux2 = App->disk->position.y;
 				App->disk->aux = App->disk->position.x;
-				App->disk->disc_speed_X = -2;
+				if (App->sceneIntro->xdselectPlayer1 == '1') {
+					App->disk->disc_speed_X = -2;
+
+				}
+
+				if (App->sceneIntro->xdselectPlayer1 == '2') {
+					App->disk->disc_speed_X = 0;
+					App->disk->disc_speed_Y = -3.5;
+
+				}
 			}
 		}
 	}

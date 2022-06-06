@@ -829,8 +829,10 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_IDLE || blocktimer >= 20 ){
 
 				blockdisk = false;
+				
 				if (currentAnimation != &charge_ult) {
 					currentAnimation = &rightidleAnim;
+					
 				}
 				
 			}
@@ -862,6 +864,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN) { 
 
 			App->audio->PlayFx(tossfx, 0);
+			ultimadireccio = 2;
 			
 
 		}
@@ -1113,7 +1116,16 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				App->disk->aux2 = App->disk->position.y;
 				App->disk->aux = App->disk->position.x;
 				
-				App->disk->disc_speed_X = 2;
+				if (App->sceneIntro->xdselectPlayer1 == '1') {
+					App->disk->disc_speed_X = 2;
+
+				}
+
+				if (App->sceneIntro->xdselectPlayer1 == '2') {
+					App->disk->disc_speed_X = 0;
+					App->disk->disc_speed_Y = 3.5;
+
+				}
 
 
 			}
@@ -1131,7 +1143,16 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 				App->disk->aux2 = App->disk->position.y;
 				App->disk->aux = App->disk->position.x;
-				App->disk->disc_speed_X = 2;
+				if (App->sceneIntro->xdselectPlayer1 == '1') {
+					App->disk->disc_speed_X = 2;
+
+				}
+
+				if (App->sceneIntro->xdselectPlayer1 == '2') {
+					App->disk->disc_speed_X = 0;
+					App->disk->disc_speed_Y = -3.5;
+
+				}
 			}
 		}
 	}
