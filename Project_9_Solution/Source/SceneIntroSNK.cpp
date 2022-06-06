@@ -10,6 +10,7 @@
 #include "ModuleFadeToBlack.h"
 #include "SceneLevel1.h"
 #include "ModuleDisk.h"
+#include "SceneWindjammers.h"
 
 SceneIntroSNK::SceneIntroSNK(bool startEnabled) : Module(startEnabled)
 {
@@ -60,7 +61,8 @@ Update_Status SceneIntroSNK::Update()
 	}
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneWindjammers, 90);
+		App->sceneWindjammers->Enable();
+		Disable();
 	}
 	return Update_Status::UPDATE_CONTINUE;
 }

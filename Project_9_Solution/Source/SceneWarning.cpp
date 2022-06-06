@@ -9,6 +9,7 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "SceneLevel1.h"
+#include "SceneIntroSNK.h"
 
 SceneWarning::SceneWarning(bool startEnabled) : Module(startEnabled)
 {
@@ -60,7 +61,8 @@ Update_Status SceneWarning::Update()
 	}
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneIntroSNK, 90);
+		App->sceneIntroSNK->Enable();
+		Disable();
 	}
 
 	return Update_Status::UPDATE_CONTINUE;
