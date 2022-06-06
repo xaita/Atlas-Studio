@@ -36,6 +36,7 @@ ModulePlayer::~ModulePlayer()
 
 bool ModulePlayer::Start()
 {
+
 	LOG("Loading player textures");
 	switch (App->sceneIntro->xdselectPlayer1) {
 

@@ -44,11 +44,11 @@ public:
 	uint GermanySelectedfx = 0;
 	uint KoreanSelectedfx = 0;
 
-	char selectPlayer1 = '1';
-	char xdselectPlayer1 = '3';
+	char selectPlayer1;
+	char *xdselectPlayer1;
 
 	char selectPlayer2;
-	char xdselectPlayer2 = '3';
+	char xdselectPlayer2;
 	int selecttimer;
 	int x1;
 	int y1;

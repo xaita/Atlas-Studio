@@ -26,6 +26,7 @@ SceneLogo::~SceneLogo()
 // Load assets
 bool SceneLogo::Start()
 {
+
 	LOG("Loading background assets");
 
 	bool ret = true;
@@ -51,15 +52,8 @@ Update_Status SceneLogo::Update()
 		App->fade->FadeToBlack(this, (Module*)App->sceneWarning, 90);
 	}
 
-	if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)
-	{
 
-		App->sceneIntroMapes->selectMap = '2';
-		App->sceneIntroMapes->Readymap = true;
-		App->sceneLevel_1->Enable();
-		Disable();
-	}
-	if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)
 	{
 
 		App->sceneIntro->Enable();

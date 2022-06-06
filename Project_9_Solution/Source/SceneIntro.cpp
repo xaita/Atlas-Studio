@@ -42,7 +42,6 @@ bool SceneIntro::Start()
 	selectPlayer1 = '1';
 	x1 = 8;
 	y1 = 72;
-
 	selectPlayer2 = '1';
 	x2 = 24;
 	y2 = 72;

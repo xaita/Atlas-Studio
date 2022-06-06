@@ -9,9 +9,12 @@
 #include "ModuleCollisions.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
+#include "ModuleCollisions.h"
 #include"SceneLevel1.h"
 #include"SceneIntroSNK.h"
 #include"SceneIntro.h"
+#include"SceneLogo.h"
+#include"SceneIntroMapes.h"
 #include "Animation.h"
 #include "SDL/include/SDL.h"
 #include "PropsBackground.h"
@@ -506,9 +509,19 @@ Update_Status ModuleDisk::Update()
 
 			saque = -1;
 
+			App->collisions->debug = false;
+			godmode = false;
+			
 			App->sceneLevel_1->Disable();
 
-			App->sceneIntroSNK->Enable();
+
+			App->sceneIntro->Disable();
+			App->player2->Disable();
+			App->disk->Disable();
+			App->player->Disable();
+			App->sceneLogo->Disable();
+			App->sceneLogo->Enable();
+	
 
 			App->collisions->Disable();
 
@@ -624,6 +637,7 @@ Update_Status ModuleDisk::Update()
 		}
 
 		if (saque == 1 || saque == 2 || saque == -1 || saque == -2) {
+			
 			App->player->personatgedisc = -1;
 			App->player2->personatgedisc2 = -1;
 			if (timer > 0) {
@@ -636,6 +650,7 @@ Update_Status ModuleDisk::Update()
 			App->player2->position.x = 240;
 			App->player2->position.y = 112;
 			volea = false;
+			
 		}
 	
 
@@ -716,7 +731,10 @@ Update_Status ModuleDisk::Update()
 		}
 
 		if (timerblock == 0 && volea == false) {
+			
 			onair = false;
+
+
 
 		}
 
@@ -730,24 +748,24 @@ Update_Status ModuleDisk::Update()
 					if (position.y >= aux2 - 40) {
 
 						augmentvx = 0;
-						augmentvy = -3;
+						augmentvy = -4;
 					}
 
 					if (position.y < aux2 - 40) {
 
-						augmentvx = 3;
+						augmentvx = 4;
 						augmentvy = 0;
 					}
 
 					if (position.x >= aux + 80) {
 
 						augmentvx = 0;
-						augmentvy = 3;
+						augmentvy = 4;
 					}
 
 					if (position.y >= aux2 + 40) {
 
-						augmentvx = 3.3;
+						augmentvx = 4.3;
 						augmentvy = 0;
 
 					}
@@ -757,24 +775,24 @@ Update_Status ModuleDisk::Update()
 					if (position.y <= aux2 + 40) {
 
 						augmentvx = 0;
-						augmentvy = 3;
+						augmentvy = 4;
 					}
 
 					if (position.y > aux2 + 40) {
 
-						augmentvx = 3;
+						augmentvx = 4;
 						augmentvy = 0;
 					}
 
 					if (position.x >= aux + 80) {
 
 						augmentvx = 0;
-						augmentvy = -3;
+						augmentvy = -4;
 					}
 
 					if (position.y <= aux2 - 40) {
 
-						augmentvx = 3.3;
+						augmentvx = 4.3;
 						augmentvy = 0;
 
 					}
@@ -805,24 +823,24 @@ Update_Status ModuleDisk::Update()
 					if (position.y >= aux2 - 40) {
 
 						augmentvx = 0;
-						augmentvy = -3;
+						augmentvy = -4;
 					}
 
 					if (position.y <  aux2- 40) {
 
-						augmentvx = -3;
+						augmentvx = -4;
 						augmentvy = 0;
 					}
 
 					if (position.x <= aux - 80) {
 
 						augmentvx = 0;
-						augmentvy = 3;
+						augmentvy = 4;
 					}
 
 					if (position.y >= aux2 + 40) {
 
-						augmentvx = -3.3;
+						augmentvx = -4.3;
 						augmentvy = 0;
 
 					}
@@ -832,24 +850,24 @@ Update_Status ModuleDisk::Update()
 					if (position.y <= aux2 + 40) {
 
 						augmentvx = 0;
-						augmentvy = 3;
+						augmentvy = 4;
 					}
 
 					if (position.y > aux2 + 40) {
 
-						augmentvx = -3;
+						augmentvx = -4;
 						augmentvy = 0;
 					}
 
 					if (position.x <= aux - 80) {
 
 						augmentvx = 0;
-						augmentvy = -3;
+						augmentvy = -4;
 					}
 
 					if (position.y <= aux2 - 40) {
 
-						augmentvx = -3.3;
+						augmentvx = -4.3;
 						augmentvy = 0;
 
 					}
@@ -865,7 +883,7 @@ Update_Status ModuleDisk::Update()
 			
 				currentAnimation2 = &moving;
 				position.x += disc_speed_X;
-				position.y += disc_speed_Y *sentido;
+				position.y += (disc_speed_Y *sentido);
 
 			}
 			else if(App->sceneIntro->xdselectPlayer2 == '1' && ultimplayer == 2) {

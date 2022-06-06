@@ -12,6 +12,7 @@
 #include"ModuleDisk.h"
 #include "SDL/include/SDL.h"
 #include "SceneIntro.h"
+#include "SceneIntroMapes.h"
 #include <chrono>
 #include <thread>
 
@@ -36,6 +37,7 @@ ModulePlayer2::~ModulePlayer2()
 
 bool ModulePlayer2::Start()
 {
+	
 	LOG("Loading player textures");
 	switch (App->sceneIntro->xdselectPlayer2) {
 
@@ -1073,12 +1075,12 @@ Update_Status ModulePlayer2::Update()
 				App->disk->aux2 = App->disk->position.y;
 				App->disk->aux = App->disk->position.x;
 
-				if (App->sceneIntro->xdselectPlayer1 == '1') {
+				if (App->sceneIntro->xdselectPlayer2 == '1') {
 					App->disk->disc_speed_X = -2;
 
 				}
 
-				if (App->sceneIntro->xdselectPlayer1 == '2') {
+				if (App->sceneIntro->xdselectPlayer2 == '2') {
 					App->disk->disc_speed_X = 0;
 					App->disk->disc_speed_Y = 3.5;
 
@@ -1100,12 +1102,12 @@ Update_Status ModulePlayer2::Update()
 
 				App->disk->aux2 = App->disk->position.y;
 				App->disk->aux = App->disk->position.x;
-				if (App->sceneIntro->xdselectPlayer1 == '1') {
+				if (App->sceneIntro->xdselectPlayer2 == '1') {
 					App->disk->disc_speed_X = -2;
 
 				}
 
-				if (App->sceneIntro->xdselectPlayer1 == '2') {
+				if (App->sceneIntro->xdselectPlayer2 == '2') {
 					App->disk->disc_speed_X = 0;
 					App->disk->disc_speed_Y = -3.5;
 
@@ -1147,13 +1149,20 @@ void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::BOT_WALL) //collider paret inferior
 	{
-		position.y = 174;
+		if (App->sceneIntroMapes->selectMap == '1' && App->sceneIntroMapes->Readymap == true)
+			App->player2->position.y = 171;
+		else if (App->sceneIntroMapes->Readymap == true)
+			App->player2->position.y = 183;
 		
 	}
 	
 	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::TOP_WALL) //collider paret superior
 	{
-		position.y = 29;
+
+		if (App->sceneIntroMapes->selectMap == '1' && App->sceneIntroMapes->Readymap == true)
+			App->player2->position.y = 42;
+		else if (App->sceneIntroMapes->Readymap == true)
+			App->player2->position.y = 29;
 		
 	}
 
