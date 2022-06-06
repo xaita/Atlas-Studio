@@ -55,8 +55,6 @@ Gamepad: Joystick.
 - Right Arrow: Move to the right.
 
 
-
-
 ## Simple Mechanics
 
 - Catch Disk: To catch the disk your character must touch it. Try to predict its trajectory.
