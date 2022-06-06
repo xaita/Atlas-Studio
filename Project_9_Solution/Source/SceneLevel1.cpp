@@ -86,7 +86,7 @@ bool SceneLevel1::Start()
 	germanyFlag = App->textures->Load("Assets/UI/Flags/Germany.png");
 
 	P1 = App->textures->Load("Assets/UI/P1P2/P1-P2 (yellow)/P1.png");
-	P1 = App->textures->Load("Assets/UI/P1P2/P1-P2 (yellow)/P2.png");
+	P2 = App->textures->Load("Assets/UI/P1P2/P1-P2 (yellow)/P2.png");
 
 	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);					//MUSICA
 
