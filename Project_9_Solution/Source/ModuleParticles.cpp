@@ -53,8 +53,8 @@ bool ModuleParticles::Start()
 	klausscanvisentitpart.anim.PushBack({ 212, 342, 53, 51 });
 	klausscanvisentitpart.anim.PushBack({ 266, 342, 53, 51 });
 	klausscanvisentitpart.anim.PushBack({ 319, 342, 53, 51 });
-	klausscanvisentitpart.lifetime = 20;
-	klausscanvisentitpart.anim.speed = 0.1f;
+	klausscanvisentitpart.lifetime = 50;
+	klausscanvisentitpart.anim.speed = 0.5f;
 
 	hiromiultipart.anim.PushBack({ 203, 114, 14, 96 });
 	hiromiultipart.anim.PushBack({ 218, 114, 16, 96 });
@@ -81,41 +81,33 @@ bool ModuleParticles::Start()
 	klausscargaultipart.anim.speed = 0.1f;
 
 
-	klaussdreta1.anim.PushBack({ 203, 438, 23, 32 });
-	klaussdreta1.lifetime = 10;
-	klaussdreta2.anim.PushBack({ 256, 438, 33, 32 });
-	klaussdreta2.lifetime = 10;
-	klaussdreta3.anim.PushBack({ 299, 438, 47, 31 });
-	klaussdreta3.lifetime = 10;
-	klaussdreta4.anim.PushBack({ 354, 438, 58, 32 });
-	klaussdreta4.lifetime = 10;
+	klaussdreta.anim.PushBack({ 203, 438, 23, 32 });
+	klaussdreta.anim.PushBack({ 256, 438, 33, 32 });
+	klaussdreta.anim.PushBack({ 299, 438, 47, 31 });
+	klaussdreta.anim.PushBack({ 354, 438, 58, 32 });
+	klaussdreta.lifetime = 40;
+	klaussdreta.anim.speed = 0.4;
 
-	klaussesquerra1.anim.PushBack({ 389, 473, 23, 32 });
-	klaussesquerra1.lifetime = 10;
-	klaussesquerra2.anim.PushBack({ 326, 473, 33, 32 });
-	klaussesquerra2.lifetime = 10;
-	klaussesquerra3.anim.PushBack({ 269, 473, 47, 31 });
-	klaussesquerra3.lifetime = 10;
-	klaussesquerra4.anim.PushBack({ 203, 473, 58, 32 });
-	klaussesquerra4.lifetime = 10;
+	klaussesquerra.anim.PushBack({ 389, 473, 23, 32 });
+	klaussesquerra.anim.PushBack({ 326, 473, 33, 32 });
+	klaussesquerra.anim.PushBack({ 269, 473, 47, 31 });
+	klaussesquerra.anim.PushBack({ 203, 473, 58, 32 });
+	klaussesquerra.lifetime = 10;
+	klaussesquerra.anim.speed = 0.4;
 
-	klaussesamunt1.anim.PushBack({ 437, 482, 32, 23 });
-	klaussesamunt1.lifetime = 10;
-	klaussesamunt2.anim.PushBack({ 437, 419, 32, 33 });
-	klaussesamunt2.lifetime = 10;
-	klaussesamunt3.anim.PushBack({ 437, 362, 31, 47 });
-	klaussesamunt3.lifetime = 10;
-	klaussesamunt4.anim.PushBack({ 437, 296, 32, 58 });
-	klaussesamunt4.lifetime = 10;
+	klaussesamunt.anim.PushBack({ 437, 482, 32, 23 });
+	klaussesamunt.anim.PushBack({ 437, 419, 32, 33 });
+	klaussesamunt.anim.PushBack({ 437, 362, 31, 47 });
+	klaussesamunt.anim.PushBack({ 437, 296, 32, 58 });
+	klaussesamunt.lifetime = 10;
+	klaussesamunt.anim.speed = 0.4;
 
-	klaussesavall1.anim.PushBack({ 473, 269, 32, 23 });
-	klaussesavall1.lifetime = 10;
-	klaussesavall2.anim.PushBack({ 473, 349, 33, 32 });
-	klaussesavall2.lifetime = 10;
-	klaussesavall3.anim.PushBack({ 473, 392, 31, 47 });
-	klaussesavall3.lifetime = 10;
-	klaussesavall4.anim.PushBack({ 473, 447, 32, 58 });
-	klaussesavall4.lifetime = 10;
+	klaussesavall.anim.PushBack({ 473, 269, 32, 23 });
+	klaussesavall.anim.PushBack({ 473, 349, 33, 32 });
+	klaussesavall.anim.PushBack({ 473, 392, 31, 47 });
+	klaussesavall.anim.PushBack({ 473, 447, 32, 58 });
+	klaussesavall.lifetime = 10;
+	klaussesavall.anim.speed = 0.4;
 
 	bhootopmurdreta.anim.PushBack({ 4, 254, 32, 19 });
 	bhootopmurdreta.anim.PushBack({ 37, 254, 32, 19 });
