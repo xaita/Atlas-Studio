@@ -52,6 +52,7 @@ public:
 	int correcciox;
 	int correccioy;
 	bool ultimate;
+	int timer_frisbi_ma;
 
 
 

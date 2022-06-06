@@ -62,6 +62,7 @@ bool ModulePlayer::Start()
 	 recive.totalFrames=0;
 	 charge_ult.totalFrames=0;
 	 ultshot.totalFrames=0;
+	 timer_frisbi_ma = 0;
 
 	LOG("Loading player textures");
 	switch (App->sceneIntro->xdselectPlayer1) {
@@ -616,6 +617,12 @@ Update_Status ModulePlayer::Update()
 	// Moving the player with the camera scroll
 	App->player->position.x += 0;
 
+	if (currentAnimation == &rightidleFrisbee) {
+
+		if (timer_frisbi_ma > 0) {
+			timer_frisbi_ma--;
+		}
+	}
 
 	if (dashtimer == 0) {
 
@@ -1087,7 +1094,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 		}
 		
-		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN)		//Tirar disc
+		if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN || timer_frisbi_ma == 1)		//Tirar disc
 		{
 			if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_IDLE
 				&& App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_IDLE
@@ -1152,13 +1159,18 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				App->disk->aux = App->disk->position.x;
 				
 				if (App->sceneIntro->xdselectPlayer1 == '1') {
-					App->disk->disc_speed_X = 2;
+					App->disk->disc_speed_X = 4;
 
 				}
 
 				if (App->sceneIntro->xdselectPlayer1 == '2') {
 					App->disk->disc_speed_X = 0;
 					App->disk->disc_speed_Y = 3.5;
+
+				}
+				if (App->sceneIntro->xdselectPlayer1 == '3') {
+					App->disk->disc_speed_X = 0;
+					App->disk->disc_speed_Y = 0;
 
 				}
 
@@ -1179,7 +1191,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 				App->disk->aux2 = App->disk->position.y;
 				App->disk->aux = App->disk->position.x;
 				if (App->sceneIntro->xdselectPlayer1 == '1') {
-					App->disk->disc_speed_X = 2;
+					App->disk->disc_speed_X = 4;
 
 				}
 

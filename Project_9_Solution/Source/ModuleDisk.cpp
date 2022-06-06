@@ -815,8 +815,8 @@ Update_Status ModuleDisk::Update()
 				else if (sentido == -1) {
 					if (position.y <= aux2 + 40) {
 
-						augmentvx = 0;
-						augmentvy = 4;
+						augmentvx = 0 + disc_speed_X;
+						augmentvy = 4 + disc_speed_Y;
 					}
 
 					if (position.y > aux2 + 40) {
@@ -1023,7 +1023,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 				disc_speed_X = 0;
 				disc_speed_Y = 0;
 				saque = 0;
-
+				App->player->timer_frisbi_ma = 100;
 				currentAnimation2 = &invisible;
 
 				projectile.Reset();
@@ -1053,6 +1053,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 				App->audio->PlayFx(catchfx, 0);
 				App->player2->currentAnimation = &App->player2->recive;
 				App->player2->personatgedisc2 = 1;
+				App->player2->timer_frisbi_ma = 100;
 
 				position.x = App->player2->position.x - 20;
 				position.y = App->player2->position.y + 10;
@@ -1060,6 +1061,7 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 				disc_speed_X = 0;
 				disc_speed_Y = 0;
 				saque = 0;
+				
 
 				currentAnimation2 = &invisible;
 
@@ -1168,7 +1170,20 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 		App->propsBackground->timersetcount = 350;
 
 		if (ultimplayer == 1) {
-			if (App->sceneIntroMapes->selectMap == '1' || App->sceneIntroMapes->selectMap == '3') {
+			if (App->sceneIntroMapes->selectMap == '1' ) {
+				if (position.y < 127) {
+					App->sceneLevel_1->points3righttop = 1;
+					App->sceneLevel_1->timerofpoints = 120;
+					App->sceneLevel_1->Points3ScoreR.Reset();
+				}
+				if (position.y > 127) {
+
+					App->sceneLevel_1->points3rightbot = 1;
+					App->sceneLevel_1->timerofpoints = 120;
+					App->sceneLevel_1->Points3ScoreR.Reset();
+				}
+			}
+			else if (App->sceneIntroMapes->selectMap == '3') {
 				if (position.y < 127) {
 					App->sceneLevel_1->points3righttop = 1;
 					App->sceneLevel_1->timerofpoints = 120;
@@ -1258,8 +1273,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 				aux2 = position.y;
 				sentido = -1;
 			  }
-		else if (App->sceneIntro->xdselectPlayer1 == '3'  && sentido == 1) {
-			augmentvy = 4;
+		else if (App->sceneIntro->xdselectPlayer1 == '3'  && sentido == 1 && ultimplayer == 1) {
+			disc_speed_X= 4;
+			disc_speed_Y= 4;
 		    }
 			if (App->sceneIntro->xdselectPlayer2 == '1' && ultimplayer == 2) {
 
@@ -1275,8 +1291,9 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 				disc_speed_Y = 0;
 				position.y += 5;
 			}
-			else if ( App->sceneIntro->xdselectPlayer2 == '3' && sentido == 1) {
-				augmentvy = 4;
+			else if ( App->sceneIntro->xdselectPlayer2 == '3' && sentido == 1 && ultimplayer == 2) {
+				disc_speed_X = -4;
+				disc_speed_Y = 4;
 			}
 		
 
@@ -1320,9 +1337,10 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			sentido = 1;
 			}
 
-			else if (App->sceneIntro->xdselectPlayer1 == '3'  && sentido == -1) {
+			else if (App->sceneIntro->xdselectPlayer1 == '3'  && sentido == -1 && ultimplayer == 1) {
 
-				augmentvy = -4;
+				disc_speed_X = 4;
+				disc_speed_Y = -4;
  
 	        }
 		
@@ -1341,9 +1359,10 @@ void ModuleDisk::OnCollision(Collider* c1, Collider* c2)
 			aux2 = position.y;
 			sentido = 1;
 			}
-			else if (App->sceneIntro->xdselectPlayer2 == '3' && sentido == -1) {
+			else if (App->sceneIntro->xdselectPlayer2 == '3' && sentido == -1 && ultimplayer == 2) {
 
-				augmentvy = -4;
+				disc_speed_X = -4;
+				disc_speed_Y = -4;
 
 			}
 	

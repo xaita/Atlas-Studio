@@ -50,6 +50,7 @@ public:
 	bool blockdisk;
 	bool ultimate;
 	int timer_ult;
+	int timer_frisbi_ma;
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
