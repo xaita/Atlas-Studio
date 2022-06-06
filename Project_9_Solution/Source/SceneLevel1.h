@@ -132,8 +132,8 @@ public:
 	int points5leftbot = 0;
 	int points5righttop = 0;
 	int points5rightbot = 0;
-	int points3right = 0;
-	int points3left = 0;
+	int points3rightmid = 0;
+	int points3leftmid = 0;
 	int timerofpoints;
 
 

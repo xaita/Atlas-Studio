@@ -345,8 +345,8 @@ Update_Status SceneLevel1::Update()
 		points5rightbot = 0;
 		points5lefttop = 0;
 		points5leftbot = 0;
-		points3left = 0;
-		points3right = 0;
+		points3leftmid = 0;
+		points3rightmid = 0;
 	}
 
 
@@ -429,11 +429,11 @@ Update_Status SceneLevel1::PostUpdate()
 		
 		App->render->Blit(UI, 10, 165, &(Points5ScoreL.GetCurrentFrame()));
 	}
-	if (points3left == 1) {
+	if (points3leftmid == 1) {
 		
 		App->render->Blit(UI, 11, 90, &(Points3ScoreL.GetCurrentFrame()));
 	}
-	if (points3right == 1) {
+	if (points3rightmid == 1) {
 		
 		App->render->Blit(UI, 250, 90, &(Points3ScoreR.GetCurrentFrame()));
 	}
