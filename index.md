@@ -39,7 +39,8 @@ The controls are simple:
 - Space: jumps to next screen.
 - Shift: Inserts Coin in Windjammers' Screen.
 
-## Movement
+## Movement 
+Gamepad: Joystick.
 
 ### Player 1 (Left character):
 - W: Move Upwards.
