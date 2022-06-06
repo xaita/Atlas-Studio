@@ -36,7 +36,35 @@ ModulePlayer::~ModulePlayer()
 
 bool ModulePlayer::Start()
 {
+<<<<<<< Updated upstream
 
+=======
+     rightidleAnim.totalFrames=0;
+	 leftidleAnim.totalFrames=0;
+	 rightidleFrisbee.totalFrames=0;
+	 uprightidleFrisbee.totalFrames=0;
+	 downrightidleFrisbee.totalFrames=0;
+	 upAnim.totalFrames=0;
+	 upleftAnim.totalFrames=0;
+	 downAnim.totalFrames=0;
+	 downleftAnim.totalFrames=0;
+	 leftAnim.totalFrames=0;
+	 rightAnim.totalFrames=0;
+	 shooting.totalFrames=0;
+	 ulti.totalFrames=0;
+	 rightdash.totalFrames=0;
+	 leftdash.totalFrames=0;
+	 updash.totalFrames=0;
+	 downdash.totalFrames=0;
+	 rightupdash.totalFrames=0;
+	 leftupdash.totalFrames=0;
+	 rightdowndash.totalFrames=0;
+	 leftdowndash.totalFrames=0;
+	 blockanim.totalFrames=0;
+	 recive.totalFrames=0;
+	 charge_ult.totalFrames=0;
+	 ultshot.totalFrames=0;
+>>>>>>> Stashed changes
 	LOG("Loading player textures");
 	switch (App->sceneIntro->xdselectPlayer1) {
 
