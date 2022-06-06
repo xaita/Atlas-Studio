@@ -368,18 +368,17 @@ Update_Status SceneLevel1::PostUpdate()
 		if (App->disk->ultimplayer == 2)
 			if (App->render->camera.x > -96)
 				App->render->camera.x -= 12;
-			//else {
-			//	moureCameraGol == false;
-			//	App->render->camera.x = 0;
-			//}
+			else
+				moureCameraGol == false;
+
 		if (App->disk->ultimplayer == 1)
 			if (App->render->camera.x < 96)
 				App->render->camera.x += 12;//mourecamera
-			//else {
-			//	moureCameraGol == false;
-			//	App->render->camera.x = 0;
-			//}
+			else
+				moureCameraGol == false;
 	}
+	if(App->disk->saque == 0)
+			App->render->camera.x = 0;
 
 
 	switch (App->sceneIntroMapes->selectMap) {
