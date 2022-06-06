@@ -40,7 +40,7 @@ The controls are simple:
 - Left Arrow: Move to the left.
 - Down Arrow: Move Downwards.
 - Right Arrow: Move to the right.
-
+![image](https://github.com/xaita/Atlas-Studio/blob/main/Project_9_Solution/Windjammers/Assets/keyboard.png)
 
 ## Simple Mechanics
 
