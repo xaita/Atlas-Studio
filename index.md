@@ -71,24 +71,9 @@ The controls are simple:
 
 To throw a Super Shot, first you need to block the disk and when the disk comes down, press the throwing button to release it.
 
-![image](https://user-images.githubusercontent.com/99950138/156935743-5f720fb6-1693-4326-8d4a-a3f62b0ecda1.png)
-
- 
-- *Throw a super spin shot* –To release a super spin, do a curved shot motion after you're done charging and press A. Depending on the motion, the disc will start spiraling either towards the edges of the stage or its center. And just as regular throws, the quicker you launch a super spin, the faster it'll go.
-
-![image](https://user-images.githubusercontent.com/99950138/156935751-c84b223e-0ec2-45ec-8259-79c01ef0b3bc.png)
-
-
-- *Throw a super lob* – Also called "hammer throw". The frisbee goes very high in the sky and continues its course on the ground by rolling on the side until it scores (or gets caught). Like the regular lob shot, the quicker you press B after charging, the farther it will go.
-
-![image](https://user-images.githubusercontent.com/99950138/156935766-b33797f6-e71d-49e4-9b23-c47426a73814.png)
-
+Each Character has theiy unique Super Hability, so make sure to try every one of them to know which one is more suitable to you
 
 ***
-
-
-
-
 
 # Team Photo
 ![IMG_20220218_100241](https://user-images.githubusercontent.com/99949891/156900215-e9541ebc-0f53-4dd9-9dad-71796c68718a.jpg)
