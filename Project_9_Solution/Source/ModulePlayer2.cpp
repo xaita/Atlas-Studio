@@ -43,6 +43,13 @@ bool ModulePlayer2::Start()
 		correcciox = 0;
 		correccioy = 0;
 		texture = App->textures->Load("Assets/Sprites/Characters/Hiromi Mita/JapaneseSpriteSheedCanviL2P2.png");
+
+		supervoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerPhrase.wav");
+		chargevoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiCharge.wav");
+		setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiSetWin.wav");
+		chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerSound.wav");
+
+
 		rightidleAnim.PushBack({ 393, 103 , 23, 36 });// frame 1
 		rightidleAnim.PushBack({ 370, 103 , 23, 35 });// frame 2
 		rightidleAnim.PushBack({ 347, 103 , 23, 36 });// frame 3
@@ -203,6 +210,10 @@ bool ModulePlayer2::Start()
 	case '2':
 
 		texture = App->textures->Load("Assets/Sprites/Characters/Beeho Yoo/beehoYooSpriteSheet_player2.png");
+		supervoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Beeho Yoo/B.YooSuperPhrase.wav");
+		chargevoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Beeho Yoo/B.YooCharge.wav");
+		setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Beeho Yoo/B.YooSetWin.wav");
+		chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Beeho Yoo/B.YooSuperSound.wav");
 		correcciox = -20;
 		correccioy = -18;
 		//idleLAnim
@@ -364,17 +375,176 @@ bool ModulePlayer2::Start()
 		uprightidleFrisbee.PushBack({ 462, 792, 66, 66 });
 
 		break;
+
+	case '3':
+		texture = App->textures->Load("Assets/Sprites/Characters/Klauss Wessel/AlemancitoP2.png");
+		supervoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussPowerPhrase.wav");
+		chargevoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussCharge.wav");
+		setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussSetWin.wav");
+		chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussSuperSound.wav");
+		correcciox = -20;
+		correccioy = -18;
+		for (int i = 0; i < 3; i++) {
+			leftidleAnim.PushBack({ 825 + (i * 75), 390, 75, 65 });
+		}
+		leftidleAnim.loop = true;
+		leftidleAnim.speed = 0.1f;
+
+		//idleRAnim
+		for (int i = 0; i < 3; i++) {
+			rightidleAnim.PushBack({ 225 + (i * 75), 0, 75, 65 });
+		}
+		rightidleAnim.loop = true;
+		rightidleAnim.speed = 0.1f;
+
+		// Move Right
+		for (int i = 0; i < 6; i++) {
+			rightAnim.PushBack({ 450 + (i * 75), 0, 75, 65 });
+		}
+		rightAnim.loop = true;
+		rightAnim.speed = 0.12f;
+
+		//Move Left
+		leftAnim.PushBack({ 750, 390, 75, 65 });
+		leftAnim.PushBack({ 675, 390, 75, 65 });
+		leftAnim.PushBack({ 600, 390, 75, 65 });
+		leftAnim.PushBack({ 525, 390, 75, 65 });
+		leftAnim.PushBack({ 450, 390, 75, 65 });
+		leftAnim.PushBack({ 375, 390, 75, 65 });
+
+
+		leftAnim.loop = true;
+		leftAnim.speed = 0.12f;
+
+		// Move Down Head Right
+		for (int i = 0; i < 6; i++) {
+			downAnim.PushBack({ 525 + (i * 75), 65, 75, 65 });
+		}
+		downAnim.loop = true;
+		downAnim.speed = 0.1f;
+
+		//Move Up Head Right
+		for (int i = 0; i < 6; i++) {
+			upAnim.PushBack({ 75 + (i * 75), 65, 75, 65 });
+		}
+		upAnim.loop = true;
+		upAnim.speed = 0.1f;
+
+		//Idle Disk
+		rightidleFrisbee.PushBack({ 75, 650, 75, 65 });
+		rightidleFrisbee.PushBack({ 0, 650,  75, 65 });
+		rightidleFrisbee.PushBack({ 1200, 715, 75, 65 });
+		rightidleFrisbee.PushBack({ 1125 ,715,75, 65 });
+		rightidleFrisbee.loop = true;
+		rightidleFrisbee.speed = 0.1f;
+
+		//Lanzamiento Disco
+		for (int i = 5; i >= 0; i--) {
+			shooting.PushBack({ 75 + (i * 75), 715, 75, 65 });
+		}
+		shooting.loop = false;
+		shooting.speed = 0.4f;
+
+
+		//Dash izquierdo
+		for (int i = 3; i >= 0; i--) {
+			leftdash.PushBack({ 0 + (i * 75), 455, 75, 65 });
+		}
+		leftdash.loop = false;
+		leftdash.speed = 0.15f;
+
+		//Dash arriba
+		updash.PushBack({ 0, 130, 75, 65 });
+		updash.PushBack({ 75, 130, 75, 65 });
+		updash.PushBack({ 150, 130, 75, 65 });
+		updash.PushBack({ 225, 130, 75, 65 });
+
+		updash.loop = false;
+		updash.speed = 0.15f;
+
+		//Dash abajo
+		downdash.PushBack({ 675, 130, 75, 65 });
+		downdash.PushBack({ 750, 130, 75, 65 });
+		downdash.PushBack({ 825, 130, 75, 65 });
+		downdash.PushBack({ 900, 130, 75, 65 });
+
+		downdash.loop = false;
+		downdash.speed = 0.15f;
+
+		//Win
+		/*for (int i = 0; i < 7; i++) {
+			win.PushBack({ 450 + (i * 75), 195, 75, 65 });
+		}
+		win.loop = true;
+		win.speed = 0.05f;*/
+
+		//Lose
+		/*for (int i = 0; i < 4; i++) {
+			lose.PushBack({ 975 + (i * 75), 195, 75, 65 });
+		}
+		lose.PushBack({ 0, 260, 75, 65 });
+		lose.PushBack({ 75, 260, 75, 65 });
+		lose.loop = true;
+		lose.speed = 0.05f;*/
+
+		//Dash diagonalUpRight
+		rightdash.PushBack({ 975, 65, 75, 65 });
+		rightdash.PushBack({ 1050, 65, 75, 65 });
+		rightdash.PushBack({ 1125, 65, 75, 65 });
+		rightdash.PushBack({ 1200, 65, 75, 65 });
+		rightdash.loop = false;
+		rightdash.speed = 0.15f;
+
+		rightupdash.PushBack({ 375,130,75,65 });
+		rightupdash.PushBack({ 450,130,75,65 });
+		rightupdash.PushBack({ 525,130,75,65 });
+		rightupdash.PushBack({ 600,130,75,65 });
+		rightupdash.loop = false;
+		rightupdash.speed = 0.15f;
+
+		//Dash diagonalDownRight
+		for (int i = 0; i < 4; i++) {
+			rightdowndash.PushBack({ 975 + (i * 75), 130, 75, 65 });
+		}
+		rightdowndash.loop = false;
+		rightdowndash.speed = 0.15f;
+
+		//Dash diagonalDownLeft
+		for (int i = 3; i >= 0; i--) {
+			leftdowndash.PushBack({ 0 + (i * 75), 520, 75, 65 });
+		}
+		leftdowndash.loop = false;
+		leftdowndash.speed = 0.15f;
+
+		//Dash diagonalUpLeft
+		for (int i = 3; i >= 0; i--) {
+			leftupdash.PushBack({ 600 + (i * 75), 520, 75, 65 });
+		}
+		leftupdash.loop = false;
+		leftupdash.speed = 0.15f;
+
+		charge_ult.PushBack({ 450, 260,75, 65 });
+		charge_ult.PushBack({ 525, 260,75, 65 });
+		charge_ult.loop = false;
+		charge_ult.speed = 0.1f;
+
+		blockanim.PushBack({ 1050, 650, 75, 65 });
+		blockanim.PushBack({ 975, 650, 75, 65 });
+		blockanim.PushBack({ 900, 650, 75, 65 });
+		blockanim.loop = false;
+		blockanim.speed = 0.35f;
+
+		uprightidleFrisbee.PushBack({ 900,715,75,65 });
+		downrightidleFrisbee.PushBack({ 600,715,75,65 });
+
+		break;
+		
 	}
 	bool ret = true;
 
 	currentAnimation = &leftidleAnim;
 
 	tossfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Toss.wav");
-	chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiCharge.wav");
-	hitfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiHit.wav");
-	powerphrasefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerPhrase.wav");
-	powersoundfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerSound.wav");
-	setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiSetWin.wav");
 	lobfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Lob.wav");
 
 
@@ -469,7 +639,7 @@ Update_Status ModulePlayer2::Update()
 				}
 				ultimadireccio2 = 2;
 			}
-			if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT && position.y < 174)
+			if (App->input->keys[SDL_SCANCODE_DOWN] == Key_State::KEY_REPEAT)
 			{
 				position.y += speed;
 				if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN && dashup2 == true) {
@@ -993,6 +1163,8 @@ void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 			timer_ult--;
 
 			currentAnimation = &charge_ult;
+			App->audio->PlayFx(chargefx, 0);
+			App->audio->PlayFx(chargevoice, 0);
 		}
 
 		if (timer_ult == 0) {

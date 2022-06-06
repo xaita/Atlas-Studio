@@ -12,6 +12,7 @@
 #include "ModuleDisk.h"
 #include "SDL/include/SDL.h"
 #include "SceneIntro.h"	
+#include "SceneIntroMapes.h"
 
 #include <chrono>
 #include <thread>
@@ -40,6 +41,11 @@ bool ModulePlayer::Start()
 
 	case '1':
 		texture = App->textures->Load("Assets/Sprites/Characters/Hiromi Mita/JapaneseSpriteSheedCanviL2.png");
+		supervoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerPhrase.wav");
+		chargevoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiCharge.wav");
+		setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiSetWin.wav");
+		chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerSound.wav");
+
 		correcciox = 0;
 		correccioy = 0;
 
@@ -215,11 +221,16 @@ bool ModulePlayer::Start()
 		charge_ult.loop = false;
 		ultshot.speed = 0.25f;
 
+
 		break;
 
 	case '2':
 
 		texture = App->textures->Load("Assets/Sprites/Characters/Beeho Yoo/beehoYooSpriteSheet.png");
+		supervoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Beeho Yoo/B.YooSuperPhrase.wav");
+		chargevoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Beeho Yoo/B.YooCharge.wav");
+		setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Beeho Yoo/B.YooSetWin.wav");
+		chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Beeho Yoo/B.YooSuperSound.wav");
 		correcciox = -20;
 		correccioy = -18;
 		for (int i = 0; i < 8; i++) {
@@ -386,6 +397,10 @@ bool ModulePlayer::Start()
 
 	case '3':
 		texture = App->textures->Load("Assets/Sprites/Characters/Klauss Wessel/Alemancito.png");
+		supervoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussPowerPhrase.wav");
+		chargevoice = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussCharge.wav");
+		setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussSetWin.wav");
+		chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Klauss Wessel/KlaussSuperSound.wav");
 		correcciox = -20;
 		correccioy = -18;
 		for (int i = 0; i < 3; i++) {
@@ -447,35 +462,34 @@ bool ModulePlayer::Start()
 			shooting.PushBack({ 750 + (i * 75), 325, 75, 65 });
 		}
 		shooting.loop = false;
-		shooting.speed = 0.3f;
+		shooting.speed = 0.4f;
 
-		//Dash derecho
-		for (int i = 0; i < 4; i++) {
-			shooting.PushBack({ 975 + (i * 75), 65, 75, 65 });
-		}
-		shooting.loop = false;
-		shooting.speed = 0.45f;
+
 
 		//Dash izquierdo
 		for (int i = 3; i >= 0; i--) {
 			leftdash.PushBack({ 0 + (i * 75), 455, 75, 65 });
 		}
 		leftdash.loop = false;
-		leftdash.speed = 0.45f;
+		leftdash.speed = 0.15f;
 
 		//Dash arriba
-		for (int i = 0; i < 4; i++) {
-			updash.PushBack({ 0 + (i * 75), 130, 75, 65 });
-		}
+		updash.PushBack({ 0, 130, 75, 65 });
+		updash.PushBack({ 75, 130, 75, 65 });
+		updash.PushBack({ 150, 130, 75, 65 });
+		updash.PushBack({ 225, 130, 75, 65 });
+
 		updash.loop = false;
-		updash.speed = 0.45f;
+		updash.speed = 0.15f;
 
 		//Dash abajo
-		for (int i = 0; i < 4; i++) {
-			downdash.PushBack({ 675 + (i * 75), 130, 75, 65 });
-		}
+		downdash.PushBack({ 675, 130, 75, 65 });
+		downdash.PushBack({ 750, 130, 75, 65 });
+		downdash.PushBack({ 825, 130, 75, 65 });
+		downdash.PushBack({ 900, 130, 75, 65 });
+
 		downdash.loop = false;
-		downdash.speed = 0.45f;
+		downdash.speed = 0.15f;
 
 		//Win
 		/*for (int i = 0; i < 7; i++) {
@@ -498,37 +512,36 @@ bool ModulePlayer::Start()
 		rightdash.PushBack({ 1050, 65, 75, 65 });
 		rightdash.PushBack({ 1125, 65, 75, 65 });
 		rightdash.PushBack({ 1200, 65, 75, 65 });
-
 		rightdash.loop = false;
-		rightdash.speed = 0.45f;
+		rightdash.speed = 0.15f;
 
 		rightupdash.PushBack({ 375,130,75,65});
 		rightupdash.PushBack({ 450,130,75,65 });
 		rightupdash.PushBack({ 525,130,75,65 });
 		rightupdash.PushBack({ 600,130,75,65 });
 		rightupdash.loop = false;
-		rightupdash.speed = 0.45f;
+		rightupdash.speed = 0.15f;
 
 		//Dash diagonalDownRight
 		for (int i = 0; i < 4; i++) {
 			rightdowndash.PushBack({ 975 + (i * 75), 130, 75, 65 });
 		}
 		rightdowndash.loop = false;
-		rightdowndash.speed = 0.45f;
+		rightdowndash.speed = 0.15f;
 
 		//Dash diagonalDownLeft
 		for (int i = 3; i >= 0; i--) {
 			leftdowndash.PushBack({ 0 + (i * 75), 520, 75, 65 });
 		}
 		leftdowndash.loop = false;
-		leftdowndash.speed = 0.45f;
+		leftdowndash.speed = 0.15f;
 
 		//Dash diagonalUpLeft
 		for (int i = 3; i >= 0; i--) {
 			leftupdash.PushBack({ 600 + (i * 75), 520, 75, 65 });
 		}
 		leftupdash.loop = false;
-		leftupdash.speed = 0.45f;
+		leftupdash.speed = 0.15f;
 
 		charge_ult.PushBack({ 450, 260,75, 65 });
 		charge_ult.PushBack({ 525, 260,75, 65 });
@@ -543,7 +556,6 @@ bool ModulePlayer::Start()
 
 		uprightidleFrisbee.PushBack({150,325,75,65});
 		downrightidleFrisbee.PushBack({450 ,325,75,65 });
-
 		break;
 
 	}
@@ -552,11 +564,6 @@ bool ModulePlayer::Start()
 	currentAnimation = &rightidleAnim;
 
 	tossfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Toss.wav");
-	chargefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiCharge.wav");
-	hitfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiHit.wav");
-	powerphrasefx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerPhrase.wav");
-	powersoundfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiPowerSound.wav");
-	setwinfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Hiromi Mita/HiromiSetWin.wav");
 	lobfx = App->audio->LoadFx("Assets/Audios/SFX and Voice lines/Frisbee/Lob.wav");
 
 	position.x = 38;
@@ -663,7 +670,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 			}
 			ultimadireccio = 2;
 		}
-		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT /*&& position.y < 174*/)		//moviment cap a baix
+		if (App->input->keys[SDL_SCANCODE_S] == Key_State::KEY_REPEAT)		//moviment cap a baix
 		{
 			position.y += speed;
 			if (App->input->keys[SDL_SCANCODE_C] == Key_State::KEY_DOWN && dashup == true) {
@@ -1189,12 +1196,19 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::BOT_WALL)				//collider paret inferior
 	{
-		App->player->position.y = 183;
+		if (App->sceneIntroMapes->selectMap == '1' && App->sceneIntroMapes->Readymap == true)
+			App->player->position.y = 171;
+		else if (App->sceneIntroMapes->Readymap == true)
+			App->player->position.y = 183;
 	}
 
 	if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::TOP_WALL)				//collider paret superior
 	{
-		App->player->position.y = 29;
+		
+		if (App->sceneIntroMapes->selectMap == '1' && App->sceneIntroMapes->Readymap == true)
+			App->player->position.y = 42;
+		else if (App->sceneIntroMapes->Readymap == true)
+			App->player->position.y = 29;
 	}
 
 	if (c1->type == Collider::Type::DISK && c2->type == Collider::Type::SCOREZONE_1)		//collider goal
@@ -1218,6 +1232,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			timer_ult--;
 
 			currentAnimation = &charge_ult;
+			App->audio->PlayFx(chargefx, 0);
+			App->audio->PlayFx(chargevoice, 0);
+
+
 		}
 		
 		if (timer_ult == 0) {

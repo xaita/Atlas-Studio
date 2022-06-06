@@ -13,6 +13,7 @@
 #include "PropsBackground.h"
 #include "SDL/include/SDL.h"
 #include "SceneIntroMapes.h"
+#include "SceneIntro.h"
 
 
 
@@ -31,9 +32,9 @@ bool SceneLevel1::Start()
 {
 	LOG("Loading background assets");
 
-	if(App->sceneIntroMapes->selectMap != '2')
-		if(App->sceneIntroMapes->selectMap != '1')
-			App->sceneIntroMapes->selectMap = '3';
+	if(App->sceneIntroMapes->selectMap != '1')
+		if(App->sceneIntroMapes->selectMap != '3')
+			App->sceneIntroMapes->selectMap = '2';
 
 	bool ret = true;
 	moureCameraGol = false;
@@ -58,15 +59,34 @@ bool SceneLevel1::Start()
 	lawnNet = App->textures->Load("Assets/Sprites/Stages/Lawn/netSpritesheet.png");
 
 	UI = App->textures->Load("Assets/UI/UISpriteSheet_Upgrade.png");
+
 	JapanwinJapan = App->textures->Load("Assets/UI/Others/JapanwinJapan.png");
+	JapanwinKorea = App->textures->Load("Assets/UI/Others/JapanwinKorea.png");
+	JapanwinGermany = App->textures->Load("Assets/UI/Others/JapanwinGermany.png");
 	JapanlostJapan = App->textures->Load("Assets/UI/Others/JapanlostJapan.png");
-
-	
-
+	JapanlostKorea = App->textures->Load("Assets/UI/Others/JapanlostKorea.png");
+	JapanlostGermany = App->textures->Load("Assets/UI/Others/JapanlostGermany.png");
+	KoreawinJapan = App->textures->Load("Assets/UI/Others/KoreawinJapan.png");
+	KoreawinKorea = App->textures->Load("Assets/UI/Others/KoreawinKorea.png");
+	KoreawinGermany = App->textures->Load("Assets/UI/Others/KoreawinGErmany.png");
+	KorealostJapan = App->textures->Load("Assets/UI/Others/KorealostJapan.png");
+	KorealostKorea = App->textures->Load("Assets/UI/Others/KorealostKorea.png");
+	KorealostGermany = App->textures->Load("Assets/UI/Others/KorealostGermany.png");
+	GermanywinJapan = App->textures->Load("Assets/UI/Others/GermanywinJapan.png");
+	GermanywinKorea = App->textures->Load("Assets/UI/Others/GermanywinKorea.png");
+	GermanywinGermany = App->textures->Load("Assets/UI/Others/GermanywinGErmany.png");
+	GermanylostJapan = App->textures->Load("Assets/UI/Others/GermanylostJapan.png");
+	GermanylostKorea = App->textures->Load("Assets/UI/Others/GermanylostKorea.png");
+	GermanylostGermany = App->textures->Load("Assets/UI/Others/GermanylostGermany.png");
 
 	UI_Timer = App->textures->Load("Assets/UI/timerSpriteSheet.png");
 
-	
+	japanFlag = App->textures->Load("Assets/UI/Flags/Japan.png");
+	koreaFlag = App->textures->Load("Assets/UI/Flags/Corea.png");
+	germanyFlag = App->textures->Load("Assets/UI/Flags/Germany.png");
+
+	P1 = App->textures->Load("Assets/UI/P1P2/P1-P2 (yellow)/P1.png");
+	P2 = App->textures->Load("Assets/UI/P1P2/P1-P2 (yellow)/P2.png");
 
 	App->audio->PlayMusic("Assets/Audios/Music/09_You-Got-a-Power-_Concrete-Court_.ogg", 1.0f);					//MUSICA
 
@@ -217,64 +237,62 @@ bool SceneLevel1::Start()
 	Points5ScoreR.loop = false;
 	Points5ScoreR.speed = 0.2;
 	
-	switch (App->sceneIntroMapes->selectMap) {
-	case '1':
-		//porteria esquerra
-		App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 0, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 0, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
+	if (App->sceneIntroMapes->Readymap == true)
+	{
+		switch (App->sceneIntroMapes->selectMap) {
+		case '1':
+			//porteria esquerra
+			App->collisions->AddCollider({ 0, 35, 1, 47 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 0, 96, 1, 49 }, Collider::Type::SCOREZONE_2);
+			App->collisions->AddCollider({ 0, 144, 1, 47 }, Collider::Type::SCOREZONE_1);
 
-		//porteria dreta
-		App->collisions->AddCollider({ 300, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 300, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 300, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
+			//porteria dreta
+			App->collisions->AddCollider({ 300, 35, 1, 47 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 300, 96, 1, 49 }, Collider::Type::SCOREZONE_2);
+			App->collisions->AddCollider({ 300, 144, 1, 47 }, Collider::Type::SCOREZONE_1);
 
-		//parets
-		App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
-		App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
+			//parets
+			App->collisions->AddCollider({ 0, 201, 304, 42 }, Collider::Type::BOT_WALL);
+			App->collisions->AddCollider({ 0, 0, 304, 42 }, Collider::Type::TOP_WALL);
+			break;
 
+		case '2':
+			//porteria esquerra
+			App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 0, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 0, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
 
-	case '2':
-		//porteria esquerra
-		App->collisions->AddCollider({ 0, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 0, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 0, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
+			//porteria dreta
+			App->collisions->AddCollider({ 300, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 300, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 300, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
 
-		//porteria dreta
-		App->collisions->AddCollider({ 300, 26, 1, 24 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 300, 170, 1, 40 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 300, 66, 1, 89 }, Collider::Type::SCOREZONE_2);
+			//parets
+			App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
+			App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
 
-		//parets
-		App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
-		App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
-
-		//obstacles red
-		if (App->sceneIntroMapes->selectMap == '2') {
+			//obstacles red
 			App->collisions->AddCollider({ 144, 70, 15, 14 }, Collider::Type::OBSTACLE1);
 			App->collisions->AddCollider({ 144, 166, 15, 14 }, Collider::Type::OBSTACLE1);
-		}
+			
+			break;
 
+		case '3':
+			//porteria esquerra
+			App->collisions->AddCollider({ 0, 32, 1, 64 }, Collider::Type::SCOREZONE_2);
+			App->collisions->AddCollider({ 0, 111, 1, 34 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 0, 160, 1, 64 }, Collider::Type::SCOREZONE_2);
 
-	case '3':
-		//porteria esquerra
-		App->collisions->AddCollider({ 0, 32, 1, 64 }, Collider::Type::SCOREZONE_2);
-		App->collisions->AddCollider({ 0, 111, 1, 34 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 0, 160, 1, 64 }, Collider::Type::SCOREZONE_2);
+			//porteria dreta
+			App->collisions->AddCollider({ 300, 32, 1, 64 }, Collider::Type::SCOREZONE_2);
+			App->collisions->AddCollider({ 300, 111, 1, 34 }, Collider::Type::SCOREZONE_1);
+			App->collisions->AddCollider({ 300, 160, 1, 64 }, Collider::Type::SCOREZONE_2);
 
-		//porteria dreta
-		App->collisions->AddCollider({ 300, 32, 1, 64 }, Collider::Type::SCOREZONE_2);
-		App->collisions->AddCollider({ 300, 111, 1, 34 }, Collider::Type::SCOREZONE_1);
-		App->collisions->AddCollider({ 300, 160, 1, 64 }, Collider::Type::SCOREZONE_2);
+			//parets
+			App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
+			App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
 
-		//parets
-		App->collisions->AddCollider({ 0, 214, 304, 29 }, Collider::Type::BOT_WALL);
-		App->collisions->AddCollider({ 0, 0, 304, 29 }, Collider::Type::TOP_WALL);
-
-		//obstacles red
-		if (App->sceneIntroMapes->selectMap == '2') {
-			App->collisions->AddCollider({ 144, 70, 15, 14 }, Collider::Type::OBSTACLE1);
-			App->collisions->AddCollider({ 144, 166, 15, 14 }, Collider::Type::OBSTACLE1);
+			break;
 		}
 	}
 	App->player->Enable();
@@ -590,21 +608,142 @@ Update_Status SceneLevel1::PostUpdate()
 	}
 
 	if (App->disk->sets_player2 == 2 && App->disk->muerte_subita == false) {
-
-		App->render->Blit(JapanlostJapan, 0, 0, NULL);
+		if(App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '1')
+		{
+			App->render->Blit(JapanlostJapan, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '2')
+		{
+			App->render->Blit(JapanlostKorea, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '3')
+		{
+			App->render->Blit(JapanlostGermany, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '1')
+		{
+			App->render->Blit(KorealostJapan, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '2')
+		{
+			App->render->Blit(KorealostKorea, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '3')
+		{
+			App->render->Blit(KorealostGermany, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '1')
+		{
+			App->render->Blit(GermanylostJapan, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '2')
+		{
+			App->render->Blit(GermanylostKorea, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '3')
+		{
+			App->render->Blit(GermanylostGermany, 0, 0, NULL);
+		}
 		App->render->Blit(UI, 30, 54, &P1LOSE);
 		App->render->Blit(UI, 176, 48, &P2WIN);
 
 		App->disk->si = 1;
 
 	}
-	if (App->disk->sets_player1 == 2 && App->disk->muerte_subita==false) {
+	if (App->disk->sets_player1 == 2 && App->disk->muerte_subita == false) {
 
-		App->render->Blit(JapanwinJapan, 0, 0, NULL);
+		if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '1')
+		{
+			App->render->Blit(JapanwinJapan, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '2')
+		{
+			App->render->Blit(JapanwinKorea, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '3')
+		{
+			App->render->Blit(JapanwinGermany, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '1')
+		{
+			App->render->Blit(KoreawinJapan, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '2')
+		{
+			App->render->Blit(KoreawinKorea, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '3')
+		{
+			App->render->Blit(KoreawinGermany, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '1')
+		{
+			App->render->Blit(GermanywinJapan, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '2')
+		{
+			App->render->Blit(GermanywinKorea, 0, 0, NULL);
+		}
+		if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '3')
+		{
+			App->render->Blit(GermanywinGermany, 0, 0, NULL);
+		}
 		App->render->Blit(UI, 18, 48, &P1WIN);
 		App->render->Blit(UI, 175, 54, &P2LOSE);
 		App->disk->si = 1;
 	}
+
+	if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '1')
+	{
+		App->render->Blit(japanFlag, 32, 8, NULL);
+		App->render->Blit(japanFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '2')
+	{
+		App->render->Blit(japanFlag, 32, 8, NULL);
+		App->render->Blit(koreaFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '1' && App->sceneIntro->xdselectPlayer2 == '3')
+	{
+		App->render->Blit(japanFlag, 32, 8, NULL);
+		App->render->Blit(germanyFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '1')
+	{
+		App->render->Blit(koreaFlag, 32, 8, NULL);
+		App->render->Blit(japanFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '2')
+	{
+		App->render->Blit(koreaFlag, 32, 8, NULL);
+		App->render->Blit(koreaFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '2' && App->sceneIntro->xdselectPlayer2 == '3')
+	{
+		App->render->Blit(koreaFlag, 32, 8, NULL);
+		App->render->Blit(germanyFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '1')
+	{
+		App->render->Blit(germanyFlag, 32, 8, NULL);
+		App->render->Blit(japanFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '2')
+	{
+		App->render->Blit(germanyFlag, 32, 8, NULL);
+		App->render->Blit(koreaFlag, 224, 8, NULL);
+	}
+	if (App->sceneIntro->xdselectPlayer1 == '3' && App->sceneIntro->xdselectPlayer2 == '3')
+	{
+		App->render->Blit(germanyFlag, 32, 8, NULL);
+		App->render->Blit(germanyFlag, 224, 8, NULL);
+	}
+
+	
+	App->render->Blit(P1, 8, 8, NULL);
+	App->render->Blit(P2, 200, 8, NULL);
+	
+	
 
 /*	if (App->disk->timer_set>0 && timersetcount > 190 && (App->disk->sets_player1 != 0 || App->disk->sets_player2 != 0)) {
 
