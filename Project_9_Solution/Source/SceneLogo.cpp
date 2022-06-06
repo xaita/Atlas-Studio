@@ -10,6 +10,8 @@
 #include "ModuleFadeToBlack.h"
 #include "SceneLevel1.h"
 #include "ModuleDisk.h"
+#include "SceneIntro.h"
+#include "SceneIntroMapes.h"
 
 SceneLogo::SceneLogo(bool startEnabled) : Module(startEnabled)
 {
@@ -52,7 +54,15 @@ Update_Status SceneLogo::Update()
 	if (App->input->keys[SDL_SCANCODE_P] == Key_State::KEY_DOWN)
 	{
 
+		App->sceneIntroMapes->selectMap = '2';
+		App->sceneIntroMapes->Readymap = true;
 		App->sceneLevel_1->Enable();
+		Disable();
+	}
+	if (App->input->keys[SDL_SCANCODE_O] == Key_State::KEY_DOWN)
+	{
+
+		App->sceneIntro->Enable();
 		Disable();
 	}
 
