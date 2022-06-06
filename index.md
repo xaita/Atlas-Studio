@@ -18,7 +18,7 @@ The objective of this game is to make the disk enter the enemy's goal and make a
 
 # Windjammers Gameplay
 
-Aqui va el video de nuestro gameplay
+Aqui va el video de nuestro gameplay.
 
 # **Controls**
 
@@ -27,14 +27,19 @@ Aqui va el video de nuestro gameplay
 This game is controlled by keyboard or gamepad. 
 The controls are simple: 
 
-## Movement
-
 ![keyboard](https://user-images.githubusercontent.com/99905953/172162742-4661ccd0-ffc4-4edd-9ca4-1c199184c055.png)
 
 - Green: Player 1.
 - Orange: Player 2.
 - Blue: Select screens.
 - Pink: Cheat Modes.
+
+## Intro & Select screens
+
+- Space: jumps to next screen.
+- Shift: Inserts Coin in Windjammers' Screen.
+
+## Movement
 
 ### Player 1 (Left character):
 - W: Move Upwards.
