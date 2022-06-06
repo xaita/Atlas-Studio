@@ -654,24 +654,63 @@ Update_Status ModuleDisk::Update()
 			if (App->sceneIntro->xdselectPlayer1 == '3' && ultimplayer ==1) {
 				if (sentido == 1) {
 					if (position.y >= aux2 - 40) {
+						if (timercanvisentit < 0) {
+							timercanvisentit = 30;
+						}
+						if (timercanvisentit==30) {
+							App->particles->AddParticle(0, 0, App->particles->klausscanvisentitpart, position.x, position.y);
+							
+						}
+						App->particles->AddParticle(0, 0, App->particles->klaussesamunt, position.x, position.y);
 
+						timercanvisentit--;
 						augmentvx = 0;
 						augmentvy = -4;
 					}
 
 					if (position.y < aux2 - 40) {
+						if (timercanvisentit < 0) {
+							timercanvisentit = 30;
+						}
+						if (timercanvisentit == 30) {
+							App->particles->AddParticle(0, 0, App->particles->klausscanvisentitpart, position.x, position.y);
+
+						}
+						App->particles->AddParticle(0, 0, App->particles->klaussdreta, position.x, position.y);
+
+						timercanvisentit--;
 
 						augmentvx = 4;
 						augmentvy = 0;
 					}
 
 					if (position.x >= aux + 80) {
+						if (timercanvisentit < 0) {
+							timercanvisentit = 30;
+						}
+						if (timercanvisentit == 30) {
+							App->particles->AddParticle(0, 0, App->particles->klausscanvisentitpart, position.x, position.y);
+
+						}
+						App->particles->AddParticle(0, 0, App->particles->klaussesavall, position.x, position.y);
+
+						timercanvisentit--;
 
 						augmentvx = 0;
 						augmentvy = 4;
 					}
 
 					if (position.y >= aux2 + 40) {
+						if (timercanvisentit < 0) {
+							timercanvisentit = 30;
+						}
+						if (timercanvisentit == 30) {
+							App->particles->AddParticle(0, 0, App->particles->klausscanvisentitpart, position.x, position.y);
+
+						}
+						App->particles->AddParticle(0, 0, App->particles->klaussdreta, position.x, position.y);
+
+						timercanvisentit--;
 
 						augmentvx = 4.3;
 						augmentvy = 0;
@@ -681,25 +720,61 @@ Update_Status ModuleDisk::Update()
 				}
 				else if (sentido == -1) {
 					if (position.y <= aux2 + 40) {
+						if (timercanvisentit < 0) {
+							timercanvisentit = 30;
+						}
+						if (timercanvisentit == 30) {
+							App->particles->AddParticle(0, 0, App->particles->klausscanvisentitpart, position.x, position.y);
 
+						}
+						App->particles->AddParticle(0, 0, App->particles->klaussesavall, position.x, position.y);
+
+						timercanvisentit--;
 						augmentvx = 0 + disc_speed_X;
 						augmentvy = 4 + disc_speed_Y;
 					}
 
 					if (position.y > aux2 + 40) {
+						if (timercanvisentit < 0) {
+							timercanvisentit = 30;
+						}
+						if (timercanvisentit == 30) {
+							App->particles->AddParticle(0, 0, App->particles->klausscanvisentitpart, position.x, position.y);
 
+						}
+						App->particles->AddParticle(0, 0, App->particles->klaussdreta, position.x, position.y);
+
+						timercanvisentit--;
 						augmentvx = 4;
 						augmentvy = 0;
 					}
 
 					if (position.x >= aux + 80) {
+						if (timercanvisentit < 0) {
+							timercanvisentit = 30;
+						}
+						if (timercanvisentit == 30) {
+							App->particles->AddParticle(0, 0, App->particles->klausscanvisentitpart, position.x, position.y);
 
+						}
+						App->particles->AddParticle(0, 0, App->particles->klaussesamunt, position.x, position.y);
+
+						timercanvisentit--;
 						augmentvx = 0;
 						augmentvy = -4;
 					}
 
 					if (position.y <= aux2 - 40) {
+						if (timercanvisentit < 0) {
+							timercanvisentit = 30;
+						}
+						if (timercanvisentit == 30) {
+							App->particles->AddParticle(0, 0, App->particles->klausscanvisentitpart, position.x, position.y);
 
+						}
+						App->particles->AddParticle(0, 0, App->particles->klaussdreta, position.x, position.y);
+
+						timercanvisentit--;
 						augmentvx = 4.3;
 						augmentvy = 0;
 

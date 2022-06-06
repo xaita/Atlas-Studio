@@ -65,7 +65,7 @@ public:
 	int personaje; 
 	double posx;
 	double posy;
-
+	int timercanvisentit;
 	double augmentvx;
 	double augmentvy;
 	double aux;
@@ -78,7 +78,7 @@ public:
 	bool volea;
 	bool ultimate_disk;
 	bool caiguda;
-
+	bool canvisentitpart;
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
