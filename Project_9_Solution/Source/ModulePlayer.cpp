@@ -1166,7 +1166,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 				if (App->sceneIntro->xdselectPlayer1 == '2') {
 					App->disk->disc_speed_X = 0;
-					App->disk->disc_speed_Y = 3.5;
+					App->disk->disc_speed_Y = 4;
 
 				}
 				if (App->sceneIntro->xdselectPlayer1 == '3') {
@@ -1198,7 +1198,7 @@ if(personatgedisc == -1)	//MOVIMENT PLAYER
 
 				if (App->sceneIntro->xdselectPlayer1 == '2') {
 					App->disk->disc_speed_X = 0;
-					App->disk->disc_speed_Y = -3.5;
+					App->disk->disc_speed_Y = -4;
 
 				}
 			}
