@@ -20,7 +20,7 @@ The objective of this game is to make the disk enter the enemy's goal and make a
 
 # Windjammers Gameplay
 
-Aqui va el video de nuestro gameplay.
+[Link to youtube's video](https://youtu.be/ky_x5VSjmXE)
 
 # **Controls**
 
