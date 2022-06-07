@@ -375,13 +375,13 @@ Update_Status SceneLevel1::PostUpdate()
 	if (moureCameraGol == true)
 	{
 		if (App->disk->ultimplayer == 2)
-			if (App->render->camera.x > -48)
+			if (App->render->camera.x > -20)
 				App->render->camera.x -= 12;
 			else
 				moureCameraGol = false;
 
 		if (App->disk->ultimplayer == 1)
-			if (App->render->camera.x < 48)
+			if (App->render->camera.x < 20)
 				App->render->camera.x += 12;//mourecamera
 			else
 				moureCameraGol = false;
